@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DomaineService } from 'src/app/module-formation-certification/acceuil-formation/acceuil-formation-services/acceuil-formations-services';
+import { GestionnairesModulesServiceService } from '../gestionnaire-modules/gestionnaires-modules-service/gestionnaires-modules-service.service';
+import { GestionnairesCoursServiceService } from './gestionnaires-cours-service/gestionnaires-cours-service.service';
 
 @Component({
   selector: 'app-gestionnaire-cours',
@@ -10,7 +11,7 @@ import { DomaineService } from 'src/app/module-formation-certification/acceuil-f
 })
 export class GestionnaireCoursComponent implements OnInit{
 
-  constructor(private domaineService: DomaineService, private router: ActivatedRoute, private route:Router) { }
+  constructor(private matiereService: GestionnairesCoursServiceService,  private fb: FormBuilder, private router: ActivatedRoute, private route:Router) { }
   selectedDomaineIndex:string=""
   __iconDelete__:boolean=false
   __iconEdit__:boolean=false
@@ -58,16 +59,17 @@ export class GestionnaireCoursComponent implements OnInit{
   iddomaineGestionnaireId: string | null = null;
   __matieresGestionnaire__: any[] = [];
   __filteredMatieresGestionnaire__: any[] = [];
-
+ 
   
   
   ngOnInit(): void {
     this.iddomaineGestionnaireId = this.router.snapshot.paramMap.get('iddomaineGestionnaireId');
     this.loadCoursgestionnaire();
+    this.InitFormDomain()
   }
   
   loadCoursgestionnaire(): void {
-    this.domaineService.getMatieres().subscribe(data => {
+    this.matiereService.getMatieres().subscribe(data => {
       this.__matieresGestionnaire__ = data;
       this.filterMatieresGestionnaire()
       console.log( this.iddomaineGestionnaireId)
@@ -83,11 +85,55 @@ export class GestionnaireCoursComponent implements OnInit{
   }
 
 
+
+
   onSelectgestionnaireCours(coursGestionnaireId: string): void {
     this.route.navigate([`/gestionnaire/${coursGestionnaireId}/gestionnairecontenuCours`]); // Redirection vers la page des matières du domaine sélectionné
  
   }
 
-  DomaineForm!: FormGroup;
-  onSubmit(){}
+
+
+
+
+  MatiereForm!: FormGroup;
+
+  InitFormDomain(): void {
+    this.MatiereForm = this.fb.group({ 
+      nom: '',
+    });
+  }
+
+
+  ajouterNouvelleMatiere(matiereNom: string): void {
+    if (this.iddomaineGestionnaireId) {
+    const nouvelleMatiere = {
+        // Le nom ou autre attribut de la nouvelle matière
+        fk_domaineId: this.iddomaineGestionnaireId,  // Associer la matière au domaine sélectionné
+        nom:matiereNom ,
+    }
+    
+
+      this.matiereService.addMatieres(nouvelleMatiere).subscribe(response => {
+        console.log('Nouvelle matière ajoutée avec succès', response);
+        
+        // Optionnel : Actualiser la liste des matières après ajout
+        this.filterMatieresGestionnaire();
+      });
+    } else {
+      console.error('Aucun domaine sélectionné');
+    }
+  }
+  
+
+
+
+
+ 
+
+  onSubmit(){
+    const nom= this.MatiereForm.value.nom;
+    console.log(nom)
+    this.ajouterNouvelleMatiere(nom)
+  }
 }

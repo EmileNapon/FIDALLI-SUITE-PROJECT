@@ -93,5 +93,7 @@ export class GestionnaireModulesComponent implements OnInit{
       console.error('Erreur lors de l\'ajout du domaine:', error);
     }
   );
+  this. OnAdd();
 }
+
 }

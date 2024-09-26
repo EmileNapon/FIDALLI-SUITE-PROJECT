@@ -23,7 +23,7 @@
                 <table class="table">
                     
                     <tbody>
-                        <tr class='tableau' *ngFor='let cours of __filteredMatieresGestionnaire__'>
+                        <tr *ngFor='let cours of __filteredMatieresGestionnaire__'>
                             <td >
                                 <div (click)="selecterDomaine(cours.id)" > 
                                         
@@ -36,7 +36,7 @@
                                 </div>
                                     
                             </td>
-                            <td >{{cours.nom}}</td>
+                            <td >{{cours.nom}} </td>
                             <td *ngIf='selectedDomaineIndex === cours.id'>
                                 <a *ngIf='__iconVoirMatiere__' (click)="onSelectgestionnaireCours(cours.id)" class="matiere" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="matiere"><i class="bi bi-chevron-right"></i></i></a>
                                 <a *ngIf='__iconEdit__' href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
@@ -64,7 +64,7 @@
     <div *ngIf='__addDomaine__==true' class='fixed'>           
         <div class="container container-l d-flex justify-content-center align-items-center min-vh-10">
             <div class="col-md-8 col-lg-6">
-                <form >
+                <form [formGroup]= 'MatiereForm' (ngSubmit)="onSubmit()">
                     <!-- Nom Complet -->
 
                     <div class="row mb-3 align-items-center">
