@@ -15,18 +15,15 @@ export class GestionnaireModulesComponent implements OnInit{
 
   selectedDomaineIndex:string=""
   __iconDelete__:boolean=false
-  __iconEdit__:boolean=false
   __iconVoirMatiere__:boolean= false
   __addDomaine__:boolean=false
 
   ondelete():void{
     this.__iconDelete__=!this.__iconDelete__
-    this.__iconEdit__=false
     this.__iconVoirMatiere__=false
   }
 
   onEdit():void{
-    this.__iconEdit__=!this.__iconEdit__
     this.__iconVoirMatiere__=false
     this.__iconDelete__=false
   }
@@ -35,15 +32,12 @@ export class GestionnaireModulesComponent implements OnInit{
   onVoirMatiere():void{
     this.__iconVoirMatiere__=!this.__iconVoirMatiere__
     this.__iconDelete__=false
-    this.__iconEdit__=false
   }
 
 
   selecterDomaine(domaine:string){
     this.__iconVoirMatiere__=true
     this.__iconDelete__=false
-    this.__iconEdit__=false
-
     this.selectedDomaineIndex=domaine
       
   }
@@ -93,8 +87,21 @@ export class GestionnaireModulesComponent implements OnInit{
       console.error('Erreur lors de l\'ajout du domaine:', error);
     }
   );
-  this. OnAdd();
+  
+  this.OnAdd();
   this.loadDomaines();
+ 
 }
+
+deleteDomaines(id:string){
+  this.domaineService.deleteDomaine(id).subscribe(response => {
+    console.log('Produit supprimé avec succès :', response);
+    this.__domaines__ = this.__domaines__.filter(domaine => domaine.id !== id);
+    this.loadDomaines()
+  }, error => {
+    console.error('Erreur lors de la suppression du produit :', error);
+  });
+}
+
 
 }

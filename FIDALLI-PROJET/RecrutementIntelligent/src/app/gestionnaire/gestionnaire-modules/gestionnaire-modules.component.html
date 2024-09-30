@@ -10,7 +10,6 @@
                         </div>
                         <div class="col-sm-6">
                             <a (click)='ondelete()' class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>supprimer</span></a>
-                            <a (click)='onEdit()' class="btn btn-secondary" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>modifier</span></a>
                             <a (click)=" OnAdd()"   class="btn btn-primary" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>ajouter</span></a>
                             <a (click)='onVoirMatiere()' class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Voir matieres</span></a>  						
                         </div>
@@ -37,8 +36,7 @@
                             <td >{{domaine.nom}}</td>
                             <td *ngIf='selectedDomaineIndex === domaine.id'>
                                 <a *ngIf='__iconVoirMatiere__' (click)='onSelectDomaine(domaine.id)' class="matiere" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="matiere"><i class="bi bi-chevron-right"></i></i></a>
-                                <a *ngIf='__iconEdit__' href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                <a *ngIf='__iconDelete__' href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                                <a *ngIf='__iconDelete__' (click)='deleteDomaines(domaine.id)' class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                             </td>
                         </tr>					
                     </tbody>

@@ -22,6 +22,8 @@ export class GestionnairesCoursServiceService {
     return this.http.post(`${this.matieresUrl}/`, matiere);
   }
   
-
+  updateMatiere(id:string,matiere: any): Observable<any> {
+    return this.http.patch(`${this.matieresUrl}/${matiere.id==id}`, {nom:matiere.nom});
+  }
   
 }

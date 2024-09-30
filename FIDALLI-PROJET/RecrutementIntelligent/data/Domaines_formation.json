@@ -65,40 +65,8 @@
       "nom": "SECRETARIAT – PERSONNEL D’APPUI"
     },
     {
-      "id": "6ef0",
-      "nom": "v"
-    },
-    {
-      "id": "c25b",
-      "nom": "l"
-    },
-    {
-      "id": "0bb0",
-      "nom": "nhgfd"
-    },
-    {
-      "id": "b33f",
-      "nom": ""
-    },
-    {
-      "id": "630b",
-      "nom": "qqqqq"
-    },
-    {
-      "id": "435d",
-      "nom": "ooo"
-    },
-    {
       "id": "3019",
       "nom": "mmmmmm"
-    },
-    {
-      "id": "d911",
-      "nom": "rrrr"
-    },
-    {
-      "id": "fead",
-      "nom": "k"
     }
   ],
   "matieres": [
@@ -716,6 +684,46 @@
       "id": "f673",
       "fk_domaineId": "2",
       "nom": "j"
+    },
+    {
+      "id": "268f",
+      "fk_domaineId": "7f13",
+      "nom": "b1"
+    },
+    {
+      "id": "6cd5",
+      "fk_domaineId": "7f13",
+      "nom": "b1"
+    },
+    {
+      "id": "c78b",
+      "fk_domaineId": "7f13",
+      "nom": "b1111"
+    },
+    {
+      "id": "a876",
+      "fk_domaineId": "bfb1",
+      "nom": "jjjj"
+    },
+    {
+      "id": "3ef8",
+      "fk_domaineId": "f915",
+      "nom": "f1"
+    },
+    {
+      "id": "1940",
+      "fk_domaineId": "3019",
+      "nom": "111"
+    },
+    {
+      "id": "61ee",
+      "fk_domaineId": "3019",
+      "nom": "2222"
+    },
+    {
+      "id": "d233",
+      "fk_domaineId": "3019",
+      "nom": "000"
     }
   ],
   "cours": [

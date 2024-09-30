@@ -14,44 +14,33 @@ export class GestionnaireCoursComponent implements OnInit{
   constructor(private matiereService: GestionnairesCoursServiceService,  private fb: FormBuilder, private router: ActivatedRoute, private route:Router) { }
   selectedDomaineIndex:string=""
   __iconDelete__:boolean=false
-  __iconEdit__:boolean=false
   __iconVoirMatiere__:boolean= false
   __addDomaine__:boolean=false
 
   ondelete():void{
     this.__iconDelete__=!this.__iconDelete__
-    this.__iconEdit__=false
     this.__iconVoirMatiere__=false
   }
 
-  onEdit():void{
-    this.__iconEdit__=!this.__iconEdit__
-    this.__iconVoirMatiere__=false
-    this.__iconDelete__=false
-  }
+
 
 
   onVoirMatiere():void{
     this.__iconVoirMatiere__=!this.__iconVoirMatiere__
     this.__iconDelete__=false
-    this.__iconEdit__=false
   }
 
 
   selecterDomaine(domaine:string){
     this.__iconVoirMatiere__=true
     this.__iconDelete__=false
-    this.__iconEdit__=false
-
     this.selectedDomaineIndex=domaine
       
   }
 
   OnAdd():void{
     this.__addDomaine__=!this.__addDomaine__
-
     this.__iconDelete__=false
-    this.__iconEdit__=false
     this.__iconVoirMatiere__= false
   }
 
@@ -110,7 +99,7 @@ export class GestionnaireCoursComponent implements OnInit{
     const nouvelleMatiere = {
         // Le nom ou autre attribut de la nouvelle matière
         fk_domaineId: this.iddomaineGestionnaireId,  // Associer la matière au domaine sélectionné
-        nom:matiereNom ,
+        nom:matiereNom,
     }
     
 
@@ -129,13 +118,19 @@ export class GestionnaireCoursComponent implements OnInit{
 
 
 
+
  
 
   onSubmit(){
     const nom= this.MatiereForm.value.nom;
     console.log(nom)
     this.ajouterNouvelleMatiere(nom)
-    this. OnAdd();
     this.loadCoursgestionnaire()
+    this.OnAdd();
+   
   }
+
+
+
+  
 }
