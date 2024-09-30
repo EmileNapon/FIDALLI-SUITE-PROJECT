@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { GestionnairesModulesServiceService } from './gestionnaires-modules-service/gestionnaires-modules-service.service';
+import { GestionnairesCoursServiceService } from '../gestionnaire-cours/gestionnaires-cours-service/gestionnaires-cours-service.service';
 
 @Component({
   selector: 'app-gestionnaire-modules',
@@ -11,7 +12,7 @@ import { GestionnairesModulesServiceService } from './gestionnaires-modules-serv
 export class GestionnaireModulesComponent implements OnInit{
 
 
-  constructor(private domaineService: GestionnairesModulesServiceService, private router: Router, private fb: FormBuilder ) { }
+  constructor( private domaineService: GestionnairesModulesServiceService, private router: Router, private fb: FormBuilder ) { }
 
   selectedDomaineIndex:string=""
   __iconDelete__:boolean=false
@@ -61,11 +62,31 @@ export class GestionnaireModulesComponent implements OnInit{
       this.__domaines__ = data;
     });
   }
+   
+  
+
+
+
+
+  __matieresGestionnaire__: any[] = [];
+
+  loadCoursgestionnaire(): void {
+    this.domaineService.getMatieres().subscribe(data => {
+      this.__matieresGestionnaire__ = data;
+    });
+  }
+
+
+
+
+
   
 
   onSelectDomaine(domaineId: string): void {
     this.router.navigate([`/gestionnaire/${domaineId}/gestionnaireCours`]); // Redirection vers la page des matières du domaine sélectionné
   }
+
+
 
 
 
@@ -93,14 +114,20 @@ export class GestionnaireModulesComponent implements OnInit{
  
 }
 
+
+
+
+
 deleteDomaines(id:string){
+  this.domaineService.deleteMatiere(id).subscribe(response => {
+    console.log('Produit supprimé avec succès :', response);
+  });
+
   this.domaineService.deleteDomaine(id).subscribe(response => {
     console.log('Produit supprimé avec succès :', response);
-    this.__domaines__ = this.__domaines__.filter(domaine => domaine.id !== id);
-    this.loadDomaines()
-  }, error => {
-    console.error('Erreur lors de la suppression du produit :', error);
   });
+
+  this.loadDomaines()
 }
 
 

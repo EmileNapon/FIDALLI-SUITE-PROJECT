@@ -65,8 +65,8 @@
       "nom": "SECRETARIAT – PERSONNEL D’APPUI"
     },
     {
-      "id": "3019",
-      "nom": "mmmmmm"
+      "id": "0fe7",
+      "nom": "pppp"
     }
   ],
   "matieres": [
@@ -724,6 +724,31 @@
       "id": "d233",
       "fk_domaineId": "3019",
       "nom": "000"
+    },
+    {
+      "id": "acc1",
+      "fk_domaineId": "843e",
+      "nom": "h1"
+    },
+    {
+      "id": "cd02",
+      "fk_domaineId": "cfca",
+      "nom": "uuuu"
+    },
+    {
+      "id": "5aa1",
+      "fk_domaineId": "d571",
+      "nom": "bbb"
+    },
+    {
+      "id": "65da",
+      "fk_domaineId": "43bb",
+      "nom": "iiiiii"
+    },
+    {
+      "id": "ce4d",
+      "fk_domaineId": "0fe7",
+      "nom": "pooooo"
     }
   ],
   "cours": [

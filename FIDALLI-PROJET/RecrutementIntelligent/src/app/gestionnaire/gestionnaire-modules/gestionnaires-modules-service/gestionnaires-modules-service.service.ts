@@ -10,6 +10,7 @@ export class GestionnairesModulesServiceService {
 
   } 
    private domainesUrl = 'http://localhost:9999/Domaines';
+   private matieresUrl = 'http://localhost:9999/matieres';
 
    getDomaines(): Observable<any[]> {
     return this.http.get<any[]>(this.domainesUrl);
@@ -24,4 +25,14 @@ export class GestionnairesModulesServiceService {
     return this.http.delete(`${this.domainesUrl}/${id}`);
   }
   
+
+
+
+  getMatieres(): Observable<any[]> {
+    return this.http.get<any[]>(this.matieresUrl);
+  }
+  
+  deleteMatiere(fk_domaineId: string): Observable<any> {
+    return this.http.delete(`${this.matieresUrl}/${fk_domaineId}`);
+  }
 }
