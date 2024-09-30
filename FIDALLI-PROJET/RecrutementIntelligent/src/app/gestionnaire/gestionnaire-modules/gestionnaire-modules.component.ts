@@ -94,6 +94,7 @@ export class GestionnaireModulesComponent implements OnInit{
     }
   );
   this. OnAdd();
+  this.loadDomaines();
 }
 
 }

@@ -95,6 +95,10 @@
     {
       "id": "d911",
       "nom": "rrrr"
+    },
+    {
+      "id": "fead",
+      "nom": "k"
     }
   ],
   "matieres": [
@@ -697,6 +701,21 @@
       "id": "0957",
       "fk_domaineId": "1",
       "nom": "fffff"
+    },
+    {
+      "id": "030f",
+      "fk_domaineId": "5",
+      "nom": "u"
+    },
+    {
+      "id": "4771",
+      "fk_domaineId": "7",
+      "nom": "h"
+    },
+    {
+      "id": "f673",
+      "fk_domaineId": "2",
+      "nom": "j"
     }
   ],
   "cours": [

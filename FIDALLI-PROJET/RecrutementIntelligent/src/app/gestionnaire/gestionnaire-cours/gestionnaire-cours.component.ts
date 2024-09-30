@@ -135,5 +135,7 @@ export class GestionnaireCoursComponent implements OnInit{
     const nom= this.MatiereForm.value.nom;
     console.log(nom)
     this.ajouterNouvelleMatiere(nom)
+    this. OnAdd();
+    this.loadCoursgestionnaire()
   }
 }
