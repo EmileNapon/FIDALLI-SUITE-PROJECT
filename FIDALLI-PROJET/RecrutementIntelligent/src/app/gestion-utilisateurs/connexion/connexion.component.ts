@@ -11,7 +11,11 @@ import { Router } from '@angular/router';
 })
 export class ConnexionComponent implements OnInit  {
   loginForm!: FormGroup;
+<<<<<<< HEAD
 
+=======
+nom:any
+>>>>>>> 6fbae786fa7cba7b0bb1f77d11a6c3f5bbc3c1ec
   constructor(private authService: AuthService, private fb: FormBuilder, private router: Router) {}
 
   ngOnInit(): void {
@@ -23,6 +27,7 @@ export class ConnexionComponent implements OnInit  {
 
 
   
+<<<<<<< HEAD
     onSubmit(): void {
       if (this.loginForm.valid) {
         const { email, password } = this.loginForm.value;
@@ -42,3 +47,33 @@ export class ConnexionComponent implements OnInit  {
       }
     }
 }
+=======
+  onSubmit(): void {
+    if (this.loginForm.valid) {
+      const { email, password } = this.loginForm.value;
+      this.authService.login(email, password).subscribe({
+        next: (response) => {
+          console.log('Login successful', response);
+          // Stocker les tokens et les informations de l'utilisateur
+          localStorage.setItem('access_token', response.access);
+          localStorage.setItem('refresh_token', response.refresh);
+          
+          // Mettre à jour le service avec le nom et le prénom
+          this.authService.updateUserInfo(response.nom, response.prenom);
+          
+          // Rediriger en fonction du rôle
+          if (response.role === 'etudiant') {
+            this.router.navigate(['/page-etudiant']);
+          } else if (response.role === 'employeur') {
+            this.router.navigate(['/page-employeur']);
+          } else {
+            this.router.navigate(['/acceuil']);
+          }
+        },
+        error: (error) => {
+          console.error('Error logging in:', error);
+        }
+      });
+    }
+  }}
+>>>>>>> 6fbae786fa7cba7b0bb1f77d11a6c3f5bbc3c1ec

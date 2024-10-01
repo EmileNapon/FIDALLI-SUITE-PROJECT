@@ -5,6 +5,10 @@ body {
   font-family: 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   color: #333; /* Couleur de texte par défaut */
   background-color: #f5f5f5; /* Couleur de fond */
+<<<<<<< HEAD
+=======
+  font-size:90%;
+>>>>>>> 6fbae786fa7cba7b0bb1f77d11a6c3f5bbc3c1ec
 }
 
 /* Couleurs des liens */

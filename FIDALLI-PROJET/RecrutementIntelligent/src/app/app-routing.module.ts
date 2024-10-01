@@ -19,6 +19,18 @@ import { EtablissementsComponent } from './orientations/etablissements/etablisse
 import { OrientationsComponent } from './orientations/orientations.component';
 import { OrientationAcceuilComponent } from './orientations/orientation-acceuil/orientation-acceuil.component';
 import { QizContenuLibreComponent } from './module-formation-certification/qiz-contenu-libre/quiz-contenu-libre.component';
+<<<<<<< HEAD
+=======
+import { CardModuleComponent } from './module-formation-certification/domaines-listes/domaines.component';
+import { CardModuleComponent2 } from './module-formation-certification/domaines-listes2/domaines2.component';
+import { SuivieCoursComponent } from './module-formation-certification/contenu-cours/suivie_cours.component';
+import { InscriptionComponent } from './module-formation-certification/inscription_cours/inscription.component';
+import { CoursComponent } from './module-formation-certification/cours/cours.component';
+import { GestionnaireAcceuilComponent } from './gestionnaire/gestionnaire-acceuil/gestionnaire-acceuil.component';
+import { GestionnaireModulesComponent } from './gestionnaire/gestionnaire-modules/gestionnaire-modules.component';
+import { GestionnaireCoursComponent } from './gestionnaire/gestionnaire-cours/gestionnaire-cours.component';
+import { GestionnaireContenuCoursComponent } from './gestionnaire/gestionnaire-contenu-cours/gestionnaire-contenu-cours.component';
+>>>>>>> 6fbae786fa7cba7b0bb1f77d11a6c3f5bbc3c1ec
 
 
 const routes: Routes = [
@@ -31,18 +43,43 @@ const routes: Routes = [
   {path:'acceuil', component:AcceuilComponent},
 
   {path:'formation',component:ModuleFormationCertificationComponent,children:[
+<<<<<<< HEAD
     {path:'acceuilFormation', component:AcceuilFormationComponent},
+=======
+>>>>>>> 6fbae786fa7cba7b0bb1f77d11a6c3f5bbc3c1ec
     {path:'pagesEtudiant', component:PagesEtudiantsComponent},
     {path:'pagesCandidat', component:PagesCandidatComponent},
     {path:'contenuLibre', component:ContenuLibreComponent}, 
     {path:'certification', component:FormationPourCertificationComponent},
+<<<<<<< HEAD
   {path:'FormationPresentielle', component:InscriptionFormationPresentielleComponent},
   {path:'quiz', component:QizContenuLibreComponent}]
   },
+=======
+    {path:'FormationPresentielle', component:InscriptionFormationPresentielleComponent},
+    {path:'quiz', component:QizContenuLibreComponent},
+    {path:'module2', component:CardModuleComponent2},
+    {path:'cours', component:SuivieCoursComponent},
+  ]},
+
+  {path:'domaines', component:AcceuilFormationComponent},
+  {path:'domaines/:domaineId/cours', component:CardModuleComponent},  
+  {path:'cours/:coursId/content', component:CoursComponent},
+
+
+  {path:'FormationPresentiel', component:InscriptionFormationPresentielleComponent},
+  {path:'FormationPresentiel/:idcoursPresentiel/coursPresentielForms', component:InscriptionComponent},
+
+  {path:'formation', component:InscriptionFormationPresentielleComponent},
+  {path:'formation/:idWebinaire/webinaires', component:InscriptionComponent},
+
+
+>>>>>>> 6fbae786fa7cba7b0bb1f77d11a6c3f5bbc3c1ec
 
   {path:'usersPages',component:GestionUtilisateursComponent,children:[
     {path:'register', component:RegistrationComponent},
     {path:'login', component:ConnexionComponent},
+<<<<<<< HEAD
     ]
   },
   {path:'orientation',component:OrientationsComponent,children:[
@@ -51,6 +88,26 @@ const routes: Routes = [
 
     ]
   },
+=======
+    {path:'login', component:ConnexionComponent},
+  ]},
+
+  {path:'gestionnaire',component:GestionUtilisateursComponent,children:[
+    {path:'acceuil', component:GestionnaireAcceuilComponent},
+    {path:'modules', component:GestionnaireModulesComponent}
+  ]},
+
+  {path:'gestionnaire/:iddomaineGestionnaireId/gestionnaireCours', component:GestionnaireCoursComponent},
+  {path:'gestionnaire/:coursGestionnaireId/gestionnairecontenuCours', component:GestionnaireContenuCoursComponent},
+
+  
+
+  {path:'orientation',component:OrientationsComponent,children:[
+    {path:'orientationAcceuil', component:OrientationAcceuilComponent},
+    {path:'etablissement', component:EtablissementsComponent},
+
+  ]},
+>>>>>>> 6fbae786fa7cba7b0bb1f77d11a6c3f5bbc3c1ec
   
 ];
 

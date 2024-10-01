@@ -12,15 +12,28 @@ import { AcceuilFormationComponent } from './module-formation-certification/acce
 import { OrientationAcceuilComponent } from './orientations/orientation-acceuil/orientation-acceuil.component';
 import { EtablissementsComponent } from './orientations/etablissements/etablissements.component';
 import { OrientationsModule } from './orientations/orientations.module';
+<<<<<<< HEAD
+=======
+import { CardModuleComponent } from './module-formation-certification/domaines-listes/domaines.component';
+import { GestionnaireModule } from './gestionnaire/gestionnaire.module';
+>>>>>>> 6fbae786fa7cba7b0bb1f77d11a6c3f5bbc3c1ec
 
 @NgModule({
   declarations: [
     AppComponent,
+<<<<<<< HEAD
     AcceuilComponent,PremiumEtudiantComponent, 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule, RouterModule, GestionUtilisateursModule, OrientationsModule, ModuleFormationCertificationModule
+=======
+    AcceuilComponent,PremiumEtudiantComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule, RouterModule, GestionUtilisateursModule, OrientationsModule, ModuleFormationCertificationModule, GestionnaireModule, 
+>>>>>>> 6fbae786fa7cba7b0bb1f77d11a6c3f5bbc3c1ec
   ],
   providers: [],
   bootstrap: [AppComponent]

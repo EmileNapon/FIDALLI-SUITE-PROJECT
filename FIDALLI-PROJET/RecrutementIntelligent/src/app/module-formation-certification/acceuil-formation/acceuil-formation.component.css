@@ -59,23 +59,37 @@ input[type="text"] {
   top: 0;
   left: 0;
   width: 100%;
+<<<<<<< HEAD
   height: 40vh;
   background: rgba(0, 0, 0, 0.5); /* Noir avec 50% d'opacité, ajustez selon vos besoins */
+=======
+  height: 60vh;
+   /*background: rgba(39, 38, 38, 0.5); /* Noir avec 50% d'opacité, ajustez selon vos besoins */
+>>>>>>> 6fbae786fa7cba7b0bb1f77d11a6c3f5bbc3c1ec
   z-index: 1; /* Assure que l'overlay est au-dessus de l'image mais en dessous du contenu */
 }
 .images-fixed.fixed::after {
   top: 0;
   left: 0;
   width: 100%;
+<<<<<<< HEAD
   height:40vh;
   background: rgba(0, 0, 0, 0.5); /* Noir avec 50% d'opacité, ajustez selon vos besoins */
+=======
+  height:60vh;
+   /*background: rgba(142, 141, 141, 0.5); /* Noir avec 50% d'opacité, ajustez selon vos besoins */
+>>>>>>> 6fbae786fa7cba7b0bb1f77d11a6c3f5bbc3c1ec
   z-index: 1; /* Assure que l'overlay est au-dessus de l'image mais en dessous du contenu */
 }
 
 
 
  .search-input {
+<<<<<<< HEAD
     width: 500px; /* Définir la largeur souhaitée */
+=======
+    width: 300px; /* Définir la largeur souhaitée */
+>>>>>>> 6fbae786fa7cba7b0bb1f77d11a6c3f5bbc3c1ec
   }
 
 
@@ -84,7 +98,11 @@ input[type="text"] {
 
   .container-l {
     border-radius: 2px; /* Les coins de l'élément sont arrondis avec un rayon de 10px */
+<<<<<<< HEAD
     box-shadow: 0 10px 15px rgba(169, 168, 168, 0.397),
+=======
+    box-shadow: 0 10px 15px rgba(79, 78, 78, 0.397),
+>>>>>>> 6fbae786fa7cba7b0bb1f77d11a6c3f5bbc3c1ec
                 0 5px 5px rgba(16, 15, 15, 0.397); /* Ajoute une ombre autour de l'élément, avec deux couches d'ombres */
     position: relative; /* Positionne l'élément par rapport à sa position normale, permettant un positionnement plus précis des éléments enfants */
     overflow: hidden; /* Cache tout le contenu qui dépasse les dimensions du conteneur */
@@ -102,7 +120,11 @@ input[type="text"] {
   }
 
 .ModuleColor{
+<<<<<<< HEAD
   color: #003366;
+=======
+  color: #1678db;
+>>>>>>> 6fbae786fa7cba7b0bb1f77d11a6c3f5bbc3c1ec
 }
 
 

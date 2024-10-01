@@ -10,22 +10,37 @@
 
             <nav class="navbar-light navbar-fixed-top bg-light  py-4">
 
+<<<<<<< HEAD
                 <ul class="nav">
+=======
+                <ul class="nav nav-underline">
+>>>>>>> 6fbae786fa7cba7b0bb1f77d11a6c3f5bbc3c1ec
                     <li class="nav-item">
                         <img src="assets/icon.png" alt="FuturAlliés Logo" routerLink='/acceuil' class="logo" height="50">
                      </li>
                   <li class="nav-item">
+<<<<<<< HEAD
                     <a routerLink='/formation/contenuLibre' class="nav-link" >Domaine</a>
                   </li>
                   <li class="nav-item">
                     <a routerLink='/formation/certification' class="nav-link" >Formation en presentiel</a>
+=======
+                    <a routerLink='/formation/acceuilFormation' class="nav-link Activate" >Domaine</a>
+                  </li>
+                  <li class="nav-item">
+                    <a routerLink='/formation/FormationPresentielle' class="nav-link" >Formation en presentiel</a>
+>>>>>>> 6fbae786fa7cba7b0bb1f77d11a6c3f5bbc3c1ec
                   </li>
                   <li class="nav-item">
                     <a routerLink='/formation/certification' class="nav-link" >Certificat</a>
                   </li>
                   <li class="nav-item">
                     <form class="d-flex" role="search">
+<<<<<<< HEAD
                       <input class="form-control me-2 search-input" type="search" placeholder="RESEARCH" aria-label="Search">
+=======
+                      <input class="form-control me-2 search-input" type="search" placeholder="RESEARCH UN COURS" aria-label="Search">
+>>>>>>> 6fbae786fa7cba7b0bb1f77d11a6c3f5bbc3c1ec
                     </form>
                   </li>
                   <li class="nav-item">
@@ -46,6 +61,7 @@
     </div>
 
 
+<<<<<<< HEAD
 
 
     <section class="training-domains py-5 bg-light">
@@ -236,6 +252,32 @@
 </section>
 
 
+=======
+   
+
+
+    
+      <section class="training-domains py-5 bg-light" >
+          <div class="container">
+            <div class='row' >
+              <div class="col-md-4" *ngFor="let domaine of domaines"  style='padding:10px'> 
+                  <button class=" container-l" (click)="onSelectDomaine(domaine.id)">
+                    <img src="assets/im1.jpg" class="card-img-top" alt="Développement Web" height='160px'>  
+                    <br/><br/>                        
+                     <p  class="card-title ModuleColor">{{domaine.nom}}</p>
+                     <br/>    
+                  </button>      
+              </div>
+          </div>
+      </div>
+      
+  </section>
+  
+  
+
+
+
+>>>>>>> 6fbae786fa7cba7b0bb1f77d11a6c3f5bbc3c1ec
 
 
 
@@ -372,9 +414,16 @@
             </ul>
         </div>
     </div>
+<<<<<<< HEAD
     <div class="footer-bottom">
         <p>&copy; 2024 FuturAlliés. Tous droits réservés.</p>
     </div>
 </footer>
 
+=======
+    <div class="footer-bottom " >
+        <p>&copy; 2024 FuturAlliés. Tous droits réservés.</p>
+    </div>
+</footer>
+>>>>>>> 6fbae786fa7cba7b0bb1f77d11a6c3f5bbc3c1ec
 </body>

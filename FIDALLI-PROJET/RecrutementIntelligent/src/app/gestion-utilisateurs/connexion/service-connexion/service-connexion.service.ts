@@ -8,7 +8,29 @@ import { Observable } from 'rxjs';
 export class AuthService {
   private apiUrl = 'http://127.0.0.1:8000/fidalli'; // Base URL de votre API
 
+<<<<<<< HEAD
   constructor(private http: HttpClient) {}
+=======
+
+
+
+  public nom:any='ll';
+  public prenom: any ="mmmm";
+
+  constructor(private http: HttpClient) {
+    this.nom = localStorage.getItem('nom');
+    this.prenom = localStorage.getItem('prenom');
+  }
+
+
+
+  updateUserInfo(nom: string, prenom: string): void {
+    this.nom = nom;
+    this.prenom = prenom;
+    localStorage.setItem('nom', nom);
+    localStorage.setItem('prenom', prenom);
+  }
+>>>>>>> 6fbae786fa7cba7b0bb1f77d11a6c3f5bbc3c1ec
 
   // Méthode pour la connexion
   login(email: string, password: string): Observable<any> {

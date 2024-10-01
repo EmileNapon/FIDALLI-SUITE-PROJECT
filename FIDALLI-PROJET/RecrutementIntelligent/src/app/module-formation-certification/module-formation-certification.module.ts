@@ -16,6 +16,15 @@ import { QizCertificationComponent } from './qiz-certification/qiz-certification
 import { QizCoursFormationPresentielleComponent } from './qiz-cours-formation-presentielle/qiz-cours-formation-presentielle.component'
 import { AcceuilFormationComponent } from './acceuil-formation/acceuil-formation.component';
 import { QizContenuLibreComponent } from './qiz-contenu-libre/quiz-contenu-libre.component';
+<<<<<<< HEAD
+=======
+import { CardModuleComponent } from './domaines-listes/domaines.component';
+import { CardModuleComponent2 } from './domaines-listes2/domaines2.component';
+import { SuivieCoursComponent } from './contenu-cours/suivie_cours.component';
+import { InscriptionComponent } from './inscription_cours/inscription.component';
+import { FormulaireComponent } from './inscription-formation-presentielle/formulaire/formulaire.component';
+import {  WebinnairesComponent } from './Webinnaires/Webinnaires.component';
+>>>>>>> 6fbae786fa7cba7b0bb1f77d11a6c3f5bbc3c1ec
 
 @NgModule({
   declarations: [
@@ -29,7 +38,12 @@ import { QizContenuLibreComponent } from './qiz-contenu-libre/quiz-contenu-libre
     CoursComponent,
     QizContenuLibreComponent,
     QizCertificationComponent,
+<<<<<<< HEAD
     QizCoursFormationPresentielleComponent, AcceuilFormationComponent
+=======
+    QizCoursFormationPresentielleComponent, AcceuilFormationComponent, CardModuleComponent,CardModuleComponent2,SuivieCoursComponent, 
+    InscriptionComponent, FormulaireComponent,WebinnairesComponent
+>>>>>>> 6fbae786fa7cba7b0bb1f77d11a6c3f5bbc3c1ec
   ],
   imports: [
     CommonModule, ReactiveFormsModule,  HttpClientModule, RouterModule, 
