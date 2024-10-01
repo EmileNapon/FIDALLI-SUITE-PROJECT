@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class GestionnairesCoursServiceService {
 
- 
+  matiereGestionnaire:string[]=[]
   private matieresUrl = 'http://localhost:9999/matieres';
 
   constructor( private http: HttpClient ) { }
@@ -21,9 +21,5 @@ export class GestionnairesCoursServiceService {
   addMatieres(matiere: any): Observable<any> {
     return this.http.post(`${this.matieresUrl}/`, matiere);
   }
-  
-  updateMatiere(id:string,matiere: any): Observable<any> {
-    return this.http.patch(`${this.matieresUrl}/${matiere.id==id}`, {nom:matiere.nom});
-  }
-  
+
 }

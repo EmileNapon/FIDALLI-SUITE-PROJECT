@@ -55,6 +55,7 @@ export class GestionnaireCoursComponent implements OnInit{
     this.iddomaineGestionnaireId = this.router.snapshot.paramMap.get('iddomaineGestionnaireId');
     this.loadCoursgestionnaire();
     this.InitFormDomain()
+   this.__matieresGestionnaire__=this.matiereService.matiereGestionnaire
   }
   
   loadCoursgestionnaire(): void {
@@ -72,8 +73,6 @@ export class GestionnaireCoursComponent implements OnInit{
       this.__filteredMatieresGestionnaire__ = this.__matieresGestionnaire__.filter(matiere => matiere.fk_domaineId === this.iddomaineGestionnaireId);
     }
   }
-
-
 
 
   onSelectgestionnaireCours(coursGestionnaireId: string): void {

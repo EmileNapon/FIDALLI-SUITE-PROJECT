@@ -16,6 +16,8 @@ export class DomaineService {
   private coursUrl= "http://localhost:9999/cours";
   private cours_presentiel="http://localhost:9999/infos_cours_presentiel"
 
+  private cours_webinaire=" http://localhost:9999/webinaires"
+
   
 constructor( private http: HttpClient ) { }
 getDomaines(): Observable<any[]> {
@@ -36,6 +38,8 @@ getCours_presentiel(): Observable<any[]> {
   return this.http.get<any[]>(this.cours_presentiel);
 }
 
-
+getWebinaire(): Observable<any[]> {
+  return this.http.get<any[]>(this.cours_webinaire);
+}
 
 }

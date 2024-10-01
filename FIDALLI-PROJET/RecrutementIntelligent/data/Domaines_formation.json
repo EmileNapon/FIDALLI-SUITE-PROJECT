@@ -63,10 +63,6 @@
     {
       "id": "16",
       "nom": "SECRETARIAT – PERSONNEL D’APPUI"
-    },
-    {
-      "id": "0fe7",
-      "nom": "pppp"
     }
   ],
   "matieres": [
@@ -609,146 +605,6 @@
       "id": "109",
       "nom": "Gestion informatisée des archives et de la documentation : organisation, codification et informatisation",
       "fk_domaineId": "16"
-    },
-    {
-      "id": "2c61",
-      "fk_domaineId": "1",
-      "nom": "xxxx"
-    },
-    {
-      "id": "b259",
-      "fk_domaineId": "1",
-      "nom": "11111"
-    },
-    {
-      "id": "a07b",
-      "fk_domaineId": "6ef0",
-      "nom": "v1"
-    },
-    {
-      "id": "2fa2",
-      "fk_domaineId": "6ef0",
-      "nom": "v2"
-    },
-    {
-      "id": "ea10",
-      "fk_domaineId": "6ef0",
-      "nom": "v2"
-    },
-    {
-      "id": "1525",
-      "fk_domaineId": "6ef0",
-      "nom": "v3"
-    },
-    {
-      "id": "ca73",
-      "fk_domaineId": "6ef0",
-      "nom": "v1 v1 v1 v1 v1 v1 v1 v1 v1 v1 v1 v1"
-    },
-    {
-      "id": "e667",
-      "fk_domaineId": "6ef0",
-      "nom": "v1 v1 v1 v1 v1 v1 v1 v1 v1 v1 v1 v1"
-    },
-    {
-      "id": "79fa",
-      "fk_domaineId": "c25b",
-      "nom": "l1"
-    },
-    {
-      "id": "b330",
-      "fk_domaineId": "630b",
-      "nom": "q1 q1 q1 q1"
-    },
-    {
-      "id": "7c9d",
-      "fk_domaineId": "630b",
-      "nom": "q1 q1 q1 q1"
-    },
-    {
-      "id": "0957",
-      "fk_domaineId": "1",
-      "nom": "fffff"
-    },
-    {
-      "id": "030f",
-      "fk_domaineId": "5",
-      "nom": "u"
-    },
-    {
-      "id": "4771",
-      "fk_domaineId": "7",
-      "nom": "h"
-    },
-    {
-      "id": "f673",
-      "fk_domaineId": "2",
-      "nom": "j"
-    },
-    {
-      "id": "268f",
-      "fk_domaineId": "7f13",
-      "nom": "b1"
-    },
-    {
-      "id": "6cd5",
-      "fk_domaineId": "7f13",
-      "nom": "b1"
-    },
-    {
-      "id": "c78b",
-      "fk_domaineId": "7f13",
-      "nom": "b1111"
-    },
-    {
-      "id": "a876",
-      "fk_domaineId": "bfb1",
-      "nom": "jjjj"
-    },
-    {
-      "id": "3ef8",
-      "fk_domaineId": "f915",
-      "nom": "f1"
-    },
-    {
-      "id": "1940",
-      "fk_domaineId": "3019",
-      "nom": "111"
-    },
-    {
-      "id": "61ee",
-      "fk_domaineId": "3019",
-      "nom": "2222"
-    },
-    {
-      "id": "d233",
-      "fk_domaineId": "3019",
-      "nom": "000"
-    },
-    {
-      "id": "acc1",
-      "fk_domaineId": "843e",
-      "nom": "h1"
-    },
-    {
-      "id": "cd02",
-      "fk_domaineId": "cfca",
-      "nom": "uuuu"
-    },
-    {
-      "id": "5aa1",
-      "fk_domaineId": "d571",
-      "nom": "bbb"
-    },
-    {
-      "id": "65da",
-      "fk_domaineId": "43bb",
-      "nom": "iiiiii"
-    },
-    {
-      "id": "ce4d",
-      "fk_domaineId": "0fe7",
-      "nom": "pooooo"
     }
   ],
   "cours": [
@@ -1293,6 +1149,9 @@
       "fk_domaineId": "16"
     }
   ],
+
+
+  
   "infos_cours_presentiel": [
     {
       "id": "1",
@@ -1359,5 +1218,72 @@
       "resume": "xxxxxxxxxxx4444444444444444444444444444444444444444444444",
       "fk_coursId": "17"
     }
+  ],
+
+
+  "webinaires": [
+    {
+      "id": "1",
+      "theme":"f1" ,
+      "dateDebut": "01 Octobre 2024",
+      "heureDebut": "09:00 ",
+      "duree": "01h",
+      "lieu": "OUAGADOUGOU - FIDALLI",
+      "cout": "$49",
+      "resume": "xxxxxxxooooooooooooooooooooooo",
+      "type": "Future des allies",
+      "statut":"Formation en ligne"
+    },
+    {
+      "id": "2",
+      "theme":"ff1" ,
+      "dateDebut": "05 decembre 2024",
+      "heureDebut": "08:00 ",
+      "duree": "04h",
+      "lieu": "OUAGADOUGOU - FIDALLI",
+      "cout": "$0",
+      "resume": "xxxxxxxooooooooooooooooooooooo",
+      "type": "Cafe des allies",
+      "statut":"Formation Presentielle"
+    },
+    {
+      "id": "3",
+      "theme":"fff1" ,
+      "dateDebut": "03 Juiellet 2024",
+      "heureDebut": "14:00 ",
+      "duree": "01h",
+      "lieu": "OUAGADOUGOU - FIDALLI",
+      "cout": "$49",
+      "resume": "xxxxxxxooooooooooooooooooooooo",
+      "type": "Future des allies",
+      "statut":"Formation en ligne"
+
+    },
+    {
+      "id": "4",
+      "theme":"ffffffffffffffffffffffffffff" ,
+      "dateDebut": "01 Janvier 2024",
+      "heureDebut": "14:00 ",
+      "duree": "04h",
+      "lieu": "OUAGADOUGOU - FIDALLI",
+      "cout": "$0",
+      "resume": "xxxxxxxooooooooooooooooooooooo",
+      "type": "Cafes des allies",
+      "statut":"Formation en presentielle"
+    },
+    {
+      "id": "5",
+      "theme":"ffffffffffffffffffffffffffff" ,
+      "dateDebut": "09 Juin 2024",
+      "heureDebut": "14:00 ",
+      "duree": "1h",
+      "lieu": "OUAGADOUGOU - FIDALLI",
+      "cout": "$49",
+      "resume": "xxxxxxxooooooooooooooooooooooo",
+      "type": "Future des allies",
+      "statut":"Formation en ligne"
+    }
   ]
-}
+
+
+  }

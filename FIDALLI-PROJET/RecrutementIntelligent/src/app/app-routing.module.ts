@@ -51,12 +51,17 @@ const routes: Routes = [
   ]},
 
   {path:'domaines', component:AcceuilFormationComponent},
-  {path:'domaines/:domaineId/cours', component:CardModuleComponent},
+  {path:'domaines/:domaineId/cours', component:CardModuleComponent},  
   {path:'cours/:coursId/content', component:CoursComponent},
 
 
   {path:'FormationPresentiel', component:InscriptionFormationPresentielleComponent},
   {path:'FormationPresentiel/:idcoursPresentiel/coursPresentielForms', component:InscriptionComponent},
+
+  {path:'formation', component:InscriptionFormationPresentielleComponent},
+  {path:'formation/:idWebinaire/webinaires', component:InscriptionComponent},
+
+
 
   {path:'usersPages',component:GestionUtilisateursComponent,children:[
     {path:'register', component:RegistrationComponent},

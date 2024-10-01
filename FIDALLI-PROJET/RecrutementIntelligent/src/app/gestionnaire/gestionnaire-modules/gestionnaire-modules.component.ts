@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { GestionnairesModulesServiceService } from './gestionnaires-modules-service/gestionnaires-modules-service.service';
-import { GestionnairesCoursServiceService } from '../gestionnaire-cours/gestionnaires-cours-service/gestionnaires-cours-service.service';
 
 @Component({
   selector: 'app-gestionnaire-modules',
@@ -52,10 +51,7 @@ export class GestionnaireModulesComponent implements OnInit{
 
   
   
-  ngOnInit(): void {
-    this.loadDomaines();
-    this.InitFormDomain()
-  }
+
   
   loadDomaines(): void {
     this.domaineService.getDomaines().subscribe(data => {
@@ -63,24 +59,12 @@ export class GestionnaireModulesComponent implements OnInit{
     });
   }
    
-  
-
-
-
-
-  __matieresGestionnaire__: any[] = [];
-
-  loadCoursgestionnaire(): void {
-    this.domaineService.getMatieres().subscribe(data => {
-      this.__matieresGestionnaire__ = data;
-    });
-  }
 
 
 
 
 
-  
+
 
   onSelectDomaine(domaineId: string): void {
     this.router.navigate([`/gestionnaire/${domaineId}/gestionnaireCours`]); // Redirection vers la page des matières du domaine sélectionné
@@ -118,16 +102,9 @@ export class GestionnaireModulesComponent implements OnInit{
 
 
 
-deleteDomaines(id:string){
-  this.domaineService.deleteMatiere(id).subscribe(response => {
-    console.log('Produit supprimé avec succès :', response);
-  });
-
-  this.domaineService.deleteDomaine(id).subscribe(response => {
-    console.log('Produit supprimé avec succès :', response);
-  });
-
-  this.loadDomaines()
+ngOnInit(): void {
+  this.loadDomaines();
+  this.InitFormDomain()
 }
 
 

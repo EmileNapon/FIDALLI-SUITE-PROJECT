@@ -20,19 +20,7 @@ export class GestionnairesModulesServiceService {
     return this.http.post(`${this.domainesUrl}/`, domaine);
   }
 
-
-  deleteDomaine(id: string): Observable<any> {
-    return this.http.delete(`${this.domainesUrl}/${id}`);
-  }
   
 
 
-
-  getMatieres(): Observable<any[]> {
-    return this.http.get<any[]>(this.matieresUrl);
-  }
-  
-  deleteMatiere(fk_domaineId: string): Observable<any> {
-    return this.http.delete(`${this.matieresUrl}/${fk_domaineId}`);
-  }
 }
