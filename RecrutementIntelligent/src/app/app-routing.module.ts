@@ -29,6 +29,8 @@ import { GestionnaireModulesComponent } from './gestionnaire/gestionnaire-module
 import { GestionnaireCoursComponent } from './gestionnaire/gestionnaire-cours/gestionnaire-cours.component';
 import { GestionnaireContenuCoursComponent } from './gestionnaire/gestionnaire-contenu-cours/gestionnaire-contenu-cours.component';
 import { WebinnairesComponent } from './module-formation-certification/Webinnaires/Webinnaires.component';
+import { CertificationComponent } from './module-formation-certification/certification/certification.component';
+import { CertificationContenuComponent } from './module-formation-certification/certification-contenu/certification-contenu.component';
 
 
 const routes: Routes = [
@@ -62,6 +64,12 @@ const routes: Routes = [
   {path:'FormationWebinaire', component:WebinnairesComponent},
   {path:'FormationWebinaire/:idWebinaire/webinaires', component:InscriptionComponent},
 
+
+  {path:'certification', component:CertificationComponent},
+  {path:'certification/:idCertification/certification', component:CertificationContenuComponent},
+
+  {path:'certification', component:CertificationComponent},
+  {path:'certification/:idCertification/certification', component:CertificationContenuComponent},
 
 
   {path:'usersPages',component:GestionUtilisateursComponent,children:[

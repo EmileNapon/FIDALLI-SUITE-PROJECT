@@ -22,6 +22,7 @@ import { SuivieCoursComponent } from './contenu-cours/suivie_cours.component';
 import { InscriptionComponent } from './inscription_cours/inscription.component';
 import { FormulaireComponent } from './inscription-formation-presentielle/formulaire/formulaire.component';
 import {  WebinnairesComponent } from './Webinnaires/Webinnaires.component';
+import { CertificationContenuComponent } from './certification-contenu/certification-contenu.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import {  WebinnairesComponent } from './Webinnaires/Webinnaires.component';
     QizContenuLibreComponent,
     QizCertificationComponent,
     QizCoursFormationPresentielleComponent, AcceuilFormationComponent, CardModuleComponent,CardModuleComponent2,SuivieCoursComponent, 
-    InscriptionComponent, FormulaireComponent,WebinnairesComponent
+    InscriptionComponent, FormulaireComponent,WebinnairesComponent, CertificationContenuComponent
   ],
   imports: [
     CommonModule, ReactiveFormsModule,  HttpClientModule, RouterModule, 

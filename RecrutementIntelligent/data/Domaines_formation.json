@@ -1320,7 +1320,7 @@
   "ContenuCertificat":[{
     "id":"1",
     "titre":"Bureautique",
-    "duree":"1h45min",
+    "duree":"2h30min",
     "Objectif":"Stimuler sa créativité"
 
   },
@@ -1350,21 +1350,21 @@
     "id":"2",
     "idContenuCertificat":"1",
     "titre":"Sommes, mise en forme conditionnelle, fonctions et formules les plus courantes",
-    "duree":"18 min",
+    "duree":"45 min",
     "podcast":""  
   },
   {
     "id":"3",
     "idContenuCertificat":"1",
     "titre":"Excel : Interface, mise en forme, cellules et saisie de données",
-    "duree":"18 min",
+    "duree":"30 min",
     "podcast":"" 
   },
   {
     "id":"4",
     "idContenuCertificat":"1",
     "titre":"Excel : Interface, mise en forme, cellules et saisie de données",
-    "duree":"18 min",
+    "duree":" 1h",
     "podcast":"" 
   },
 
@@ -1375,14 +1375,14 @@
   "id":"5",
   "idContenuCertificat":"2",
   "titre":"Introduction au reseau",
-  "duree":"18 min",
+  "duree":"20 min",
   "podcast":""
 },
 {
   "id":"6",
   "idContenuCertificat":"2",
   "titre":"Configuration des routers, switchs, vlan,...",
-  "duree":"18 min",
+  "duree":"15 min",
   "podcast":""
   
 },
@@ -1390,14 +1390,14 @@
   "id":"7",
   "idContenuCertificat":"2",
   "titre":"Dimensionner un reseau",
-  "duree":"18 min",
+  "duree":"25 min",
   "podcast":"" 
 },
 {
   "id":"8",
   "idContenuCertificat":"2",
   "titre":"Les bonnes pratiques dans un reseau",
-  "duree":"18 min"
+  "duree":"1h20min"
 }
 ],
 
