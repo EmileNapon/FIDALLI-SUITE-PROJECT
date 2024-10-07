@@ -616,6 +616,13 @@
       "nom": "fg"
     }
   ],
+
+
+
+
+
+
+
   "cours": [
     {
       "id": "1",
@@ -1158,6 +1165,14 @@
       "fk_domaineId": "16"
     }
   ],
+
+
+
+
+
+
+
+
   "infos_cours_presentiel": [
     {
       "id": "1",
@@ -1225,6 +1240,13 @@
       "fk_coursId": "17"
     }
   ],
+
+
+
+
+
+
+
   "webinaires": [
     {
       "id": "1",
@@ -1286,5 +1308,388 @@
       "type": "Future des allies",
       "statut": "Formation en ligne"
     }
-  ]
+  ],
+
+
+
+
+
+
+
+
+  "ContenuCertificat":[{
+    "id":"1",
+    "titre":"Bureautique",
+    "duree":"1h45min",
+    "Objectif":"Stimuler sa créativité"
+
+  },
+  {
+    "id":"2",
+    "titre":"SISCO",
+    "duree":"1h45min",
+    "Objectif":"Stimuler sa créativité"
+
+  }
+],
+
+
+
+  
+
+
+
+  "Chapitre":[{
+    "id":"1",
+    "idContenuCertificat":"1",
+    "titre":"Excel : Interface, mise en forme, cellules et saisie de données",
+    "duree":"18 min",
+    "podcast":"" 
+  },
+  {
+    "id":"2",
+    "idContenuCertificat":"1",
+    "titre":"Sommes, mise en forme conditionnelle, fonctions et formules les plus courantes",
+    "duree":"18 min",
+    "podcast":""  
+  },
+  {
+    "id":"3",
+    "idContenuCertificat":"1",
+    "titre":"Excel : Interface, mise en forme, cellules et saisie de données",
+    "duree":"18 min",
+    "podcast":"" 
+  },
+  {
+    "id":"4",
+    "idContenuCertificat":"1",
+    "titre":"Excel : Interface, mise en forme, cellules et saisie de données",
+    "duree":"18 min",
+    "podcast":"" 
+  },
+
+
+
+
+{
+  "id":"5",
+  "idContenuCertificat":"2",
+  "titre":"Introduction au reseau",
+  "duree":"18 min",
+  "podcast":""
+},
+{
+  "id":"6",
+  "idContenuCertificat":"2",
+  "titre":"Configuration des routers, switchs, vlan,...",
+  "duree":"18 min",
+  "podcast":""
+  
+},
+{
+  "id":"7",
+  "idContenuCertificat":"2",
+  "titre":"Dimensionner un reseau",
+  "duree":"18 min",
+  "podcast":"" 
+},
+{
+  "id":"8",
+  "idContenuCertificat":"2",
+  "titre":"Les bonnes pratiques dans un reseau",
+  "duree":"18 min"
+}
+],
+
+
+
+
+
+  "Article":[
+    {
+      "id":"1",
+      "idChapitre":"1",
+      "article":"",
+      "titreArticle": "titre article 1"
+    },
+    {
+      "id":"2",
+      "idChapitre":"2",
+      "article":"",
+      "titreArticle": "titre article 2"
+    },
+    {
+      "id":"3",
+      "idChapitre":"3",
+      "article":"",
+      "titreArticle": "titre article 3"
+    },
+    {
+      "id":"4",
+      "idChapitre":"4",
+      "article":"",
+      "titreArticle": "titre article 4"
+    },
+    {
+      "id":"5",
+      "idChapitre":"5",
+      "article":"",
+      "titreArticle": "titre article 5"
+    },
+    {
+      "id":"6",
+      "idChapitre":"6",
+      "article":"",
+      "titreArticle": "titre article 6"
+    },
+    {
+      "id":"7",
+      "idChapitre":"7",
+      "article":"",
+      "titreArticle": "titre article 7"
+    },
+    {
+      "id":"8",
+      "idChapitre":"8",
+      "article":"",
+      "titreArticle": "titre article 8"
+    }
+  ],
+
+
+
+
+
+
+
+
+"Video":[
+  {
+  "id":"1",
+  "idChapitre":"1",
+  "video":"",
+  "titreVideo":"titre video 1"
+  },
+  {  
+  "id":"2",
+  "idChapitre":"1",
+  "video":"",
+  "titreVideo":"titre video 2"
+  },
+  { 
+  "id":"3",
+  "idChapitre":"2",
+  "video":"",
+  "titreVideo":"titre video 3"
+},
+  {  
+  "id":"4",
+  "idChapitre":"2",
+  "video":"",
+  "titreVideo":"titre video 4"
+  },
+  {
+    "id":"5",
+    "idChapitre":"3",
+    "video":"",
+    "titreVideo":"titre video 5"
+  },
+  {  
+    "id":"6",
+    "idChapitre":"3",
+    "video":"",
+    "titreVideo":"titre video 6"
+    },
+    {
+      "id":"7",
+      "idChapitre":"4",
+      "video":"",
+      "titreVideo":"titre video 7"
+    },
+  { 
+    "id":"8",
+    "idChapitre":"4",
+    "video":"",
+    "titreVideo":"titre video 8"
+  },
+    {  
+    "id":"9",
+    "idChapitre":"5",
+    "video":"",
+    "titreVideo":"titre video 9"
+    },
+    {
+      "id":"10",
+      "idChapitre":"5",
+      "video":"",
+      "titreVideo":"titre video 10"
+    },
+    {
+      "id":"11",
+      "idChapitre":"6",
+      "video":"",
+      "titreVideo":"titre video 11"
+    },
+    { 
+      "id":"12",
+      "idChapitre":"6",
+      "video":"",
+      "titreVideo":"titre video 12"
+    },
+      {  
+      "id":"13",
+      "idChapitre":"7",
+      "video":"",
+      "titreVideo":"titre video 13"
+      },
+      {
+        "id":"14",
+        "idChapitre":"7",
+        "video":"",
+        "titreVideo":"titre video 14"
+      },
+      {
+        "id":"15",
+        "idChapitre":"8",
+        "video":"",
+        "titreVideo":"titre video 15"
+      },
+      { 
+        "id":"16",
+        "idChapitre":"8",
+        "video":"",
+        "titreVideo":"titre video 16"
+      }
+],
+
+
+
+
+
+"Podcast":[
+  {
+    "id":"1",
+    "idChapitre":"1",
+    "podcast":"",
+    "titrePodcast":"titre podcast 1"
+},
+{
+  "id":"2",
+  "idChapitre":"2",
+  "podcast":"",
+  "titrePodcast":"titre podcast 2"
+},
+{
+  "id":"3",
+  "idChapitre":"3",
+  "podcast":"",
+  "titrePodcast":"titre podcast 3"
+},
+{
+  "id":"4",
+  "idChapitre":"4",
+  "podcast":"",
+  "titrePodcast":"titre podcast 5"
+},
+{
+  "id":"5",
+  "idChapitre":"5",
+  "podcast":"",
+  "titrePodcast":"titre podcast 5"
+},
+{
+  "id":"6",
+  "idChapitre":"6",
+  "podcast":"",
+  "titrePodcast":"titre podcast 6"
+},
+{
+  "id":"7",
+  "idChapitre":"7",
+  "podcast":"",
+  "titrePodcast":"titre podcast 7"
+},
+{
+  "id":"8",
+  "idChapitre":"8",
+  "podcast":"",
+  "titrePodcast":"titre podcast 8"
+}
+],
+
+
+
+
+
+
+
+
+  "Quiz":[
+    {
+    "id":"1",
+    "idChapitre":"1",
+    "qcm":"",
+    "note":"1"
+    },
+    {
+      "id":"2",
+      "idChapitre":"2",
+      "qcm":"",
+      "note":"1"
+      },
+      {
+        "id":"3",
+        "idChapitre":"3",
+        "qcm":"",
+        "note":"1"
+        },
+        {
+          "id":"4",
+          "idChapitre":"4",
+          "qcm":"",
+          "note":"1"
+          },
+
+{
+  "id":"5",
+  "idChapitre":"5",
+  "qcm":"",
+  "note":"1"
+  },
+  {
+    "id":"6",
+    "idChapitre":"6",
+    "qcm":"",
+    "note":"1"
+  },
+  {
+    "id":"7",
+    "idChapitre":"7",
+    "qcm":"",
+    "note":"1"
+    },
+    {
+      "id":"8",
+      "idChapitre":"8",
+      "qcm":"",
+      "note":"1"
+    }         
+  ],
+
+
+
+  "QuizFinal":[{
+    "id":"1",
+    "idContenuCertificat":"1",
+    "qcm":"",
+    "note":"1"
+  },
+  {
+  "id":"2",
+  "idContenuCertificat":"2",
+  "qcm":"",
+  "note":"1"
+}]
+
+  
 }
