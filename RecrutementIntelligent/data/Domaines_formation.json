@@ -63,6 +63,10 @@
     {
       "id": "16",
       "nom": "SECRETARIAT – PERSONNEL D’APPUI"
+    },
+    {
+      "id": "3e41",
+      "nom": "re"
     }
   ],
   "matieres": [
@@ -605,6 +609,11 @@
       "id": "109",
       "nom": "Gestion informatisée des archives et de la documentation : organisation, codification et informatisation",
       "fk_domaineId": "16"
+    },
+    {
+      "id": "dc20",
+      "fk_domaineId": "3e41",
+      "nom": "fg"
     }
   ],
   "cours": [
@@ -1149,9 +1158,6 @@
       "fk_domaineId": "16"
     }
   ],
-
-
-  
   "infos_cours_presentiel": [
     {
       "id": "1",
@@ -1219,12 +1225,10 @@
       "fk_coursId": "17"
     }
   ],
-
-
   "webinaires": [
     {
       "id": "1",
-      "theme":"f1" ,
+      "theme": "f1",
       "dateDebut": "01 Octobre 2024",
       "heureDebut": "09:00 ",
       "duree": "01h",
@@ -1232,11 +1236,11 @@
       "cout": "$49",
       "resume": "xxxxxxxooooooooooooooooooooooo",
       "type": "Future des allies",
-      "statut":"Formation en ligne"
+      "statut": "Formation en ligne"
     },
     {
       "id": "2",
-      "theme":"ff1" ,
+      "theme": "ff1",
       "dateDebut": "05 decembre 2024",
       "heureDebut": "08:00 ",
       "duree": "04h",
@@ -1244,11 +1248,11 @@
       "cout": "",
       "resume": "xxxxxxxooooooooooooooooooooooo",
       "type": "Cafe des allies",
-      "statut":"Formation Presentielle"
+      "statut": "Formation Presentielle"
     },
     {
       "id": "3",
-      "theme":"fff1" ,
+      "theme": "fff1",
       "dateDebut": "03 Juiellet 2024",
       "heureDebut": "14:00 ",
       "duree": "01h",
@@ -1256,12 +1260,11 @@
       "cout": "$49",
       "resume": "xxxxxxxooooooooooooooooooooooo",
       "type": "Future des allies",
-      "statut":"Formation en ligne"
-
+      "statut": "Formation en ligne"
     },
     {
       "id": "4",
-      "theme":"ffffffffffffffffffffffffffff" ,
+      "theme": "ffffffffffffffffffffffffffff",
       "dateDebut": "01 Janvier 2024",
       "heureDebut": "14:00 ",
       "duree": "04h",
@@ -1269,11 +1272,11 @@
       "cout": "",
       "resume": "xxxxxxxooooooooooooooooooooooo",
       "type": "Cafes des allies",
-      "statut":"Formation en presentielle"
+      "statut": "Formation en presentielle"
     },
     {
       "id": "5",
-      "theme":"ffffffffffffffffffffffffffff" ,
+      "theme": "ffffffffffffffffffffffffffff",
       "dateDebut": "09 Juin 2024",
       "heureDebut": "14:00 ",
       "duree": "1h",
@@ -1281,9 +1284,7 @@
       "cout": "$49",
       "resume": "xxxxxxxooooooooooooooooooooooo",
       "type": "Future des allies",
-      "statut":"Formation en ligne"
+      "statut": "Formation en ligne"
     }
   ]
-
-
-  }
+}
