@@ -42,9 +42,9 @@
 
 
 
-    <div class='container py-5' style='padding-left:50px'>
+    <div class='container py-2' style='padding-left:50px;'>
 
-        <h2><p class='btn btn-primary'>{{ListCertificat[0].titre}}</p></h2>
+        <h2><p class='col-md-8' style='background-color:rgb(2, 51, 104);color:white'> {{ListCertificat[0].titre}}</p></h2>
         <span><i class="bi bi-list" ></i><i style='padding-left:5px'>Parcours</i></span> <span ><i class="bi bi-clock" style='padding-left:20px'></i><i  style='padding-left:5px'>{{ListCertificat[0].duree}}</i></span>
     
     <section >
@@ -69,35 +69,21 @@
 
     <div  *ngFor='let chapitre of ListCertificatChapitre ; let i = index' >
     <section >
+
         <br/>
         <div class="row">
-          <div class="col-md-8 "  >
-            <div class="card mb-6 shadow-sm "  style='background-color:#e9eaeb; border:none;  '>
-              <div class="card-body">
-                <button (click)="filterArticle(i)" style='border:none'>
-                <span class="card-title">{{ListCertificatChapitre[i].titre}}</span><span><i class="bi bi-clock" style='padding-left:80px'></i><i  style='padding-left:5px'></i>{{ListCertificatChapitre[i].duree}}</span>
-
-                </button>  
-                <div  >
-                    <p>
-                    {{ListCertificatChapitre[i].id}}.{{ListCertificatArticle[i].titreArticle}}
-                    </p>
-                </div>
-                
-                <div  >
-                    <p>
-                        {{ListCertificatVideo[i].titreVideo}}    
-                    </p>
-                </div> 
-                    
-              </div>
-
+          <div class="col-md-8"  >
+            <div class="card mb-8 shadow-sm "  style='background-color:#e9eaeb; border:none;  '>
+              <button  (click)="onSelectCertificat(chapitre.id)" class="card-body" style='border: none;'>
+                <p (click)="filterArticle(chapitre.id)" style='border:none'>
+                <span class="card-title">{{chapitre.titre}}</span><span><i class="bi bi-clock" style='padding-left:80px'></i><i  style='padding-left:5px'></i>{{ListCertificatChapitre[i].duree}}</span>
+                </p>                     
+              </button>
             </div>
           </div>
         </div>
+        
     </section>
 </div>
-
-
 </div>
 </body>

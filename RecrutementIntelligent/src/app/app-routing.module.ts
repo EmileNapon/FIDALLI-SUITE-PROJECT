@@ -20,7 +20,6 @@ import { OrientationsComponent } from './orientations/orientations.component';
 import { OrientationAcceuilComponent } from './orientations/orientation-acceuil/orientation-acceuil.component';
 import { QizContenuLibreComponent } from './module-formation-certification/qiz-contenu-libre/quiz-contenu-libre.component';
 import { CardModuleComponent } from './module-formation-certification/domaines-listes/domaines.component';
-import { CardModuleComponent2 } from './module-formation-certification/domaines-listes2/domaines2.component';
 import { SuivieCoursComponent } from './module-formation-certification/contenu-cours/suivie_cours.component';
 import { InscriptionComponent } from './module-formation-certification/inscription_cours/inscription.component';
 import { CoursComponent } from './module-formation-certification/cours/cours.component';
@@ -31,6 +30,7 @@ import { GestionnaireContenuCoursComponent } from './gestionnaire/gestionnaire-c
 import { WebinnairesComponent } from './module-formation-certification/Webinnaires/Webinnaires.component';
 import { CertificationComponent } from './module-formation-certification/certification/certification.component';
 import { CertificationContenuComponent } from './module-formation-certification/certification-contenu/certification-contenu.component';
+import { certificationContenuParcours1Component } from './module-formation-certification/certification-contenu_etape_1/certificationContenuEtape';
 
 
 const routes: Routes = [
@@ -49,7 +49,6 @@ const routes: Routes = [
     {path:'certification', component:FormationPourCertificationComponent},
     {path:'FormationPresentielle', component:InscriptionFormationPresentielleComponent},
     {path:'quiz', component:QizContenuLibreComponent},
-    {path:'module2', component:CardModuleComponent2},
     {path:'cours', component:SuivieCoursComponent},
   ]},
 
@@ -70,6 +69,8 @@ const routes: Routes = [
 
   {path:'certification', component:CertificationComponent},
   {path:'certification/:idCertification/certification', component:CertificationContenuComponent},
+  {path:'parcours/:idCertificationEParcours1/parcours', component:certificationContenuParcours1Component},
+
 
 
   {path:'usersPages',component:GestionUtilisateursComponent,children:[

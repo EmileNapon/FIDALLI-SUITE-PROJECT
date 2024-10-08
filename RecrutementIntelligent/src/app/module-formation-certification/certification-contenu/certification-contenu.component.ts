@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CertificationService } from '../certification/certification-service/certificationService';
+import { ServicePrincipaleService } from 'src/app/service-principale.service';
 
 
 @Component({
@@ -21,21 +22,14 @@ export class CertificationContenuComponent implements OnInit {
   ListCertificatPodcast: any[]=[]
   isFixed: boolean = false;
   isAuth:boolean=false;
-  constructor( private CertificatService:CertificationService, private router: Router, private route: ActivatedRoute){}
+  constructor( private CertificatService:CertificationService, private ServicePrincipale: ServicePrincipaleService, private router: Router, private route: ActivatedRoute){}
   
-  ngOnInit(): void {
-    this.certificatId = this.route.snapshot.paramMap.get('idCertification');
-    this.getCertificationChapitre()
-    this.getCertificationArticle()
-    }
-
 
 
   getCertification(){
     this.CertificatService.getCertificat().subscribe(data => {
       this.ListCertificat = data;
       this.filterMatieres()
-      this.getCertificationVideo()
     });
   }
   getCertificationChapitre(){
@@ -46,18 +40,7 @@ export class CertificationContenuComponent implements OnInit {
   }
 
 
-  getCertificationArticle(){
-    this.CertificatService.getCertificatArticle().subscribe(data => {
-      this.ListCertificatArticle = data;
-    });
-  }
 
-  getCertificationVideo(){
-    this.CertificatService.getCertificatVideo().subscribe(data => {
-      this.ListCertificatVideo = data;
-      this.getCertification()
-    });
-  }
 
   getCertificationPodcast(){
     this.CertificatService.getCertificatPodcast().subscribe(data => {
@@ -66,7 +49,6 @@ export class CertificationContenuComponent implements OnInit {
     });
   }
 
- 
 filterMatieres(): void {
   if (this.certificatId) {
     this.ListCertificat = this.ListCertificat.filter(certificat => certificat.id === this.certificatId);
@@ -75,11 +57,19 @@ filterMatieres(): void {
 }
 
 
-l:number=0
+onSelectCertificat(idCertificationEParcours1: string): void {
+  this.router.navigate([`/parcours/${idCertificationEParcours1}/parcours`]); // Redirection vers la page des matières du domaine sélectionné
+  console.log(222222222)
+}
+
+
 filterArticle(val:number): void {
   this.ListCertificatArticle = this.ListCertificatArticle.filter(article=> article.idChapitre===val);
-  this.ListCertificatVideo = this.ListCertificatVideo.filter(video=> video.idChapitre===val);
-  this.getCertificationArticle()
-  this. getCertificationVideo()
 }
+
+ngOnInit(): void {
+  this.certificatId = this.route.snapshot.paramMap.get('idCertification');
+  this.getCertificationChapitre()
+  }
 }
+

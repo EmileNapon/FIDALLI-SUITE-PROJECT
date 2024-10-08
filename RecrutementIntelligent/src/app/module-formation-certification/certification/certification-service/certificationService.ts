@@ -11,6 +11,7 @@ import { Observable } from 'rxjs';
 
 export class CertificationService {
 
+  ListCertificat:any[]=[]
   private ContenuCertificatUrl = 'http://localhost:9999/ContenuCertificat';
   private ChapitreUrl = 'http://localhost:9999/Chapitre';
   private ArticleUrl = 'http://localhost:9999/Article';
