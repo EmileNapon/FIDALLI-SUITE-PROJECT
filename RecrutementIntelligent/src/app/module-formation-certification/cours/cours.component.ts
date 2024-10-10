@@ -31,7 +31,7 @@ export class CoursComponent implements OnInit{
   }
   filterCours(): void {
     if (this.coursId) {
-      this.coursFiltres = this.cours.filter(cour => cour.fk_domaineId === this.coursId);
+      this.coursFiltres = this.cours.filter(cour => cour.fk_matiere === this.coursId);
     }
   }
 

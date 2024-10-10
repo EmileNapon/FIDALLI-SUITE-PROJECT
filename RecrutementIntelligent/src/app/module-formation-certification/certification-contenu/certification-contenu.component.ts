@@ -52,14 +52,12 @@ export class CertificationContenuComponent implements OnInit {
 filterMatieres(): void {
   if (this.certificatId) {
     this.ListCertificat = this.ListCertificat.filter(certificat => certificat.id === this.certificatId);
-    this.ListCertificatChapitre = this.ListCertificatChapitre.filter(chapitre => chapitre.idContenuCertificat === this.certificatId);
-  }
+    }
 }
 
 
 onSelectCertificat(idCertificationEParcours1: string): void {
   this.router.navigate([`/parcours/${idCertificationEParcours1}/parcours`]); // Redirection vers la page des matières du domaine sélectionné
-  console.log(222222222)
 }
 
 
