@@ -13,61 +13,40 @@ export class CertificationContenuComponent implements OnInit {
 
 
   certificatId: string | null = null;
-  ArtilceId: string | null = null;
 
-  ListCertificat : any[]=[]
   ListCertificatChapitre: any[]=[]
-  ListCertificatArticle:any[]=[]
-  ListCertificatVideo:any[]=[]
-  ListCertificatPodcast: any[]=[]
-  isFixed: boolean = false;
-  isAuth:boolean=false;
+  filtredCertificatChapitre:any[]=[]
   constructor( private CertificatService:CertificationService, private ServicePrincipale: ServicePrincipaleService, private router: Router, private route: ActivatedRoute){}
   
+  ngOnInit(): void {
+    this.certificatId = this.route.snapshot.paramMap.get('idCertification');
+    this.getCertificationChapitre()
+   
+    }
 
 
-  getCertification(){
-    this.CertificatService.getCertificat().subscribe(data => {
-      this.ListCertificat = data;
-      this.filterMatieres()
-    });
-  }
   getCertificationChapitre(){
     this.CertificatService.getCertificatChapitre().subscribe(data => {
       this.ListCertificatChapitre = data;
-      this.getCertification()
+      this.filterArticle()
     });
   }
 
 
 
 
-  getCertificationPodcast(){
-    this.CertificatService.getCertificatPodcast().subscribe(data => {
-      this.ListCertificatPodcast = data;
-      this.getCertification()
-    });
-  }
 
-filterMatieres(): void {
-  if (this.certificatId) {
-    this.ListCertificat = this.ListCertificat.filter(certificat => certificat.id === this.certificatId);
-    }
+filterArticle() {
+  if(this.certificatId){
+  this.filtredCertificatChapitre = this.ListCertificatChapitre.filter(chapitre=> chapitre.idContenuCertificat===this.certificatId);
+  }
 }
+
 
 
 onSelectCertificat(idCertificationEParcours1: string): void {
   this.router.navigate([`/parcours/${idCertificationEParcours1}/parcours`]); // Redirection vers la page des matières du domaine sélectionné
 }
 
-
-filterArticle(val:number): void {
-  this.ListCertificatArticle = this.ListCertificatArticle.filter(article=> article.idChapitre===val);
-}
-
-ngOnInit(): void {
-  this.certificatId = this.route.snapshot.paramMap.get('idCertification');
-  this.getCertificationChapitre()
-  }
 }
 

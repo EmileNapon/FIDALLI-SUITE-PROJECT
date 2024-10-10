@@ -60,9 +60,6 @@ export class certificationContenuParcours1Component implements OnInit{
           this.filteredCertificatsArticle = this.ListCertificatArticle.filter(article => article.idChapitre === this.certificatId);
           this.filteredCertificatsVideo = this.ListCertificatVideo.filter(video => video.idChapitre === this.certificatId);
           this.filteredCertificatPosdcast = this.ListCertificatPosdcast.filter(podcast => podcast.idChapitre === this.certificatId);
-          console.log(this.filteredCertificatsArticle )
-          console.log(this.filteredCertificatsVideo )
-          console.log(this.filteredCertificatPosdcast )
         }
       }
 

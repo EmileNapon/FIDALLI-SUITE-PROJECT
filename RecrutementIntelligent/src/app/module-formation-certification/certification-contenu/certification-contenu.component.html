@@ -44,9 +44,7 @@
 
     <div class='container py-2' style='padding-left:50px;'>
 
-        <h2><p class='col-md-8' style='background-color:rgb(2, 51, 104);color:white'> {{ListCertificat[0].titre}}</p></h2>
-        <span><i class="bi bi-list" ></i><i style='padding-left:5px'>Parcours</i></span> <span ><i class="bi bi-clock" style='padding-left:20px'></i><i  style='padding-left:5px'>{{ListCertificat[0].duree}}</i></span>
-    
+  
     <section >
         <br/>
         <div class="row">
@@ -67,7 +65,7 @@
      
     </p>
 
-    <div  *ngFor='let chapitre of ListCertificatChapitre ; let i = index' >
+    <div  *ngFor='let chapitre of filtredCertificatChapitre ; let i = index' >
     <section >
 
         <br/>
@@ -75,8 +73,8 @@
           <div class="col-md-8"  >
             <div class="card mb-8 shadow-sm "  style='background-color:#e9eaeb; border:none;  '>
               <button  (click)="onSelectCertificat(chapitre.id)" class="card-body" style='border: none;'>
-                <p (click)="filterArticle(chapitre.id)" style='border:none'>
-                <span class="card-title">{{chapitre.titre}}</span><span><i class="bi bi-clock" style='padding-left:80px'></i><i  style='padding-left:5px'></i>{{ListCertificatChapitre[i].duree}}</span>
+                <p style='border:none'>
+                <span class="card-title">{{chapitre.titre}}</span><span><i class="bi bi-clock" style='padding-left:80px'></i><i  style='padding-left:5px'></i>{{chapitre.duree}}</span>
                 </p>                     
               </button>
             </div>

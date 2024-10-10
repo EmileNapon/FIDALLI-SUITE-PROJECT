@@ -40,19 +40,19 @@
 
 
 
-
-    <div class="row">
-        <div class="col-sm-3 mb-3 mb-sm-0" >
-          <div class="card">
-            <div class="card-body" *ngFor='let x of filteredCertificatsArticle'>
-              <h5 class="card-title"><i class="bi bi-file-earmark-plus-fill" style='color:#3e576e;padding-left:5px'></i><span style='padding:5px;'> Article | {{x.titreArticle}}</span></h5>
-          </div>
-          <div class="card-body" *ngFor='let x of filteredCertificatsVideo'>
-            <h5 class="card-title"><i class="bi bi-camera-video-fill" style='color:#3e576e;'></i> <span style='padding:5px;'>Video | {{x.titreVideo}}</span></h5>
-        </div>
-        <div class="card-body" *ngFor='let x of filteredCertificatPosdcast'>
-          <h5 class="card-title"><i class="bi bi-play-fill"  style='color:#3e576e;padding-left:5px'></i><span style='padding:5px;'>Posdcast | {{x.titrePodcast}}</span></h5>
-      </div>
+<div class='container'>
+    <div class="row " >
+        <div class="col-sm-4 mb-6 mb-sm-0"  >
+          <div class="card" style='border:none'>
+            <div class="card-body" *ngFor='let x of filteredCertificatsArticle' >
+              <p class="card-title"><i class="bi bi-file-earmark-plus-fill" style='color:#3e576e;padding-left:5px'></i><span style='padding:5px;'>Article | {{x.titreArticle}}</span></p>
+            </div>
+            <div class="card-body" *ngFor='let x of filteredCertificatsVideo'>
+              <p class="card-title"><i class="bi bi-camera-video-fill" style='color:#3e576e;padding-left:5px'></i> <span style='padding:5px;'>Video | {{x.titreVideo}}</span></p>
+            </div>
+            <div class="card-body" *ngFor='let x of filteredCertificatPosdcast'>
+              <p class="card-title"><i class="bi bi-play-fill"  style='color:#3e576e;padding-left:5px'></i><span style='padding:5px;'>Posdcast | {{x.titrePodcast}}</span></p>
+            </div>
           </div>
         </div>
         <div class="col-sm-8">
@@ -63,11 +63,7 @@
             </div>
           </div>
         </div>
-      </div>
-
-
-
-
-
+    </div>
+</div>
    
     </body>
