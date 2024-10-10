@@ -42,46 +42,52 @@
 
 
 
-    <div class='container py-2' style='padding-left:50px;'>
 
-  
-    <section >
-        <br/>
-        <div class="row">
-          <div class="col-md-8" >
-            <div class="card mb-4 shadow-sm "  style='background-color:#e9eaeb; border:none '>
-              <div class="card-body">
-                <h5 class="card-title">OBJECTIFS D'APPRENTISSAGE</h5>
-                <p class="card-text">kkkk</p>
-              </div>
-            </div>
-          </div>
+
+
+<div class='container'>
+<div class="row">
+  <div class="col-sm-8 mb-7 mb-sm-0">
+    <div class="card" style='border:none; background-color:#e9eaeb; '>
+      <div class="card-body">
+       
+        <h2><p class='col-md-8' style='background-color:rgb(2, 51, 104);color:white'> {{filtredCertificat[0].titre}}</p></h2>
+        <span><i class="bi bi-list" ></i><i style='padding-left:5px'>Parcours</i></span> <span ><i class="bi bi-clock" style='padding-left:20px'></i><i  style='padding-left:5px'>{{filtredCertificat[0].duree}}</i></span>
+    
+        <br/> <br/> 
+        <h5 class="card-title">OBJECTIFS D'APPRENTISSAGE</h5>
+        <br/> 
+
+          <p class="card-title" >{{filtredCertificat[0].Objectif}}</p>
+          <p class="card-title" >{{filtredCertificat[0].Objectif}}</p>
+          <p class="card-title" >{{filtredCertificat[0].Objectif}}</p>
+
+        <br/> <br/> 
+        <h5 class="card-title">CONTENU</h5>
+        <div *ngFor='let chapitre of filtredCertificatChapitre '>
+          <hr>
+          <button  (click)="onSelectCertificat(chapitre.id)"  style='border: none;'>
+            <p  style='border:none'>
+            <span class="card-title">{{chapitre.titre}}</span><span><i class="bi bi-clock" style='padding-left:80px'></i><i  style='padding-left:5px'></i>{{chapitre.duree}}</span>
+            </p>                     
+          </button>
+          
         </div>
-    </section>
-    <br/>
-
-    <p>CONTENU</p>
-    <p class="card-text">
-     
-    </p>
-
-    <div  *ngFor='let chapitre of filtredCertificatChapitre ; let i = index' >
-    <section >
-
-        <br/>
-        <div class="row">
-          <div class="col-md-8"  >
-            <div class="card mb-8 shadow-sm "  style='background-color:#e9eaeb; border:none;  '>
-              <button  (click)="onSelectCertificat(chapitre.id)" class="card-body" style='border: none;'>
-                <p style='border:none'>
-                <span class="card-title">{{chapitre.titre}}</span><span><i class="bi bi-clock" style='padding-left:80px'></i><i  style='padding-left:5px'></i>{{chapitre.duree}}</span>
-                </p>                     
-              </button>
-            </div>
-          </div>
-        </div>
-        
-    </section>
+       <button class=' disabled' aria-disabled="true" style='border: none;'><i class="bi bi-file-earmark-lock" ></i>Quiz</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card" style='border:none; background-color:#e9eaeb; '>
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+      </div>
+    </div>
+  </div>
 </div>
 </div>
 </body>
+
+
+

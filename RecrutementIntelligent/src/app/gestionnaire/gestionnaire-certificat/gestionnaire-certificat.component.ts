@@ -1,43 +1,37 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { GestionnairesModulesServiceService } from './gestionnaires-modules-service/gestionnaires-modules-service.service';
+import { GestionnairesModulesServiceService } from '../gestionnaire-modules/gestionnaires-modules-service/gestionnaires-modules-service.service';
 
 @Component({
-  selector: 'app-gestionnaire-modules',
-  templateUrl: './gestionnaire-modules.component.html',
-  styleUrls: ['./gestionnaire-modules.component.css']
+  selector: 'app-gestionnaire-certificat',
+  templateUrl: './gestionnaire-certificat.component.html',
+  styleUrls: ['./gestionnaire-certificat.component.css']
 })
-export class GestionnaireModulesComponent implements OnInit{
-
+export class GestionnaireCertificatComponent implements OnInit {
 
   constructor( private domaineService: GestionnairesModulesServiceService, private router: Router, private fb: FormBuilder ) { }
 
   selectedDomaineIndex:string=""
-  __iconDelete__:boolean=false
   __iconVoirMatiere__:boolean= false
   __addDomaine__:boolean=false
 
   ondelete():void{
-    this.__iconDelete__=!this.__iconDelete__
     this.__iconVoirMatiere__=false
   }
 
   onEdit():void{
     this.__iconVoirMatiere__=false
-    this.__iconDelete__=false
   }
 
 
   onVoirMatiere():void{
     this.__iconVoirMatiere__=!this.__iconVoirMatiere__
-    this.__iconDelete__=false
   }
 
 
   selecterDomaine(domaine:string){
     this.__iconVoirMatiere__=true
-    this.__iconDelete__=false
     this.selectedDomaineIndex=domaine
       
   }
@@ -46,13 +40,8 @@ export class GestionnaireModulesComponent implements OnInit{
     this.__addDomaine__=!this.__addDomaine__
   }
 
-
   __domaines__: any[] = [];
 
-  
-  
-
-  
   loadDomaines(): void {
     this.domaineService.getDomaines().subscribe(data => {
       this.__domaines__ = data;
@@ -60,19 +49,9 @@ export class GestionnaireModulesComponent implements OnInit{
   }
    
 
-
-
-
-
-
-
-  onSelectDomaine(domaineId: string): void {
-    this.router.navigate([`/gestionnaire/${domaineId}/Gestionnaire-cours`]); // Redirection vers la page des matières du domaine sélectionné
+  onSelectDomaine(certificatGestionnaireId: string): void {
+    this.router.navigate([`/gestionnaire/${certificatGestionnaireId}/GestionnaireCertificat`]); // Redirection vers la page des matières du domaine sélectionné
   }
-
-
-
-
 
   DomaineForm!: FormGroup;
 
@@ -98,14 +77,11 @@ export class GestionnaireModulesComponent implements OnInit{
  
 }
 
-
-
-
-
 ngOnInit(): void {
   this.loadDomaines();
   this.InitFormDomain()
 }
+
 
 
 }

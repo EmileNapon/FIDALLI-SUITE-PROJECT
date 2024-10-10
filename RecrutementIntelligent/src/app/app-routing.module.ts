@@ -31,6 +31,8 @@ import { WebinnairesComponent } from './module-formation-certification/Webinnair
 import { CertificationComponent } from './module-formation-certification/certification/certification.component';
 import { CertificationContenuComponent } from './module-formation-certification/certification-contenu/certification-contenu.component';
 import { certificationContenuParcours1Component } from './module-formation-certification/certification-contenu_etape_1/certificationContenuEtape';
+import { GestionnaireCertificatComponent } from './gestionnaire/gestionnaire-certificat/gestionnaire-certificat.component';
+import { GestionnaireCertificatCoursComponent } from './gestionnaire/gestionnaire-certificat-cours/gestionnaire-certificat-cours.component';
 
 
 const routes: Routes = [
@@ -72,7 +74,7 @@ const routes: Routes = [
   {path:'parcours/:idCertificationEParcours1/parcours', component:certificationContenuParcours1Component},
 
 
-
+  
   {path:'usersPages',component:GestionUtilisateursComponent,children:[
     {path:'register', component:RegistrationComponent},
     {path:'login', component:ConnexionComponent},
@@ -84,10 +86,12 @@ const routes: Routes = [
     {path:'modules', component:GestionnaireModulesComponent}
   ]},
 
-  {path:'gestionnaire/:iddomaineGestionnaireId/gestionnaireCours', component:GestionnaireCoursComponent},
+  {path:'gestionnaire/:iddomaineGestionnaireId/Gestionnaire-cours', component:GestionnaireCoursComponent},
   {path:'gestionnaire/:coursGestionnaireId/gestionnairecontenuCours', component:GestionnaireContenuCoursComponent},
 
-  
+  {path:'gestionnaire/gestionnaire-certificat', component:GestionnaireCertificatComponent},
+  {path:'gestionnaire/:certificatGestionnaireId/GestionnaireCertificat', component:GestionnaireCertificatCoursComponent},
+
 
   {path:'orientation',component:OrientationsComponent,children:[
     {path:'orientationAcceuil', component:OrientationAcceuilComponent},

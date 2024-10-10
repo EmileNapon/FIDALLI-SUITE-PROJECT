@@ -11,19 +11,30 @@ import { ServicePrincipaleService } from 'src/app/service-principale.service';
 })
 export class CertificationContenuComponent implements OnInit {
 
-
+  Invalid: boolean = true;
   certificatId: string | null = null;
 
   ListCertificatChapitre: any[]=[]
   filtredCertificatChapitre:any[]=[]
+
+  ListCertificat:any[]=[]
+  filtredCertificat:any[]=[]
+
   constructor( private CertificatService:CertificationService, private ServicePrincipale: ServicePrincipaleService, private router: Router, private route: ActivatedRoute){}
   
   ngOnInit(): void {
     this.certificatId = this.route.snapshot.paramMap.get('idCertification');
     this.getCertificationChapitre()
+    this.getCertification()
    
     }
 
+    getCertification(){
+      this.CertificatService.getCertificat().subscribe(data => {
+        this.ListCertificat = data;
+        this.filterCertificat()
+      });
+    }
 
   getCertificationChapitre(){
     this.CertificatService.getCertificatChapitre().subscribe(data => {
@@ -33,12 +44,18 @@ export class CertificationContenuComponent implements OnInit {
   }
 
 
-
+  filterCertificat() {
+    if(this.certificatId){
+      this.filtredCertificat = this.ListCertificat.filter(certificat=> certificat.id===this.certificatId);
+    console.log(this.filtredCertificat)
+    }
+  }
 
 
 filterArticle() {
   if(this.certificatId){
   this.filtredCertificatChapitre = this.ListCertificatChapitre.filter(chapitre=> chapitre.idContenuCertificat===this.certificatId);
+
   }
 }
 
