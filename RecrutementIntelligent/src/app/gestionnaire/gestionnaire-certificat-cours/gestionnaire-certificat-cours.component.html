@@ -9,11 +9,12 @@
                             <h2>Liste des cours</h2>
                         </div>
                         <div class="col-sm-6">
-                            <a (click)=" OnAdd()"  class="btn btn-primary" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>ajouter</span></a>   						
+                            <a (click)=" OnAddDomaine()"  class="btn btn-primary" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>ajouter</span></a>   						
                         </div>
                     </div>
                 </div>
                 <div *ngIf=" !__addDomaine__">
+                <div *ngIf=" !addDomaineList">
                 <table class="table">
                     
                     <tbody>
@@ -37,6 +38,7 @@
                         </tr>					
                     </tbody>
                 </table>
+            </div>
                 <div class="clearfix">
                     <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
                     <ul class="pagination">
@@ -68,7 +70,7 @@
                     </div> 
                     <div class='nav'>        
                         <button (click)='OnAdd()' type="submit" class="btn btn-primary mb-3">Ajouter</button>
-                        <button  (click)=" OnAdd()" type="submit" class="btn btn-danger  mb-3 nav-item">Annuler</button>
+                        <button  (click)=" ondelete()" type="submit" class="btn btn-danger  mb-3 nav-item">Annuler///</button>
                     </div>
                 </form>
             </div>
@@ -78,15 +80,18 @@
 
 
     <div *ngIf='addDomaineList==true'>           
-        <div class="container container-l d-flex justify-content-center align-items-center min-vh-10">
-            <div class="col-md-8 col-lg-6">
-                    <div class="row mb-3 align-items-center">
-                        <label for="nom" class="col-sm-4 col-form-label"> Voici les cours de certification du domaine....</label>
+        <div class="container container-l">
+            <div class="col-md-8 col-lg-8">
+                    <div class="row mb-8 align-items-center">
+                        <label for="nom" class="col-sm-8 col-form-label"> Voici les cours de certification du domaine....</label>
                     </div>
-                    <p>{{ListDonnees[1]}}</p> 
+                    <h3>Cours sélectionnés :</h3>
+                    <ul>
+                    <li *ngFor="let nom of selectedCoursNoms">{{ nom }}</li>
+                    </ul>
                     <div class='nav'>        
                         <button  type="submit" class="btn btn-primary mb-3">add</button>
-                        <button  (click)=" OnAdd()" type="submit" class="btn btn-danger  mb-3 nav-item">Annuler</button>
+                        <button  (click)=" ondelete()" type="submit" class="btn btn-danger  mb-3 nav-item">Annuler</button>
                     </div>
             </div>
         </div>

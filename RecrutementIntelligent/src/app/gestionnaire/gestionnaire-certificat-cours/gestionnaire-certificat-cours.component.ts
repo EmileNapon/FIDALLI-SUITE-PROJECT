@@ -25,8 +25,8 @@ export class GestionnaireCertificatCoursComponent implements OnInit{
  
 
   ondelete():void{
-    this.__iconDelete__=!this.__iconDelete__
-    this.__iconVoirMatiere__=false
+    this.__addDomaine__=!this.__addDomaine__
+    this.addDomaineList=false
   }
 
 
@@ -50,6 +50,12 @@ export class GestionnaireCertificatCoursComponent implements OnInit{
       this.selectedCoursNoms.push(coursNom);
     }
       
+  }
+
+  OnAddDomaine(){
+    this.__addDomaine__=!this.__addDomaine__
+    this.__iconDelete__=false
+    this.__iconVoirMatiere__= false
   }
 
   OnAdd():void{
