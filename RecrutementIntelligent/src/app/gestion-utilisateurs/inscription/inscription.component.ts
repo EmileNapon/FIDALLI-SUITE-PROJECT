@@ -35,9 +35,11 @@ export class RegistrationComponent implements OnInit {
   onSubmit(): void {
     if (this.registrationForm.valid) {
       const user: User = this.registrationForm.value;
+      
       this.userService.registerUser(user).subscribe({
         next: (response) => {
           console.log('User registered successfully:', response);
+          console.log(user)
         },
         error: (error) => {
           console.error('Error registering user:', error);

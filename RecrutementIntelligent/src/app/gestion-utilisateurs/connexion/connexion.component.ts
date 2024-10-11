@@ -22,7 +22,7 @@ nom:any
   }
 
 
-  
+ /* 
   onSubmit(): void {
     if (this.loginForm.valid) {
       const { email, password } = this.loginForm.value;
@@ -33,9 +33,7 @@ nom:any
           localStorage.setItem('access_token', response.access);
           localStorage.setItem('refresh_token', response.refresh);
           
-          // Mettre à jour le service avec le nom et le prénom
-          this.authService.updateUserInfo(response.nom, response.prenom);
-          
+         
           // Rediriger en fonction du rôle
           if (response.role === 'etudiant') {
             this.router.navigate(['/page-etudiant']);
@@ -50,4 +48,37 @@ nom:any
         }
       });
     }
-  }}
+  }
+
+
+
+
+*/
+onSubmit(): void {
+  if (this.loginForm.valid) {
+    const { email, password } = this.loginForm.value;
+    this.authService.login(email, password).subscribe({
+      next: (response) => {
+        console.log('Login successful', response);
+        // Stocker les tokens et les informations de l'utilisateur
+        localStorage.setItem('access_token', response.access);
+        localStorage.setItem('refresh_token', response.refresh);
+      
+        
+        // Rediriger en fonction du rôle
+        if (response.role === 'etudiant') {
+          this.router.navigate(['/acceuil']);
+        } else if (response.role === 'employeur') {
+          this.router.navigate(['/page-employeur']);
+        } else {
+          this.router.navigate(['/acceuil']);
+        }
+      },
+      error: (error) => {
+        console.error('Error logging in:', error);
+      }
+    });
+  }
+}
+
+}

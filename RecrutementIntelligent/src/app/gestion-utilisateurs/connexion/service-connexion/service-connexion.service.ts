@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,7 @@ export class AuthService {
 
 
 
-
+/*
   public nom:any='ll';
   public prenom: any ="mmmm";
 
@@ -51,5 +51,35 @@ export class AuthService {
   logout(): void {
     localStorage.removeItem('access_token');
     localStorage.removeItem('refresh_token');
+  } */
+
+
+
+  //-------------------///
+
+  constructor(private http: HttpClient) {}
+  private userEmail: string | null = null;
+
+  login(email: string, password: string): Observable<any> {
+    const url = `${this.apiUrl}/login/`; // Remplacez par l'URL de votre endpoint de connexion
+    const body = { email, password };
+    this.userEmail = email;
+    return this.http.post(url, body, {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    });
+  }
+
+  // Méthode pour se déconnecter (optionnelle)
+  logout(): void {
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('refresh_token');
+    // Vous pouvez également faire une requête de déconnexion à votre API ici si nécessaire
+  }
+  isLoggedIn(): boolean {
+    return !!localStorage.getItem('access_token');
+  }
+
+  getUserEmail(): string | null {
+    return this.userEmail; // Retourner l'email de l'utilisateur connecté
   }
 }

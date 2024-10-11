@@ -50,15 +50,24 @@
                     <a href="#trainers" class="nav-link" >Equipes</a>
                 </li>
 
-                <li class="nav-item">
-                    <a routerLink="/usersPages/login" class="btn btn-warning " >Se connecter</a>
+                <li class="nav-item" *ngIf="!isLoggedIn(); else loggedInTemplate">
+                    <a routerLink="/usersPages/login" class="btn btn-warning">Se connecter</a>
                 </li>
+
+                <!-- Template pour les utilisateurs connectés -->
+                <ng-template #loggedInTemplate>
+                    <li class="nav-item">
+                        <span> {{ getUserEmail() }}</span> <!-- Afficher l'email de l'utilisateur -->
+                        <!-- Pas d'option de déconnexion -->
+                    </li>
+                </ng-template>
             </ul>
         </nav>
     </div>
 </div>
 
- 
+
+
 <div class='container-fluid images-fixed' [class.fixed]="isFixed" >
 
 </div>

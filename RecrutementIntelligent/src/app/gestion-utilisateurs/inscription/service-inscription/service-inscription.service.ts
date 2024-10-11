@@ -8,7 +8,7 @@ import { User } from '../interface-inscription/interface-inscription';
 })
 export class UserService {
   private apiUrl = 'http://127.0.0.1:8000/fidalli/register/';
-
+  private apiUrl1 = 'http://127.0.0.1:9999/register';
 
   constructor(private http: HttpClient) {}
 

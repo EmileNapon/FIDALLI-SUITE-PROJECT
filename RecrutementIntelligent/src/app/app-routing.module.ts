@@ -71,7 +71,7 @@ const routes: Routes = [
 
   {path:'certification', component:CertificationComponent},
   {path:'certification/:idCertification/certification', component:CertificationContenuComponent},
-  {path:'parcours/:idCertificationEParcours1/parcours', component:certificationContenuParcours1Component},
+  {path:'parcours/:idCertificationEParcours1', component:certificationContenuParcours1Component},
 
 
   

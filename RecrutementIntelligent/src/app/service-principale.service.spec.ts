@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ServicePrincipaleService } from './service-principale.service';
+import { ServicePrincipaleService } from './service-connexion-etudiant-principale.service';
 
 describe('ServicePrincipaleService', () => {
   let service: ServicePrincipaleService;

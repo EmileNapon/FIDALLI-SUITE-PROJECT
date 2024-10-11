@@ -1632,5 +1632,27 @@
       "qcm": "",
       "note": "1"
     }
+  ],
+  "register": [
+    {
+      "email": "manager@example.com",
+      "nom": "Manager",
+      "prenom": "User",
+      "phone_number": "0123456789",
+      "password": "managerpassword",
+      "password2": "managerpassword",
+      "role": "manager",
+      "id": "a5dd"
+    },
+    {
+      "id": "f11c",
+      "nom": "Atanass",
+      "prenom": "Emile",
+      "email": "dddddd@gmail.com",
+      "password": "zzzzzz",
+      "password2": "zzzzzz",
+      "phone_number": "90987645",
+      "role": "employeur"
+    }
   ]
 }

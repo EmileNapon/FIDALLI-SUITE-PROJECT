@@ -1,3 +1,4 @@
+import { ServiceConnexionPrincipale } from '../service-connexion-etudiant-principale.service';
 import { AuthService } from './../gestion-utilisateurs/connexion/service-connexion/service-connexion.service';
 import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 
@@ -7,17 +8,14 @@ import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular
   styleUrls: ['./acceuil.component.css']
 })
 export class AcceuilComponent implements OnInit{
-constructor(private AuthService: AuthService){
+  constructor(private authService: AuthService, private ServiceConnexion: ServiceConnexionPrincipale) {}
 
-}
   showSearch = false;
-nom:any;
-prenom:any;
+
 
 
 ngOnInit():void{
-  this.nom=this.AuthService.nom;
- this.prenom=this.AuthService.prenom;
+
 }
 
 
@@ -43,5 +41,11 @@ ngOnInit():void{
 
 
 
+  isLoggedIn(): boolean {
+    return this.authService.isLoggedIn(); // Vérifie si l'utilisateur est connecté
+  }
 
+  getUserEmail(): string | null {
+    return this.authService.getUserEmail(); // Récupérer l'email de l'utilisateur connecté
+  }
 }

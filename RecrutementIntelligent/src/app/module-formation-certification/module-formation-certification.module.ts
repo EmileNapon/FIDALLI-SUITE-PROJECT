@@ -41,7 +41,7 @@ import { certificationContenuParcours1Component } from './certification-contenu_
     certificationContenuParcours1Component
   ],
   imports: [
-    CommonModule, ReactiveFormsModule,  HttpClientModule, RouterModule, 
+    CommonModule, ReactiveFormsModule,  HttpClientModule, RouterModule, FormsModule
   ]
 })
 export class ModuleFormationCertificationModule { }
