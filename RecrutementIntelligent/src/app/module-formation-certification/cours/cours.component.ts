@@ -9,7 +9,7 @@ import { ActivatedRoute, Router, Routes } from '@angular/router';
 })
 export class CoursComponent implements OnInit{
  
-  constructor(private domaineService: DomaineService, private router: ActivatedRoute) { }
+  constructor(private domaineService: DomaineService, private route: Router,private router: ActivatedRoute) { }
   
 
   coursId: string | null = null;
@@ -36,6 +36,8 @@ export class CoursComponent implements OnInit{
   }
 
     
-  
+  onSelectPage(idPage: number): void {
+    this.route.navigate([`/page/${idPage}/pageContenu`]); // Naviguer vers la page sélectionnée
+  }
 
 }

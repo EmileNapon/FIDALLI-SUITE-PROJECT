@@ -33,7 +33,7 @@ import { CertificationContenuComponent } from './module-formation-certification/
 import { certificationContenuParcours1Component } from './module-formation-certification/certification-contenu_etape_1/certificationContenuEtape';
 import { GestionnaireCertificatComponent } from './gestionnaire/gestionnaire-certificat/gestionnaire-certificat.component';
 import { GestionnaireCertificatCoursComponent } from './gestionnaire/gestionnaire-certificat-cours/gestionnaire-certificat-cours.component';
-
+import { QizCertificationComponent } from './module-formation-certification/qiz-certification/qiz-certification.component';
 
 const routes: Routes = [
 
@@ -52,7 +52,8 @@ const routes: Routes = [
     {path:'FormationPresentielle', component:InscriptionFormationPresentielleComponent},
     {path:'quiz', component:QizContenuLibreComponent},
     {path:'cours', component:SuivieCoursComponent},
-  ]},
+
+]},
 
   {path:'domaines', component:AcceuilFormationComponent},
   {path:'domaines/:domaineId/cours', component:CardModuleComponent},  
@@ -73,6 +74,7 @@ const routes: Routes = [
   {path:'certification/:idCertification/certification', component:CertificationContenuComponent},
   {path:'parcours/:idCertificationEParcours1', component:certificationContenuParcours1Component},
 
+  { path: 'page/:idPage/pageContenu', component: QizCertificationComponent },
 
   
   {path:'usersPages',component:GestionUtilisateursComponent,children:[
@@ -80,6 +82,7 @@ const routes: Routes = [
     {path:'login', component:ConnexionComponent},
     {path:'login', component:ConnexionComponent},
   ]},
+
 
   {path:'gestionnaire',component:GestionUtilisateursComponent,children:[
     {path:'acceuil', component:GestionnaireAcceuilComponent},
@@ -97,7 +100,7 @@ const routes: Routes = [
     {path:'orientationAcceuil', component:OrientationAcceuilComponent},
     {path:'etablissement', component:EtablissementsComponent},
 
-  ]},
+  ]}
   
 ];
 

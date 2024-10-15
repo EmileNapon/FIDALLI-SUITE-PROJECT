@@ -1,0 +1,21 @@
+<div class="col-12" *ngFor="let annonce of annonces">
+    <div class="card mb-4">
+      <div class="card-header text-white d-flex justify-content-between" [ngClass]="annonce.couleur">
+        <span>{{ annonce.titre }}</span>
+        <span class="text-white">Publié le : {{ annonce.datePublication }}</span>
+      </div>
+      <div class="card-body">
+        <!-- Texte coupé avec "Voir plus" -->
+        <p>
+          {{ annonce.description }}
+          <a href="#" class="text-primary">Voir plus</a>
+        </p>
+        <!-- Boutons "Modifier" et "Supprimer" alignés à droite -->
+        <div class="text-end">
+          <!-- <button class="btn btn-warning btn-sm mx-2">Modifier</button> -->
+          <button class="btn btn-danger btn-sm">Supprimer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

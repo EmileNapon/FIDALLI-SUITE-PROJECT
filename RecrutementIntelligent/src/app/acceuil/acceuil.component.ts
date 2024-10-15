@@ -11,13 +11,24 @@ export class AcceuilComponent implements OnInit{
   constructor(private authService: AuthService, private ServiceConnexion: ServiceConnexionPrincipale) {}
 
   showSearch = false;
-
+  userEmail: string | null = null;
 
 
 ngOnInit():void{
-
+ // Vérifier si l'utilisateur est connecté et récupérer son email
+ if (this.authService.isLoggedIn()) {
+  this.userEmail = this.authService.getUserEmail();
 }
 
+}
+onLogout(): void {
+  this.authService.logout(); // Appeler la méthode de déconnexion du service d'authentification
+  this.userEmail = null; // Réinitialiser l'email après déconnexion
+}
+
+isLoggedIn(): boolean {
+  return this.authService.isLoggedIn(); // Vérifie si l'utilisateur est connecté
+}
 
   toggleSearch() {
     this.showSearch = !this.showSearch;
@@ -41,11 +52,5 @@ ngOnInit():void{
 
 
 
-  isLoggedIn(): boolean {
-    return this.authService.isLoggedIn(); // Vérifie si l'utilisateur est connecté
-  }
 
-  getUserEmail(): string | null {
-    return this.authService.getUserEmail(); // Récupérer l'email de l'utilisateur connecté
-  }
 }

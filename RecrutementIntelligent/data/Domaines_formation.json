@@ -75,6 +75,14 @@
     {
       "id": "eb5d",
       "nom": "b"
+    },
+    {
+      "id": "6a06",
+      "nom": "kkkk"
+    },
+    {
+      "id": "28c7",
+      "nom": "cours aujourd'hui"
     }
   ],
   "matieres": [
@@ -627,6 +635,31 @@
       "id": "7015",
       "fk_domaineId": "02a2",
       "nom": "n1"
+    },
+    {
+      "id": "6a8e",
+      "fk_domaineId": "6a06",
+      "nom": "k1"
+    },
+    {
+      "id": "29f6",
+      "fk_domaineId": "28c7",
+      "nom": "cours 1"
+    },
+    {
+      "id": "06a1",
+      "fk_domaineId": "28c7",
+      "nom": "cours 3"
+    },
+    {
+      "id": "114f",
+      "fk_domaineId": "28c7",
+      "nom": "cours2"
+    },
+    {
+      "id": "2b9a",
+      "fk_domaineId": "28c7",
+      "nom": "cours4"
     }
   ],
   "cours": [

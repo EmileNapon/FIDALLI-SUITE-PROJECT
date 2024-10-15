@@ -42,10 +42,6 @@ export class CertificationContenuComponent implements OnInit {
     this.certificatId = this.route.snapshot.paramMap.get('idCertification');
     this.getCertificationChapitre()
     this.getCertification()
-
-    //---------------------------//
-
-    this.certificatId1 = this.route.snapshot.paramMap.get('idCertification');
     this.getCertificationArticle()
    
     }
@@ -60,7 +56,6 @@ export class CertificationContenuComponent implements OnInit {
   getCertificationChapitre(){
     this.CertificatService.getCertificatChapitre().subscribe(data => {
       this.ListCertificatChapitre = data;
-      this.filterArticle()
     });
   }
 
@@ -68,17 +63,13 @@ export class CertificationContenuComponent implements OnInit {
   filterCertificat() {
     if(this.certificatId){
       this.filtredCertificat = this.ListCertificat.filter(certificat=> certificat.id===this.certificatId);
+      this.filtredCertificatChapitre = this.ListCertificatChapitre.filter(chapitre=> this.filtredCertificat.some(certificat=>chapitre.idContenuCertificat===certificat.id));
     console.log(this.filtredCertificat)
     }
   }
 
 
-filterArticle() {
-  if(this.certificatId){
-  this.filtredCertificatChapitre = this.ListCertificatChapitre.filter(chapitre=> chapitre.idContenuCertificat===this.certificatId);
 
-  }
-}
 
 
 
@@ -130,14 +121,19 @@ getCertificationPosdcast(){
 }
 
 filterMatieres(): void {
-  if (this.certificatId1) {
-    this.filteredCertificatsArticle = this.ListCertificatArticle.filter(article => article.idChapitre === this.certificatId1);
-    this.filteredCertificatsVideo = this.ListCertificatVideo.filter(video => video.idChapitre === this.certificatId1);
-    this.filteredCertificatPosdcast = this.ListCertificatPosdcast.filter(podcast => podcast.idChapitre === this.certificatId1);
+  if (this.certificatId) {
+  //  this.filtredCertificatChapitre = this.ListCertificatChapitre.filter(chapitre=> chapitre.idContenuCertificat===this.certificatId);
+    this.filteredCertificatsArticle = this.ListCertificatArticle.filter(article =>this.filtredCertificatChapitre.some(chapitre=> chapitre.id === article.idChapitre));
+    this.filteredCertificatsVideo = this.ListCertificatVideo.filter(video =>this.filtredCertificatChapitre.some(chapitre=> chapitre.id === video.idChapitre));
+    this.filteredCertificatPosdcast = this.ListCertificatPosdcast.filter(podcast =>this.filtredCertificatChapitre.some(chapitre=> chapitre.id === podcast.idChapitre));
   }
 }
 
 //----------------------------------------------------------//
+
+
+
+
 
 }
 

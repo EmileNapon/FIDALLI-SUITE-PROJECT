@@ -28,7 +28,8 @@
             <button  type="submit" class="btn btn-warning w-100 mb-3">Se connecter</button>
         </form>
     
-    
+        <button (click)="authService.googleSignIn()" class="btn btn-danger w-100 mb-3">Se connecter avec Google</button>
+
         <p class="text-center">Vous avez déjà un compte ? <a routerLink="/usersPages/register" class="fw-bold text-decoration-none">inscrivez-vous ici</a></p>
     </div>
     </div>

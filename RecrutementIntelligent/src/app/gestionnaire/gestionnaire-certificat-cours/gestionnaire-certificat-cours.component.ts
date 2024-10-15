@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GestionnairesCoursServiceService } from '../gestionnaire-cours/gestionnaires-cours-service/gestionnaires-cours-service.service';
+import { GestionnairesModulesServiceService } from '../gestionnaire-modules/gestionnaires-modules-service/gestionnaires-modules-service.service';
 
 @Component({
   selector: 'app-gestionnaire-certificat-cours',
@@ -10,7 +11,7 @@ import { GestionnairesCoursServiceService } from '../gestionnaire-cours/gestionn
 })
 export class GestionnaireCertificatCoursComponent implements OnInit{
 
-  constructor(private matiereService: GestionnairesCoursServiceService,  private fb: FormBuilder, private router: ActivatedRoute, private route:Router) { }
+  constructor(private matiereService: GestionnairesCoursServiceService,private domaineService: GestionnairesModulesServiceService,  private fb: FormBuilder, private router: ActivatedRoute, private route:Router) { }
   selectedDomaineIndex:string=""
   selectedDomaineIndex1=false
   __iconDelete__:boolean=false
@@ -37,7 +38,7 @@ export class GestionnaireCertificatCoursComponent implements OnInit{
     this.__iconDelete__=false
   }
 
-
+val:number=0
   selecterDomaine(domaine:string, coursNom: string):void{
     this.__iconVoirMatiere__=true
     this.__iconDelete__=false
@@ -49,6 +50,7 @@ export class GestionnaireCertificatCoursComponent implements OnInit{
       this.selectedIds.push(domaine);
       this.selectedCoursNoms.push(coursNom);
     }
+   
       
   }
 
@@ -72,21 +74,35 @@ export class GestionnaireCertificatCoursComponent implements OnInit{
   certificatGestionnaireId: string | null = null;
   __matieresGestionnaire__: any[] = [];
   __filteredMatieresGestionnaire__: any[] = [];
- 
+  __domaines__: any[] = [];
+  filtred__domaines__:any[]=[]
   
   
   ngOnInit(): void {
     this.certificatGestionnaireId = this.router.snapshot.paramMap.get('certificatGestionnaireId');
     this.loadCoursgestionnaire();
     this.InitFormDomain()
-   this.__matieresGestionnaire__=this.matiereService.matiereGestionnaire
+    this.loadDomaines()
+    this.filterMatieresGestionnaire()
+    this.__matieresGestionnaire__=this.matiereService.matiereGestionnaire
+
   }
   
+
+
+
+
+  loadDomaines(): void {
+    this.domaineService.getDomaines().subscribe(data => {
+      this.__domaines__ = data;
+    });
+  }
+
+
   loadCoursgestionnaire(): void {
     this.matiereService.getMatieres().subscribe(data => {
       this.__matieresGestionnaire__ = data;
       this.filterMatieresGestionnaire()
-      console.log( this.certificatGestionnaireId)
     });
   }
 
@@ -95,7 +111,10 @@ export class GestionnaireCertificatCoursComponent implements OnInit{
   filterMatieresGestionnaire(): void {
     if (this.certificatGestionnaireId) {
       this.__filteredMatieresGestionnaire__ = this.__matieresGestionnaire__.filter(matiere => matiere.fk_domaineId === this.certificatGestionnaireId);
+      this.__domaines__;
+      console.log(this.__domaines__)
     }
+
   }
 
 
@@ -137,11 +156,6 @@ export class GestionnaireCertificatCoursComponent implements OnInit{
     }
   }
   
-
-
-
-
-
  
 
   onSubmit(){
@@ -155,6 +169,5 @@ export class GestionnaireCertificatCoursComponent implements OnInit{
 
 
 
-  
 
 }

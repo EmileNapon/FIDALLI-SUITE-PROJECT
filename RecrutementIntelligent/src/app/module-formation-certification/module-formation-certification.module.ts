@@ -23,6 +23,9 @@ import { FormulaireComponent } from './inscription-formation-presentielle/formul
 import {  WebinnairesComponent } from './Webinnaires/Webinnaires.component';
 import { CertificationContenuComponent } from './certification-contenu/certification-contenu.component';
 import { certificationContenuParcours1Component } from './certification-contenu_etape_1/certificationContenuEtape';
+import { QuizCertificationPageComponent } from './quiz-certification-page/quiz-certification-page.component';
+import { AnnonceComponent } from './prog-talent/annonce/annonce.component';
+
 
 @NgModule({
   declarations: [
@@ -38,10 +41,12 @@ import { certificationContenuParcours1Component } from './certification-contenu_
     QizCertificationComponent,
     QizCoursFormationPresentielleComponent, AcceuilFormationComponent, CardModuleComponent,SuivieCoursComponent, 
     InscriptionComponent, FormulaireComponent,WebinnairesComponent, CertificationContenuComponent,
-    certificationContenuParcours1Component
+    certificationContenuParcours1Component,
+    QuizCertificationPageComponent,
+    AnnonceComponent, 
   ],
   imports: [
-    CommonModule, ReactiveFormsModule,  HttpClientModule, RouterModule, FormsModule
+    CommonModule, ReactiveFormsModule,  HttpClientModule, RouterModule, FormsModule, 
   ]
 })
 export class ModuleFormationCertificationModule { }
