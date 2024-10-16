@@ -5,71 +5,29 @@
     
     
     <body>
+
+
+    <app-header-formation></app-header-formation>
     
-        <!-- Entête principale -->
-    
-                <nav class="navbar-light navbar-fixed-top bg-light  py-4">
-    
-                    <ul class="nav nav-underline">
-                        <li class="nav-item">
-                            <img src="assets/icon.png" alt="FuturAlliés Logo" routerLink='/acceuil' class="logo" height="50">
-                         </li>
-                      <li class="nav-item">
-                        <a routerLink='/formation/acceuilFormation' class="nav-link Activate" >Auditions Libres</a>
-                      </li>
-                      <li class="nav-item">
-                        <a routerLink='/FormationWebinaire' class="nav-link" >Programmes talents</a>
-                      </li>
-                      <li class="nav-item">
-                        <li class="nav-item">
-                          <a routerLink='/FormationWebinaire' class="nav-link" >Webinaires</a>
-                        </li>
-                        <li class="nav-item">
-                          
-                        <a routerLink='/formation/certification' class="nav-link" >Certifications</a>
-                      </li>
-                      <li class="nav-item">
-                        <form class="d-flex" role="search">
-                          <input class="form-control me-2 search-input" type="search" placeholder="RESEARCH UN COURS" aria-label="Search">
-                        </form>
-                      </li>
-                      <li class="nav-item">
-                        <a href="#trainers" class="nav-link" >Entreprises</a>
-                      </li>
-    
-                      <li class="nav-item" style="padding-left: 30px;">
-                        <a routerLink="/usersPages/login" class="btn btn-warning" >Se connecter</a>
-                      </li>
-                    </ul>
-                  </nav>
-                  
-    
-    
-    
-         <div class='container-fluid images-fixed' [class.fixed]="isFixed" >
-    
-        </div>
-    
-    
-       
-    
-    
-        
+    <div class='container-fluid images-fixed' ></div>
+     
           <section class="training-domains py-5 bg-light" >
-              <div class="container">
-                <div class='row' >
-                  <div class="col-md-4" *ngFor="let certificat of ListCertificat"  style='padding:10px'> 
-                      <button class=" container-l" (click)="onSelectDomaine(certificat.id)">
-                        <img src="assets/im1.jpg" class="card-img-top" alt="Développement Web" height='160px'>  
-                        <br/><br/>                        
-                        <p  class="card-title ModuleColor" style='font-size:120%'>{{certificat.titre}}</p><p class="card-title ModuleColor" style='font-size:70%;color:black'>Parcours certifiant</p>
-                         <br/>    
-                      </button>      
-                  </div>
+            <div class="container">
+              <div class='row' >
+                <div class="col-md-4" *ngFor="let certificat of ListCertificat"  style='padding:10px'> 
+                    <button class=" container-l" (click)="onSelectDomaine(certificat.id)">
+                      <img src="assets/im1.jpg" class="card-img-top" height='160px'>  
+                      <br/><br/>                        
+                       <p  class="card-title ModuleColor">{{certificat.titre}}</p><p class="card-title ModuleColor" style='font-size:70%;color:black'>Parcours certifiant</p>
+                       <br/>    
+                    </button>      
+                </div>
               </div>
-          </div>
-          
-      </section>
+            </div>
+
+          </section>
     </body>
       
+    
+
     

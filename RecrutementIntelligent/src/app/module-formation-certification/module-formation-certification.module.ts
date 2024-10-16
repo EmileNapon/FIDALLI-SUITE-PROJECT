@@ -25,6 +25,7 @@ import { CertificationContenuComponent } from './certification-contenu/certifica
 import { certificationContenuParcours1Component } from './certification-contenu_etape_1/certificationContenuEtape';
 import { QuizCertificationPageComponent } from './quiz-certification-page/quiz-certification-page.component';
 import { AnnonceComponent } from './prog-talent/annonce/annonce.component';
+import { HeaderFormationComponent } from '../header-footer/header-formation/header-formation.component';
 
 
 @NgModule({
@@ -43,7 +44,7 @@ import { AnnonceComponent } from './prog-talent/annonce/annonce.component';
     InscriptionComponent, FormulaireComponent,WebinnairesComponent, CertificationContenuComponent,
     certificationContenuParcours1Component,
     QuizCertificationPageComponent,
-    AnnonceComponent, 
+    AnnonceComponent, HeaderFormationComponent
   ],
   imports: [
     CommonModule, ReactiveFormsModule,  HttpClientModule, RouterModule, FormsModule, 

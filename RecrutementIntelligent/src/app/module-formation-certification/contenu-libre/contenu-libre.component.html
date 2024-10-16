@@ -4,38 +4,7 @@
         <!-- Entête principale -->
     
       
-        <nav class="navbar-light navbar-fixed-top bg-light py-4" style='color:#000000;' >
-    
-            <ul class="nav">
-                <li class="nav-item">
-                    <a>
-                    <img src="assets/icon.png" alt="FuturAlliés Logo" routerLink='/acceuil' class="logo" height="50">
-                    </a>
-                 </li>
-              <li class="nav-item">
-                <a routerLink='/formation/contenuLibre' class="nav-link" style="color: black;">Domaines</a>
-              </li>
-
-
-              <li class="nav-item">
-                <a routerLink='/formation/certification' class="nav-link" style="color: black;">Certificat</a>
-              </li>
-
-             <li class="nav-item">
-                <form class="d-flex" role="search">
-                  <input class="form-control me-2 search-input" type="search" placeholder="RESEARCH" aria-label="Search">
-                </form>
-              </li>
-
-              <li class="nav-item">
-                <a href="#trainers" class="nav-link" style="color: black;">Entreprises</a>
-              </li>
-              
-              <li class="nav-item" style="padding-left: 30px;">
-                <a routerLink="/usersPages/login" class="btn btn-warning" style="color: black;">Se connecter</a>
-              </li>
-            </ul>
-          </nav>
+       <app-header-formation></app-header-formation>
 
 
           <section class="banner bg-secondary text-white text-center py-5" style="position: relative; overflow: hidden;color:secondary;">

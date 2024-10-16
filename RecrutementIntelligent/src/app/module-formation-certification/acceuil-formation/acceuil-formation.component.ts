@@ -1,6 +1,7 @@
 import { DomaineService } from './acceuil-formation-services/acceuil-formations-services';
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/gestion-utilisateurs/connexion/service-connexion/service-connexion.service';
 
 @Component({
   selector: 'app-acceuil-formation',
@@ -10,33 +11,18 @@ import { Router } from '@angular/router';
 export class AcceuilFormationComponent implements OnInit {
 
   isFixed: boolean = false;
- change: boolean=false;
-
-
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    const scrollOffset = 20;  // Distance de défilement avant que la navbar ne devienne fixe
-
-    // Ajouter la classe fixed si l'utilisateur a défilé au-delà du seuil
-    if (window.pageYOffset > scrollOffset) {
-      this.isFixed = true;
-    } else {
-      this.isFixed = false;
-    }
-  }
-
-  change1(){
-    this.change=true;
-    return this.change
-  }
   
-
+userInfo: { email: string | null, firstName: string | null, lastName: string | null, profilePic: string | null } | null = null;
 domaines: any[] = [];
 
-constructor(private domaineService: DomaineService, private router: Router) { }
+constructor(private authService: AuthService, private domaineService: DomaineService, private router: Router) { }
 
 ngOnInit(): void {
   this.loadDomaines();
+  this.userInfo = this.authService.getUserInfo();
+}
+onLogout(): void {
+  this.authService.logout();
 }
 
 loadDomaines(): void {

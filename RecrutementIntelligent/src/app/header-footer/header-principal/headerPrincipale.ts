@@ -1,14 +1,16 @@
-import { ServiceConnexionPrincipale } from '../service-connexion-etudiant-principale.service';
-import { AuthService } from './../gestion-utilisateurs/connexion/service-connexion/service-connexion.service';
-import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+
+import { Component, HostListener, OnInit } from "@angular/core";
+import { AuthService } from "src/app/gestion-utilisateurs/connexion/service-connexion/service-connexion.service";
 
 @Component({
-  selector: 'app-acceuil',
-  templateUrl: './acceuil.component.html',
-  styleUrls: ['./acceuil.component.css']
+    selector:"app-headerPrincipale",
+    templateUrl: './headerPrincipale.html',
+    styleUrls:['./headerPrincipale.css']
 })
-export class AcceuilComponent implements OnInit{
-  constructor(private authService: AuthService, private ServiceConnexion: ServiceConnexionPrincipale) {}
+export class HeaderPrincipaleComponent implements OnInit{
+
+
+  constructor(private authService: AuthService) {}
 
   showSearch = false;
   userEmail: string | null = null;
@@ -47,5 +49,5 @@ ngOnInit():void{
 
 
 
-
+    
 }

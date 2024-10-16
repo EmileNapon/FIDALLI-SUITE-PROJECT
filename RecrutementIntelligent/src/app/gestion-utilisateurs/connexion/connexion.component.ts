@@ -1,4 +1,3 @@
-
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from './service-connexion/service-connexion.service';
@@ -9,7 +8,7 @@ import { Router } from '@angular/router';
   templateUrl: './connexion.component.html',
   styleUrls: ['./connexion.component.css']
 })
-export class ConnexionComponent implements OnInit  {
+export class ConnexionComponent implements OnInit {
   loginForm!: FormGroup;
   nom: any;
   errorMessage: string | null = null; // Stocker le message d'erreur
@@ -35,15 +34,19 @@ export class ConnexionComponent implements OnInit  {
     this.authService.login(email, password).subscribe({
       next: (response) => {
         console.log('Login successful', response);
-        // Stocker les tokens et les informations de l'utilisateur
+        // Stocker les tokens
         localStorage.setItem('access_token', response.access);
         localStorage.setItem('refresh_token', response.refresh);
 
+        // Stocker les informations utilisateur (nom, prénom, etc.)
+        localStorage.setItem('user_first_name', response.firstName);
+        localStorage.setItem('user_last_name', response.lastName);
+      console.log(response.role)
         // Rediriger en fonction du rôle de l'utilisateur
         if (response.role === 'etudiant') {
-          this.router.navigate(['/page-etudiant']);
+          this.router.navigate(['/acceuil']);
         } else if (response.role === 'employeur') {
-          this.router.navigate(['/page-employeur']);
+          this.router.navigate(['/premiumEmployeur']);
         } else {
           this.router.navigate(['/acceuil']);
         }
@@ -58,5 +61,4 @@ export class ConnexionComponent implements OnInit  {
       }
     });
   }
-
 }

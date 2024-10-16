@@ -14,11 +14,14 @@ import { EtablissementsComponent } from './orientations/etablissements/etablisse
 import { OrientationsModule } from './orientations/orientations.module';
 import { CardModuleComponent } from './module-formation-certification/domaines-listes/domaines.component';
 import { GestionnaireModule } from './gestionnaire/gestionnaire.module';
+import { Footer } from './header-footer/footer/footer';
+import{HeaderPrincipaleComponent} from './header-footer/header-principal/headerPrincipale';
+import { HeaderGestionnaireComponent } from './header-footer/header-gestionnaire/header-gestionnaire.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AcceuilComponent,PremiumEtudiantComponent,
+    AcceuilComponent,PremiumEtudiantComponent, HeaderPrincipaleComponent, HeaderGestionnaireComponent, 
   ],
   imports: [
     BrowserModule,
