@@ -18,16 +18,28 @@ import { Footer } from './header-footer/footer/footer';
 import{HeaderPrincipaleComponent} from './header-footer/header-principal/headerPrincipale';
 import { HeaderGestionnaireComponent } from './header-footer/header-gestionnaire/header-gestionnaire.component';
 
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './auth.interceptor'; // Chemin vers ton intercepteur
+import { ReactiveFormsModule } from '@angular/forms';
+
+
 @NgModule({
   declarations: [
     AppComponent,
     AcceuilComponent,PremiumEtudiantComponent, HeaderPrincipaleComponent, HeaderGestionnaireComponent, 
   ],
   imports: [
-    BrowserModule,
+    BrowserModule,ReactiveFormsModule,
     AppRoutingModule, RouterModule, GestionUtilisateursModule, OrientationsModule, ModuleFormationCertificationModule, GestionnaireModule, 
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

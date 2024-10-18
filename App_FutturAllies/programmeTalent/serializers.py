@@ -30,7 +30,7 @@ class GroupSerializer(serializers.ModelSerializer):
         model = Group
         fields =  '__all__'  # Including all necessary fields
 
-class create_AffectationStage(serializers.ModelSerializer):
+class AffectationStageSerializer(serializers.ModelSerializer):
     class Meta:
         model = AffectationStage
         fields =  '__all__'   # Including all necessary fields

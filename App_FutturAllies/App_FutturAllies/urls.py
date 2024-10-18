@@ -21,4 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('fidalli/',include('users.url')),
     path('fidalli/',include('Formation.url')),
+    path('fidalli/',include('Offres.url')),
+    path('fidalli/',include('programmeTalent.url')),
 ]

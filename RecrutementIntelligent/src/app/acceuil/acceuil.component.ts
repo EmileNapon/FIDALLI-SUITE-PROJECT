@@ -1,6 +1,11 @@
+import { HttpClient } from '@angular/common/http';
+import { AuthService } from '../gestion-utilisateurs/connexion/service-connexion/service-connexion.service';
 import { ServiceConnexionPrincipale } from '../service-connexion-etudiant-principale.service';
-import { AuthService } from './../gestion-utilisateurs/connexion/service-connexion/service-connexion.service';
 import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { UserService } from '../gestion-utilisateurs/inscription/service-inscription/service-inscription.service';
 
 @Component({
   selector: 'app-acceuil',
@@ -8,8 +13,8 @@ import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular
   styleUrls: ['./acceuil.component.css']
 })
 export class AcceuilComponent implements OnInit{
-  constructor(private authService: AuthService, private ServiceConnexion: ServiceConnexionPrincipale) {}
-
+  constructor(private domaine : UserService, private fb: FormBuilder ,private authService: AuthService, private ServiceConnexion: ServiceConnexionPrincipale, private http: HttpClient) {}
+  myf!:FormGroup
   showSearch = false;
   userEmail: string | null = null;
 
@@ -17,6 +22,16 @@ export class AcceuilComponent implements OnInit{
 
 ngOnInit():void{
   this.userInfo = this.authService.getUserInfo();
+
+
+
+  ///////////////////////////////////
+
+  this.myf = this.fb.group({
+    nom_domaine:''
+  });
+
+  //////////////////////////////////////////////
 }
 
   onLogout(): void {
@@ -46,6 +61,25 @@ ngOnInit():void{
   }
 
 
+//hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
 
 
-}
+
+
+onSubmit(): void {
+  
+    const domaine:any= this.myf.value;
+    console.log(domaine)
+    this.domaine.add(domaine).subscribe({
+      next: (response) => {
+        console.log('User registered successfully:', response);
+        console.log(domaine)
+      },
+      error: (error) => {
+        console.error('Error registering user:', error);
+      }
+    });
+  }
+    //////////////////////////////////////////////////////////////////////
+  }
+

@@ -36,7 +36,7 @@ export class CertificationContenuComponent implements OnInit {
 
   //---------------------------------//
 
-  constructor( private CertificatService:CertificationService, private ServicePrincipale: ServiceConnexionPrincipale, private router: Router, private route: ActivatedRoute){}
+  constructor( private CertificatService:CertificationService, private router: Router, private route: ActivatedRoute){}
   
   ngOnInit(): void {
     this.certificatId = this.route.snapshot.paramMap.get('idCertification');

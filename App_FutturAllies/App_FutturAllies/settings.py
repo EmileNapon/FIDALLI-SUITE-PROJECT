@@ -41,7 +41,11 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'users',
     'Formation',
-    #'programmeTalent'
+    'programmeTalent',
+    'Offres',
+    'corsheaders',
+    'dj_rest_auth',
+    'rest_framework.authtoken',
 ]
 
 
@@ -73,6 +77,11 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True
+
+
+DJREST_AUTH = {
+    'TOKEN_MODEL': None,
+}
 
 
 
