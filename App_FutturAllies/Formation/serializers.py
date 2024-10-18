@@ -1,31 +1,31 @@
-
-
-
+from email.headerregistry import Group
 from rest_framework import serializers
-from .models import Domaine,Module, Cours, Chapitre, Contenu
+
+import Formation
+from .models import Domaine,  Module, Cours, Chapitre, Contenu
 
 class DomaineSerializer(serializers.ModelSerializer):
-     class Meta:
+    class Meta:
         model = Domaine
-        fields = ["id_domaine","Nom_domaine"]
+        fields =  '__all__' 
 
 class ModuleSerializer(serializers.ModelSerializer):
-     class Meta:
+    class Meta:
         model = Module
-        fields = ["id_module","id_domaine","nom_module"]
+        fields = '__all__'  # Including all necessary fields
 
 class CoursSerializer(serializers.ModelSerializer):
-     class Meta:
+    class Meta:
         model = Cours
-        fields = ["id_chapitre","id_cours","titre"]
+        fields =  '__all__'   # Including all necessary fields
 
 class ChapitreSerializer(serializers.ModelSerializer):
-     class Meta:
+    class Meta:
         model = Chapitre
-        fields = ["id_domaine","Nom_domaine", "nom_cours"]
+        fields =  '__all__'  # Including all necessary fields
 
 class ContenuSerializer(serializers.ModelSerializer):
-     class Meta:
+    class Meta:
         model = Contenu
-        fields = ["id_contenu","id_chapitre","description"]
+        fields =  '__all__'   # Including all necessary fields
 
