@@ -1,6 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DomaineService } from '../acceuil-formation/acceuil-formation-services/acceuil-formations-services';
+
+import{ModuleService} from "./domaines_service/domainesServices"
 
 @Component({
   selector: 'app-card-module',
@@ -9,32 +10,35 @@ import { DomaineService } from '../acceuil-formation/acceuil-formation-services/
 })
 export class CardModuleComponent implements OnInit {
 
-  constructor(private domaineService: DomaineService, private router: ActivatedRoute, private route:Router) { }
+  constructor(private moduleService: ModuleService, private router: ActivatedRoute, private route:Router) { }
 
   domaineId: string | null = null;
-  matieres: any[] = [];
-  filteredMatieres: any[] = [];
+  modules: any[] = [];
+  filteredModules: any[] = [];
 
   ngOnInit(): void {
     // Récupérer l'ID du domaine à partir de l'URL
     this.domaineId = this.router.snapshot.paramMap.get('domaineId');
-    console.log(this.domaineId)
-    this.loadMatieres();
+    //console.log(this.domaineId)
+    this.loadModules();
   }
 
-  loadMatieres(): void {
-    this.domaineService.getMatieres().subscribe(data => {
-      this.matieres = data;
-      this.filterMatieres(); // Filtrer les matières en fonction de l'ID du domaine
+  loadModules(): void {
+    this.moduleService.getModules().subscribe(data => {
+      this.modules = data;
+      this.filterModules(); // Filtrer les matières en fonction de l'ID du domaine
+      
     });
   }
-  filterMatieres(): void {
+  filterModules(): void {
     if (this.domaineId) {
-      this.filteredMatieres = this.matieres.filter(matiere => matiere.fk_domaineId === this.domaineId);
+      this.filteredModules = this.modules.filter(module => module.domaine == this.domaineId);
+     
+  
     }
   }
 
-  onSelectDomaine(coursId: string): void {
+  onSelectModule(coursId: string): void {
     this.route.navigate([`/cours/${coursId}/content`]); // Redirection vers la page des matières du domaine sélectionné
   }
 }

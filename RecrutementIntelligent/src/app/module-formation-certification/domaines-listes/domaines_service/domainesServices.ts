@@ -8,14 +8,16 @@ import { Observable } from 'rxjs';
     providedIn: 'root'
   })
 
-  export class DomaineServiceCours {
+  export class ModuleService {
 
 constructor( private http: HttpClient ) { }
 
-  apiUrl='http://localhost:9999/matieres'
+  private modulesUrl = 'http://localhost:8000/fidalli/modules/list_modules';
 
-getDataDomaine(domaineId:string): Observable<any[]>{
-  return this.http.get<any[]>(`${this.apiUrl}?domaineId=${domaineId}`)
+
+getModules(): Observable<any[]> {
+  return this.http.get<any[]>(this.modulesUrl);
 }
+
 
   }

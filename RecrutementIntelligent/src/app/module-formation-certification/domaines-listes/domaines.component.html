@@ -31,13 +31,13 @@
           <section class="courses-list">
             <h2>Cours Disponibles</h2>
             <div class="row">
-              <div class="col-md-4" *ngFor='let cour of filteredMatieres, let i =index'>
+              <div class="col-md-4" *ngFor='let module of filteredModules'>
                 <div class="card mb-4 shadow-sm">
                   <div class="card-body">
-                    <h5 class="card-title">{{cour.nom}}</h5>
+                    <h5 class="card-title">{{module.nom_module}}</h5>
                     <p class="card-text">Niveau : ★★★</p>
                     <p class="card-text">Durée : 4 heures</p>
-                    <button (click)="onSelectDomaine(cour.id)" class="btn btn-primary">Voir les détails</button>
+                    <button (click)="onSelectModule(module.id)" class="btn btn-primary">Voir les détails</button>
                   </div>
                 </div>
               </div>

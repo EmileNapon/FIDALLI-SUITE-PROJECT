@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 
 export class DomaineService {
 
-  private domainesUrl = 'http://localhost:9999/Domaines';
+  private domainesUrl = 'http://localhost:8000/fidalli/domaines/list_domaines';
   private matieresUrl = 'http://localhost:9999/matieres';
   private coursUrl= "http://localhost:9999/cours";
   private cours_presentiel="http://localhost:9999/infos_cours_presentiel"

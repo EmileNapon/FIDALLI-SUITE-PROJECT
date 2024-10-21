@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DomaineService } from '../acceuil-formation/acceuil-formation-services/acceuil-formations-services';
 import { ActivatedRoute, Router, Routes } from '@angular/router';
+import { CoursService } from './cours-service/cours.service';
 
 @Component({
   selector: 'app-cours',
@@ -9,7 +9,7 @@ import { ActivatedRoute, Router, Routes } from '@angular/router';
 })
 export class CoursComponent implements OnInit{
  
-  constructor(private domaineService: DomaineService, private route: Router,private router: ActivatedRoute) { }
+  constructor(private coursService: CoursService, private route: Router,private router: ActivatedRoute) { }
   
 
   coursId: string | null = null;
@@ -23,7 +23,7 @@ export class CoursComponent implements OnInit{
   }
 
   loadMatieres(): void {
-    this.domaineService.getCours().subscribe(data => {
+    this.coursService.getCours().subscribe(data => {
       this.cours = data;
       console.log(this.cours)
       this.filterCours(); // Filtrer les matières en fonction de l'ID du domaine
@@ -31,7 +31,9 @@ export class CoursComponent implements OnInit{
   }
   filterCours(): void {
     if (this.coursId) {
-      this.coursFiltres = this.cours.filter(cour => cour.fk_matiere === this.coursId);
+      
+      this.coursFiltres = this.cours.filter(cour => cour.module == this.coursId);
+      console.log(this.coursFiltres)
     }
   }
 
