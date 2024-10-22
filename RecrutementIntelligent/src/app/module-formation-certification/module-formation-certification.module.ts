@@ -26,6 +26,11 @@ import { certificationContenuParcours1Component } from './certification-contenu_
 import { QuizCertificationPageComponent } from './quiz-certification-page/quiz-certification-page.component';
 import { AnnonceComponent } from './prog-talent/annonce/annonce.component';
 import { HeaderFormationComponent } from '../header-footer/header-formation/header-formation.component';
+import { WebinarComponent } from './webinar/components/webinar/webinar.component';
+import { WebinarListComponent } from './webinar/components/webinar-list/webinar-list.component';
+import { WebinarDetailsComponent } from './webinar/components/webinar-details/webinar-details.component';
+import { WebinarEnrollComponent } from './webinar/components/webinar-enrollment/webinar-enrollment.component';
+import { WebinarManagementComponent } from './webinar/components/webinar-management/webinar-management.component';
 
 
 @NgModule({
@@ -44,10 +49,14 @@ import { HeaderFormationComponent } from '../header-footer/header-formation/head
     InscriptionComponent, FormulaireComponent,WebinnairesComponent, CertificationContenuComponent,
     certificationContenuParcours1Component,
     QuizCertificationPageComponent,
-    AnnonceComponent, HeaderFormationComponent
+    AnnonceComponent, HeaderFormationComponent,WebinarComponent,
+    WebinarListComponent,
+    WebinarDetailsComponent,
+    WebinarEnrollComponent,
+    WebinarManagementComponent 
   ],
   imports: [
-    CommonModule, ReactiveFormsModule,  HttpClientModule, RouterModule, FormsModule, 
+    CommonModule, ReactiveFormsModule,  HttpClientModule, RouterModule, FormsModule,ReactiveFormsModule, 
   ]
 })
 export class ModuleFormationCertificationModule { }

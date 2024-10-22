@@ -34,6 +34,10 @@ import { certificationContenuParcours1Component } from './module-formation-certi
 import { GestionnaireCertificatComponent } from './gestionnaire/gestionnaire-certificat/gestionnaire-certificat.component';
 import { GestionnaireCertificatCoursComponent } from './gestionnaire/gestionnaire-certificat-cours/gestionnaire-certificat-cours.component';
 import { QizCertificationComponent } from './module-formation-certification/qiz-certification/qiz-certification.component';
+import { WebinarListComponent } from './module-formation-certification/webinar/components/webinar-list/webinar-list.component';
+import { WebinarDetailsComponent } from './module-formation-certification/webinar/components/webinar-details/webinar-details.component';
+import { WebinarEnrollComponent } from './module-formation-certification/webinar/components/webinar-enrollment/webinar-enrollment.component';
+import { WebinarManagementComponent } from './module-formation-certification/webinar/components/webinar-management/webinar-management.component';
 
 const routes: Routes = [
 
@@ -43,6 +47,12 @@ const routes: Routes = [
   {path:'premiumEmployeur', component:PremiumEmployeurComponent},
   {path:'premiumEtudiant', component:PremiumEtudiantComponent},
   {path:'acceuil', component:AcceuilComponent},
+
+
+  { path: 'webinar-list', component: WebinarListComponent },
+  { path: 'webinar-details/:id', component: WebinarDetailsComponent },
+  { path: 'webinar-enroll/:id', component: WebinarEnrollComponent },
+  { path: 'webinar-dashboard', component: WebinarManagementComponent},
 
   {path:'formation',component:ModuleFormationCertificationComponent,children:[
     {path:'pagesEtudiant', component:PagesEtudiantsComponent},
