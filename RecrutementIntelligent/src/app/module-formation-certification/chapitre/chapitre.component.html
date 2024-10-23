@@ -49,10 +49,21 @@
     <div class="card" style='border:none; '>
       <div class="card-body">
           <br/> <br/> 
-        <span style='font-size:110%;' *ngFor='let chapitre of chapitreFiltres '>
-          <p>
+        <span style='font-size:110%;' *ngFor='let chapitre of chapitreFiltres; let i=index'>
+          <h1>
             {{chapitre.titre}}
-          </p>
+          </h1>
+          <br/>
+          
+          <div *ngFor='let contenu of ContenusFiltres '>
+            <h3 *ngIf='contenu.chapitre==chapitre.id'>{{contenu.id}}- {{contenu.sous_titre}}</h3>
+            <p *ngIf='contenu.chapitre==chapitre.id'>
+                {{contenu.description}}
+              </p>
+              
+          </div>
+       
+  
   
            
    

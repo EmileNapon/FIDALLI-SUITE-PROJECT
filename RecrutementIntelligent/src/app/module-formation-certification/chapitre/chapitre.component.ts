@@ -49,7 +49,7 @@ export class ChapitreComponent implements OnInit {
   }
 
   filterContenu(): void {    
-      this.ContenusFiltres = this.Contenus.filter(contenu =>contenu.id=1);
-      console.log(this.Contenus)
+      this.ContenusFiltres = this.Contenus.filter(contenu => this.chapitreFiltres.some(chapitre=>chapitre.id==contenu.chapitre));
+      console.log(this.ContenusFiltres)
   }
 }
