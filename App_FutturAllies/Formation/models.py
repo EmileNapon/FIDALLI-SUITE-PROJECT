@@ -28,8 +28,10 @@ class Chapitre(models.Model):
         return self.titre
 
 class Contenu(models.Model):
+
     chapitre = models.ForeignKey(Chapitre,null=True, on_delete=models.CASCADE)  # Relation vers Chapitre
-    description = models.TextField(max_length=800, null=True)
+    sous_titre=models.CharField(max_length=800, default='')
+    description = models.TextField(max_length=800)
 
     def __str__(self):
         return self.description  # Retourne les premiers 50 caractères
