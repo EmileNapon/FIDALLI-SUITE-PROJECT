@@ -8,7 +8,7 @@ import{ModuleService} from "./domaines_service/domainesServices"
   templateUrl: './domaines.component.html',
   styleUrls: ['./domaines.component.css']
 })
-export class CardModuleComponent implements OnInit {
+export class ModuleComponent implements OnInit {
 
   constructor(private moduleService: ModuleService, private router: ActivatedRoute, private route:Router) { }
 

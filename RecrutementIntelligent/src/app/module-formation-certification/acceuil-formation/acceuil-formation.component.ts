@@ -32,7 +32,7 @@ loadDomaines(): void {
 }
 
 onSelectDomaine(domaineId: string): void {
-  this.router.navigate([`/domaines/${domaineId}/cours`]); 
+  this.router.navigate([`/domaines/${domaineId}/modules`]); 
 }
   
 

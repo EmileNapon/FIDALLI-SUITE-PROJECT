@@ -12,7 +12,6 @@ import { AcceuilFormationComponent } from './module-formation-certification/acce
 import { OrientationAcceuilComponent } from './orientations/orientation-acceuil/orientation-acceuil.component';
 import { EtablissementsComponent } from './orientations/etablissements/etablissements.component';
 import { OrientationsModule } from './orientations/orientations.module';
-import { CardModuleComponent } from './module-formation-certification/domaines-listes/domaines.component';
 import { GestionnaireModule } from './gestionnaire/gestionnaire.module';
 import { Footer } from './header-footer/footer/footer';
 import{HeaderPrincipaleComponent} from './header-footer/header-principal/headerPrincipale';

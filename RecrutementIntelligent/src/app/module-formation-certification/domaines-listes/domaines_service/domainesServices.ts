@@ -13,6 +13,7 @@ import { Observable } from 'rxjs';
 constructor( private http: HttpClient ) { }
 
   private modulesUrl = 'http://localhost:8000/fidalli/modules/list_modules';
+  
 
 
 getModules(): Observable<any[]> {

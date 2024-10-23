@@ -16,7 +16,7 @@ import { QizCertificationComponent } from './qiz-certification/qiz-certification
 import { QizCoursFormationPresentielleComponent } from './qiz-cours-formation-presentielle/qiz-cours-formation-presentielle.component'
 import { AcceuilFormationComponent } from './acceuil-formation/acceuil-formation.component';
 import { QizContenuLibreComponent } from './qiz-contenu-libre/quiz-contenu-libre.component';
-import { CardModuleComponent } from './domaines-listes/domaines.component';
+import { ModuleComponent } from './domaines-listes/domaines.component';
 import { SuivieCoursComponent } from './contenu-cours/suivie_cours.component';
 import { InscriptionComponent } from './inscription_cours/inscription.component';
 import { FormulaireComponent } from './inscription-formation-presentielle/formulaire/formulaire.component';
@@ -45,7 +45,7 @@ import { WebinarManagementComponent } from './webinar/components/webinar-managem
     CoursComponent,
     QizContenuLibreComponent,
     QizCertificationComponent,
-    QizCoursFormationPresentielleComponent, AcceuilFormationComponent, CardModuleComponent,SuivieCoursComponent, 
+    QizCoursFormationPresentielleComponent, AcceuilFormationComponent, ModuleComponent,SuivieCoursComponent, 
     InscriptionComponent, FormulaireComponent,WebinnairesComponent, CertificationContenuComponent,
     certificationContenuParcours1Component,
     QuizCertificationPageComponent,

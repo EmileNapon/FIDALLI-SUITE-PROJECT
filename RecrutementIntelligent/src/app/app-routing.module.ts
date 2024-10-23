@@ -19,7 +19,7 @@ import { EtablissementsComponent } from './orientations/etablissements/etablisse
 import { OrientationsComponent } from './orientations/orientations.component';
 import { OrientationAcceuilComponent } from './orientations/orientation-acceuil/orientation-acceuil.component';
 import { QizContenuLibreComponent } from './module-formation-certification/qiz-contenu-libre/quiz-contenu-libre.component';
-import { CardModuleComponent } from './module-formation-certification/domaines-listes/domaines.component';
+import { ModuleComponent } from './module-formation-certification/domaines-listes/domaines.component';
 import { SuivieCoursComponent } from './module-formation-certification/contenu-cours/suivie_cours.component';
 import { InscriptionComponent } from './module-formation-certification/inscription_cours/inscription.component';
 import { CoursComponent } from './module-formation-certification/cours/cours.component';
@@ -66,7 +66,7 @@ const routes: Routes = [
 ]},
 
   {path:'domaines', component:AcceuilFormationComponent},
-  {path:'domaines/:domaineId/cours', component:CardModuleComponent},  
+  {path:'domaines/:domaineId/modules', component:ModuleComponent},  
   {path:'cours/:coursId/content', component:CoursComponent},
 
 
