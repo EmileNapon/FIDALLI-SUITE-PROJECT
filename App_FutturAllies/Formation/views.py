@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.decorators import api_view
 
-from Formation.models import Domaine, Module, Cours
+from Formation.models import Domaine, Module, Cours, Chapitre,Contenu
 from .serializers import ChapitreSerializer, ContenuSerializer, CoursSerializer, DomaineSerializer, ModuleSerializer
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
@@ -74,6 +74,14 @@ def create_chapitre(request):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])  # Permet seulement aux utilisateurs authentifiés de lister les offres
+def list_chapitres(request):
+    chapitre= Chapitre.objects.all()  # Récupérer toutes les offres
+    serializer = ChapitreSerializer(chapitre, many=True)  # Sérialiser les données
+    return Response(serializer.data, status=status.HTTP_200_OK)
+    
 ###################################################################################################
 
 
@@ -86,6 +94,14 @@ def create_contenu(request):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
+
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])  # Permet seulement aux utilisateurs authentifiés de lister les offres
+def list_contenus(request):
+    contenu= Contenu.objects.all()  # Récupérer toutes les offres
+    serializer = ContenuSerializer(contenu, many=True)  # Sérialiser les données
+    return Response(serializer.data, status=status.HTTP_200_OK)
 ###################################################################################################
 
 

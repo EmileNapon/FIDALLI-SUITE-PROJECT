@@ -12,5 +12,9 @@ urlpatterns = [
     path('cours/list_cours', views.list_cours, name='list_cours'), 
 ##########################################################################################
     path('chapitre/create/', views.create_chapitre, name='create_chapitre'),
+    path('chapitre/list_chapitres', views.list_chapitres, name='list_chapitres'), 
+##########################################################################################
     path('contenu/create/', views.create_contenu, name='create_contenu'),
+    path('contenus/list_contenus', views.list_contenus, name='list_contenus'), 
+
 ]

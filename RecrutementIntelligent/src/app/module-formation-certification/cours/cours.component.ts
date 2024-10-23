@@ -19,27 +19,24 @@ export class CoursComponent implements OnInit{
   ngOnInit(): void {
     // Récupérer l'ID du domaine à partir de l'URL
     this.coursId = this.router.snapshot.paramMap.get('coursId');
-    this.loadMatieres();
+    this.loadCours();
   }
 
-  loadMatieres(): void {
+  loadCours(): void {
     this.coursService.getCours().subscribe(data => {
       this.cours = data;
-      console.log(this.cours)
       this.filterCours(); // Filtrer les matières en fonction de l'ID du domaine
     });
   }
   filterCours(): void {
-    if (this.coursId) {
-      
+    if (this.coursId) { 
       this.coursFiltres = this.cours.filter(cour => cour.module == this.coursId);
-      console.log(this.coursFiltres)
     }
   }
 
     
   onSelectPage(idPage: number): void {
-    this.route.navigate([`/page/${idPage}/pageContenu`]); // Naviguer vers la page sélectionnée
+    this.route.navigate([`/cours/${idPage}/chapitres`]); // Naviguer vers la page sélectionnée
   }
 
 }

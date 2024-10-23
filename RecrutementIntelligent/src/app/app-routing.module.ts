@@ -32,6 +32,7 @@ import { WebinarListComponent } from './module-formation-certification/webinar/c
 import { WebinarDetailsComponent } from './module-formation-certification/webinar/components/webinar-details/webinar-details.component';
 import { WebinarEnrollComponent } from './module-formation-certification/webinar/components/webinar-enrollment/webinar-enrollment.component';
 import { WebinarManagementComponent } from './module-formation-certification/webinar/components/webinar-management/webinar-management.component';
+import { ChapitreComponent } from './module-formation-certification/chapitre/chapitre.component';
 
 const routes: Routes = [
 
@@ -58,6 +59,8 @@ const routes: Routes = [
   {path:'domaines', component:AcceuilFormationComponent},
   {path:'domaines/:domaineId/modules', component:ModuleComponent},  
   {path:'modules/:coursId/cours', component:CoursComponent},
+  {path:'cours/:chapitreId/chapitres', component:ChapitreComponent},
+
 
 
 
