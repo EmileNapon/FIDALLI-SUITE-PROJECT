@@ -4,36 +4,30 @@ import { FacturationComponent } from './gestion-abonnements-premium/facturation/
 import { PremiumEmployeurComponent } from './gestion-abonnements-premium/premium-employeur/premium-employeur.component';
 import { PremiumCandidatComponent } from './gestion-abonnements-premium/premium-candidat/premium-candidat.component';
 import { PremiumEtudiantComponent } from './gestion-abonnements-premium/premium-etudiant/premium-etudiant.component';
-import { PagesEtudiantsComponent } from './module-formation-certification/pages-etudiants/pages-etudiants.component';
 import { ModuleFormationCertificationComponent } from './module-formation-certification/module-formation-certification.component';
 import { AcceuilComponent } from './acceuil/acceuil.component';
-import { PagesCandidatComponent } from './module-formation-certification/pages-candidat/pages-candidat.component';
 import { ContenuLibreComponent } from './module-formation-certification/contenu-libre/contenu-libre.component';
 import { GestionUtilisateursComponent } from './gestion-utilisateurs/gestion-utilisateurs.component';
 import { RegistrationComponent } from './gestion-utilisateurs/inscription/inscription.component';
 import { ConnexionComponent } from './gestion-utilisateurs/connexion/connexion.component';
-import { InscriptionFormationPresentielleComponent } from './module-formation-certification/inscription-formation-presentielle/inscription-formation-presentielle.component';
-import { FormationPourCertificationComponent } from './module-formation-certification/formation-pour-certification/formation-pour-certification.component';
 import { AcceuilFormationComponent } from './module-formation-certification/acceuil-formation/acceuil-formation.component';
 import { EtablissementsComponent } from './orientations/etablissements/etablissements.component';
 import { OrientationsComponent } from './orientations/orientations.component';
 import { OrientationAcceuilComponent } from './orientations/orientation-acceuil/orientation-acceuil.component';
-import { QizContenuLibreComponent } from './module-formation-certification/qiz-contenu-libre/quiz-contenu-libre.component';
 import { ModuleComponent } from './module-formation-certification/domaines-listes/domaines.component';
 import { SuivieCoursComponent } from './module-formation-certification/contenu-cours/suivie_cours.component';
-import { InscriptionComponent } from './module-formation-certification/inscription_cours/inscription.component';
+
 import { CoursComponent } from './module-formation-certification/cours/cours.component';
 import { GestionnaireAcceuilComponent } from './gestionnaire/gestionnaire-acceuil/gestionnaire-acceuil.component';
 import { GestionnaireModulesComponent } from './gestionnaire/gestionnaire-modules/gestionnaire-modules.component';
 import { GestionnaireCoursComponent } from './gestionnaire/gestionnaire-cours/gestionnaire-cours.component';
 import { GestionnaireContenuCoursComponent } from './gestionnaire/gestionnaire-contenu-cours/gestionnaire-contenu-cours.component';
-import { WebinnairesComponent } from './module-formation-certification/Webinnaires/Webinnaires.component';
+
 import { CertificationComponent } from './module-formation-certification/certification/certification.component';
 import { CertificationContenuComponent } from './module-formation-certification/certification-contenu/certification-contenu.component';
 import { certificationContenuParcours1Component } from './module-formation-certification/certification-contenu_etape_1/certificationContenuEtape';
 import { GestionnaireCertificatComponent } from './gestionnaire/gestionnaire-certificat/gestionnaire-certificat.component';
 import { GestionnaireCertificatCoursComponent } from './gestionnaire/gestionnaire-certificat-cours/gestionnaire-certificat-cours.component';
-import { QizCertificationComponent } from './module-formation-certification/qiz-certification/qiz-certification.component';
 import { WebinarListComponent } from './module-formation-certification/webinar/components/webinar-list/webinar-list.component';
 import { WebinarDetailsComponent } from './module-formation-certification/webinar/components/webinar-details/webinar-details.component';
 import { WebinarEnrollComponent } from './module-formation-certification/webinar/components/webinar-enrollment/webinar-enrollment.component';
@@ -55,26 +49,20 @@ const routes: Routes = [
   { path: 'webinar-dashboard', component: WebinarManagementComponent},
 
   {path:'formation',component:ModuleFormationCertificationComponent,children:[
-    {path:'pagesEtudiant', component:PagesEtudiantsComponent},
-    {path:'pagesCandidat', component:PagesCandidatComponent},
+
     {path:'contenuLibre', component:ContenuLibreComponent}, 
-    {path:'certification', component:FormationPourCertificationComponent},
-    {path:'FormationPresentielle', component:InscriptionFormationPresentielleComponent},
-    {path:'quiz', component:QizContenuLibreComponent},
     {path:'cours', component:SuivieCoursComponent},
 
 ]},
 
   {path:'domaines', component:AcceuilFormationComponent},
   {path:'domaines/:domaineId/modules', component:ModuleComponent},  
-  {path:'cours/:coursId/content', component:CoursComponent},
+  {path:'modules/:coursId/cours', component:CoursComponent},
 
 
-  {path:'FormationPresentiel', component:InscriptionFormationPresentielleComponent},
-  {path:'FormationPresentiel/:idcoursPresentiel/coursPresentielForms', component:InscriptionComponent},
 
-  {path:'FormationWebinaire', component:WebinnairesComponent},
-  {path:'FormationWebinaire/:idWebinaire/webinaires', component:InscriptionComponent},
+
+
 
 
   {path:'certification', component:CertificationComponent},
@@ -84,7 +72,6 @@ const routes: Routes = [
   {path:'certification/:idCertification/certification', component:CertificationContenuComponent},
   {path:'parcours/:idCertificationEParcours1', component:certificationContenuParcours1Component},
 
-  { path: 'page/:idPage/pageContenu', component: QizCertificationComponent },
 
   
   {path:'usersPages',component:GestionUtilisateursComponent,children:[

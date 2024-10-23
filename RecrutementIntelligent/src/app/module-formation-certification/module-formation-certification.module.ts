@@ -6,54 +6,43 @@ import { RouterModule } from '@angular/router';
 import{HttpClientModule} from '@angular/common/http';
 import { ModuleFormationCertificationComponent } from './module-formation-certification.component';
 import { ContenuLibreComponent } from './contenu-libre/contenu-libre.component';
-import { InscriptionFormationPresentielleComponent } from './inscription-formation-presentielle/inscription-formation-presentielle.component';
-import { FormationPourCertificationComponent } from './formation-pour-certification/formation-pour-certification.component';
 import { CertificationComponent } from './certification/certification.component';
-import { PagesEtudiantsComponent } from './pages-etudiants/pages-etudiants.component';
-import { PagesCandidatComponent } from './pages-candidat/pages-candidat.component';
+
 import { CoursComponent } from './cours/cours.component';
-import { QizCertificationComponent } from './qiz-certification/qiz-certification.component';
-import { QizCoursFormationPresentielleComponent } from './qiz-cours-formation-presentielle/qiz-cours-formation-presentielle.component'
 import { AcceuilFormationComponent } from './acceuil-formation/acceuil-formation.component';
-import { QizContenuLibreComponent } from './qiz-contenu-libre/quiz-contenu-libre.component';
 import { ModuleComponent } from './domaines-listes/domaines.component';
 import { SuivieCoursComponent } from './contenu-cours/suivie_cours.component';
-import { InscriptionComponent } from './inscription_cours/inscription.component';
-import { FormulaireComponent } from './inscription-formation-presentielle/formulaire/formulaire.component';
-import {  WebinnairesComponent } from './Webinnaires/Webinnaires.component';
+
+
 import { CertificationContenuComponent } from './certification-contenu/certification-contenu.component';
 import { certificationContenuParcours1Component } from './certification-contenu_etape_1/certificationContenuEtape';
-import { QuizCertificationPageComponent } from './quiz-certification-page/quiz-certification-page.component';
-import { AnnonceComponent } from './prog-talent/annonce/annonce.component';
+
+
 import { HeaderFormationComponent } from '../header-footer/header-formation/header-formation.component';
 import { WebinarComponent } from './webinar/components/webinar/webinar.component';
 import { WebinarListComponent } from './webinar/components/webinar-list/webinar-list.component';
 import { WebinarDetailsComponent } from './webinar/components/webinar-details/webinar-details.component';
 import { WebinarEnrollComponent } from './webinar/components/webinar-enrollment/webinar-enrollment.component';
 import { WebinarManagementComponent } from './webinar/components/webinar-management/webinar-management.component';
+import { ChapitreComponent } from './chapitre/chapitre.component';
 
 
 @NgModule({
   declarations: [
     ModuleFormationCertificationComponent,
     ContenuLibreComponent,
-    InscriptionFormationPresentielleComponent,
-    FormationPourCertificationComponent,
     CertificationComponent,
-    PagesEtudiantsComponent,
-    PagesCandidatComponent,
+
     CoursComponent,
-    QizContenuLibreComponent,
-    QizCertificationComponent,
-    QizCoursFormationPresentielleComponent, AcceuilFormationComponent, ModuleComponent,SuivieCoursComponent, 
-    InscriptionComponent, FormulaireComponent,WebinnairesComponent, CertificationContenuComponent,
+    AcceuilFormationComponent, ModuleComponent,SuivieCoursComponent, 
+    CertificationContenuComponent,
     certificationContenuParcours1Component,
-    QuizCertificationPageComponent,
-    AnnonceComponent, HeaderFormationComponent,WebinarComponent,
+    HeaderFormationComponent,WebinarComponent,
     WebinarListComponent,
     WebinarDetailsComponent,
     WebinarEnrollComponent,
-    WebinarManagementComponent 
+    WebinarManagementComponent,
+    ChapitreComponent 
   ],
   imports: [
     CommonModule, ReactiveFormsModule,  HttpClientModule, RouterModule, FormsModule,ReactiveFormsModule, 

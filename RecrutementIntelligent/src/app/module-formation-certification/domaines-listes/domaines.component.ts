@@ -39,6 +39,6 @@ export class ModuleComponent implements OnInit {
   }
 
   onSelectModule(coursId: string): void {
-    this.route.navigate([`/cours/${coursId}/content`]); // Redirection vers la page des matières du domaine sélectionné
+    this.route.navigate([`/modules/${coursId}/cours`]); // Redirection vers la page des matières du domaine sélectionné
   }
 }
