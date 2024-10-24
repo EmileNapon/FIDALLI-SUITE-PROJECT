@@ -93,14 +93,14 @@ val:number=0
 
 
   loadDomaines(): void {
-    this.domaineService.getDomaines().subscribe(data => {
+    this.domaineService.getModule().subscribe(data => {
       this.__domaines__ = data;
     });
   }
 
 
   loadCoursgestionnaire(): void {
-    this.matiereService.getMatieres().subscribe(data => {
+    this.matiereService.getCours().subscribe(data => {
       this.__matieresGestionnaire__ = data;
       this.filterMatieresGestionnaire()
     });
@@ -145,7 +145,7 @@ val:number=0
     }
     
 
-      this.matiereService.addMatieres(nouvelleMatiere).subscribe(response => {
+      this.matiereService.addCours(nouvelleMatiere).subscribe(response => {
         console.log('Nouvelle matière ajoutée avec succès', response);
         
         // Optionnel : Actualiser la liste des matières après ajout

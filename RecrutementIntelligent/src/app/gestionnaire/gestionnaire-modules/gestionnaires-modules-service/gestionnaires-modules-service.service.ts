@@ -9,18 +9,15 @@ export class GestionnairesModulesServiceService {
   constructor(private http:HttpClient ) { 
 
   } 
-   private domainesUrl = 'http://localhost:9999/Domaines';
-   private matieresUrl = 'http://localhost:9999/matieres';
+   private modulesUrl = 'http://127.0.0.1:8000/fidalli/modules/list_modules';
+   private adModulesUrl = 'http://127.0.0.1:8000/fidalli/modules/create';
 
-   getDomaines(): Observable<any[]> {
-    return this.http.get<any[]>(this.domainesUrl);
+   getModule(): Observable<any[]> {
+    return this.http.get<any[]>(this.modulesUrl);
   }
 
-  addDomaine(domaine: any): Observable<any> {
-    return this.http.post(`${this.domainesUrl}/`, domaine);
+  addModule(module: any): Observable<any> {
+    return this.http.post(`${this.adModulesUrl}/`, module);
   }
-
-  
-
 
 }

@@ -11,66 +11,65 @@ import { GestionnairesCoursServiceService } from './gestionnaires-cours-service/
 })
 export class GestionnaireCoursComponent implements OnInit{
 
-  constructor(private matiereService: GestionnairesCoursServiceService,  private fb: FormBuilder, private router: ActivatedRoute, private route:Router) { }
-  selectedDomaineIndex:string=""
+  constructor(private coursService: GestionnairesCoursServiceService,  private fb: FormBuilder, private router: ActivatedRoute, private route:Router) { }
+  selectedCoursIndex:string=""
   __iconDelete__:boolean=false
-  __iconVoirMatiere__:boolean= false
-  __addDomaine__:boolean=false
+  __iconVoirCours__:boolean= false
+  __addCours__:boolean=false
 
   ondelete():void{
     this.__iconDelete__=!this.__iconDelete__
-    this.__iconVoirMatiere__=false
+    this.__iconVoirCours__=false
   }
 
 
 
 
-  onVoirMatiere():void{
-    this.__iconVoirMatiere__=!this.__iconVoirMatiere__
+  onVoirCours():void{
+    this.__iconVoirCours__=!this.__iconVoirCours__
     this.__iconDelete__=false
   }
 
 
-  selecterDomaine(domaine:string){
-    this.__iconVoirMatiere__=true
+  selecterDomaine(cours:string){
+    this.__iconVoirCours__=true
     this.__iconDelete__=false
-    this.selectedDomaineIndex=domaine
+    this.selectedCoursIndex=cours
       
   }
 
   OnAdd():void{
-    this.__addDomaine__=!this.__addDomaine__
+    this.__addCours__=!this.__addCours__
     this.__iconDelete__=false
-    this.__iconVoirMatiere__= false
+    this.__iconVoirCours__= false
   }
 
 
-  iddomaineGestionnaireId: string | null = null;
-  __matieresGestionnaire__: any[] = [];
-  __filteredMatieresGestionnaire__: any[] = [];
+  idmoduleGestionnaireId: string | null = null;
+  __coursGestionnaire__: any[] = [];
+  __filteredCoursGestionnaire__: any[] = [];
  
   
   
   ngOnInit(): void {
-    this.iddomaineGestionnaireId = this.router.snapshot.paramMap.get('iddomaineGestionnaireId');
+    this.idmoduleGestionnaireId = this.router.snapshot.paramMap.get('idmoduleGestionnaireId');
     this.loadCoursgestionnaire();
-    this.InitFormDomain()
-   this.__matieresGestionnaire__=this.matiereService.matiereGestionnaire
+    this.InitFormCours()
   }
   
   loadCoursgestionnaire(): void {
-    this.matiereService.getMatieres().subscribe(data => {
-      this.__matieresGestionnaire__ = data;
+    this.coursService.getCours().subscribe(data => {
+      this.__coursGestionnaire__ = data;
       this.filterMatieresGestionnaire()
-      console.log( this.iddomaineGestionnaireId)
+      console.log( this.idmoduleGestionnaireId)
     });
   }
 
 
 
   filterMatieresGestionnaire(): void {
-    if (this.iddomaineGestionnaireId) {
-      this.__filteredMatieresGestionnaire__ = this.__matieresGestionnaire__.filter(matiere => matiere.fk_domaineId === this.iddomaineGestionnaireId);
+    if (this.idmoduleGestionnaireId) {
+      this.__filteredCoursGestionnaire__ = this.__coursGestionnaire__.filter(cours => cours.module == this.idmoduleGestionnaireId);
     }
   }
 
@@ -84,25 +83,25 @@ export class GestionnaireCoursComponent implements OnInit{
 
 
 
-  MatiereForm!: FormGroup;
+  CoursForm!: FormGroup;
 
-  InitFormDomain(): void {
-    this.MatiereForm = this.fb.group({ 
-      nom: '',
+  InitFormCours(): void {
+    this.CoursForm = this.fb.group({ 
+      nom_cours: '',
     });
   }
 
 
   ajouterNouvelleMatiere(matiereNom: string): void {
-    if (this.iddomaineGestionnaireId) {
+    if (this.idmoduleGestionnaireId) {
     const nouvelleMatiere = {
         // Le nom ou autre attribut de la nouvelle matière
-        fk_domaineId: this.iddomaineGestionnaireId,  // Associer la matière au domaine sélectionné
-        nom:matiereNom,
+        module: this.idmoduleGestionnaireId,  // Associer la matière au domaine sélectionné
+        nom_cours:matiereNom,
     }
     
 
-      this.matiereService.addMatieres(nouvelleMatiere).subscribe(response => {
+      this.coursService.addCours(nouvelleMatiere).subscribe(response => {
         console.log('Nouvelle matière ajoutée avec succès', response);
         
         // Optionnel : Actualiser la liste des matières après ajout
@@ -121,9 +120,9 @@ export class GestionnaireCoursComponent implements OnInit{
  
 
   onSubmit(){
-    const nom= this.MatiereForm.value.nom;
-    console.log(nom)
-    this.ajouterNouvelleMatiere(nom)
+    const nom_cours= this.CoursForm.value.nom_cours;
+    console.log(nom_cours)
+    this.ajouterNouvelleMatiere(nom_cours)
     this.loadCoursgestionnaire()
     this.OnAdd();
    

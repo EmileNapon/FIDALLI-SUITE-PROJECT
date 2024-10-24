@@ -56,65 +56,32 @@
 
     <!-- Domaines de formations -->
 
-    <section class="training-domains py-5 bg-light">
-        <div class="container-xl ms-auto">
 
-            <div class="row ">
+        <div class="container py-5 " style='display:inline-flex; text-align:center;'>
 
-                <div class="col-md-4">
-                    <button class=" container-l">                        
-                        <p class="card-title">AUDIT ET GESTION DES RISQUES </p>       
+            <div class="row" style="width:1200px;">
+
+                <div class="col-md-4" *ngFor='let domaine of domaines'>
+                    <button class="container-l">                        
+                        <p class="card-title">{{domaine.nom_domaine}} </p>       
                     </button>
                 </div>
+            </div> 
 
-               <div class="col-md-4  ">
-                    <button class=" container-l">                        
-                        <p class="card-title">COMMUNICATION </p>         
-                    </button>
+                <div class="center-button">
+                    <button class='color' routerLink='/domaines'>VOIR TOUTES +</button>
                 </div>
 
-                <div class="col-md-4">
-                    <button class=" container-l">                        
-                        <p class="card-title">COMPTABILITE ET CONNEXES</p>         
-                    </button>
-                </div>
+         
+               
 
-            </div>  
-        </div>
-    </section>
-        <section class="training-domains py-5 bg-light">
-            <div class="container">
-              <div class='row'>
+        
+ </div>
 
-                <div class="col-md-4"> 
-                    <button class=" container-l">                       
-                       <p class="card-title">CONTROLE DE GESTION ET SUIVI EVALUATION</p>   
-                    </button>      
-                </div>
-
-
-                <div class="col-md-4">  
-                    <button class=" container-l">                      
-                       <p class="card-title">DEVELOPPEMENT PERSONNEL</p>
-                    </button>         
-                </div>
-
-                <div class="col-md-4"> 
-                    <button class=" container-l">                       
-                       <p class="card-title">DEVELOPPEMENT ET BONNE GOUVERNANCE</p> 
-                    </button>        
-                </div>
-            </div>
-        </div>
-    </section>
     
 
 
    
-   
-    <div class='centrer-button py-5'>
-        <button class='color' routerLink='/formation/acceuilFormation'>VOIR TOUTES LES CATEGORIES +</button>
-    </div>
 
     <footer class='py-5'>
         <div class="footer-content">
@@ -153,23 +120,4 @@
 
 
 
-    <body>
-        /////////////////////////////////////////////////////////////////
-        <div class="container d-flex justify-content-center align-items-center min-vh-100">
-        <div class="col-md-8 col-lg-6">
-            <h1 class="my-4 text-center">Ajouter module si j'ai le droit</h1>
-            <form [formGroup]="myf" (ngSubmit)="onSubmit()">
-                <div class="row mb-3 align-items-center">
-    
-                    <label for="nom_domaine" class="col-sm-4 col-form-label">Nom:</label>
-                    <div class="col-sm-8 input-group">
-                        <span class="input-group-text"><i class="bi bi-person"></i></span>
-                        <input type="text" id="nom_domaine" formControlName="nom_domaine" class="form-control" placeholder="Entrez votre nom complet">
-                    </div>
-                </div>     
-                <button  type="submit" class="btn btn-warning w-100 mb-3"> ajouter</button>
-            </form>
-        
-        </div>
-        </div>
-        </body>
+ 

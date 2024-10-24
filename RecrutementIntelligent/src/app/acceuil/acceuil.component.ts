@@ -1,11 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../gestion-utilisateurs/connexion/service-connexion/service-connexion.service';
 import { ServiceConnexionPrincipale } from '../service-connexion-etudiant-principale.service';
-import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Component, HostListener, OnInit } from '@angular/core';
+
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { UserService } from '../gestion-utilisateurs/inscription/service-inscription/service-inscription.service';
+
+import { DomaineService } from '../module-formation-certification/acceuil-formation/acceuil-formation-services/acceuil-formations-services';
 
 @Component({
   selector: 'app-acceuil',
@@ -13,10 +13,11 @@ import { UserService } from '../gestion-utilisateurs/inscription/service-inscrip
   styleUrls: ['./acceuil.component.css']
 })
 export class AcceuilComponent implements OnInit{
-  constructor(private domaine : UserService, private fb: FormBuilder ,private authService: AuthService, private ServiceConnexion: ServiceConnexionPrincipale, private http: HttpClient) {}
+  constructor(private domaineService: DomaineService, private fb: FormBuilder ,private authService: AuthService, private ServiceConnexion: ServiceConnexionPrincipale, private http: HttpClient) {}
   myf!:FormGroup
   showSearch = false;
   userEmail: string | null = null;
+  domaines:any[]=[]
 
   userInfo: { email: string | null, firstName: string | null, lastName: string | null, profilePic: string | null } | null = null;
 
@@ -32,6 +33,7 @@ ngOnInit():void{
   });
 
   //////////////////////////////////////////////
+  this.loadDomaines()
 }
 
   onLogout(): void {
@@ -63,23 +65,13 @@ ngOnInit():void{
 
 //hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
 
+loadDomaines(): void {
+  this.domaineService.getDomaines().subscribe(data => {
+    this.domaines = data;
+  });
+}
 
 
 
-onSubmit(): void {
-  
-    const domaine:any= this.myf.value;
-    console.log(domaine)
-    this.domaine.add(domaine).subscribe({
-      next: (response) => {
-        console.log('User registered successfully:', response);
-        console.log(domaine)
-      },
-      error: (error) => {
-        console.error('Error registering user:', error);
-      }
-    });
-  }
-    //////////////////////////////////////////////////////////////////////
   }
 

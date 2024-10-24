@@ -43,7 +43,7 @@ export class GestionnaireCertificatComponent implements OnInit {
   __domaines__: any[] = [];
 
   loadDomaines(): void {
-    this.domaineService.getDomaines().subscribe(data => {
+    this.domaineService.getModule().subscribe(data => {
       this.__domaines__ = data;
     });
   }
@@ -63,7 +63,7 @@ export class GestionnaireCertificatComponent implements OnInit {
 
   onSubmit(){
   const domaine = this.DomaineForm.value;
-  this.domaineService.addDomaine(domaine).subscribe(
+  this.domaineService.addModule(domaine).subscribe(
     response => {
       console.log('domaine ajouté:', response);
     },

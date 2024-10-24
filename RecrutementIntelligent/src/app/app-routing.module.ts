@@ -19,7 +19,7 @@ import { SuivieCoursComponent } from './module-formation-certification/contenu-c
 
 import { CoursComponent } from './module-formation-certification/cours/cours.component';
 import { GestionnaireAcceuilComponent } from './gestionnaire/gestionnaire-acceuil/gestionnaire-acceuil.component';
-import { GestionnaireModulesComponent } from './gestionnaire/gestionnaire-modules/gestionnaire-modules.component';
+
 import { GestionnaireCoursComponent } from './gestionnaire/gestionnaire-cours/gestionnaire-cours.component';
 import { GestionnaireContenuCoursComponent } from './gestionnaire/gestionnaire-contenu-cours/gestionnaire-contenu-cours.component';
 
@@ -33,6 +33,8 @@ import { WebinarDetailsComponent } from './module-formation-certification/webina
 import { WebinarEnrollComponent } from './module-formation-certification/webinar/components/webinar-enrollment/webinar-enrollment.component';
 import { WebinarManagementComponent } from './module-formation-certification/webinar/components/webinar-management/webinar-management.component';
 import { ChapitreComponent } from './module-formation-certification/chapitre/chapitre.component';
+import { GestionnaireDomaineComponent } from './gestionnaire/gestionnaire-domaine/gestionnaire-domaine.component';
+import { GestionnaireModulesComponent } from './gestionnaire/gestionnaire-modules/gestionnaire-modules.component';
 
 const routes: Routes = [
 
@@ -86,10 +88,10 @@ const routes: Routes = [
 
   {path:'gestionnaire',component:GestionUtilisateursComponent,children:[
     {path:'acceuil', component:GestionnaireAcceuilComponent},
-    {path:'modules', component:GestionnaireModulesComponent}
+    {path:'domaines', component:GestionnaireDomaineComponent}
   ]},
-
-  {path:'gestionnaire/:iddomaineGestionnaireId/Gestionnaire-cours', component:GestionnaireCoursComponent},
+  {path:'gestionnaire/:iddomaineGestionnaireId/Gestionnaire-modules', component:GestionnaireModulesComponent},
+  {path:'gestionnaire/:idmoduleGestionnaireId/Gestionnaire-cours', component:GestionnaireCoursComponent},
   {path:'gestionnaire/:coursGestionnaireId/gestionnairecontenuCours', component:GestionnaireContenuCoursComponent},
 
   {path:'gestionnaire/gestionnaire-certificat', component:GestionnaireCertificatComponent},

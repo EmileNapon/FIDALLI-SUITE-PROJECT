@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { GestionnairesModulesServiceService } from './gestionnaires-modules-service/gestionnaires-modules-service.service';
 
 @Component({
@@ -11,101 +11,127 @@ import { GestionnairesModulesServiceService } from './gestionnaires-modules-serv
 export class GestionnaireModulesComponent implements OnInit{
 
 
-  constructor( private domaineService: GestionnairesModulesServiceService, private router: Router, private fb: FormBuilder ) { }
 
-  selectedDomaineIndex:string=""
+ 
+  constructor(private moduleService:GestionnairesModulesServiceService ,  private fb: FormBuilder, private router: ActivatedRoute, private route:Router) { }
+  selectedModuleIndex:string=""
   __iconDelete__:boolean=false
-  __iconVoirMatiere__:boolean= false
-  __addDomaine__:boolean=false
+  __iconVoirModule__:boolean= false
+  __addModule__:boolean=false
 
   ondelete():void{
     this.__iconDelete__=!this.__iconDelete__
-    this.__iconVoirMatiere__=false
+    this.__iconVoirModule__=false
   }
 
-  onEdit():void{
-    this.__iconVoirMatiere__=false
+
+
+
+  onVoirModule():void{
+    this.__iconVoirModule__=!this.__iconVoirModule__
     this.__iconDelete__=false
   }
 
 
-  onVoirMatiere():void{
-    this.__iconVoirMatiere__=!this.__iconVoirMatiere__
+  selecterModule(module:string){
+    this.__iconVoirModule__=true
     this.__iconDelete__=false
-  }
-
-
-  selecterDomaine(domaine:string){
-    this.__iconVoirMatiere__=true
-    this.__iconDelete__=false
-    this.selectedDomaineIndex=domaine
+    this.selectedModuleIndex=module
       
   }
 
   OnAdd():void{
-    this.__addDomaine__=!this.__addDomaine__
+    this.__addModule__=!this.__addModule__
+    this.__iconDelete__=false
+    this.__iconVoirModule__= false
   }
 
 
-  __domaines__: any[] = [];
-
+  iddomaineGestionnaireId: string | null = null;
+  __moduleGestionnaire__: any[] = [];
+  __filteredModulesGestionnaire__: any[] = [];
+ 
+ 
   
   
-
-  
-  loadDomaines(): void {
-    this.domaineService.getDomaines().subscribe(data => {
-      this.__domaines__ = data;
-    });
-  }
+  ngOnInit(): void {
+    this.iddomaineGestionnaireId = this.router.snapshot.paramMap.get('iddomaineGestionnaireId');
+    this.loadModulegestionnaire();
+    this.InitFormModule()
    
-
-
-
-
-
-
-
-  onSelectDomaine(domaineId: string): void {
-    this.router.navigate([`/gestionnaire/${domaineId}/Gestionnaire-cours`]); // Redirection vers la page des matières du domaine sélectionné
   }
-
-
-
-
-
-  DomaineForm!: FormGroup;
-
-  InitFormDomain(): void {
-    this.DomaineForm = this.fb.group({ 
-      nom: '',
+  
+  loadModulegestionnaire(): void {
+    this.moduleService.getModule().subscribe(data => {
+      this.__moduleGestionnaire__ = data;
+      this.filterModulesGestionnaire()
+      console.log( this.iddomaineGestionnaireId)
     });
   }
+
+
+
+  filterModulesGestionnaire(): void {
+    if (this.iddomaineGestionnaireId) {
+      this.__filteredModulesGestionnaire__ = this.__moduleGestionnaire__.filter(module => module.domaine == this.iddomaineGestionnaireId);
+      console.log( this.__moduleGestionnaire__)
+    }
+  }
+
+
+  onSelectgestionnaireCours(coursGestionnaireId: string): void {
+    this.route.navigate([`/gestionnaire/${coursGestionnaireId}/Gestionnaire-cours`]); // Redirection vers la page des matières du domaine sélectionné
+ 
+  }
+
+
+
+
+
+  ModuleForm!: FormGroup;
+
+  InitFormModule(): void {
+    this.ModuleForm = this.fb.group({ 
+      nom_module: '',
+    });
+  }
+
+
+  ajouterNouvelleModule(moduleNom: string): void {
+    if (this.iddomaineGestionnaireId) {
+    const nouvelleMatiere = {
+        // Le nom ou autre attribut de la nouvelle matière
+        domaine: this.iddomaineGestionnaireId,  // Associer la matière au domaine sélectionné
+        nom_module:moduleNom,
+    }
+    
+
+      this.moduleService.addModule(nouvelleMatiere).subscribe(response => {
+        console.log('Nouvelle matière ajoutée avec succès', response);
+        
+        // Optionnel : Actualiser la liste des matières après ajout
+        this.filterModulesGestionnaire();
+      });
+    } else {
+      console.error('Aucun domaine sélectionné');
+    }
+  }
+  
+
+
+
+
+
+ 
 
   onSubmit(){
-  const domaine = this.DomaineForm.value;
-  this.domaineService.addDomaine(domaine).subscribe(
-    response => {
-      console.log('domaine ajouté:', response);
-    },
-    error => {
-      console.error('Erreur lors de l\'ajout du domaine:', error);
-    }
-  );
-  
-  this.OnAdd();
-  this.loadDomaines();
- 
-}
-
-
-
-
-
-ngOnInit(): void {
-  this.loadDomaines();
-  this.InitFormDomain()
-}
+    const nom_module= this.ModuleForm.value.nom_module;
+    console.log(nom_module)
+    this.ajouterNouvelleModule(nom_module)
+    this.loadModulegestionnaire()
+    this.OnAdd();
+   
+  }
 
 
 }

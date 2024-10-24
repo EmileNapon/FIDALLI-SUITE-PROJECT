@@ -164,9 +164,9 @@ footer {
               0 15px 15px rgba(76, 76, 76, 0.397); /* Ajoute une ombre autour de l'élément, avec deux couches d'ombres */
   position: relative; /* Positionne l'élément par rapport à sa position normale, permettant un positionnement plus précis des éléments enfants */
   overflow: hidden; /* Cache tout le contenu qui dépasse les dimensions du conteneur */
-  width: 768px; /* Définit la largeur du conteneur à 768 pixels */
-  max-width: 80%; /* Empêche la largeur du conteneur de dépasser 100% de la largeur du conteneur parent */
-  min-height: 100px; /* Définit une hauteur minimale pour le conteneur de 550 pixels */
+  width: 500px; /* Définit la largeur du conteneur à 768 pixels */
+  max-width: 70%; /* Empêche la largeur du conteneur de dépasser 100% de la largeur du conteneur parent */
+  min-height: 80px; /* Définit une hauteur minimale pour le conteneur de 550 pixels */
   text-align: center;
   
 }
@@ -178,8 +178,13 @@ button {
 }
 .color{
   background-color: #0056b3;
-  height: 8vh;
+  min-height: 80px;
   color: #fff;
+  
+}
+
+.center-button{
+  text-align: center;
 }
 
 

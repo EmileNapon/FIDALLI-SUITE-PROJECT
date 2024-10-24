@@ -42,7 +42,6 @@
                   </li>
                 </ul>
               </nav>
-
 <div class='container'>
 <div class="row">
   <div class="col-sm-10 mb-10 mb-sm-0">
@@ -53,35 +52,20 @@
           <h1>
             {{chapitre.titre}}
           </h1>
-          <br/>
-          
+          <br/>        
           <div *ngFor='let contenu of ContenusFiltres '>
             <h3 *ngIf='contenu.chapitre==chapitre.id'>{{contenu.id}}- {{contenu.sous_titre}}</h3>
             <p *ngIf='contenu.chapitre==chapitre.id'>
                 {{contenu.description}}
-              </p>
-              
+              </p>          
           </div>
-       
-  
-  
-           
-   
-            <br/><br/>
-                  
+            <br/><br/>                
         </span>
       </div>
     </div>
   </div>
 </div>
 </div>
-
-
-
-
-
-
-
 
 <footer>
   <div class="footer-bottom" style='text-align: center'>
