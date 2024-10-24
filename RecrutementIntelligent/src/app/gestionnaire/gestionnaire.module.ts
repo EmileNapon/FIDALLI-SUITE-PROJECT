@@ -7,7 +7,7 @@ import { GestionnaireAcceuilComponent } from './gestionnaire-acceuil/gestionnair
 import { GestionnaireModulesComponent } from './gestionnaire-modules/gestionnaire-modules.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GestionnaireCoursComponent } from './gestionnaire-cours/gestionnaire-cours.component';
-import { GestionnaireContenuCoursComponent } from './gestionnaire-contenu-cours/gestionnaire-contenu-cours.component';
+
 import { GestionnaireCertificatComponent } from './gestionnaire-certificat/gestionnaire-certificat.component';
 import { GestionnaireCertificatCoursComponent } from './gestionnaire-certificat-cours/gestionnaire-certificat-cours.component';
 import { GestionnaireDomaineComponent } from './gestionnaire-domaine/gestionnaire-domaine.component';
@@ -16,7 +16,7 @@ import { GestionnaireChapitreComponent } from './gestionnaire-chapitre/gestionna
 
 
 @NgModule({
-  declarations: [GestionnaireComponent, GestionnaireAcceuilComponent, GestionnaireModulesComponent, GestionnaireCoursComponent, GestionnaireContenuCoursComponent, GestionnaireCertificatComponent, GestionnaireCertificatCoursComponent, GestionnaireDomaineComponent, GestionnaireChapitreComponent],
+  declarations: [GestionnaireComponent, GestionnaireAcceuilComponent, GestionnaireModulesComponent, GestionnaireCoursComponent, GestionnaireCertificatComponent, GestionnaireCertificatCoursComponent, GestionnaireDomaineComponent, GestionnaireChapitreComponent],
   imports: [
     CommonModule, HttpClientModule, RouterModule, ReactiveFormsModule
   ]

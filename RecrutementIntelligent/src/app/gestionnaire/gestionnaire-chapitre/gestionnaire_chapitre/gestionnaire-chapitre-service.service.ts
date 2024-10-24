@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class GestionnaireChapitreServiceService {
 
-  matiereGestionnaire:string[]=[]
+
   private chapitresUrl = 'http://127.0.0.1:8000/fidalli/chapitre/list_chapitres';
   private adchapitresUrl = 'http://127.0.0.1:8000/fidalli/chapitre/create';
   constructor( private http: HttpClient ) { }
@@ -20,5 +20,20 @@ export class GestionnaireChapitreServiceService {
   addChapitre(cour: any): Observable<any> {
     return this.http.post(`${this.adchapitresUrl}/`, cour);
   }
+
+
+
+
+  private contenuUrl= "http://127.0.0.1:8000/fidalli/contenus/list_contenus";
+
+
+  getcontenu(): Observable<any[]> {
+    return this.http.get<any[]>(this.contenuUrl);
+  
+}
+AddContenu(): Observable<any[]> {
+  return this.http.get<any[]>(this.contenuUrl);
+
+}
 
 }

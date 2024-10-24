@@ -54,6 +54,7 @@ export class GestionnaireChapitreComponent {
     this.idcoursGestionnaireId = this.router.snapshot.paramMap.get('idcoursGestionnaireId');
     this.loadCoursgestionnaire();
     this.InitFormCours()
+    this.loadContenu()
   }
   
   loadCoursgestionnaire(): void {
@@ -73,10 +74,7 @@ export class GestionnaireChapitreComponent {
   }
 
 
-  onSelectgestionnaireCours(coursGestionnaireId: string): void {
-    this.route.navigate([`/gestionnaire/${coursGestionnaireId}/gestionnairecontenuCours`]); // Redirection vers la page des matières du domaine sélectionné
- 
-  }
+
 
 
 
@@ -129,5 +127,23 @@ export class GestionnaireChapitreComponent {
 
 
 
+
+
+
+
+
+  Contenus:any[]=[]
+  ContenusFiltres:any[]=[]
+  loadContenu(): void {
+    this.chapitreService.getcontenu().subscribe(data => {
+      this.Contenus = data;
+      this.filterContenu(); // Filtrer les matières en fonction de l'ID du domaine
+    });
+  }
+
+  filterContenu(): void {    
+      this.ContenusFiltres = this.Contenus.filter(contenu => this.__filteredChapitresGestionnaire__.some(chapitre=>chapitre.id==contenu.chapitre));
+      console.log("//////")
+  }
 
 }

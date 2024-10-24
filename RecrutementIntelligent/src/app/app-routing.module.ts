@@ -15,13 +15,12 @@ import { EtablissementsComponent } from './orientations/etablissements/etablisse
 import { OrientationsComponent } from './orientations/orientations.component';
 import { OrientationAcceuilComponent } from './orientations/orientation-acceuil/orientation-acceuil.component';
 import { ModuleComponent } from './module-formation-certification/domaines-listes/domaines.component';
-import { SuivieCoursComponent } from './module-formation-certification/contenu-cours/suivie_cours.component';
+
 
 import { CoursComponent } from './module-formation-certification/cours/cours.component';
 import { GestionnaireAcceuilComponent } from './gestionnaire/gestionnaire-acceuil/gestionnaire-acceuil.component';
 
 import { GestionnaireCoursComponent } from './gestionnaire/gestionnaire-cours/gestionnaire-cours.component';
-import { GestionnaireContenuCoursComponent } from './gestionnaire/gestionnaire-contenu-cours/gestionnaire-contenu-cours.component';
 
 import { CertificationComponent } from './module-formation-certification/certification/certification.component';
 import { CertificationContenuComponent } from './module-formation-certification/certification-contenu/certification-contenu.component';
@@ -55,7 +54,7 @@ const routes: Routes = [
   {path:'formation',component:ModuleFormationCertificationComponent,children:[
 
     {path:'contenuLibre', component:ContenuLibreComponent}, 
-    {path:'cours', component:SuivieCoursComponent},
+
 
 ]},
 

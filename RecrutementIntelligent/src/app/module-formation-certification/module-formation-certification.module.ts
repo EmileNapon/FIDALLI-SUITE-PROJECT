@@ -11,7 +11,7 @@ import { CertificationComponent } from './certification/certification.component'
 import { CoursComponent } from './cours/cours.component';
 import { AcceuilFormationComponent } from './acceuil-formation/acceuil-formation.component';
 import { ModuleComponent } from './domaines-listes/domaines.component';
-import { SuivieCoursComponent } from './contenu-cours/suivie_cours.component';
+
 
 
 import { CertificationContenuComponent } from './certification-contenu/certification-contenu.component';
@@ -34,7 +34,7 @@ import { ChapitreComponent } from './chapitre/chapitre.component';
     CertificationComponent,
 
     CoursComponent,
-    AcceuilFormationComponent, ModuleComponent,SuivieCoursComponent, 
+    AcceuilFormationComponent, ModuleComponent, 
     CertificationContenuComponent,
     certificationContenuParcours1Component,
     HeaderFormationComponent,WebinarComponent,
