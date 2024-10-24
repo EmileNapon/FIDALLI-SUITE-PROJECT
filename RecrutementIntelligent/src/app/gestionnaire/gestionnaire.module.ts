@@ -12,13 +12,13 @@ import { GestionnaireCertificatComponent } from './gestionnaire-certificat/gesti
 import { GestionnaireCertificatCoursComponent } from './gestionnaire-certificat-cours/gestionnaire-certificat-cours.component';
 import { GestionnaireDomaineComponent } from './gestionnaire-domaine/gestionnaire-domaine.component';
 import { GestionnaireChapitreComponent } from './gestionnaire-chapitre/gestionnaire-chapitre.component';
-
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 
 @NgModule({
   declarations: [GestionnaireComponent, GestionnaireAcceuilComponent, GestionnaireModulesComponent, GestionnaireCoursComponent, GestionnaireCertificatComponent, GestionnaireCertificatCoursComponent, GestionnaireDomaineComponent, GestionnaireChapitreComponent],
   imports: [
-    CommonModule, HttpClientModule, RouterModule, ReactiveFormsModule
+    CommonModule, HttpClientModule, RouterModule, ReactiveFormsModule,CKEditorModule 
   ]
 })
 export class GestionnaireModule { }

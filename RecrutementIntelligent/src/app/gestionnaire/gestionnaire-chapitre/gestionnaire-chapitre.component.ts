@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, FormArray, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GestionnaireChapitreServiceService } from './gestionnaire_chapitre/gestionnaire-chapitre-service.service';
 
@@ -8,7 +8,7 @@ import { GestionnaireChapitreServiceService } from './gestionnaire_chapitre/gest
   templateUrl: './gestionnaire-chapitre.component.html',
   styleUrls: ['./gestionnaire-chapitre.component.css']
 })
-export class GestionnaireChapitreComponent {
+export class GestionnaireChapitreComponent implements OnInit {
 
   constructor(private chapitreService: GestionnaireChapitreServiceService,  private fb: FormBuilder, private router: ActivatedRoute, private route:Router) { }
   selectedChapitreIndex:string=""
@@ -55,8 +55,29 @@ export class GestionnaireChapitreComponent {
     this.loadCoursgestionnaire();
     this.InitFormCours()
     this.loadContenu()
+
+    ///////////////////////////
+
+    this.InitFormCours();
+    this.loadCoursgestionnaire();
   }
   
+
+
+
+
+/////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
   loadCoursgestionnaire(): void {
     this.chapitreService.getChapitre().subscribe(data => {
       this.__chapitreGestionnaire__ = data;
@@ -85,6 +106,8 @@ export class GestionnaireChapitreComponent {
   InitFormCours(): void {
     this.chapitreForm = this.fb.group({ 
       titre: '',
+      sous_titre:'',
+      description: '',
     });
   }
 
@@ -107,6 +130,15 @@ export class GestionnaireChapitreComponent {
     } else {
       console.error('Aucun domaine sélectionné');
     }
+
+
+
+    ////////////////////////////////////////////////////////////////////
+
+
+
+
+    
   }
   
 
@@ -145,5 +177,12 @@ export class GestionnaireChapitreComponent {
       this.ContenusFiltres = this.Contenus.filter(contenu => this.__filteredChapitresGestionnaire__.some(chapitre=>chapitre.id==contenu.chapitre));
       console.log("//////")
   }
+
+
+
+
+
+
+
 
 }
