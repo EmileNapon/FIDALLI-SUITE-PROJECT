@@ -9,17 +9,17 @@ import { Observable } from 'rxjs';
 export class GestionnairesCoursServiceService {
 
   matiereGestionnaire:string[]=[]
-  private matieresUrl = 'http://127.0.0.1:8000/fidalli/cours/list_cours';
-  private admatieresUrl = 'http://127.0.0.1:8000/fidalli/cours/create';
+  private coursUrl = 'http://127.0.0.1:8000/fidalli/cours/list_cours';
+  private adcourssUrl = 'http://127.0.0.1:8000/fidalli/cours/create';
   constructor( private http: HttpClient ) { }
 
   
   getCours(): Observable<any[]> {
-    return this.http.get<any[]>(this.matieresUrl);
+    return this.http.get<any[]>(this.coursUrl);
   }
 
   addCours(cour: any): Observable<any> {
-    return this.http.post(`${this.admatieresUrl}/`, cour);
+    return this.http.post(`${this.adcourssUrl}/`, cour);
   }
 
 }

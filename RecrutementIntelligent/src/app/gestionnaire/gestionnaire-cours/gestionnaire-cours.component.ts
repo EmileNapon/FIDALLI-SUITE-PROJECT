@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { GestionnairesModulesServiceService } from '../gestionnaire-modules/gestionnaires-modules-service/gestionnaires-modules-service.service';
 import { GestionnairesCoursServiceService } from './gestionnaires-cours-service/gestionnaires-cours-service.service';
 
 @Component({
@@ -75,7 +74,7 @@ export class GestionnaireCoursComponent implements OnInit{
 
 
   onSelectgestionnaireCours(coursGestionnaireId: string): void {
-    this.route.navigate([`/gestionnaire/${coursGestionnaireId}/gestionnairecontenuCours`]); // Redirection vers la page des matières du domaine sélectionné
+    this.route.navigate([`/gestionnaire/${coursGestionnaireId}/gestionnaire-chapitre`]); // Redirection vers la page des matières du domaine sélectionné
  
   }
 

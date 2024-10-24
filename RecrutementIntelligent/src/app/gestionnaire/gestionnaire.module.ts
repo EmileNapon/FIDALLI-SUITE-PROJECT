@@ -11,11 +11,12 @@ import { GestionnaireContenuCoursComponent } from './gestionnaire-contenu-cours/
 import { GestionnaireCertificatComponent } from './gestionnaire-certificat/gestionnaire-certificat.component';
 import { GestionnaireCertificatCoursComponent } from './gestionnaire-certificat-cours/gestionnaire-certificat-cours.component';
 import { GestionnaireDomaineComponent } from './gestionnaire-domaine/gestionnaire-domaine.component';
+import { GestionnaireChapitreComponent } from './gestionnaire-chapitre/gestionnaire-chapitre.component';
 
 
 
 @NgModule({
-  declarations: [GestionnaireComponent, GestionnaireAcceuilComponent, GestionnaireModulesComponent, GestionnaireCoursComponent, GestionnaireContenuCoursComponent, GestionnaireCertificatComponent, GestionnaireCertificatCoursComponent, GestionnaireDomaineComponent],
+  declarations: [GestionnaireComponent, GestionnaireAcceuilComponent, GestionnaireModulesComponent, GestionnaireCoursComponent, GestionnaireContenuCoursComponent, GestionnaireCertificatComponent, GestionnaireCertificatCoursComponent, GestionnaireDomaineComponent, GestionnaireChapitreComponent],
   imports: [
     CommonModule, HttpClientModule, RouterModule, ReactiveFormsModule
   ]

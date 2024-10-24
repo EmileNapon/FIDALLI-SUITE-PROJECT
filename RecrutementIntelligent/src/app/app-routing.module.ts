@@ -35,6 +35,7 @@ import { WebinarManagementComponent } from './module-formation-certification/web
 import { ChapitreComponent } from './module-formation-certification/chapitre/chapitre.component';
 import { GestionnaireDomaineComponent } from './gestionnaire/gestionnaire-domaine/gestionnaire-domaine.component';
 import { GestionnaireModulesComponent } from './gestionnaire/gestionnaire-modules/gestionnaire-modules.component';
+import { GestionnaireChapitreComponent } from './gestionnaire/gestionnaire-chapitre/gestionnaire-chapitre.component';
 
 const routes: Routes = [
 
@@ -92,7 +93,7 @@ const routes: Routes = [
   ]},
   {path:'gestionnaire/:iddomaineGestionnaireId/Gestionnaire-modules', component:GestionnaireModulesComponent},
   {path:'gestionnaire/:idmoduleGestionnaireId/Gestionnaire-cours', component:GestionnaireCoursComponent},
-  {path:'gestionnaire/:coursGestionnaireId/gestionnairecontenuCours', component:GestionnaireContenuCoursComponent},
+  {path:'gestionnaire/:idcoursGestionnaireId/gestionnaire-chapitre', component:GestionnaireChapitreComponent},
 
   {path:'gestionnaire/gestionnaire-certificat', component:GestionnaireCertificatComponent},
   {path:'gestionnaire/:certificatGestionnaireId/GestionnaireCertificat', component:GestionnaireCertificatCoursComponent},
