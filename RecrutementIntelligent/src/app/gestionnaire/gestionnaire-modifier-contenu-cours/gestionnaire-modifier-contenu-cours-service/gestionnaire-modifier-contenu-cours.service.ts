@@ -11,17 +11,19 @@ export class GestionnaireModifierContenuCoursService {
 
   constructor(private http: HttpClient) { }
 
-  getContenu(): Observable<any> {
-    return this.http.get(`${this.contenuUrl}/`);
+
+
+
+  getContenu(): Observable<any[]> {
+    return this.http.get<any[]>(this.contenuUrl);
+  }
+
+  getChapitre(): Observable<any[]> {
+    return this.http.get<any[]>(this.chapitreUrl);
   }
 
 
-  
 
-
-  getChapitre(): Observable<any> {
-    return this.http.get(`${this.chapitreUrl}/`);
-  }
 
 
 }

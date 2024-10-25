@@ -1,11 +1,23 @@
-<div *ngFor="let contenu of contenus">
-    <label>Titre :</label>
-    <textarea [(ngModel)]="contenu.content"></textarea>
+
+
+
+
+
+  <div *ngFor="let contenu of contenus" class="custom-card">
+    <div class="card-body">
+      <br><br>
+      <div class="form-group">
+        <label style='color: #151996;'>{{contenu.id}}. {{contenu.sous_titre}}</label>
+        <ckeditor id="contentEditor" [(ngModel)]="contenu.sous_titre" [editor]="Editor" class="custom-editor"></ckeditor>
+      </div>
+      
+      <div class="form-group mt-3">
+        <label for="descriptionEditor"></label>
+        <ckeditor id="descriptionEditor" [(ngModel)]="contenu.description" [editor]="Editor" class="custom-editor"></ckeditor>
+      </div>
   
-    <label>Description :</label>
-    <textarea [(ngModel)]="contenu.description"></textarea>
-  
-    <!-- Bouton pour enregistrer les modifications pour cet enregistrement -->
-    <button (click)="updateContenu(contenu)">Enregistrer les modifications</button>
+
+    </div>
   </div>
+  
   
