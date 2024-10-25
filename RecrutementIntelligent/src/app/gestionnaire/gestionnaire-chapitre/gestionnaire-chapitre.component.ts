@@ -175,14 +175,15 @@ export class GestionnaireChapitreComponent implements OnInit {
 
   filterContenu(): void {    
       this.ContenusFiltres = this.Contenus.filter(contenu => this.__filteredChapitresGestionnaire__.some(chapitre=>chapitre.id==contenu.chapitre));
-      console.log("//////")
   }
 
 
 
+  onSelectgestionnaireCours(chapitreGestionnaireId: string): void {
+    this.route.navigate([`/gestionnaire/${chapitreGestionnaireId}/gestionnaire-contenu`]); // Redirection vers la page des matières du domaine sélectionné
+ 
 
 
 
-
-
+  }
 }

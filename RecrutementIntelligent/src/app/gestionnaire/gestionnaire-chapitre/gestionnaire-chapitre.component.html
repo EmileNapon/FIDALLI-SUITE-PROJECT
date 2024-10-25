@@ -11,11 +11,11 @@
                   <br/> <br/> 
                 <span style='font-size:110%;' *ngFor='let chapitre of __filteredChapitresGestionnaire__; let i=index'>
                   <h1>
-                    {{chapitre.titre}}
+                    {{chapitre.titre}}<button (click)='onSelectgestionnaireCours(chapitre.id)'>llll</button>
                   </h1>
                   <br/>        
                   <div *ngFor='let contenu of ContenusFiltres '>
-                    <h3 *ngIf='contenu.chapitre==chapitre.id'>{{contenu.id}}- {{contenu.sous_titre}}</h3>
+                    <h3 *ngIf='contenu.chapitre==chapitre.id'>{{contenu.id}}-{{contenu.sous_titre}}</h3>
                     <p *ngIf='contenu.chapitre==chapitre.id'>
                         {{contenu.description}}
                       </p>          

@@ -7,8 +7,8 @@ from Formation.models import Domaine, Module, Cours, Chapitre,Contenu
 from .serializers import ChapitreSerializer, ContenuSerializer, CoursSerializer, DomaineSerializer, ModuleSerializer
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
-
-
+from rest_framework.views import APIView
+from django.shortcuts import get_object_or_404
 ###################################################################################################
 @api_view(['POST'])
 def create_domaine(request):
@@ -105,5 +105,27 @@ def list_contenus(request):
 ###################################################################################################
 
 
+#####################################################################  modification     
 
+class ContentView(APIView):
+    def get(self, request, contenu_id):
+        contenu = get_object_or_404(Contenu, id=contenu_id)
+        serializer = ContenuSerializer(contenu)
+        return Response(serializer.data)
 
+    def put(self, request, contenu_id):
+        contenu = get_object_or_404(Contenu, id=contenu_id)
+        serializer = ContenuSerializer(contenu, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+
+#####################################################################  modification     
+
+class ChapitreView(APIView):
+    def get(self, request, chapitre_id):
+        chapitre = get_object_or_404(Chapitre, id=chapitre_id)
+        serializer = ChapitreSerializer(chapitre)
+        return Response(serializer.data)

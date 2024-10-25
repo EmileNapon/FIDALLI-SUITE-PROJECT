@@ -1,0 +1,11 @@
+<div *ngFor="let contenu of contenus">
+    <label>Titre :</label>
+    <textarea [(ngModel)]="contenu.content"></textarea>
+  
+    <label>Description :</label>
+    <textarea [(ngModel)]="contenu.description"></textarea>
+  
+    <!-- Bouton pour enregistrer les modifications pour cet enregistrement -->
+    <button (click)="updateContenu(contenu)">Enregistrer les modifications</button>
+  </div>
+  
