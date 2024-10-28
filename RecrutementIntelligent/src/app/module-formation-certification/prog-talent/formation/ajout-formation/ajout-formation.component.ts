@@ -3,11 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 // import { ClassicEditor, Bold, Essentials, Italic, Mention, Paragraph, Undo } from 'ckeditor5';
-import { FormationService } from 'src/app/services/formation.service';
-import { CustomUser, Formation, Module, ModuleFormation } from 'src/app/models/tousModel';
-import { ModuleService } from 'src/app/services/module.service';
-import { ModuleFormationService } from 'src/app/services/moduleFormation.service';
-import { UtilisateurService } from 'src/app/services/utilisateur.service';
+import { FormationService } from '../../services/formation.service';
+import { CustomUser, Formation, Module, ModuleFormation } from '../../models/tousModel';
+import { ModuleService } from '../../services/module.service';
+import { ModuleFormationService } from '../../services/moduleFormation.service';
+import { UtilisateurService } from '../../services/utilisateur.service';
 
 @Component({
   selector: 'app-ajout-formation',

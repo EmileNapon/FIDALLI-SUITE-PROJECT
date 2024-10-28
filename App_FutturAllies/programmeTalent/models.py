@@ -19,7 +19,7 @@ class Inscrit(models.Model):
     formation = models.ForeignKey(Formation, on_delete=models.CASCADE)  # Relation vers Formation
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)  # Relation vers Formation
     date = models.DateField(default=date.today)
-    id_group = models.IntegerField()  # À remplacer par un ForeignKey vers Group si applicable
+   ## id_group = models.IntegerField()  # À remplacer par un ForeignKey vers Group si applicable
 
 
 class ModuleFormation(models.Model):

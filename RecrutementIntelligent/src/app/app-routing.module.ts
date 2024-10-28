@@ -37,6 +37,20 @@ import { GestionnaireModulesComponent } from './gestionnaire/gestionnaire-module
 import { GestionnaireChapitreComponent } from './gestionnaire/gestionnaire-chapitre/gestionnaire-chapitre.component';
 import { GestionnaireModifierContenuCoursComponent } from './gestionnaire/gestionnaire-modifier-contenu-cours/gestionnaire-modifier-contenu-cours.component';
 import { FormationDetailComponent } from './module-formation-certification/prog-talent/formation/formation-detail/formation-detail.component';
+import { GestionnairePageComponent } from './module-formation-certification/prog-talent/users/gestionnaire-page/gestionnaire-page.component';
+import { ProgTalentComponent } from './module-formation-certification/prog-talent/prog-talent.component';
+import { EtudiantPageComponent } from './module-formation-certification/prog-talent/users/etudiant-page/etudiant-page.component';
+import { FormateurPageComponent } from './module-formation-certification/prog-talent/users/formateur-page/formateur-page.component';
+import { AjoutFormationComponent } from './module-formation-certification/prog-talent/formation/ajout-formation/ajout-formation.component';
+import { ModificationFormationComponent } from './module-formation-certification/prog-talent/formation/modification-formation/modification-formation.component';
+import { CreateModuleComponent } from './module-formation-certification/prog-talent/module/create-module/create-module.component';
+import { ModificationModuleComponent } from './module-formation-certification/prog-talent/module/modification-module/modification-module.component';
+import { AjoutSeanceComponent } from './module-formation-certification/prog-talent/seance/ajout-seance/ajout-seance.component';
+import { ModificationSeanceComponent } from './module-formation-certification/prog-talent/seance/modification-seance/modification-seance.component';
+import { AjoutAnnonceComponent } from './module-formation-certification/prog-talent/annonce/ajout-annonce/ajout-annonce.component';
+import { ModificationAnnonceComponent } from './module-formation-certification/prog-talent/annonce/modification-annonce/modification-annonce.component';
+import { AjoutEncadrantComponent } from './module-formation-certification/prog-talent/encadrant/ajout-encadrant/ajout-encadrant.component';
+import { ModifEncadrantComponent } from './module-formation-certification/prog-talent/encadrant/modif-encadrant/modif-encadrant.component';
 
 const routes: Routes = [
 
@@ -55,11 +69,21 @@ const routes: Routes = [
 
   {path:'formation',component:ModuleFormationCertificationComponent,children:[
     {path:'contenuLibre', component:ContenuLibreComponent}, 
-
-
+    {path: 'progTalent', component: ProgTalentComponent},
+    {path: 'etudiantPage', component: EtudiantPageComponent},
+    {path: 'gestionnairePage', component: GestionnairePageComponent},
+    {path: 'formateurPage', component: FormateurPageComponent},
+    { path: 'ajouter-formation', component: AjoutFormationComponent },
+    { path: 'modification-formation/:id', component: ModificationFormationComponent },
+    {path: 'create-module', component: CreateModuleComponent},
+    {path: 'modification-module/:id', component: ModificationModuleComponent},
+    {path: 'create-seance/:id', component: AjoutSeanceComponent},
+    {path: 'modification-seance/:id', component: ModificationSeanceComponent},
+    {path: 'ajouter-annonce', component: AjoutAnnonceComponent},
+    {path: 'modification-annonce/:id', component: ModificationAnnonceComponent},
+    {path: 'ajout-encadrant', component: AjoutEncadrantComponent},
+    {path: 'modification-encadrant/:id', component: ModifEncadrantComponent},
     {path: 'formation-detail/:id', component: FormationDetailComponent}
-    
-
   
 ]},
 
@@ -69,8 +93,8 @@ const routes: Routes = [
   {path:'cours/:chapitreId/chapitres', component:ChapitreComponent},
   {path:'programme-talent/:programmeId/programme', component:ChapitreComponent},
 
-
-
+  {path:'programme-talent', component:GestionnairePageComponent},
+  
 
 
 

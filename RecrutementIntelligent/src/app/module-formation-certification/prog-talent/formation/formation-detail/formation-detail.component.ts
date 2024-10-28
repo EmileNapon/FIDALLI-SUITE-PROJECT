@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Formation, Module, ModuleFormation } from 'src/app/models/tousModel';
-import { FormationService } from 'src/app/services/formation.service';
-import { ModuleService } from 'src/app/services/module.service';
-import { ModuleFormationService } from 'src/app/services/moduleFormation.service';
+import { Formation, Module, ModuleFormation } from '../../models/tousModel';
+import { FormationService } from '../../services/formation.service';
+import { ModuleService } from '../../services/module.service';
+import { ModuleFormationService } from '../../services/moduleFormation.service';
 
 @Component({
   selector: 'app-formation-detail',

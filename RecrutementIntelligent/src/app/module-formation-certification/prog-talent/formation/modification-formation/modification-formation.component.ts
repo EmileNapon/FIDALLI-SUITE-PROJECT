@@ -2,8 +2,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Formation } from 'src/app/models/tousModel';
-import { FormationService } from 'src/app/services/formation.service';
+import { Formation } from '../../models/tousModel';
+import { FormationService } from '../../services/formation.service';
 
 @Component({
   selector: 'app-modification-formation',

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CustomUser, Group } from 'src/app/models/tousModel';
-import { UtilisateurService } from 'src/app/services/utilisateur.service';
+import { CustomUser, Group } from '../models/tousModel';
+import { UtilisateurService } from '../services/utilisateur.service';
 
 @Component({
   selector: 'app-groupe-etudiant',

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Module } from 'src/app/models/tousModel';
-import { ModuleService } from 'src/app/services/module.service';
+import { Module } from '../../models/tousModel';
+import { ModuleService } from '../../services/module.service';
 
 @Component({
   selector: 'app-modification-module',

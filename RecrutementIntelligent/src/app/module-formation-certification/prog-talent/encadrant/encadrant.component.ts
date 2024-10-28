@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CustomUser } from 'src/app/models/tousModel';
-import { Utilisateur } from 'src/app/models/UtilisateursModel';
-import { UtilisateurService } from 'src/app/services/utilisateur.service';
+import { CustomUser } from '../models/tousModel';
+import { UtilisateurService } from '../services/utilisateur.service';
 @Component({
   selector: 'app-encadrant',
   templateUrl: './encadrant.component.html',

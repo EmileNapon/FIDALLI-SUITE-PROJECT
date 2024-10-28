@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Formation, Module, Seance } from 'src/app/models/tousModel';
-import { FormationService } from 'src/app/services/formation.service';
-import { ModuleService } from 'src/app/services/module.service';
-import { SeanceService } from 'src/app/services/seance.service';
+import { Formation, Module, Seance } from '../models/tousModel';
+import { FormationService } from '../services/formation.service';
+import { ModuleService } from '../services/module.service';
+import { SeanceService } from '../services/seance.service';
 
 @Component({
   selector: 'app-module',

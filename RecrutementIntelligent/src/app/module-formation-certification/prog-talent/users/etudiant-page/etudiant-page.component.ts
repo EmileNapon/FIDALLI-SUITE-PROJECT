@@ -1,5 +1,5 @@
 import { Component, HostListener } from '@angular/core';
-import { UtilisateurService } from 'src/app/services/utilisateur.service';
+import { UtilisateurService } from '../../services/utilisateur.service';
 
 @Component({
   selector: 'app-etudiant-page',

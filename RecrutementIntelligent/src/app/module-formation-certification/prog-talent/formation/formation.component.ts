@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Formation, } from 'src/app/models/tousModel';
-import { FormationService } from 'src/app/services/formation.service';
+import { Formation, } from '../models/tousModel';
+import { FormationService } from '../services/formation.service';
 
 @Component({
   selector: 'app-formation',

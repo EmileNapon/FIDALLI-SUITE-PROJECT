@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Annonce } from 'src/app/models/tousModel';
-import { AnnonceService } from 'src/app/services/annonce.service';
+import { Annonce } from '../../models/tousModel';
+import { AnnonceService } from '../../services/annonce.service';
 
 @Component({
   selector: 'app-modification-annonce',
