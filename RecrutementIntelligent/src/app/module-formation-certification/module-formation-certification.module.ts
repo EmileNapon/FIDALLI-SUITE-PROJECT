@@ -42,7 +42,11 @@ import { ChapitreComponent } from './chapitre/chapitre.component';
     WebinarDetailsComponent,
     WebinarEnrollComponent,
     WebinarManagementComponent,
-    ChapitreComponent 
+    ChapitreComponent,
+    
+
+   // AnnonceComponent
+   // ProgTalentComponent, EtudiantPageComponent, GestionnairePageComponent, FormateurPageComponent, FormationComponent, ModuleComponent, FooterComponent, HeaderComponent, AnnonceComponent, EtudiantComponent, EncadrantComponent, ModifEncadrantComponent, AjoutFormationComponent, ModificationFormationComponent, CreateModuleComponent, ModificationModuleComponent, AjoutSeanceComponent, ModificationSeanceComponent, AjoutAnnonceComponent, ModificationAnnonceComponent, AjoutEncadrantComponent, GroupeEtudiantComponent, FormationDetailComponent
   ],
   imports: [
     CommonModule, ReactiveFormsModule,  HttpClientModule, RouterModule, FormsModule,ReactiveFormsModule, 

@@ -1,0 +1,19 @@
+.no-border-table {
+    width: 100%;
+    table-layout: auto;
+}
+
+.no-border-table td {
+    padding: 8px;
+    vertical-align: middle; /* Centre le contenu verticalement */
+}
+
+.no-border-table td:first-child {
+    font-weight: bold;
+    padding-right: 10px;
+    white-space: nowrap;
+}
+
+.no-border-table td:last-child {
+    white-space: normal;
+}

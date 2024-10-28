@@ -53,10 +53,12 @@ const routes: Routes = [
   { path: 'webinar-dashboard', component: WebinarManagementComponent},
 
   {path:'formation',component:ModuleFormationCertificationComponent,children:[
-
     {path:'contenuLibre', component:ContenuLibreComponent}, 
 
 
+    
+
+  
 ]},
 
   {path:'domaines', component:AcceuilFormationComponent},
