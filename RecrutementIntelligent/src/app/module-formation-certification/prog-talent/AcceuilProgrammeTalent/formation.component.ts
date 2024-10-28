@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormationService } from './service/formation-service';
+import { Service } from './service/service';
+
 
 
 @Component({
@@ -7,11 +8,11 @@ import { FormationService } from './service/formation-service';
   templateUrl: './formation.component.html',
   styleUrls: ['./formation.component.css']
 })
-export class FormationComponent implements OnInit {
+export class AcceuilProgrammeTalentComponent implements OnInit {
   formations: any[] = [];
 
   constructor(
-    private formationService: FormationService,
+    private formationService: Service,
   ) {}
 
   ngOnInit(): void {

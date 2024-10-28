@@ -65,6 +65,7 @@ const routes: Routes = [
   {path:'domaines/:domaineId/modules', component:ModuleComponent},  
   {path:'modules/:coursId/cours', component:CoursComponent},
   {path:'cours/:chapitreId/chapitres', component:ChapitreComponent},
+  {path:'programme-talent/:programmeId/programme', component:ChapitreComponent},
 
 
 
