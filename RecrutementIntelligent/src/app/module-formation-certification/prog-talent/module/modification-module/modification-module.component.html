@@ -1,0 +1,35 @@
+<div class="container">
+  <h1>Modification du module</h1>
+  
+  <form [formGroup]="moduleForm" (ngSubmit)="updateModule()">
+    <!-- Champ pour le nom du module -->
+    <div class="mb-3">
+      <label for="nom_module" class="form-label">Nom du module</label>
+      <input type="text" id="nom_module" class="form-control" formControlName="nom_module" required>
+      <div *ngIf="moduleForm.get('nom_module')?.invalid && moduleForm.get('nom_module')?.touched" class="text-danger">
+        Nom du module requis.
+      </div>
+    </div>
+
+    <!-- Champ pour le code du module -->
+    <div class="mb-3">
+      <label for="code" class="form-label">Code du module</label>
+      <input type="text" id="code" class="form-control" formControlName="code" required>
+      <div *ngIf="moduleForm.get('code')?.invalid && moduleForm.get('code')?.touched" class="text-danger">
+        Code du module requis.
+      </div>
+    </div>
+
+    <!-- Champ pour le domaine (clé étrangère vers la formation) -->
+    <div class="mb-3">
+      <label for="domaine_id" class="form-label">ID du domaine</label>
+      <input type="number" id="domaine_id" class="form-control" formControlName="domaine_id" required>
+      <div *ngIf="moduleForm.get('domaine_id')?.invalid && moduleForm.get('domaine_id')?.touched" class="text-danger">
+        Domaine requis.
+      </div>
+    </div>
+
+    <!-- Bouton pour soumettre le formulaire -->
+    <button type="submit" class="btn btn-primary" [disabled]="moduleForm.invalid">Modifier le module</button>
+  </form>
+</div>

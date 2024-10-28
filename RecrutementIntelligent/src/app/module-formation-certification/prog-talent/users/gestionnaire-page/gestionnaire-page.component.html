@@ -1,0 +1,170 @@
+<body>
+
+    <!-- Entête principale -->
+    <app-header/>
+    <br>
+    
+    
+    <div class="container-fluid">
+        <div class="row">
+          <!-- Sidebar gauche -->
+          <nav class="col-2 bg-dark text-white  d-flex flex-column">
+            <h2 class="text-center my-4">Manager Dashbord</h2>
+            <ul class="nav flex-column">
+              <li class="nav-item btn text-start">
+                <a class="nav-link text-white" (click)="onShowAnnonce()">Annonces</a>
+              </li>
+              <li class="nav-item btn text-start">
+                <a class="nav-link text-white" (click)="onShowFormation()">Formation</a>
+              </li>
+              <li class="nav-item btn text-start">
+                <a class="nav-link text-white" (click)="onShowGroupe()">Groupes</a>
+              </li>
+              <li class="nav-item btn text-start">
+                <a class="nav-link text-white" (click)="onShowListe()">Utilisateurs de cohorte</a>
+              </li>
+              <li class="nav-item btn text-start">
+                <a class="nav-link text-white" (click)="onShowCalendar()">Calendrier complet</a>
+              </li>
+              <li class="nav-item btn text-start">
+                <a class="nav-link text-white" (click)="onShowExo()">TD & Examens</a>
+              </li>
+              <!-- <li class="nav-item btn text-start">
+                <a class="nav-link text-white" (click)="onShowWebinaire()">Webinaire</a>
+              </li> -->
+            </ul>
+          </nav>
+      
+          <!-- Conteneur principal -->
+          <main class="col-10">
+            <!-- Titre en haut -->
+            <div class="bg-light p-3 border-bottom">
+                <div class="row d-flex align-items-center justify-content-between" *ngIf="showAnnonce">
+                    <div class="col">
+                        <h1 class="text-left">Tableau de bord Gestionnaire</h1>
+                    </div>
+                    <div class="col-auto">
+                        <button type="button" class="btn btn-secondary btn-lg" routerLink="/formation/ajouter-annonce">Créer une annonce</button>
+                    </div>
+                </div>
+                <div class="row d-flex align-items-center justify-content-between" *ngIf="showFormation">
+                    <div class="col">
+                        <h1 class="text-left">Les Programme de Formation Talent</h1>
+                    </div>
+                    <div class="col-auto">
+                        <button type="button" class="btn btn-secondary btn-lg" routerLink="/formation/ajouter-formation">Créer une formation</button>
+                    </div>
+                </div> 
+                <div class="row d-flex align-items-center justify-content-between" *ngIf="showGroupe">
+                    <div class="col">
+                        <h1 class="text-left">Répartition des groupes</h1>
+                    </div>
+                    <div class="col-auto">
+                        <button type="button" class="btn btn-secondary btn-lg">Créer un groupe</button>
+                    </div>
+                </div> 
+                <div class="row d-flex align-items-center justify-content-between" *ngIf="showListe">
+                    <div class="col">
+                        <h1 class="text-left">Liste des participants de la cohorte</h1>
+                    </div>
+                    <div class="col-auto">
+                        <button type="button" class="btn btn-secondary btn-lg mx-2" routerLink="/formation/ajout-encadrant">Ajouter un formateur</button>
+                        <!-- <button type="button" class="btn btn-secondary btn-lg">Ajouter un participant</button> -->
+                    </div>
+                </div> 
+                <div class="row d-flex align-items-center justify-content-between" *ngIf="showCalendar">
+                    <div class="col">
+                        <h1 class="text-left">Liste des modules</h1>
+                    </div>
+                    <div class="col-auto">
+                        <button type="button" class="btn btn-secondary btn-lg" routerLink="/formation/create-module">Créer un module</button>
+                    </div>
+                </div>
+                <div class="row d-flex align-items-center justify-content-between"  *ngIf="showExo">
+                    <div class="col">
+                        <h1 class="text-left">Programme des Exercices et Examens</h1>
+                    </div>
+                    <div class="col-auto">
+                        <button type="button" class="btn btn-secondary btn-lg">Créer un Quiz</button>
+                    </div>
+                </div> 
+                <div class="row d-flex align-items-center justify-content-between" *ngIf="showWebinar">
+                    <div class="col">
+                        <h1 class="text-left">Webinaire des talents</h1>
+                    </div>
+                    <div class="col-auto">
+                        <button type="button" class="btn btn-secondary btn-lg">Programmer un Webinaire</button>
+                    </div>
+                </div> 
+                                 
+              
+              <!-- <h1 *ngIf="showGroupe">Répartition des groupes</h1>
+              <h1 *ngIf="showListe">Liste de la cohorte</h1>
+              <h1 *ngIf="showCalendar">Le programme complet de la Formation</h1>
+              <h1 *ngIf="showExo">Programme des Exercices et Examens</h1>
+              <h1 *ngIf="showWebinar">Webinaire des talents</h1> -->
+    
+            </div>
+      
+            <!------------------------- Contenu principal ------------------------------------->
+    
+            <!-- Annonces -->
+             <div class="container my-4" *ngIf="showAnnonce">
+                <app-annonce/>
+             </div>
+
+
+            <div class="container my-4" *ngIf="showFormation">
+                <app-formation/>
+             </div>
+    
+            <!-- Groupes -->
+             <div class="container my-4" *ngIf="showGroupe">
+                <!-- liste des groupe -->
+                <app-groupe-etudiant/>
+                
+        
+             </div>
+    
+             <!-- Liste de cohorte utilisateurs -->
+             <div class="container my-4" *ngIf="showListe">
+                <div class="container my-4">
+
+                  <!-- Liste des étudiants -->
+                  <app-etudiant/>
+                    
+                  </div>
+
+                  <!-- Ajouter un formateur -->
+                  <div class="container my-4">
+
+                    <!-- /iste des formateurs -->
+                    <app-encadrant/>
+                    
+                  </div>
+                  
+             </div>
+    
+             <!-- calendrier de la formation -->
+             <div class="container my-4" *ngIf="showCalendar">
+                <app-module/>
+                
+             </div>
+    
+             <!-- TD & Examens -->
+             <div class="container my-4" *ngIf="showExo">
+                <h1>Pas d'exo</h1>
+             </div>
+    
+             <!-- Webinaire -->
+             <div class="container my-4" *ngIf="showWebinar">
+                <h1>Pas de webinaire en cours</h1>
+             </div>
+          </main>
+        </div>
+    
+        
+      </div>
+      <app-footer/>
+          
+    </body>
