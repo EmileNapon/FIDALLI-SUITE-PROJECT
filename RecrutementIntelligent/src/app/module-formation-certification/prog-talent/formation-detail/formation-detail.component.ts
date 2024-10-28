@@ -1,19 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Formation, Module, ModuleFormation } from 'src/app/models/tousModel';
-import { FormationService } from 'src/app/services/formation.service';
-import { ModuleService } from 'src/app/services/module.service';
-import { ModuleFormationService } from 'src/app/services/moduleFormation.service';
-
 @Component({
   selector: 'app-formation-detail',
   templateUrl: './formation-detail.component.html',
   styleUrls: ['./formation-detail.component.css']
 })
 export class FormationDetailComponent implements OnInit{
-  formations!: Formation;
-  moduleFormations: ModuleFormation[] = [];
-  modules: Module[] = [];
+  moduleFormations: any[] = [];
+  modules: any[] = [];
 
   formationId!: number;
 
