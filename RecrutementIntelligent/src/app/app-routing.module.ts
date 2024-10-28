@@ -36,6 +36,7 @@ import { GestionnaireDomaineComponent } from './gestionnaire/gestionnaire-domain
 import { GestionnaireModulesComponent } from './gestionnaire/gestionnaire-modules/gestionnaire-modules.component';
 import { GestionnaireChapitreComponent } from './gestionnaire/gestionnaire-chapitre/gestionnaire-chapitre.component';
 import { GestionnaireModifierContenuCoursComponent } from './gestionnaire/gestionnaire-modifier-contenu-cours/gestionnaire-modifier-contenu-cours.component';
+import { FormationDetailComponent } from './module-formation-certification/prog-talent/formation/formation-detail/formation-detail.component';
 
 const routes: Routes = [
 
@@ -56,6 +57,7 @@ const routes: Routes = [
     {path:'contenuLibre', component:ContenuLibreComponent}, 
 
 
+    {path: 'formation-detail/:id', component: FormationDetailComponent}
     
 
   
