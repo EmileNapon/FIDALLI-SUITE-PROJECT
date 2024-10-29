@@ -113,14 +113,20 @@ class ContentView(APIView):
         serializer = ContenuSerializer(contenu)
         return Response(serializer.data)
 
-    def put(self, request, contenu_id):
-        contenu = get_object_or_404(Contenu, id=contenu_id)
-        serializer = ContenuSerializer(contenu, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_200_OK)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    
+    def put(self, request):
+        updated_data = []
+        for contenu_data in request.data:
+            contenu_id = contenu_data.get('id')
+            if contenu_id is None:
+                return Response({"error": "Chaque contenu doit avoir un champ ID."}, status=status.HTTP_400_BAD_REQUEST)
+            contenu = get_object_or_404(Contenu, id=contenu_id)
+            serializer = ContenuSerializer(contenu, data=contenu_data, partial=True)
+            if serializer.is_valid():
+                serializer.save()
+                updated_data.append(serializer.data)  
+            else:
+                return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response(updated_data, status=status.HTTP_200_OK)
 
 #####################################################################  modification     
 

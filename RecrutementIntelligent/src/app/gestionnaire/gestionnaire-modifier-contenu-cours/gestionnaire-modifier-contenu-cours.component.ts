@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GestionnaireModifierContenuCoursService } from './gestionnaire-modifier-contenu-cours-service/gestionnaire-modifier-contenu-cours.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import DOMPurify from 'dompurify';
 
 @Component({
   selector: 'app-gestionnaire-modifier-contenu-cours',
@@ -47,30 +48,56 @@ export class GestionnaireModifierContenuCoursComponent implements OnInit{
     this.contenuService.getChapitre().subscribe(
       (data) => {
         this.chapitres = data;
-        
+        this.filterMatieresGestionnaire()
       });
-    this.filterMatieresGestionnaire()
-    this.filterContenu()
+    
   }
+
 
   filterMatieresGestionnaire(): void {
     if (this.idchapitreGestionnaireId) {
-      this.__filteredChapitresGestionnaire__ = this.chapitres.filter(chapitre => chapitre.cours == this.idchapitreGestionnaireId);
+      this.__filteredChapitresGestionnaire__ = this.chapitres.filter(chapitre => chapitre.cours == this.idchapitreGestionnaireId);  
+      this.ContenusFiltres = this.contenus.filter(contenu => this.__filteredChapitresGestionnaire__.some(chapitre=>chapitre.id==contenu.chapitre)).map(contenu => {
+        // Supprimer les balises <p> et </p> avant la sanitisation
+        const descriptionSansP = contenu.description.replace(/<\/?p>/g, '');
+        const sous_titreSansP = contenu.sous_titre.replace(/<\/?p>/g, '');
+        return {
+          ...contenu,sous_titre:DOMPurify.sanitize(sous_titreSansP),
+          description: DOMPurify.sanitize(descriptionSansP)
+        };
+
       
-      console.log(this.idchapitreGestionnaireId)
-      console.log("///////////////////////////////")
+      });
+      console.log(this.ContenusFiltres)
     }
   }
 
 
 
   
-  filterContenu(): void {    
-    this.ContenusFiltres = this.contenus.filter(contenu => this.__filteredChapitresGestionnaire__.some(chapitre=>chapitre.id==contenu.chapitre));
-    console.log(this.ContenusFiltres)
+
+
+
+
+
+evenementClique: string | null = null;
+onElementClick(id: string) {
+  this.evenementClique = id;
 }
 
 
+
+
+
+
+sauvegarderContenus() {
+  console.log(this.ContenusFiltres, "llllllllllllllllllllllllll")
+ this.contenuService.updateContenu(this.ContenusFiltres).subscribe(
+  response => {
+  console.log('Contenus sauvegardés avec succès', response);
+  
+})
+}
 
   }
 

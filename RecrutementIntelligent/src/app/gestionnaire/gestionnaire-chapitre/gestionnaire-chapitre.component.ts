@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, FormArray, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GestionnaireChapitreServiceService } from './gestionnaire_chapitre/gestionnaire-chapitre-service.service';
 
+import DOMPurify from 'dompurify';
 @Component({
   selector: 'app-gestionnaire-chapitre',
   templateUrl: './gestionnaire-chapitre.component.html',
@@ -174,16 +175,27 @@ export class GestionnaireChapitreComponent implements OnInit {
   }
 
   filterContenu(): void {    
-      this.ContenusFiltres = this.Contenus.filter(contenu => this.__filteredChapitresGestionnaire__.some(chapitre=>chapitre.id==contenu.chapitre));
+      this.ContenusFiltres = this.Contenus.filter(contenu => this.__filteredChapitresGestionnaire__.some(chapitre=>chapitre.id==contenu.chapitre))
+      .map(contenu => {
+        // Supprimer les balises <p> et </p> avant la sanitisation
+        const descriptionSansP = contenu.description.replace(/<\/?p>/g, '');
+        const sous_titreSansP = contenu.sous_titre.replace(/<\/?p>/g, '');
+        return {
+          ...contenu,sous_titre:DOMPurify.sanitize(sous_titreSansP),
+          description: DOMPurify.sanitize(descriptionSansP)
+        };
+      });
+   
+
+
+
+
   }
 
 
 
   onSelectgestionnaireCours(chapitreGestionnaireId: string): void {
-    this.route.navigate([`/gestionnaire/${chapitreGestionnaireId}/gestionnaire-contenu`]); // Redirection vers la page des matières du domaine sélectionné
- 
-
-
+    this.route.navigate([`/gestionnaire/${chapitreGestionnaireId}/gestionnaire-contenu`]); 
 
   }
 }

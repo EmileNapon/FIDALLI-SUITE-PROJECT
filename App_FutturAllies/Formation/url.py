@@ -16,6 +16,7 @@ urlpatterns = [
 ##########################################################################################
     path('contenu/create/', views.create_contenu, name='create_contenu'),
     path('contenus/list_contenus', views.list_contenus, name='list_contenus'),
+    path('contenu/update-contenu/', views.ContentView.as_view(), name='create_contenu'),
 #########################################################################################
  path('contenu/<int:contenu_id>/', views.ContentView.as_view(), name='detail_contenu'), 
 #########################################################################################
