@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Formation, } from '../models/tousModel';
 import { FormationService } from '../services/formation.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-formation',
@@ -12,6 +13,7 @@ export class FormationComponent implements OnInit {
 
   constructor(
     private formationService: FormationService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -38,4 +40,30 @@ export class FormationComponent implements OnInit {
     }
   }
 
+
+
+
+
+
+
+
+  shutDetail: boolean=true;
+  showDetail: boolean=false;
+  onShutDetail( id:number){
+    if(id){
+      this.shutDetail = false;
+      this.showDetail = true; 
+    }
+   
+  }
+  onShowDetail(){
+    this.shutDetail = true;
+    this.showDetail = false;
+  }
+ 
+
+  onSelectFormationDetail(FormationId: number): void {
+    this.router.navigate([`/Formation/${FormationId}/detail`]); 
+  }
+    
 }

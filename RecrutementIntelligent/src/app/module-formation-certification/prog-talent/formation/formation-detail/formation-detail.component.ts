@@ -12,6 +12,7 @@ import { ModuleFormationService } from '../../services/moduleFormation.service';
 })
 export class FormationDetailComponent implements OnInit{
   formations!: Formation;
+  formationss:any[]=[]
   moduleFormations: ModuleFormation[] = [];
   modules: Module[] = [];
 
@@ -26,45 +27,54 @@ export class FormationDetailComponent implements OnInit{
   ) {}
 
   ngOnInit(): void {
-    this.formationId = this.route.snapshot.params['id'];
+    this.formationId = this.route.snapshot.params['FormationId'];
     this.loadFormations();
-    this.loadModules();
+    // this.loadModules();
   }
 
 
   loadFormations(): void {
+    console.log(this.formationId)
     this.formationService.getFormationById(this.formationId).subscribe(
       (data) => {
+        
         this.formations = data;
-      },
-      (error) => {
-        console.error('Erreur lors du chargement des formations:', error);
+        //this.filterFormation();
       }
     );
   }
 
-  loadModules(): void {
-    this.moduleService.getModules().subscribe(
-      (data) => {
-        this.modules = data;
-      },
-      (error) => {
-        console.error('Erreur lors du chargement des des modules:', error);
-      }
-    );
-  }
+  // filtrerFormations:any[]=[]
+/*
+filterFormation(){
+  this.filtrerFormations= this.formations.filter(formation=>formation.id=this.formationId)
+  console.log(this.filtrerFormations,'##########///////////////////////////');
+}
+
+*/
+
+  // loadModules(): void {
+  //   this.moduleService.getModules().subscribe(
+  //     (data) => {
+  //       this.modules = data;
+  //     },
+  //     (error) => {
+  //       console.error('Erreur lors du chargement des des modules:', error);
+  //     }
+  //   );
+  // }
 
 
-  loadModuleFormations(): void {
-    this.moduleFormationService.getModuleFormations().subscribe(
-      (data) => {
-        this.moduleFormations = data; 
-      },
-      (error) => {
-        console.error('Erreur lors du chargement des modules de formation:', error);
-      }
-    );
-  }
+  // loadModuleFormations(): void {
+  //   this.moduleFormationService.getModuleFormations().subscribe(
+  //     (data) => {
+  //       this.moduleFormations = data; 
+  //     },
+  //     (error) => {
+  //       console.error('Erreur lors du chargement des modules de formation:', error);
+  //     }
+  //   );
+  // }
 
   deleteFormation(id: number): void {
     if (confirm('Êtes-vous sûr de vouloir supprimer cette formation ?')) {

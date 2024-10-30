@@ -3,8 +3,14 @@ from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.decorators import api_view
+
+from programmeTalent.models import Formation, ModuleFormation
+
+
 from .serializers import AffectationStageSerializer, FormationSerializer, GroupSerializer, InscritSerializer, ModuleFormationSerializer, SeanceStageSerializer
 
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import IsAuthenticated
 
 @api_view(['POST'])
 def create_Formation(request):
@@ -15,6 +21,16 @@ def create_Formation(request):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])  # Permet seulement aux utilisateurs authentifiés de lister les offres
+def list_formations(request):
+    domaines = Formation.objects.all()  # Récupérer toutes les offres
+    serializer = FormationSerializer(domaines, many=True)  # Sérialiser les données
+    return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+##################################################################################################################
+
 @api_view(['POST'])
 def create_Inscrit(request):
     if request.method == 'POST':
@@ -23,6 +39,7 @@ def create_Inscrit(request):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+##################################################################################################################
 
 @api_view(['POST'])
 def create_ModuleFormation(request):
@@ -32,6 +49,15 @@ def create_ModuleFormation(request):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])  # Permet seulement aux utilisateurs authentifiés de lister les offres
+def liste_ModuleFormation(request):
+    moduleFormation = ModuleFormation.objects.all()  # Récupérer toutes les offres
+    serializer = FormationSerializer(moduleFormation, many=True)  # Sérialiser les données
+    return Response(serializer.data, status=status.HTTP_200_OK)
+##################################################################################################################
 
 
 @api_view(['POST'])

@@ -8,17 +8,19 @@ import { Formation } from '../models/tousModel';
   providedIn: 'root'
 })
 export class FormationService {
-  private apiUrl = 'http://localhost:3000/Formations'; // Remplacer par votre API
-
+  private apiUrl = 'http://127.0.0.1:8000/fidalli/formation/list-formations'; // Remplacer par votre API
+ private apiUrl2="http://127.0.0.1:8000/fidalli/formation"
   constructor(private http: HttpClient) {}
 
-  getFormations(): Observable<Formation[]> {
-    return this.http.get<Formation[]>(this.apiUrl);
+  getFormations(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl);
   }
 
   getFormationById(id: number): Observable<Formation> {
-    return this.http.get<Formation>(`${this.apiUrl}/${id}`);
+    return this.http.get<Formation>(`${this.apiUrl2}/${id}`);
   }
+
+
 
   addFormation(formation: Formation): Observable<Formation> {
     return this.http.post<Formation>(this.apiUrl, formation);

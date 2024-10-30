@@ -51,6 +51,7 @@ import { AjoutAnnonceComponent } from './module-formation-certification/prog-tal
 import { ModificationAnnonceComponent } from './module-formation-certification/prog-talent/annonce/modification-annonce/modification-annonce.component';
 import { AjoutEncadrantComponent } from './module-formation-certification/prog-talent/encadrant/ajout-encadrant/ajout-encadrant.component';
 import { ModifEncadrantComponent } from './module-formation-certification/prog-talent/encadrant/modif-encadrant/modif-encadrant.component';
+import { FormationComponent } from './module-formation-certification/prog-talent/formation/formation.component';
 
 const routes: Routes = [
 
@@ -73,6 +74,8 @@ const routes: Routes = [
     {path: 'etudiantPage', component: EtudiantPageComponent},
     {path: 'gestionnairePage', component: GestionnairePageComponent},
     {path: 'formateurPage', component: FormateurPageComponent},
+
+    {path:"listes-formation",component: FormationComponent},
     { path: 'ajouter-formation', component: AjoutFormationComponent },
     { path: 'modification-formation/:id', component: ModificationFormationComponent },
     {path: 'create-module', component: CreateModuleComponent},
@@ -83,9 +86,15 @@ const routes: Routes = [
     {path: 'modification-annonce/:id', component: ModificationAnnonceComponent},
     {path: 'ajout-encadrant', component: AjoutEncadrantComponent},
     {path: 'modification-encadrant/:id', component: ModifEncadrantComponent},
-    {path: 'formation-detail/:id', component: FormationDetailComponent}
+    //{path: 'formation-detail/:id', component: FormationDetailComponent}
   
 ]},
+
+
+
+{path:'Formation/:FormationId/detail', component:FormationDetailComponent},   
+
+
 
   {path:'domaines', component:AcceuilFormationComponent},
   {path:'domaines/:domaineId/modules', component:ModuleComponent},  

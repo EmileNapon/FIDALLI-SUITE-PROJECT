@@ -1,3 +1,5 @@
+cccccccccccccccccccccccccccccccccccccccccc
+
 <div class='container-l mb-3' *ngFor="let formation of formations; let i = index">  
     <button class='btn-custom taille' style="padding: 20px;">
       <div class="row">
@@ -55,13 +57,21 @@
         </p>
       </div>
       
-      <div class="row">
-        <div class="text-end">
-          <button class="btn btn-outline-secondary" style="color: red;" [routerLink]="['/formation/formation-detail', formation.id]">Afficher les détails</button>
-          <button class="btn btn-warning mx-2" [routerLink]="['/formation/modification-formation', formation.id]">Modifier</button>
-          <button class="btn btn-danger" (click)="deleteFormation(formation.id)">Supprimer</button>
+      <div class="row" *ngIf="shutDetail">
+        <div class="text-end" >
+            <button class="btn btn-outline-secondary" style="color: red;" (click)="onSelectFormationDetail(formation.id)" >Voir les details</button>  
         </div>
-      </div>
+    </div>
+
+    <div class="text-end d-flex " *ngIf="showDetail">
+        <div class="mx-2">
+            <button class="btn btn-outline-danger" (click)="onShowDetail()">Réduire</button>
+        </div>
+        <div class="" >
+            <button class="btn btn-outline-secondary" style="color: red;" (click)="onShowDetail()" routerLink="/formation/etudiantPage">S'inscrire</button>  
+        </div>
+    </div>
+
   
       <br/>
     </button>
