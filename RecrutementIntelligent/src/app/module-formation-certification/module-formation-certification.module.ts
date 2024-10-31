@@ -47,6 +47,7 @@ import { ModificationSeanceComponent } from './prog-talent/seance/modification-s
 import { EtudiantPageComponent } from './prog-talent/users/etudiant-page/etudiant-page.component';
 import { FormateurPageComponent } from './prog-talent/users/formateur-page/formateur-page.component';
 import { GestionnairePageComponent } from './prog-talent/users/gestionnaire-page/gestionnaire-page.component';
+import { InscriptionPragraTalentComponent } from './prog-talent/formation/formation-detail/inscription-pragra-talent/inscription-pragra-talent.component';
 
 
 @NgModule({
@@ -67,7 +68,7 @@ import { GestionnairePageComponent } from './prog-talent/users/gestionnaire-page
     ChapitreComponent,
     
 
-  ProgTalentComponent, EtudiantPageComponent, GestionnairePageComponent, FormateurPageComponent, FormationComponent, ModuleComponent, FooterComponent, HeaderComponent, AnnonceComponent, EtudiantComponent, EncadrantComponent, ModifEncadrantComponent, AjoutFormationComponent, ModificationFormationComponent, CreateModuleComponent, ModificationModuleComponent, AjoutSeanceComponent, ModificationSeanceComponent, AjoutAnnonceComponent, ModificationAnnonceComponent, AjoutEncadrantComponent, GroupeEtudiantComponent, FormationDetailComponent
+  ProgTalentComponent, EtudiantPageComponent, GestionnairePageComponent, FormateurPageComponent, FormationComponent, ModuleComponent, FooterComponent, HeaderComponent, AnnonceComponent, EtudiantComponent, EncadrantComponent, ModifEncadrantComponent, AjoutFormationComponent, ModificationFormationComponent, CreateModuleComponent, ModificationModuleComponent, AjoutSeanceComponent, ModificationSeanceComponent, AjoutAnnonceComponent, ModificationAnnonceComponent, AjoutEncadrantComponent, GroupeEtudiantComponent, FormationDetailComponent, InscriptionPragraTalentComponent
   ],
   imports: [
     CommonModule, ReactiveFormsModule,  HttpClientModule, RouterModule, FormsModule,ReactiveFormsModule, 

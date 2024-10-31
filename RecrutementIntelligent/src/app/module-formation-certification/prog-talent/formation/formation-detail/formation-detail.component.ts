@@ -84,5 +84,8 @@ filterFormation(){
     }
   }
 
+  onSelectFormationDetail(FormationId: number): void {
+    this.router.navigate([`/Formation/${FormationId}/inscrit`]); 
+  }
 
 }

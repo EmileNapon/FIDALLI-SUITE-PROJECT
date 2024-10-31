@@ -23,6 +23,10 @@ class Inscrit(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)  # Relation vers Formation
     date = models.DateField(default=date.today)
     ##group = models.ForeignKey(Group, on_delete=models.CASCADE)  # À remplacer par un ForeignKey vers Group si applicable
+    phone_number=models.TextField(max_length=20, default='')
+    niveau_etude=models.TextField(max_length=10, default='')
+    domaine_etude=models.TextField(max_length=40, default='')
+
 
 
 class ModuleFormation(models.Model):

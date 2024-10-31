@@ -39,6 +39,7 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
         token = super().get_token(user)
 
         # Ajout des informations de l'utilisateur au token
+        token['id'] = user.id
         token['prenom'] = user.prenom
         token['nom'] = user.nom
         token['role']=user.role
@@ -52,6 +53,7 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
         
         if user:
             data.update({
+                'id': user.id,
                 'nom': user.nom,
                 'prenom': user.prenom,
                 "role":user.role,

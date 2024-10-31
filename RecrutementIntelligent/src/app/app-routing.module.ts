@@ -52,6 +52,7 @@ import { ModificationAnnonceComponent } from './module-formation-certification/p
 import { AjoutEncadrantComponent } from './module-formation-certification/prog-talent/encadrant/ajout-encadrant/ajout-encadrant.component';
 import { ModifEncadrantComponent } from './module-formation-certification/prog-talent/encadrant/modif-encadrant/modif-encadrant.component';
 import { FormationComponent } from './module-formation-certification/prog-talent/formation/formation.component';
+import { InscriptionPragraTalentComponent } from './module-formation-certification/prog-talent/formation/formation-detail/inscription-pragra-talent/inscription-pragra-talent.component';
 
 const routes: Routes = [
 
@@ -94,7 +95,7 @@ const routes: Routes = [
 
 {path:'Formation/:FormationId/detail', component:FormationDetailComponent},   
 
-
+{path:'Formation/:FormationId/inscrit', component:InscriptionPragraTalentComponent},   
 
   {path:'domaines', component:AcceuilFormationComponent},
   {path:'domaines/:domaineId/modules', component:ModuleComponent},  
