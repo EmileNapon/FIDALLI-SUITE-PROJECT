@@ -29,6 +29,17 @@ def list_formations(request):
     return Response(serializer.data, status=status.HTTP_200_OK)
 
 
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def detail_formation(request, formation_id):
+    try:
+        formation = Formation.objects.get(id=formation_id)
+        serializer = FormationSerializer(formation)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    except Formation.DoesNotExist:
+        return Response({"error": "Formation not found."}, status=status.HTTP_404_NOT_FOUND)
+
+
 ##################################################################################################################
 
 @api_view(['POST'])

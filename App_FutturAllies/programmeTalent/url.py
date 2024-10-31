@@ -4,7 +4,7 @@ from . import views
 urlpatterns = [
     path('formation/create/', views.create_Formation, name='create_formation'),
     path('formation/list-formations/', views.list_formations, name='list_formation'),
-    path('formation/<int:formation_id>/', views.list_formations, name='detail_formation'),
+    path('formation/<int:formation_id>/', views.detail_formation, name='detail_formation'), 
 
     ################################################################################
     path('inscrit/create/', views.create_Inscrit, name='create_inscrit'),
