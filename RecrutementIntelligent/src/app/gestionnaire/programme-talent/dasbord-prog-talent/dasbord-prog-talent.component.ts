@@ -7,7 +7,7 @@ import { ModuleFormationService } from '../services/moduleFormation.service';
 
 @Component({
   selector: 'app-dasbord-prog-talent',
-  templateUrl: './dasbord-prog-talent.component.html',
+  templateUrl:'./dasbord-prog-talent.component.html',
   styleUrls: ['./dasbord-prog-talent.component.css']
 })
 export class DasbordProgTalentComponent {
