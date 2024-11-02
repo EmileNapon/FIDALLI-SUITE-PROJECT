@@ -1,0 +1,69 @@
+<div class='container-l mb-3' *ngFor="let formation of formations; let i = index">  
+    <button class='btn-custom taille' style="padding: 20px;">
+      <div class="row">
+        <h1><b>{{ formation.titre }}</b></h1>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <table class="table">
+            <tr>
+              <td>Type :</td>
+              <td>{{ formation.type }}</td>
+            </tr>
+            <!-- <tr>
+              <td>Domaines éligibles :</td>
+              <td>#</td>
+            </tr> -->
+            <tr>
+              <td>Niveau requis :</td>
+              <td>{{ formation.niveau }}</td>
+            </tr>
+            <tr>
+              <td>Prix :</td>
+              <td>{{ formation.prix }} euros</td>
+            </tr>
+          </table>
+        </div>
+        <div class="col-md-6">
+          <table class="table">
+            <tr>
+              <td>Durée :</td>
+              <td>{{ formation.duree }}</td>
+            </tr>
+            <tr>
+              <td>Nombre de places :</td>
+              <td>{{ formation.nombre }}</td>
+            </tr>
+            <tr>
+              <td>Localisation :</td>
+              <td>{{ formation.location }}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+  
+      <div class="row">
+        <p><b>Resumé de la formation: </b>{{ formation.resume }} </p>
+      </div>
+
+  
+      <div class="row">
+        <p>
+          <i class="bi bi-star-fill" style="color: rgb(99, 104, 3);"></i>
+          <i class="bi bi-star-half" style="color: rgb(99, 104, 3);"></i>
+          <i class="bi bi-star" style="color: rgb(99, 104, 3);"></i>
+        </p>
+      </div>
+      
+      <div class="row">
+        <div class="text-end">
+          <button class="btn btn-outline-secondary" style="color: red;" [routerLink]="['/gestionnaire/formation-detail', formation.id]">Afficher les détails</button>
+          <button class="btn btn-warning mx-2" [routerLink]="['/gestionnaire/modification-formation', formation.id]">Modifier</button>
+          <button class="btn btn-danger" (click)="deleteFormation(formation.id)">Supprimer</button>
+        </div>
+      </div>
+  
+      <br/>
+    </button>
+  </div>
+  

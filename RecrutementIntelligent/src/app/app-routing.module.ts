@@ -53,6 +53,7 @@ import { AjoutEncadrantComponent } from './module-formation-certification/prog-t
 import { ModifEncadrantComponent } from './module-formation-certification/prog-talent/encadrant/modif-encadrant/modif-encadrant.component';
 import { FormationComponent } from './module-formation-certification/prog-talent/formation/formation.component';
 import { InscriptionPragraTalentComponent } from './module-formation-certification/prog-talent/formation/formation-detail/inscription-pragra-talent/inscription-pragra-talent.component';
+import { DasbordProgTalentComponent } from './gestionnaire/programme-talent/dasbord-prog-talent/dasbord-prog-talent.component';
 
 const routes: Routes = [
 
@@ -76,20 +77,29 @@ const routes: Routes = [
     {path: 'gestionnairePage', component: GestionnairePageComponent},
     {path: 'formateurPage', component: FormateurPageComponent},
 
-    {path:"listes-formation",component: FormationComponent},
-    { path: 'ajouter-formation', component: AjoutFormationComponent },
-    { path: 'modification-formation/:id', component: ModificationFormationComponent },
-    {path: 'create-module', component: CreateModuleComponent},
-    {path: 'modification-module/:id', component: ModificationModuleComponent},
-    {path: 'create-seance/:id', component: AjoutSeanceComponent},
-    {path: 'modification-seance/:id', component: ModificationSeanceComponent},
-    {path: 'ajouter-annonce', component: AjoutAnnonceComponent},
-    {path: 'modification-annonce/:id', component: ModificationAnnonceComponent},
-    {path: 'ajout-encadrant', component: AjoutEncadrantComponent},
-    {path: 'modification-encadrant/:id', component: ModifEncadrantComponent},
-    //{path: 'formation-detail/:id', component: FormationDetailComponent}
   
 ]},
+
+
+
+{path:'gestionnaire',component:GestionUtilisateursComponent,children:[
+
+  // -------- programme talent de gestionnaire ---------------------------
+  {path: 'dasbord-prog-talent', component: DasbordProgTalentComponent},
+  {path: 'formation', component: FormationComponent},
+  { path: 'ajouter-formation', component: AjoutFormationComponent },
+  { path: 'modification-formation/:id', component: ModificationFormationComponent },
+  {path: 'create-seance/:id', component: AjoutSeanceComponent},
+  {path: 'modification-seance/:id', component: ModificationSeanceComponent},
+  {path: 'ajouter-annonce', component: AjoutAnnonceComponent},
+  {path: 'modification-annonce/:id', component: ModificationAnnonceComponent},
+  {path: 'ajout-encadrant', component: AjoutEncadrantComponent},
+  {path: 'modification-encadrant/:id', component: ModifEncadrantComponent},
+  {path: 'formation-detail/:id', component: FormationDetailComponent}
+
+  // --------------- fin programme talent ------------------
+]},
+
 
 
 
