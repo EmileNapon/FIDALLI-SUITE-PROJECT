@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.decorators import api_view
 
-from programmeTalent.models import Formation, ModuleFormation
+from programmeTalent.models import Formation, Inscrit, ModuleFormation
 
 
 from .serializers import AffectationStageSerializer, FormationSerializer, GroupSerializer, InscritSerializer, ModuleFormationSerializer, SeanceStageSerializer
@@ -50,6 +50,14 @@ def create_Inscrit(request):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])  # Permet seulement aux utilisateurs authentifiés de lister les offres
+def liste_Inscrits(request):
+    inscrit = Inscrit.objects.all()  # Récupérer toutes les offres
+    serializer = InscritSerializer(inscrit, many=True)  # Sérialiser les données
+    return Response(serializer.data, status=status.HTTP_200_OK)
+
 ##################################################################################################################
 
 @api_view(['POST'])

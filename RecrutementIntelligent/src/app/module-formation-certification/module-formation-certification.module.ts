@@ -25,28 +25,12 @@ import { WebinarDetailsComponent } from './webinar/components/webinar-details/we
 import { WebinarEnrollComponent } from './webinar/components/webinar-enrollment/webinar-enrollment.component';
 import { WebinarManagementComponent } from './webinar/components/webinar-management/webinar-management.component';
 import { ChapitreComponent } from './chapitre/chapitre.component';
-import { AjoutAnnonceComponent } from './prog-talent/annonce/ajout-annonce/ajout-annonce.component';
-import { AnnonceComponent } from './prog-talent/annonce/annonce.component';
-import { ModificationAnnonceComponent } from './prog-talent/annonce/modification-annonce/modification-annonce.component';
-import { AjoutEncadrantComponent } from './prog-talent/encadrant/ajout-encadrant/ajout-encadrant.component';
-import { EncadrantComponent } from './prog-talent/encadrant/encadrant.component';
-import { ModifEncadrantComponent } from './prog-talent/encadrant/modif-encadrant/modif-encadrant.component';
-import { EtudiantComponent } from './prog-talent/etudiant/etudiant.component';
-import { FooterComponent } from './prog-talent/footer/footer.component';
-import { AjoutFormationComponent } from './prog-talent/formation/ajout-formation/ajout-formation.component';
+
+
 import { FormationDetailComponent } from './prog-talent/formation/formation-detail/formation-detail.component';
 import { FormationComponent } from './prog-talent/formation/formation.component';
-import { ModificationFormationComponent } from './prog-talent/formation/modification-formation/modification-formation.component';
-import { GroupeEtudiantComponent } from './prog-talent/groupe-etudiant/groupe-etudiant.component';
-import { HeaderComponent } from './prog-talent/header/header.component';
-import { CreateModuleComponent } from './prog-talent/module/create-module/create-module.component';
-import { ModificationModuleComponent } from './prog-talent/module/modification-module/modification-module.component';
-import { ProgTalentComponent } from './prog-talent/prog-talent.component';
-import { AjoutSeanceComponent } from './prog-talent/seance/ajout-seance/ajout-seance.component';
-import { ModificationSeanceComponent } from './prog-talent/seance/modification-seance/modification-seance.component';
-import { EtudiantPageComponent } from './prog-talent/users/etudiant-page/etudiant-page.component';
-import { FormateurPageComponent } from './prog-talent/users/formateur-page/formateur-page.component';
-import { GestionnairePageComponent } from './prog-talent/users/gestionnaire-page/gestionnaire-page.component';
+
+
 import { InscriptionPragraTalentComponent } from './prog-talent/formation/formation-detail/inscription-pragra-talent/inscription-pragra-talent.component';
 
 
@@ -68,7 +52,7 @@ import { InscriptionPragraTalentComponent } from './prog-talent/formation/format
     ChapitreComponent,
     
 
-  ProgTalentComponent, EtudiantPageComponent, GestionnairePageComponent, FormateurPageComponent, FormationComponent, ModuleComponent, FooterComponent, HeaderComponent, AnnonceComponent, EtudiantComponent, EncadrantComponent, ModifEncadrantComponent, AjoutFormationComponent, ModificationFormationComponent, CreateModuleComponent, ModificationModuleComponent, AjoutSeanceComponent, ModificationSeanceComponent, AjoutAnnonceComponent, ModificationAnnonceComponent, AjoutEncadrantComponent, GroupeEtudiantComponent, FormationDetailComponent, InscriptionPragraTalentComponent
+  FormationComponent, FormationDetailComponent, InscriptionPragraTalentComponent
   ],
   imports: [
     CommonModule, ReactiveFormsModule,  HttpClientModule, RouterModule, FormsModule,ReactiveFormsModule, 

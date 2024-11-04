@@ -8,7 +8,7 @@ urlpatterns = [
 
     ################################################################################
     path('inscrit/create/', views.create_Inscrit, name='create_inscrit'),
-
+    path('inscrit/listes_inscrits/', views.liste_Inscrits, name='liste_Inscrits'),
 
 
     ################################################################################
