@@ -7,7 +7,7 @@ import { Module } from '../models/tousModel';
   providedIn: 'root'
 })
 export class ModuleService {
-  private apiUrl = 'http://127.0.0.1:8000/fidalli/ModuleFormation/listes-module-formation'; // Remplacer par votre API
+  private apiUrl = 'http://127.0.0.1:8000/fidalli/modules/list_modules'
 
   constructor(private http: HttpClient) {}
 
