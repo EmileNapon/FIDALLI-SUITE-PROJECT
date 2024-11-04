@@ -58,7 +58,7 @@ export class DasbordEtudiantTalentComponent implements OnInit{
     // this.loadAnnonces();
     // this.loadGroupe();
     // this.loadSeances();
-
+    this.loadModulesFormations()
 
     // this.loadUser();
   }
@@ -170,10 +170,11 @@ loadModules(): void {
 }
 
 loadModulesFormations(): void {
+  
   this.moduleFormationService.getModuleFormations().subscribe(
     (data) => {
       this.modulesFormations = data;
-      console.log(this.modulesFormations,"????????????????")
+      console.log("????????????????",this.modulesFormations)  
     },
     (error) => {
       console.error('Erreur lors du chargement des modules:', error);
