@@ -40,13 +40,6 @@ export class FormationComponent implements OnInit {
     }
   }
 
-
-
-
-
-
-
-
   shutDetail: boolean=true;
   showDetail: boolean=false;
   onShutDetail( id:number){
@@ -60,10 +53,9 @@ export class FormationComponent implements OnInit {
     this.shutDetail = true;
     this.showDetail = false;
   }
- 
 
   onSelectFormationDetail(FormationId: number): void {
-    this.router.navigate([`/Formation/${FormationId}/detail`]); 
+    this.router.navigate([`/formation/${FormationId}/detail`]); 
   }
     
 }

@@ -75,18 +75,37 @@ const routes: Routes = [
     {path: 'progTalent', component: ProgTalentComponent},
     {path: 'etudiantPage', component: EtudiantPageComponent},
     {path: 'gestionnairePage', component: GestionnairePageComponent},
-    {path: 'formateurPage', component: FormateurPageComponent},
-
-  
+    {path: 'formateurPage', component: FormateurPageComponent},  
 ]},
 
+{path:'formation1', component:FormationComponent},   
+{path:'formation/:FormationId/detail', component:FormationDetailComponent},   
+{path:'formation/:FormationId/inscrit', component:InscriptionPragraTalentComponent},   
 
 
-{path:'gestionnaire',component:GestionUtilisateursComponent,children:[
+  {path:'domaines', component:AcceuilFormationComponent},
+  {path:'domaines/:domaineId/modules', component:ModuleComponent},  
+  {path:'modules/:coursId/cours', component:CoursComponent},
+  {path:'cours/:chapitreId/chapitres', component:ChapitreComponent},
+  {path:'programme-talent/:programmeId/programme', component:ChapitreComponent}, 
+  {path:'programme-talent', component:GestionnairePageComponent},
+  {path:'certification', component:CertificationComponent},
+  {path:'certification/:idCertification/certification', component:CertificationContenuComponent},
+  {path:'certification', component:CertificationComponent},
+  {path:'certification/:idCertification/certification', component:CertificationContenuComponent},
+  {path:'parcours/:idCertificationEParcours1', component:certificationContenuParcours1Component},
+  {path:'usersPages',component:GestionUtilisateursComponent,children:[
+    {path:'register', component:RegistrationComponent}, 
+    {path:'login', component:ConnexionComponent},
+    {path:'login', component:ConnexionComponent},
+  ]},
 
-  // -------- programme talent de gestionnaire ---------------------------
+  {path:'gestionnaire',component:GestionUtilisateursComponent,children:[
+    {path:'acceuil', component:GestionnaireAcceuilComponent},
+    {path:'domaines', component:GestionnaireDomaineComponent},
+      // -------- programme talent de gestionnaire ---------------------------
   {path: 'dasbord-prog-talent', component: DasbordProgTalentComponent},
-  {path: 'formation', component: FormationComponent},
+  {path: 'formation1', component: FormationComponent},
   { path: 'ajouter-formation', component: AjoutFormationComponent },
   { path: 'modification-formation/:id', component: ModificationFormationComponent },
   {path: 'create-seance/:id', component: AjoutSeanceComponent},
@@ -98,47 +117,6 @@ const routes: Routes = [
   {path: 'formation-detail/:id', component: FormationDetailComponent}
 
   // --------------- fin programme talent ------------------
-]},
-
-
-
-
-{path:'Formation/:FormationId/detail', component:FormationDetailComponent},   
-
-{path:'Formation/:FormationId/inscrit', component:InscriptionPragraTalentComponent},   
-
-  {path:'domaines', component:AcceuilFormationComponent},
-  {path:'domaines/:domaineId/modules', component:ModuleComponent},  
-  {path:'modules/:coursId/cours', component:CoursComponent},
-  {path:'cours/:chapitreId/chapitres', component:ChapitreComponent},
-  {path:'programme-talent/:programmeId/programme', component:ChapitreComponent},
-
-  {path:'programme-talent', component:GestionnairePageComponent},
-  
-
-
-
-
-
-  {path:'certification', component:CertificationComponent},
-  {path:'certification/:idCertification/certification', component:CertificationContenuComponent},
-
-  {path:'certification', component:CertificationComponent},
-  {path:'certification/:idCertification/certification', component:CertificationContenuComponent},
-  {path:'parcours/:idCertificationEParcours1', component:certificationContenuParcours1Component},
-
-
-  
-  {path:'usersPages',component:GestionUtilisateursComponent,children:[
-    {path:'register', component:RegistrationComponent},
-    {path:'login', component:ConnexionComponent},
-    {path:'login', component:ConnexionComponent},
-  ]},
-
-
-  {path:'gestionnaire',component:GestionUtilisateursComponent,children:[
-    {path:'acceuil', component:GestionnaireAcceuilComponent},
-    {path:'domaines', component:GestionnaireDomaineComponent}
   ]},
   {path:'gestionnaire/:iddomaineGestionnaireId/Gestionnaire-modules', component:GestionnaireModulesComponent},
   {path:'gestionnaire/:idmoduleGestionnaireId/Gestionnaire-cours', component:GestionnaireCoursComponent},
@@ -146,12 +124,8 @@ const routes: Routes = [
 
   {path:'gestionnaire/:idchapitreGestionnaireId/gestionnaire-contenu', component:GestionnaireModifierContenuCoursComponent},
 
-
-
-
   {path:'gestionnaire/gestionnaire-certificat', component:GestionnaireCertificatComponent},
   {path:'gestionnaire/:certificatGestionnaireId/GestionnaireCertificat', component:GestionnaireCertificatCoursComponent},
-
 
   {path:'orientation',component:OrientationsComponent,children:[
     {path:'orientationAcceuil', component:OrientationAcceuilComponent},

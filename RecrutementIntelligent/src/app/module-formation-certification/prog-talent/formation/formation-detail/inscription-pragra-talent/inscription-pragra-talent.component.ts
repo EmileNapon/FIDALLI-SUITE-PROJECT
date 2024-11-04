@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Service } from './service/service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/gestion-utilisateurs/connexion/service-connexion/service-connexion.service';
 import { FormationService } from '../../../services/formation.service';
 import { Formation } from '../../../models/tousModel';
@@ -20,7 +20,7 @@ export class InscriptionPragraTalentComponent implements OnInit {
 
   userInfo: { email: string | null, firstName: string | null, lastName: string | null, profilePic: string | null,id: string | null } | null = null;
 
-  constructor(private fb: FormBuilder, private userService: Service,    private route: ActivatedRoute, private serviceAuth: AuthService, private formationService: FormationService,) {}
+  constructor(private fb: FormBuilder, private userService: Service, private router: Router,   private route: ActivatedRoute, private serviceAuth: AuthService, private formationService: FormationService,) {}
 
   ngOnInit(): void {
     this.formationId = this.route.snapshot.params['FormationId'];
@@ -30,8 +30,8 @@ export class InscriptionPragraTalentComponent implements OnInit {
       user:this.userInfo.id,
       formation:this.formationId,
       phone_number:['',Validators.required],
-      domaine_etude: ['', Validators.required],
       niveau_etude: ['', Validators.required],
+      domaine_etude: ['', Validators.required]
       
     });
 
@@ -47,7 +47,7 @@ export class InscriptionPragraTalentComponent implements OnInit {
       this.userService.registerFormation(userInscrit).subscribe({
         next: (response) => {
           console.log('User registered successfully:', response);
-          console.log(userInscrit)
+          this.router.navigate(['/acceuil']);
         },
         error: (error) => {
           console.error('Error registering user:', error);

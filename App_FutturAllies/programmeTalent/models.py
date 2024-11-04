@@ -24,8 +24,12 @@ class Inscrit(models.Model):
     date = models.DateField(default=date.today)
     ##group = models.ForeignKey(Group, on_delete=models.CASCADE)  # À remplacer par un ForeignKey vers Group si applicable
     phone_number=models.TextField(max_length=20, default='')
-    niveau_etude=models.TextField(max_length=10, default='')
     domaine_etude=models.TextField(max_length=40, default='')
+    niveau_etude=models.TextField(max_length=100, default='')
+    class Meta:
+        unique_together = ('formation', 'user')  # Assure qu'un utilisateur ne peut s'inscrire qu'une seule fois à une formation
+    def __str__(self):
+        return f"{self.user} inscrit à {self.formation}"
 
 
 

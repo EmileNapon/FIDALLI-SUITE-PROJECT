@@ -21,12 +21,13 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './auth.interceptor'; // Chemin vers ton intercepteur
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DasbordEtudiantComponent } from './dasbord-etudiant/dasbord-etudiant.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AcceuilComponent,PremiumEtudiantComponent, HeaderPrincipaleComponent, HeaderGestionnaireComponent , 
+    AcceuilComponent,PremiumEtudiantComponent, HeaderPrincipaleComponent, HeaderGestionnaireComponent, DasbordEtudiantComponent , 
   ],
   imports: [
     BrowserModule,ReactiveFormsModule,
