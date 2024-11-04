@@ -66,9 +66,17 @@ const routes: Routes = [
 
 ]},
 
-{path:'formation1', component:FormationComponent},   
+
+
+
+{path: 'progTalent', component: FormationComponent},
 {path:'formation/:FormationId/detail', component:FormationDetailComponent},   
 {path:'formation/:FormationId/inscrit', component:InscriptionPragraTalentComponent},   
+
+
+
+
+{path: 'dasbord-prog-talent', component: DasbordProgTalentComponent},
 
 
   {path:'domaines', component:AcceuilFormationComponent},
@@ -90,13 +98,7 @@ const routes: Routes = [
   {path:'gestionnaire',component:GestionUtilisateursComponent,children:[
     {path:'acceuil', component:GestionnaireAcceuilComponent},
     {path:'domaines', component:GestionnaireDomaineComponent},
-      // -------- programme talent de gestionnaire ---------------------------
-  {path: 'dasbord-prog-talent', component: DasbordProgTalentComponent},
-  {path: 'formation1', component: FormationComponent},
 
-  {path: 'formation-detail/:id', component: FormationDetailComponent}
-
-  // --------------- fin programme talent ------------------
   ]},
   {path:'gestionnaire/:iddomaineGestionnaireId/Gestionnaire-modules', component:GestionnaireModulesComponent},
   {path:'gestionnaire/:idmoduleGestionnaireId/Gestionnaire-cours', component:GestionnaireCoursComponent},

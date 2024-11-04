@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Formation, Module, ModuleFormation } from '../../models/tousModel';
 import { FormationService } from '../../services/formation.service';
-import { ModuleService } from '../../services/module.service';
-import { ModuleFormationService } from '../../services/moduleFormation.service';
+
 
 @Component({
   selector: 'app-formation-detail',
@@ -20,8 +19,6 @@ export class FormationDetailComponent implements OnInit{
 
   constructor(
     private formationService: FormationService,
-    private moduleService: ModuleService,
-    private moduleFormationService: ModuleFormationService,
     private router: Router,
     private route: ActivatedRoute
   ) {}
