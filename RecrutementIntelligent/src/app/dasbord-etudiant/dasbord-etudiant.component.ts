@@ -25,7 +25,7 @@ export class DasbordEtudiantComponent {
   user!:number
   userInfo: { email: string | null, firstName: string | null, lastName: string | null, profilePic: string | null, id:string | null } | null = null;
 
-  constructor(private serviceAuth: AuthService, private DasbordService: DasbordEtudiantService) {}
+  constructor(private serviceAuth: AuthService, private DasbordService: DasbordEtudiantService, private router: Router) {}
 
   ngOnInit(): void {
     this.userInfo = this.serviceAuth.getUserInfo();
@@ -38,7 +38,6 @@ export class DasbordEtudiantComponent {
     this.DasbordService.getInscrits().subscribe(
       (data) => { 
         this.inscrits = data;
-        console.log(this.inscrits)
       }
     );
   }  
@@ -47,7 +46,6 @@ export class DasbordEtudiantComponent {
     this.DasbordService.getFormations().subscribe(
       (data) => { 
         this.formations = data;
-        console.log(this.formations)
         this.filterData();
       }
     );
@@ -57,10 +55,13 @@ export class DasbordEtudiantComponent {
     
       this.filteredIncrits= this.inscrits.filter(inscrit => inscrit.user ==this.userInfo?.id );
       this.filteredIncritsFormations= this.formations.filter(formation => this.filteredIncrits.some(inscrit => inscrit.formation==formation.id ));
-      console.log(this.filteredIncrits )
+      console.log(this.formations )
   }
 
-
+  onSelectProgrammeTalent(DasbordFormationId: number): void {
+    this.router.navigate([`/dasbord/${DasbordFormationId}/dasbord-etudiant`]); 
+  }
+    
 
 
 

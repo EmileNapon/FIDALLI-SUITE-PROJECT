@@ -18,6 +18,8 @@ urlpatterns = [
 
       ################################################################################
     path('seance/create/', views.create_Seance, name='create_seance'),
+    path('seance/list_seances/', views.list_Seance, name='list_seances'),
+        ################################################################################
     path('group/create/', views.create_Group, name='create_group'),
     path('affectationStage/create/', views.create_AffectationStage, name='AffectationStage'),
 ]

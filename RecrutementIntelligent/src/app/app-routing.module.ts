@@ -44,6 +44,7 @@ import { FormationComponent } from './module-formation-certification/prog-talent
 import { InscriptionPragraTalentComponent } from './module-formation-certification/prog-talent/formation/formation-detail/inscription-pragra-talent/inscription-pragra-talent.component';
 import { DasbordProgTalentComponent } from './gestionnaire/programme-talent/dasbord-prog-talent/dasbord-prog-talent.component';
 import { DasbordEtudiantComponent } from './dasbord-etudiant/dasbord-etudiant.component';
+import { DasbordEtudiantTalentComponent } from './module-formation-certification/etudiant/dasbord-etudiant-talent/dasbord-etudiant-talent.component';
 
 const routes: Routes = [
 
@@ -73,6 +74,8 @@ const routes: Routes = [
 {path:'formation/:FormationId/detail', component:FormationDetailComponent},   
 {path:'formation/:FormationId/inscrit', component:InscriptionPragraTalentComponent},   
 
+
+{path: 'dasbord/:DasbordFormationId/dasbord-etudiant', component: DasbordEtudiantTalentComponent},
 
 
 

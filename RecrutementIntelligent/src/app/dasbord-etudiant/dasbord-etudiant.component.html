@@ -1,4 +1,4 @@
-<button style='border:none' *ngFor='let d of filteredIncritsFormations'>
-    {{d.titre}} mmmmmmmmmmmmmmmmmmmmmmmm
-</button>
-mmmmmmmmmmmmmmmmmmmmmmmm
+<div class="container">
+<p style='border:none' *ngFor='let progrtalent of filteredIncritsFormations'>
+    <button style='border:none' (click)='onSelectProgrammeTalent(progrtalent.id)'>{{progrtalent.titre}}</button> 
+</p>

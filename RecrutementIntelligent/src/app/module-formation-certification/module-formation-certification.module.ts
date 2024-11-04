@@ -32,6 +32,7 @@ import { FormationComponent } from './prog-talent/formation/formation.component'
 
 
 import { InscriptionPragraTalentComponent } from './prog-talent/formation/formation-detail/inscription-pragra-talent/inscription-pragra-talent.component';
+import { DasbordEtudiantTalentComponent } from './etudiant/dasbord-etudiant-talent/dasbord-etudiant-talent.component';
 
 
 @NgModule({
@@ -52,7 +53,7 @@ import { InscriptionPragraTalentComponent } from './prog-talent/formation/format
     ChapitreComponent,
     
 
-  FormationComponent, FormationDetailComponent, InscriptionPragraTalentComponent
+  FormationComponent, FormationDetailComponent, InscriptionPragraTalentComponent,DasbordEtudiantTalentComponent
   ],
   imports: [
     CommonModule, ReactiveFormsModule,  HttpClientModule, RouterModule, FormsModule,ReactiveFormsModule, 

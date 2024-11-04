@@ -18,7 +18,7 @@ class ModuleFormationSerializer(serializers.ModelSerializer):
         model = ModuleFormation
         fields =  '__all__'   # Including all necessary fields
 
-class SeanceStageSerializer(serializers.ModelSerializer):
+class SeanceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Seance
         fields =  '__all__'   # Including all necessary fields
