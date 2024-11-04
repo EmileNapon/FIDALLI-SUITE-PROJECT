@@ -53,12 +53,12 @@ export class DasbordEtudiantTalentComponent implements OnInit{
     // this.showAjoutModule = false;
 
     this.loadModules();
-    this.loadAnnonces();
-    this.loadGroupe();
-    this.loadSeances();
+    // this.loadAnnonces();
+    // this.loadGroupe();
+    // this.loadSeances();
 
 
-    this.loadUser();
+    // this.loadUser();
   }
 
   onShowAnnonce(){
@@ -135,25 +135,25 @@ export class DasbordEtudiantTalentComponent implements OnInit{
   }
 
 
-  // Charger les annonces à partir du service
-  loadAnnonces(): void {
-    this.annonceService.getAnnonces().subscribe(data => {
-      this.annonces = data;
-    });
-  }
+//   // Charger les annonces à partir du service
+//   loadAnnonces(): void {
+//     this.annonceService.getAnnonces().subscribe(data => {
+//       this.annonces = data;
+//     });
+//   }
 
 
-loadGroupe(){
-  this.groupeSeance.getGroupes().subscribe((groupes: Group[]) =>{
-    this.groupes = groupes;
-  });
-}
+// loadGroupe(){
+//   this.groupeSeance.getGroupes().subscribe((groupes: Group[]) =>{
+//     this.groupes = groupes;
+//   });
+// }
 
-loadUser(){
-  this.utilisateurService.getEtudiants().subscribe((data: CustomUser[]) => {
-    this.etudiants = data;
-  });
-}
+// loadUser(){
+//   this.utilisateurService.getEtudiants().subscribe((data: CustomUser[]) => {
+//     this.etudiants = data;
+//   });
+// }
 
 loadModules(): void {
   this.moduleService.getModules().subscribe(

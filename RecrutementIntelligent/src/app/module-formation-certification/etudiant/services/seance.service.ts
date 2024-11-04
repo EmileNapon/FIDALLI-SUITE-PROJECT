@@ -7,44 +7,39 @@ import { Seance } from '../models/tousModel';
   providedIn: 'root'
 })
 export class SeanceService {
-  private apiUrl = 'http://localhost:3000/Seances'; // Remplacer par votre API
-  private apiSeanceUrl=" http://127.0.0.1:8000/fidalli/seance/list_seances/"
+  private apiUrl = 'http://127.0.0.1:8000/fidalli/seance/list_seances'; // Remplacer par votre API
+
   private lastId: number = 0; // Pour simuler l'incrémentation d'ID
 
   constructor(private http: HttpClient) {}
 
   getSeances(): Observable<Seance[]> {
-    return this.http.get<Seance[]>(this.apiSeanceUrl);
+    return this.http.get<Seance[]>(this.apiUrl);
   }
 
-  getSeanceById(id: number): Observable<Seance> {
-    return this.http.get<Seance>(`${this.apiUrl}/${id}`);
-  }
+  // getSeanceById(id: number): Observable<Seance> {
+  //   return this.http.get<Seance>(`${this.apiUrl}/${id}`);
+  // }
 
-//   addSeance(seance: Seance): Observable<Seance> {
-//     return this.http.post<Seance>(this.apiUrl, seance);
-//   }
 
-  addSeance(seance: Seance): Observable<Seance> {
-    // Attribuer un ID numérique et incrémental
-    // seance.id = ++this.lastId;
-    return this.http.post<Seance>(this.apiUrl, seance);
-  }
 
-  updateSeance(seance: Seance): Observable<Seance> {
-    return this.http.put<Seance>(`${this.apiUrl}/${seance.id}`, seance);
-  }
+  // addSeance(seance: Seance): Observable<Seance> {
+  //   return this.http.post<Seance>(this.apiUrl, seance);
+  // }
 
-  deleteSeance(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
-  }
+
+  // updateSeance(seance: Seance): Observable<Seance> {
+  //   return this.http.put<Seance>(`${this.apiUrl}/${seance.id}`, seance);
+  // }
+
+  // deleteSeance(id: number): Observable<void> {
+  //   return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  // }
 
 
 
 
-
-
-  deleteSeances(listeSeance: any): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${listeSeance}`);
-  }
+  // deleteSeances(listeSeance: any): Observable<void> {
+  //   return this.http.delete<void>(`${this.apiUrl}/${listeSeance}`);
+  // }
 }
