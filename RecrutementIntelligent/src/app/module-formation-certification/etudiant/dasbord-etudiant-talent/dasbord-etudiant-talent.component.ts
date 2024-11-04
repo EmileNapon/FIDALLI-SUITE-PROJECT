@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Annonce, CustomUser, Group, Module, Seance } from '../models/tousModel';
+import { Annonce, CustomUser, Group, Module, Seance,ModuleFormation } from '../models/tousModel';
 import { UtilisateurService } from '../services/utilisateur.service';
 import { ModuleService } from '../services/module.service';
 import { ModuleFormationService } from '../services/moduleFormation.service';
@@ -32,6 +32,8 @@ export class DasbordEtudiantTalentComponent implements OnInit{
   annonces: Annonce[] = [];
   groupes: Group[] = [];
   seances: Seance[] = [];
+  modulesFormations:ModuleFormation[]=[]
+  FiltresModules: Module[]=[]
 
   constructor(
     private utilisateurService: UtilisateurService,
@@ -39,7 +41,7 @@ export class DasbordEtudiantTalentComponent implements OnInit{
     private annonceService: AnnonceService,
     private groupeSeance: GroupeService,
     private seanceService: SeanceService,
-    private moduleFormationService: ModuleFormationService,
+    private moduleFormationService: ModuleFormationService
   ) { }
   
   ngOnInit():void{
@@ -159,6 +161,7 @@ loadModules(): void {
   this.moduleService.getModules().subscribe(
     (data) => {
       this.modules = data;
+      
     },
     (error) => {
       console.error('Erreur lors du chargement des modules:', error);
@@ -166,6 +169,17 @@ loadModules(): void {
   );
 }
 
+loadModulesFormations(): void {
+  this.moduleFormationService.getModuleFormations().subscribe(
+    (data) => {
+      this.modulesFormations = data;
+      console.log(this.modulesFormations,"????????????????")
+    },
+    (error) => {
+      console.error('Erreur lors du chargement des modules:', error);
+    }
+  );
+}
 
 loadSeances(): void {
   this.seanceService.getSeances().subscribe(
@@ -179,6 +193,12 @@ loadSeances(): void {
   );
 }
 
+
+filterData(): void {
+    
+  this.FiltresModules= this.modules.filter(module => this.modulesFormations.some(moduleFormation=>moduleFormation.id=module.id));
+console.log( "/////////////////",this.FiltresModules)
+}
 
 // Méthode pour filtrer les séances par module
 getSeancesByModule(moduleId: string): Seance[] {
