@@ -1,5 +1,6 @@
 export class Webinar {
     _id: string;
+    user!:number;
     title: string;
     description?: string;
     speaker: string;

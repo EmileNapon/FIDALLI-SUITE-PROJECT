@@ -22,4 +22,26 @@ urlpatterns = [
 #########################################################################################
  path('chapitre/<int:chapitre_id>/', views.ChapitreView.as_view(), name='detail_chapitre'), 
 
+#########################################################################################
+
+    # Liste des webinaires
+    path('webinars/', views.list_webinars, name='list_webinars'),
+
+    # Détails d'un webinaire
+    path('webinars/<int:webinar_id>/', views.get_webinar_detail, name='get_webinar_detail'),
+
+    # Création d'un webinaire
+    path('webinars/create/', views.create_webinar, name='create_webinar'),
+
+    # Mise à jour d'un webinaire
+    path('webinars/<int:webinar_id>/update/', views.update_webinar, name='update_webinar'),
+
+    # Suppression d'un webinaire
+    path('webinars/<int:webinar_id>/delete/', views.delete_webinar, name='delete_webinar'),
+    #path('webinars/enroll', views.enroll_to_webinar, name='inscrit'),
 ]
+
+
+
+
+

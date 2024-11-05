@@ -4,7 +4,7 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 
 from Formation.models import Domaine, Module, Cours, Chapitre,Contenu
-from .serializers import ChapitreSerializer, ContenuSerializer, CoursSerializer, DomaineSerializer, ModuleSerializer
+from .serializers import ChapitreSerializer, ContenuSerializer, CoursSerializer, DomaineSerializer, ModuleSerializer, WebinarEnrollmentSerializer
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
@@ -135,3 +135,81 @@ class ChapitreView(APIView):
         chapitre = get_object_or_404(Chapitre, id=chapitre_id)
         serializer = ChapitreSerializer(chapitre)
         return Response(serializer.data)
+
+
+
+
+
+##############################################################################################
+##############################################################################################
+    
+
+from .models import Webinar
+from .serializers import WebinarSerializer
+
+# Liste des webinaires (GET /fapi/webinars/)
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def list_webinars(request):
+    webinars = Webinar.objects.all()
+    serializer = WebinarSerializer(webinars, many=True)
+    return Response(serializer.data, status=status.HTTP_200_OK)
+
+# Détails d'un webinaire (GET /fapi/webinars/<webinar_id>/)
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_webinar_detail(request, webinar_id):
+    try:
+        webinar = Webinar.objects.get(pk=webinar_id)
+    except Webinar.DoesNotExist:
+        return Response({"error": "Webinar not found"}, status=status.HTTP_404_NOT_FOUND)
+
+    serializer = WebinarSerializer(webinar)
+    return Response(serializer.data, status=status.HTTP_200_OK)
+
+# Création d'un webinaire (POST /fapi/webinars/create/)
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def create_webinar(request):
+    serializer = WebinarSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+# Mise à jour d'un webinaire (PUT /fapi/webinars/<webinar_id>/update/)
+@api_view(['PUT'])
+@permission_classes([IsAuthenticated])
+def update_webinar(request, webinar_id):
+    try:
+        webinar = Webinar.objects.get(pk=webinar_id)
+    except Webinar.DoesNotExist:
+        return Response({"error": "Webinar not found"}, status=status.HTTP_404_NOT_FOUND)
+
+    serializer = WebinarSerializer(webinar, data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+# Suppression d'un webinaire (DELETE /fapi/webinars/<webinar_id>/delete/)
+@api_view(['DELETE'])
+@permission_classes([IsAuthenticated])
+def delete_webinar(request, webinar_id):
+    try:
+        webinar = Webinar.objects.get(pk=webinar_id)
+    except Webinar.DoesNotExist:
+        return Response({"error": "Webinar not found"}, status=status.HTTP_404_NOT_FOUND)
+
+    webinar.delete()
+    return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])  # Assurez-vous que l'utilisateur est authentifié
+def enroll_to_webinar(request):
+    serializer = WebinarEnrollmentSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()  # Sauvegarder l'inscription
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

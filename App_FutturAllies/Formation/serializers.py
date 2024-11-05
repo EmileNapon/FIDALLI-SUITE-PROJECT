@@ -29,3 +29,21 @@ class ContenuSerializer(serializers.ModelSerializer):
         model = Contenu
         fields =  '__all__'   # Including all necessary fields
 
+######################################################################################
+        ############################################################################
+
+from rest_framework import serializers
+from .models import Webinar, WebinarEnrollment
+
+class WebinarSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Webinar
+        fields = '__all__'
+
+
+class WebinarEnrollmentSerializer(serializers.ModelSerializer):
+    webinar_title = serializers.CharField(source='webinar.title', read_only=True)  # Optionnel: pour afficher le titre du webinaire
+
+    class Meta:
+        model = WebinarEnrollment
+        fields = '__all__'

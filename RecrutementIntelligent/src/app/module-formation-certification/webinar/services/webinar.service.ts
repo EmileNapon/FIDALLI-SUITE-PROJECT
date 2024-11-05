@@ -8,13 +8,13 @@ import { WebinarEnrollment } from '../models/webinar-enrollmnet.model';
   providedIn: 'root'
 })
 export class WebinarService {
-  private apiUrl = 'http://localhost:3000/fapi/webinars'; // Adresse de l'API pour les webinaires
+  private apiUrl = 'http://127.0.0.1:8000/fidalli/webinars'; // Adresse de l'API pour les webinaires
 
   constructor(private http: HttpClient) {}
 
   // Récupérer tous les webinaires
-  getWebinars(): Observable<Webinar[]> {
-    return this.http.get<Webinar[]>(this.apiUrl);
+  getWebinars(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl);
   }
 
   // Récupérer un webinaire par ID
@@ -39,7 +39,7 @@ export class WebinarService {
 
   // Inscrire un utilisateur à un webinaire
   enrollToWebinar(enrollData: any): Observable<any> {
-    const apiUrlEnrollments = 'http://localhost:3000/fapi/webinarEnrollments/enroll';
+    const apiUrlEnrollments = 'http://127.0.0.1:8000/fidalli/webinarEnrollments/enroll';
     return this.http.post<WebinarEnrollment>(apiUrlEnrollments, enrollData);
   }
 }
