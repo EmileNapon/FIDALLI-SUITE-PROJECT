@@ -71,11 +71,13 @@ def create_ModuleFormation(request):
 
 
 @api_view(['GET'])
-@permission_classes([IsAuthenticated])  # Permet seulement aux utilisateurs authentifiés de lister les offres
-def liste_ModuleFormation(request):
+@permission_classes([IsAuthenticated]) # Permet seulement aux utilisateurs authentifiés de lister les offres
+def list_ModuleFormation(request):
     moduleFormation = ModuleFormation.objects.all()  # Récupérer toutes les offres
-    serializer = FormationSerializer(moduleFormation, many=True)  # Sérialiser les données
+    serializer = ModuleFormationSerializer(moduleFormation, many=True)  # Sérialiser les données
     return Response(serializer.data, status=status.HTTP_200_OK)
+
+
 ##################################################################################################################
 
 @api_view(['POST'])

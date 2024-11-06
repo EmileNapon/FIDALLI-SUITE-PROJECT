@@ -38,7 +38,7 @@ urlpatterns = [
 
     # Suppression d'un webinaire
     path('webinars/<int:webinar_id>/delete/', views.delete_webinar, name='delete_webinar'),
-    #path('webinars/enroll', views.enroll_to_webinar, name='inscrit'),
+    path('webinars/enroll', views.enroll_to_webinar, name='inscrit'),
 ]
 
 

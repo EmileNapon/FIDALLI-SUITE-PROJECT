@@ -6,6 +6,7 @@ import { ModuleFormationService } from '../services/moduleFormation.service';
 import { AnnonceService } from '../services/annonce.service';
 import { GroupeService } from '../services/groupe.service';
 import { SeanceService } from '../services/seance.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-dasbord-etudiant-talent',
@@ -31,9 +32,12 @@ export class DasbordEtudiantTalentComponent implements OnInit{
   // -------------------
   annonces: Annonce[] = [];
   groupes: Group[] = [];
-  seances: Seance[] = [];
-  modulesFormations:ModuleFormation[]=[]
+  seances: any[] = [];
+  modulesFormations:any[]=[]
   FiltresModules: Module[]=[]
+  formationId!:string
+  FiltresmodulesFormations:any[]=[]
+  FiltresSeances: any[]=[]
 
   constructor(
     private utilisateurService: UtilisateurService,
@@ -41,10 +45,12 @@ export class DasbordEtudiantTalentComponent implements OnInit{
     private annonceService: AnnonceService,
     private groupeSeance: GroupeService,
     private seanceService: SeanceService,
-    private moduleFormationService: ModuleFormationService
+    private moduleFormationService: ModuleFormationService,
+    private router: Router,   private route: ActivatedRoute,
   ) { }
   
   ngOnInit():void{
+    this.formationId = this.route.snapshot.params['DasbordFormationId'];
     this.showAnnonce = true;
     // this.showFormation = false;
     this.showGroupe = false;
@@ -57,9 +63,10 @@ export class DasbordEtudiantTalentComponent implements OnInit{
     this.loadModules();
     // this.loadAnnonces();
     // this.loadGroupe();
-    // this.loadSeances();
+    this.loadSeances();
     this.loadModulesFormations()
-
+    
+      
     // this.loadUser();
   }
 
@@ -157,24 +164,13 @@ export class DasbordEtudiantTalentComponent implements OnInit{
 //   });
 // }
 
-loadModules(): void {
-  this.moduleService.getModules().subscribe(
-    (data) => {
-      this.modules = data;
-      
-    },
-    (error) => {
-      console.error('Erreur lors du chargement des modules:', error);
-    }
-  );
-}
 
 loadModulesFormations(): void {
   
   this.moduleFormationService.getModuleFormations().subscribe(
     (data) => {
       this.modulesFormations = data;
-      console.log("????????????????",this.modulesFormations)  
+      this.filterData()
     },
     (error) => {
       console.error('Erreur lors du chargement des modules:', error);
@@ -182,11 +178,25 @@ loadModulesFormations(): void {
   );
 }
 
+
+loadModules(): void {
+  this.moduleService.getModules().subscribe(
+    (data) => {
+      this.modules = data;
+
+    },
+    (error) => {
+      console.error('Erreur lors du chargement des modules:', error);
+    }
+  );
+}
+
+
 loadSeances(): void {
   this.seanceService.getSeances().subscribe(
     (data) => {
       this.seances = data;
-      console.log("/////////////////",this.seances)
+      console.log("hhhhhhhhhhhh",this.seances)
     },
     (error) => {
       console.error('Erreur lors du chargement des formations:', error);
@@ -196,15 +206,17 @@ loadSeances(): void {
 
 
 filterData(): void {
-    
-  this.FiltresModules= this.modules.filter(module => this.modulesFormations.some(moduleFormation=>moduleFormation.id=module.id));
-console.log( "/////////////////",this.FiltresModules)
+    console.log(this.formationId)
+ this.FiltresmodulesFormations= this.modulesFormations.filter(moduleFormation=>moduleFormation.formation==this.formationId);
+ this.FiltresModules= this.modules.filter(modul=>this.FiltresmodulesFormations.some(filModulFormation=>filModulFormation.module==modul.id));
+ this.FiltresSeances= this.seances.filter(seance=>this.FiltresmodulesFormations.some(filModulFormation=>filModulFormation.module==seance.module));
+console.log( "/////////////////",this.FiltresSeances)
 }
 
 // Méthode pour filtrer les séances par module
-getSeancesByModule(moduleId: string): Seance[] {
-  return this.seances.filter(seance => seance.moduleFormation_id.toString() === moduleId);
-}
+// getSeancesByModule(moduleId: string): Seance[] {
+//   return this.seances.filter(seance => seance.moduleFormation_id.toString() === moduleId);
+// }
   
 
 

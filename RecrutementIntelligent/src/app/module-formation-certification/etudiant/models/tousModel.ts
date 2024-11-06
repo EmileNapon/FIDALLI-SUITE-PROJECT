@@ -50,10 +50,9 @@ export interface Module {
 }
 
 export interface ModuleFormation {
-    id?: number;
-    formation_id: number; // ID de la formation
-    module_id: number; // ID du module
-    user_id?: number; // ID de l'utilisateur (CustomUser)
+    formation: number; // ID de la formation
+    module: number; // ID du module
+    // user_id?: number; // ID de l'utilisateur (CustomUser)
 }
 
 export interface Seance {

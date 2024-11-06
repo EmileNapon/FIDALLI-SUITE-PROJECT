@@ -14,7 +14,7 @@ urlpatterns = [
     ################################################################################
     
     path('ModuleFormation/create/', views.create_ModuleFormation, name='ModuleFormation'),
-     path('ModuleFormation/listes-module-formation/', views.liste_ModuleFormation, name='ModuleFormation'),
+     path('ModuleFormation/list_moduleFormation/', views.list_ModuleFormation, name='ModuleFormation'),
 
       ################################################################################
     path('seance/create/', views.create_Seance, name='create_seance'),

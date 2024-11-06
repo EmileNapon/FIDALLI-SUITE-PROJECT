@@ -60,16 +60,6 @@ REST_FRAMEWORK = {
     ],
 }
 
-from datetime import timedelta
-
-SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=30),
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=2),
-    'ROTATE_REFRESH_TOKENS': True,
-    'BLACKLIST_AFTER_ROTATION': True,
-    'AUTH_HEADER_TYPES': ('Bearer',),
-}
-
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:4200",
@@ -92,7 +82,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
 ]
@@ -188,8 +177,8 @@ from datetime import timedelta
 from datetime import timedelta
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=400),  # Durée de vie courte du token d'accès
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=7),  # Durée de vie plus longue du refresh token
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=20000),  # Durée de vie courte du token d'accès
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=70),  # Durée de vie plus longue du refresh token
     'ROTATE_REFRESH_TOKENS': True,  # Option pour tourner le refresh token
     'BLACKLIST_AFTER_ROTATION': True,  # Option pour mettre sur liste noire l'ancien token après rotation
 }

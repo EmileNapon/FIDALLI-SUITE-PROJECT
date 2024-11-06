@@ -13,8 +13,8 @@ export class SeanceService {
 
   constructor(private http: HttpClient) {}
 
-  getSeances(): Observable<Seance[]> {
-    return this.http.get<Seance[]>(this.apiUrl);
+  getSeances(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl);
   }
 
   // getSeanceById(id: number): Observable<Seance> {

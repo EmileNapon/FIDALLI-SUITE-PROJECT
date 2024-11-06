@@ -206,7 +206,6 @@ def delete_webinar(request, webinar_id):
 
 
 @api_view(['POST'])
-@permission_classes([IsAuthenticated])  # Assurez-vous que l'utilisateur est authentifié
 def enroll_to_webinar(request):
     serializer = WebinarEnrollmentSerializer(data=request.data)
     if serializer.is_valid():

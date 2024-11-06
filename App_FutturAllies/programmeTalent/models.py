@@ -32,23 +32,26 @@ class Inscrit(models.Model):
         return f"{self.user} inscrit à {self.formation}"
 
 
-
 class ModuleFormation(models.Model):
-    module = models.ForeignKey(Module, on_delete=models.CASCADE)  # Relation vers Module
-    formation = models.ForeignKey(Formation, on_delete=models.CASCADE)  # Relation vers Formation
+    module = models.ForeignKey(Module, on_delete=models.CASCADE, default=1)  # Relation vers Module
+    formation = models.ForeignKey(Formation, on_delete=models.CASCADE, default=1)  # Relation vers Formation
+
+
+
+
+
 
 class Seance(models.Model):
     lieu = models.CharField(max_length=200)  # Renommé en CharField pour la localisation
     date_formation = models.DateField(default=date(2024, 1, 20))
     heure_debut = models.TimeField()  # Utilisation de TimeField pour les heures
     statut = models.CharField(max_length=10, choices=[('confirmé', 'Confirmé'),('annulé', 'Annulé'),('attente', 'Attente')])
-    ModuleFormation=models.ForeignKey(ModuleFormation,on_delete=models.CASCADE)
-
-
-
+    ModuleFormation=models.ForeignKey(ModuleFormation,on_delete=models.CASCADE,default=1)
+    module = models.ForeignKey(Module, on_delete=models.CASCADE, default=1)  # Relation vers Module
+    
 class AffectationStage(models.Model):
     inscrit = models.ForeignKey(Inscrit, on_delete=models.CASCADE)  # Relation vers Inscrit
    ## offre = models.ForeignKey(Offre, on_delete=models.CASCADE, default=1)  # Relation vers Inscrit
     date_affectation = models.DateField(default=date.today)
-    group=models.ForeignKey(Group,on_delete=models.CASCADE, null=True )
+    group=models.ForeignKey(Group,on_delete=models.CASCADE, null=True)
 

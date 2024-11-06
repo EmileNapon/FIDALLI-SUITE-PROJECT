@@ -7,13 +7,13 @@ import { Module, ModuleFormation } from '../models/tousModel';
   providedIn: 'root'
 })
 export class ModuleFormationService {
-  private apiUrl = 'http://127.0.0.1:8000/fidalli/ModuleFormation/listes-module-formation'; // Remplacez par l'URL de votre API
+  private apiUrl = 'http://127.0.0.1:8000/fidalli/ModuleFormation/list_moduleFormation/'; // Remplacez par l'URL de votre API
 
   constructor(private http: HttpClient) { }
 
   // Récupérer tous les ModuleFormation
-  getModuleFormations(): Observable<ModuleFormation[]> {
-    return this.http.get<ModuleFormation[]>(this.apiUrl);
+  getModuleFormations(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl);
   }
 
   // // Récupérer un ModuleFormation par son ID
