@@ -32,7 +32,7 @@ export class DasbordEtudiantTalentComponent implements OnInit{
   selectedModules: { moduleId: number, formateurIds: number[] }[] = [];  // Stocker les formateurs pour chaque module
 
   // -------------------
-  annonces: Annonce[] = [];
+  annonces: any[] = [];
   groupes: Group[] = [];
   seances: any[] = [];
   modulesFormations:any[]=[]
@@ -77,7 +77,7 @@ export class DasbordEtudiantTalentComponent implements OnInit{
     // this.showAjoutModule = false;
 
     this.loadModules();
-    // this.loadAnnonces();
+   this.loadAnnonces();
     // this.loadGroupe();
     this.loadSeances();
     this.loadModulesFormations()
@@ -169,6 +169,7 @@ export class DasbordEtudiantTalentComponent implements OnInit{
   loadAnnonces(): void {
     this.annonceService.getAnnonces().subscribe(data => {
       this.annonces = data;
+      console.log(this.annonces)
     });
   }
 

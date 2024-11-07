@@ -15,7 +15,7 @@ import { GestionnaireChapitreComponent } from './gestionnaire-chapitre/gestionna
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { GestionnaireModifierContenuCoursComponent } from './gestionnaire-modifier-contenu-cours/gestionnaire-modifier-contenu-cours.component';
 
-import { FormationComponent } from './programme-talent/formation/formation.component';
+import {  GestionnaireFormationComponent } from './programme-talent/formation/formation.component';
 import { ModuleComponent } from './programme-talent/module/module.component';
 import { FooterComponent } from './programme-talent/footer/footer.component';
 import { HeaderComponent } from './programme-talent/header/header.component';
@@ -31,17 +31,17 @@ import { AjoutAnnonceComponent } from './programme-talent/annonce/ajout-annonce/
 import { ModificationAnnonceComponent } from './programme-talent/annonce/modification-annonce/modification-annonce.component';
 import { AjoutEncadrantComponent } from './programme-talent/encadrant/ajout-encadrant/ajout-encadrant.component';
 import { GroupeEtudiantComponent } from './programme-talent/groupe-etudiant/groupe-etudiant.component';
-import { FormationDetailComponent } from './programme-talent/formation/formation-detail/formation-detail.component';
-import { DasbordProgTalentComponent } from './programme-talent/dasbord-prog-talent/dasbord-prog-talent.component';
+import {  GestionnaireFormationDetailComponent } from './programme-talent/formation/formation-detail/formation-detail.component';
+import {  GestionnaireDasbordProgTalentComponent } from './programme-talent/dasbord-prog-talent/dasbord-prog-talent.component';
 
 @NgModule({
   declarations: [GestionnaireComponent, GestionnaireAcceuilComponent, GestionnaireModulesComponent, GestionnaireCoursComponent, GestionnaireCertificatComponent, GestionnaireCertificatCoursComponent, GestionnaireDomaineComponent, GestionnaireChapitreComponent, GestionnaireModifierContenuCoursComponent,
-    DasbordProgTalentComponent,
+    GestionnaireDasbordProgTalentComponent,
       // -----------programme talent ---------------------------
-      FormationComponent, ModuleComponent, FooterComponent, HeaderComponent, AnnonceComponent, 
+      GestionnaireFormationComponent, ModuleComponent, FooterComponent, HeaderComponent, AnnonceComponent, 
       EtudiantComponent, EncadrantComponent, ModifEncadrantComponent, AjoutFormationComponent, ModificationFormationComponent, 
       AjoutSeanceComponent, ModificationSeanceComponent, AjoutAnnonceComponent, ModificationAnnonceComponent, 
-      AjoutEncadrantComponent, GroupeEtudiantComponent, FormationDetailComponent,
+      AjoutEncadrantComponent, GroupeEtudiantComponent, GestionnaireFormationDetailComponent,
       // -------------------fin ----------------------------------
   ],
   imports: [

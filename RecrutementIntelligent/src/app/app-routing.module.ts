@@ -42,9 +42,19 @@ import { FormationDetailComponent } from './module-formation-certification/prog-
 
 import { FormationComponent } from './module-formation-certification/prog-talent/formation/formation.component';
 import { InscriptionPragraTalentComponent } from './module-formation-certification/prog-talent/formation/formation-detail/inscription-pragra-talent/inscription-pragra-talent.component';
-import { DasbordProgTalentComponent } from './gestionnaire/programme-talent/dasbord-prog-talent/dasbord-prog-talent.component';
 import { DasbordEtudiantComponent } from './dasbord-etudiant/dasbord-etudiant.component';
 import { DasbordEtudiantTalentComponent } from './module-formation-certification/etudiant/dasbord-etudiant-talent/dasbord-etudiant-talent.component';
+import { GestionnaireDasbordProgTalentComponent } from './gestionnaire/programme-talent/dasbord-prog-talent/dasbord-prog-talent.component';
+import { GestionnaireFormationComponent } from './gestionnaire/programme-talent/formation/formation.component';
+import { AjoutFormationComponent } from './gestionnaire/programme-talent/formation/ajout-formation/ajout-formation.component';
+import { ModificationFormationComponent } from './gestionnaire/programme-talent/formation/modification-formation/modification-formation.component';
+import { AjoutSeanceComponent } from './gestionnaire/programme-talent/seance/ajout-seance/ajout-seance.component';
+import { ModificationSeanceComponent } from './gestionnaire/programme-talent/seance/modification-seance/modification-seance.component';
+import { AjoutAnnonceComponent } from './gestionnaire/programme-talent/annonce/ajout-annonce/ajout-annonce.component';
+import { ModificationAnnonceComponent } from './gestionnaire/programme-talent/annonce/modification-annonce/modification-annonce.component';
+import { AjoutEncadrantComponent } from './gestionnaire/programme-talent/encadrant/ajout-encadrant/ajout-encadrant.component';
+import { ModifEncadrantComponent } from './gestionnaire/programme-talent/encadrant/modif-encadrant/modif-encadrant.component';
+import { GestionnaireFormationDetailComponent } from './gestionnaire/programme-talent/formation/formation-detail/formation-detail.component';
 
 const routes: Routes = [
 
@@ -73,13 +83,8 @@ const routes: Routes = [
 {path: 'progTalent', component: FormationComponent},
 {path:'formation/:FormationId/detail', component:FormationDetailComponent},   
 {path:'formation/:FormationId/inscrit', component:InscriptionPragraTalentComponent},   
-
-
 {path: 'dasbord/:DasbordFormationId/dasbord-etudiant', component: DasbordEtudiantTalentComponent},
-
-
-
-{path: 'dasbord-prog-talent', component: DasbordProgTalentComponent},
+{path: 'dasbord-prog-talent', component: DasbordEtudiantComponent},
 
 
   {path:'domaines', component:AcceuilFormationComponent},
@@ -98,11 +103,29 @@ const routes: Routes = [
     {path:'login', component:ConnexionComponent},
   ]},
 
+
+
   {path:'gestionnaire',component:GestionUtilisateursComponent,children:[
     {path:'acceuil', component:GestionnaireAcceuilComponent},
     {path:'domaines', component:GestionnaireDomaineComponent},
 
+    {path: 'dasbord-prog-talent', component: GestionnaireDasbordProgTalentComponent},
+    {path: 'formation', component: GestionnaireFormationComponent},
+    { path: 'ajouter-formation', component: AjoutFormationComponent },
+    { path: 'modification-formation/:id', component: ModificationFormationComponent },
+    {path: 'create-seance/:id', component: AjoutSeanceComponent},
+    {path: 'modification-seance/:id', component: ModificationSeanceComponent},
+    {path: 'ajouter-annonce', component: AjoutAnnonceComponent},
+    {path: 'modification-annonce/:id', component: ModificationAnnonceComponent},
+    {path: 'ajout-encadrant', component: AjoutEncadrantComponent},
+    {path: 'modification-encadrant/:id', component: ModifEncadrantComponent},
+    {path: 'formation-detail/:id', component: GestionnaireFormationDetailComponent}
+
+
   ]},
+  
+
+
   {path:'gestionnaire/:iddomaineGestionnaireId/Gestionnaire-modules', component:GestionnaireModulesComponent},
   {path:'gestionnaire/:idmoduleGestionnaireId/Gestionnaire-cours', component:GestionnaireCoursComponent},
   {path:'gestionnaire/:idcoursGestionnaireId/gestionnaire-chapitre', component:GestionnaireChapitreComponent},

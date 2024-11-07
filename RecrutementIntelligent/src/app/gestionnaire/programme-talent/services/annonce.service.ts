@@ -7,7 +7,7 @@ import { Annonce } from '../models/tousModel';
   providedIn: 'root'
 })
 export class AnnonceService {
-  private jsonUrl = 'http://localhost:3000/Annonces';  // Chemin vers le fichier JSON simulé pour l'exemple
+  private jsonUrl = 'http://127.0.0.1:8000/fidalli/annonces';  // Chemin vers le fichier JSON simulé pour l'exemple
   // private annonces: Annonce[] = [];  
   // Liste des annonces chargées en mémoire (pour simulation)
 
@@ -16,6 +16,7 @@ export class AnnonceService {
   // 1. Récupérer toutes les annonces
   getAnnonces(): Observable<Annonce[]> {
     return this.http.get<Annonce[]>(this.jsonUrl);
+    
   }
 
   // 2. Récupérer une annonce par ID

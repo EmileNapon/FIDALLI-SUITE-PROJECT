@@ -9,7 +9,7 @@ import { AnnonceService } from '../services/annonce.service';
 })
 export class AnnonceComponent {
 
-  annonces: Annonce[] = [];
+  annonces: any[] = [];
   // newAnnonce: Annonce = {
   //   id: 0,
   //   titre: '',

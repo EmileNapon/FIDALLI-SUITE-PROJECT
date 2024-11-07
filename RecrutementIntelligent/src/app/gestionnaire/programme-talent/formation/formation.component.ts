@@ -7,7 +7,7 @@ import { FormationService } from '../services/formation.service';
   templateUrl: './formation.component.html',
   styleUrls: ['./formation.component.css']
 })
-export class FormationComponent implements OnInit {
+export class GestionnaireFormationComponent implements OnInit {
   formations: Formation[] = [];
 
   constructor(

@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FormationComponent } from './formation.component';
+import { GestionnaireFormationComponent } from './formation.component';
 
 describe('FormationComponent', () => {
-  let component: FormationComponent;
-  let fixture: ComponentFixture<FormationComponent>;
+  let component: GestionnaireFormationComponent;
+  let fixture: ComponentFixture<GestionnaireFormationComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [FormationComponent]
+      declarations: [GestionnaireFormationComponent]
     });
-    fixture = TestBed.createComponent(FormationComponent);
+    fixture = TestBed.createComponent(GestionnaireFormationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

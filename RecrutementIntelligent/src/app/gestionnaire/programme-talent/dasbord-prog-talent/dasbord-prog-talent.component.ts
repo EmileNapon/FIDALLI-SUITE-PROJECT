@@ -10,7 +10,7 @@ import { ModuleFormationService } from '../services/moduleFormation.service';
   templateUrl:'./dasbord-prog-talent.component.html',
   styleUrls: ['./dasbord-prog-talent.component.css']
 })
-export class DasbordProgTalentComponent {
+export class GestionnaireDasbordProgTalentComponent {
   showAnnonce!: boolean;
   showFormation!: boolean;
   showGroupe!: boolean;

@@ -10,7 +10,7 @@ import { ModuleFormationService } from '../../services/moduleFormation.service';
   templateUrl: './formation-detail.component.html',
   styleUrls: ['./formation-detail.component.css']
 })
-export class FormationDetailComponent implements OnInit{
+export class GestionnaireFormationDetailComponent implements OnInit{
   formations!: Formation;
   moduleFormations: ModuleFormation[] = [];
   modules: Module[] = [];

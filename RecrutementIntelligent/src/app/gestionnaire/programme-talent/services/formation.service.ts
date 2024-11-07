@@ -8,7 +8,7 @@ import { Formation } from '../models/tousModel';
   providedIn: 'root'
 })
 export class FormationService {
-  private apiUrl = 'http://localhost:3000/Formations'; // Remplacer par votre API
+  private apiUrl = 'http://127.0.0.1:8000/fidalli/formation/list-formations'; // Remplacer par votre API
 
   constructor(private http: HttpClient) {}
 

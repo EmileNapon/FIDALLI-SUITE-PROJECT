@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DasbordProgTalentComponent } from './dasbord-prog-talent.component';
+import { GestionnaireDasbordProgTalentComponent } from './dasbord-prog-talent.component';
 
 describe('DasbordProgTalentComponent', () => {
-  let component: DasbordProgTalentComponent;
-  let fixture: ComponentFixture<DasbordProgTalentComponent>;
+  let component: GestionnaireDasbordProgTalentComponent;
+  let fixture: ComponentFixture<GestionnaireDasbordProgTalentComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [DasbordProgTalentComponent]
+      declarations: [GestionnaireDasbordProgTalentComponent]
     });
-    fixture = TestBed.createComponent(DasbordProgTalentComponent);
+    fixture = TestBed.createComponent(GestionnaireDasbordProgTalentComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

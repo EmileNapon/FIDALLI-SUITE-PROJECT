@@ -13,8 +13,8 @@ export class AnnonceService {
   constructor(private http: HttpClient) {}
 
   // 1. Récupérer toutes les annonces
-  getAnnonces(): Observable<Annonce[]> {
-    return this.http.get<Annonce[]>(this.jsonUrl);
+  getAnnonces(): Observable<any[]> {
+    return this.http.get<any[]>(this.jsonUrl);
   }
 
   // 2. Récupérer une annonce par ID
