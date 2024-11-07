@@ -35,3 +35,7 @@ class AffectationStageSerializer(serializers.ModelSerializer):
         model = AffectationStage
         fields =  '__all__'   # Including all necessary fields
 
+
+
+##############################################
+        

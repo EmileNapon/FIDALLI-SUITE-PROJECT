@@ -7,6 +7,8 @@ import { AnnonceService } from '../services/annonce.service';
 import { GroupeService } from '../services/groupe.service';
 import { SeanceService } from '../services/seance.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from 'src/app/gestion-utilisateurs/connexion/service-connexion/service-connexion.service';
+import { DasbordEtudiantService } from 'src/app/dasbord-etudiant/service-model/dasbord-etudiant.service';
 
 @Component({
   selector: 'app-dasbord-etudiant-talent',
@@ -38,6 +40,17 @@ export class DasbordEtudiantTalentComponent implements OnInit{
   formationId!:string
   FiltresmodulesFormations:any[]=[]
   FiltresSeances: any[]=[]
+  inscrits:any[]=[]
+  filteredIncrits:any[]=[]
+
+  Filtresformation:any[]=[]
+  messages: any[] = [];
+
+  user!:number
+  userInfo: { email: string | null, firstName: string | null, lastName: string | null, profilePic: string | null, id:string | null } | null = null;
+
+
+  FiltresEtudiantParFormation:any[]=[]
 
   constructor(
     private utilisateurService: UtilisateurService,
@@ -47,10 +60,13 @@ export class DasbordEtudiantTalentComponent implements OnInit{
     private seanceService: SeanceService,
     private moduleFormationService: ModuleFormationService,
     private router: Router,   private route: ActivatedRoute,
+    private serviceAuth: AuthService, private DasbordService: DasbordEtudiantService, 
   ) { }
   
   ngOnInit():void{
     this.formationId = this.route.snapshot.params['DasbordFormationId'];
+
+    this.userInfo = this.serviceAuth.getUserInfo();
     this.showAnnonce = true;
     // this.showFormation = false;
     this.showGroupe = false;
@@ -67,7 +83,12 @@ export class DasbordEtudiantTalentComponent implements OnInit{
     this.loadModulesFormations()
     
       
-    // this.loadUser();
+   this.loadUser();
+   this.loadInscrits()
+
+
+
+   this.loadMessages();
   }
 
   onShowAnnonce(){
@@ -144,25 +165,51 @@ export class DasbordEtudiantTalentComponent implements OnInit{
   }
 
 
-//   // Charger les annonces à partir du service
-//   loadAnnonces(): void {
-//     this.annonceService.getAnnonces().subscribe(data => {
-//       this.annonces = data;
-//     });
-//   }
+  // Charger les annonces à partir du service
+  loadAnnonces(): void {
+    this.annonceService.getAnnonces().subscribe(data => {
+      this.annonces = data;
+    });
+  }
 
 
-// loadGroupe(){
-//   this.groupeSeance.getGroupes().subscribe((groupes: Group[]) =>{
-//     this.groupes = groupes;
-//   });
-// }
+loadGroupe(){
+  this.groupeSeance.getGroupes().subscribe((groupes: Group[]) =>{
+    this.groupes = groupes;
+  });
+}
 
-// loadUser(){
-//   this.utilisateurService.getEtudiants().subscribe((data: CustomUser[]) => {
-//     this.etudiants = data;
-//   });
-// }
+
+
+
+loadUser(){
+  this.utilisateurService.getEtudiants().subscribe((data: CustomUser[]) => {
+    this.etudiants = data;
+
+    
+  });
+}
+
+loadInscrits(): void {
+  this.DasbordService.getInscrits().subscribe(
+    (data) => { 
+      this.inscrits = data;
+      this.EtudiantParFormation()
+    }
+  );
+} 
+
+
+EtudiantParFormation(): void {
+  if(this.formationId){
+    this.Filtresformation= this.inscrits.filter(inscrit => inscrit.formation==this.formationId);
+    this.FiltresEtudiantParFormation= this.etudiants.filter(user => this.Filtresformation.some(inscrit => inscrit.user==user.id ));
+  }
+
+}
+
+
+
 
 
 loadModulesFormations(): void {
@@ -196,7 +243,6 @@ loadSeances(): void {
   this.seanceService.getSeances().subscribe(
     (data) => {
       this.seances = data;
-      console.log("hhhhhhhhhhhh",this.seances)
     },
     (error) => {
       console.error('Erreur lors du chargement des formations:', error);
@@ -206,14 +252,16 @@ loadSeances(): void {
 
 
 filterData(): void {
-    console.log(this.formationId)
+  console.log(this.formationId)
  this.FiltresmodulesFormations= this.modulesFormations.filter(moduleFormation=>moduleFormation.formation==this.formationId);
  this.FiltresModules= this.modules.filter(modul=>this.FiltresmodulesFormations.some(filModulFormation=>filModulFormation.module==modul.id));
  this.FiltresSeances= this.seances.filter(seance=>this.FiltresmodulesFormations.some(filModulFormation=>filModulFormation.module==seance.module));
-console.log( "/////////////////",this.FiltresSeances)
 }
 
-// Méthode pour filtrer les séances par module
+
+
+
+
 // getSeancesByModule(moduleId: string): Seance[] {
 //   return this.seances.filter(seance => seance.moduleFormation_id.toString() === moduleId);
 // }

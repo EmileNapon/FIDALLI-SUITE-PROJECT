@@ -1,22 +1,21 @@
+
+
+<div>
+    <h2>Messages</h2>
+    <div *ngFor="let message of messages">
+      <p>{{ message.user.username }}: {{ message.content }}</p>
+      <small>{{ message.timestamp | date:'short' }}</small>
+    </div>
+  
+    <textarea [(ngModel)]="newMessageContent" placeholder="Type your message"></textarea>
+    <button (click)="sendMessage()">Send</button>
+  </div>
+
+  
 <body>
-
-<p *ngFor='let d of FiltresModules'>
-
-{{d.nom_module}}
-
-
-</p>
-    <!--<app-header></app-header> 
     <br>
-    
- 
-
-
-
-
     <div class="container-fluid">
         <div class="row">
-
           <nav class="col-2 bg-light text-black  d-flex flex-column">
             <h2 class="text-center my-4">Etudiant Dashbord</h2>
             <ul class="nav flex-column">
@@ -37,15 +36,12 @@
               </li>
             </ul>
           </nav>
-      
-
           <main class="col-10">
             <div class="bg-light p-3 border-bottom">
                 <div class="row d-flex align-items-center justify-content-between" *ngIf="showAnnonce">
                     <div class="col">
                         <h1 class="text-left">Notifications</h1>
-                    </div>
-                    
+                    </div>            
                 </div>
                 <div class="row d-flex align-items-center justify-content-between" *ngIf="showGroupe">
                     <div class="col">
@@ -69,13 +65,9 @@
                     <div class="col-auto">
                         <button type="button" class="btn btn-secondary btn-lg" routerLink="">Créer un Quiz</button>
                     </div>
-                </div> 
-    
+                </div>  
             </div>
-
-
-             <div class="container my-4" *ngIf="showAnnonce">
-
+          <div class="container my-4" *ngIf="showAnnonce">
                 <div class="col-12" *ngFor="let annonce of annonces">
                     <div class="card mb-4">
                       <div class="card-header text-white d-flex justify-content-between" style="background-color: #7609f3;">
@@ -83,20 +75,14 @@
                         <span class="text-white">Publié le : {{ annonce.datePublication | date: 'dd/MM/yyyy' }} - {{ annonce.datePublication | date: 'HH:mm' }}</span>
                       </div>
                       <div class="card-body">
-
                         <p>
                           {{ annonce.description }}
                         </p>
-                        <p><b> Lieu: </b>{{ annonce.lieu}}</p>
-                        <p><b>Date: </b>{{ annonce.dateCours}}</p>
-                        
+                        <p><b> Lieu: </b>{{ annonce.lieu}}</p> 
                       </div>
                     </div>
-                  </div>
-                  
+                  </div>  
              </div>
-
-
              <div class="container my-4" *ngIf="showGroupe">
                 <div class="mt-4">
                     <h3>Les différents groupes du cohort</h3>
@@ -110,8 +96,7 @@
                                       <tr>
                                           <th colspan="3" style="width: 100%; text-align: center;">les membres</th>
                                       </tr>
-                                      <tr>
-                                          
+                                      <tr>  
                                           <th style="width: 60%;">Nom complet</th>
                                           <th style="width: 40%;">Adresse Mail</th>
                                           
@@ -137,7 +122,7 @@
                       </tbody>
                   </table>
                   </div>
-             </div>
+                </div>
 
              <div class="container my-4" *ngIf="showListe">
                 <div class="container my-4">
@@ -151,22 +136,23 @@
                         <th>Email</th>
                         <th>Contact</th>
                         </tr>
-                    </thead>
+                    </thead>             
                     <tbody>
 
-                        <tr *ngFor="let etudiant of etudiants; let i = index">
+                        <tr *ngFor="let etudiant of FiltresEtudiantParFormation; let i = index">
                         <td>{{ i + 1 }}</td> 
                         <td>{{ etudiant.nom }} {{ etudiant.prenom }}</td>
                         <td>{{ etudiant.email }}</td>
                         <td>{{ etudiant.phone_number }}</td>
                         </tr>
-                    </tbody>
+                    </tbody> 
                     </table>
 
                 </div>
 
              </div>
     
+              
 
              <div class="container my-4" *ngIf="showCalendar">
 
@@ -197,18 +183,21 @@
                         </th>
                         </tr>
                     </thead>
+
+
+
                     <tbody>
                         <tr *ngFor="let module of FiltresModules; let i = index">
                             <td  style="width: 5%; text-align: center; vertical-align: middle;">{{ module.code }}</td>
                             <td  style="width: 20%; text-align: center; vertical-align: middle;">{{ module.nom_module }}</td>
                             <td style="width: 75%;">
                                 <table class="table table-striped">
-                                        <tr *ngFor="let seance of getSeancesByModule(module.id.toString())" style="border-bottom: 1px solid black;">
-                                            <td style="width: 20%;">{{ seance.lieu }}</td>
-                                            <td style="width: 20%;">#</td>
-                                            <td style="width: 15%;">{{ seance.date_formation }}</td>
-                                            <td style="width: 15%;">{{ seance.heure_debut }}-{{ seance.heure_fin }}</td> 
-                                            <td style="width: 10%;"><div style="height: 70%; background-color: aqua; border-radius: 10px; margin: 5px; padding: 5px;">{{ seance.statut }}</div>
+                                        <tr *ngFor="let seance of seances" style="border-bottom: 1px solid black;">
+                                            <td *ngIf='seance.module==module.id' style="width: 20%;">{{ seance.lieu }}</td>
+                                            <td *ngIf='seance.module==module.id' style="width: 20%;">#</td>
+                                            <td  *ngIf='seance.module==module.id' style="width: 15%;">{{ seance.date_formation }}</td>
+                                            <td *ngIf='seance.module==module.id' style="width: 15%;">{{ seance.heure_debut }}-{{ seance.heure_fin }}</td> 
+                                            <td *ngIf='seance.module==module.id' style="width: 10%;"><div style="height: 70%; background-color: aqua; border-radius: 10px; margin: 5px; padding: 5px;">{{ seance.statut }}</div>
                                             </td>
                                         </tr>
                                 </table>
@@ -220,8 +209,7 @@
                 </table>
                 
              </div>
-    
-           
+   
              <div class="container my-4" *ngIf="showExo">
                 <h1>Pas d'exo</h1>
              </div>
@@ -235,7 +223,7 @@
      
      
 
--->
+
 
 
 
