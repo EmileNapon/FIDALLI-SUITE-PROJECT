@@ -71,15 +71,4 @@ export class AnnonceService {
 
 
 
-
-  private apiUrl = 'http://localhost:8000/api';
-
-
-  getMessages(communityId: string): Observable<any> {
-    return this.http.get(`${this.apiUrl}/communities/${communityId}/messages/`);
-  }
-
-  sendMessage(communityId: string, content: string): Observable<any> {
-    return this.http.post(`${this.apiUrl}/communities/${communityId}/messages/`, { content });
-  }
 }

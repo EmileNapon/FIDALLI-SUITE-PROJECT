@@ -1,16 +1,4 @@
 
-
-<div>
-    <h2>Messages</h2>
-    <div *ngFor="let message of messages">
-      <p>{{ message.user.username }}: {{ message.content }}</p>
-      <small>{{ message.timestamp | date:'short' }}</small>
-    </div>
-  
-    <textarea [(ngModel)]="newMessageContent" placeholder="Type your message"></textarea>
-    <button (click)="sendMessage()">Send</button>
-  </div>
-
   
 <body>
     <br>

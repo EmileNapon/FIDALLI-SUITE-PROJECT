@@ -44,7 +44,7 @@ export class DasbordEtudiantTalentComponent implements OnInit{
   filteredIncrits:any[]=[]
 
   Filtresformation:any[]=[]
-  messages: any[] = [];
+
 
   user!:number
   userInfo: { email: string | null, firstName: string | null, lastName: string | null, profilePic: string | null, id:string | null } | null = null;
@@ -88,7 +88,7 @@ export class DasbordEtudiantTalentComponent implements OnInit{
 
 
 
-   this.loadMessages();
+
   }
 
   onShowAnnonce(){
