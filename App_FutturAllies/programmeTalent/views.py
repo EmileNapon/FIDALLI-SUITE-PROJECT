@@ -4,10 +4,10 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.decorators import api_view
 
-from programmeTalent.models import Formation, Inscrit, ModuleFormation, Seance
+from programmeTalent.models import Formation, Inscrit, ModuleFormation, Seance,Annonce
 
 
-from .serializers import AffectationStageSerializer, FormationSerializer, GroupSerializer, InscritSerializer, ModuleFormationSerializer, SeanceSerializer
+from .serializers import AffectationStageSerializer, FormationSerializer, GroupSerializer, InscritSerializer, ModuleFormationSerializer, SeanceSerializer,AnnonceSerializer
 
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
@@ -122,3 +122,43 @@ def create_AffectationStage(request):
 
 
 ##################################################################################################
+
+
+@api_view(['GET', 'POST'])
+@permission_classes([IsAuthenticated])  # Seulement pour les utilisateurs authentifiés
+def annonce_list_create(request):
+    if request.method == 'GET':
+        annonces = Annonce.objects.all()
+        serializer = AnnonceSerializer(annonces, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    
+    elif request.method == 'POST':
+        serializer = AnnonceSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+# Vue pour récupérer, mettre à jour ou supprimer une annonce spécifique
+@api_view(['GET', 'PUT', 'DELETE'])
+@permission_classes([IsAuthenticated])  # Seulement pour les utilisateurs authentifiés
+def annonce_detail(request, annonce_id):
+    try:
+        annonce = Annonce.objects.get(id=annonce_id)
+    except Annonce.DoesNotExist:
+        return Response({'error': 'Annonce non trouvée'}, status=status.HTTP_404_NOT_FOUND)
+
+    if request.method == 'GET':
+        serializer = AnnonceSerializer(annonce)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    
+    elif request.method == 'PUT':
+        serializer = AnnonceSerializer(annonce, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    elif request.method == 'DELETE':
+        annonce.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)

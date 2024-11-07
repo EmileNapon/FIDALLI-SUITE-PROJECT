@@ -39,3 +39,14 @@ class AffectationStageSerializer(serializers.ModelSerializer):
 
 ##############################################
         
+# serializers.py
+
+from rest_framework import serializers
+from .models import Annonce
+
+class AnnonceSerializer(serializers.ModelSerializer):
+    username = serializers.CharField(source='user.username', read_only=True)
+
+    class Meta:
+        model = Annonce
+        fields = '__all__'

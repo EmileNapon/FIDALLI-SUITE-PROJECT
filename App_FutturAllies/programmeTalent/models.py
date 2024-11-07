@@ -36,11 +36,6 @@ class ModuleFormation(models.Model):
     module = models.ForeignKey(Module, on_delete=models.CASCADE, default=1)  # Relation vers Module
     formation = models.ForeignKey(Formation, on_delete=models.CASCADE, default=1)  # Relation vers Formation
 
-
-
-
-
-
 class Seance(models.Model):
     lieu = models.CharField(max_length=200)  # Renommé en CharField pour la localisation
     date_formation = models.DateField(default=date(2024, 1, 20))
@@ -56,3 +51,16 @@ class AffectationStage(models.Model):
     group=models.ForeignKey(Group,on_delete=models.CASCADE, null=True)
 
 ########################################################################################
+
+
+
+class Annonce(models.Model):
+    titre = models.CharField(max_length=255)  # Titre de l'annonce
+    lieu = models.CharField(max_length=255)   # Lieu de l'évènement
+    date_cours = models.DateField()           # Date de l'évènement
+    description = models.TextField()          # Description de l'annonce
+    date_publication = models.DateField(auto_now_add=True)  # Date de publication automatique
+    heure = models.TimeField()                # Heure de publication
+
+    def __str__(self):
+        return self.titre

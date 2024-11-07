@@ -22,4 +22,9 @@ urlpatterns = [
         ################################################################################
     path('group/create/', views.create_Group, name='create_group'),
     path('affectationStage/create/', views.create_AffectationStage, name='AffectationStage'),
+    ######################################################################################
+
+    path('annonces/', views.annonce_list_create, name='annonce_list_create'),
+    path('annonces/<int:annonce_id>/', views.annonce_detail, name='annonce_detail'),
+    
 ]
