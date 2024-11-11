@@ -177,8 +177,8 @@ from datetime import timedelta
 from datetime import timedelta
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=20000),  # Durée de vie courte du token d'accès
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=70),  # Durée de vie plus longue du refresh token
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=200000),  # Durée de vie courte du token d'accès
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=700),  # Durée de vie plus longue du refresh token
     'ROTATE_REFRESH_TOKENS': True,  # Option pour tourner le refresh token
     'BLACKLIST_AFTER_ROTATION': True,  # Option pour mettre sur liste noire l'ancien token après rotation
 }

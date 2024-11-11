@@ -126,12 +126,11 @@ def create_AffectationStage(request):
 
 @api_view(['GET', 'POST'])
 @permission_classes([IsAuthenticated])  # Seulement pour les utilisateurs authentifiés
-def annonce_list_create(request):
+def annonce(request):
     if request.method == 'GET':
         annonces = Annonce.objects.all()
         serializer = AnnonceSerializer(annonces, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
-    
+        return Response(serializer.data, status=status.HTTP_200_OK)  
     elif request.method == 'POST':
         serializer = AnnonceSerializer(data=request.data)
         if serializer.is_valid():

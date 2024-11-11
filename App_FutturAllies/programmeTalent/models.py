@@ -1,3 +1,4 @@
+import datetime
 from django.db import models
 from datetime import date
 from Formation.models import Module
@@ -59,8 +60,8 @@ class Annonce(models.Model):
     lieu = models.CharField(max_length=255)   # Lieu de l'évènement
     date_cours = models.DateField()           # Date de l'évènement
     description = models.TextField()          # Description de l'annonce
-    date_publication = models.DateField(auto_now_add=True)  # Date de publication automatique
-    heure = models.TimeField()                # Heure de publication
+    date_publication = models.DateField(default=date.today)  # Date de publication automatique
+    heure = models.DateField(default=date.today)                # Heure de publication
 
     def __str__(self):
         return self.titre
