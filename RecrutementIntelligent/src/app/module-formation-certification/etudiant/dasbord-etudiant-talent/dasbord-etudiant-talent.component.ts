@@ -78,10 +78,9 @@ export class DasbordEtudiantTalentComponent implements OnInit{
 
     this.loadModules();
    this.loadAnnonces();
-    // this.loadGroupe();
     this.loadSeances();
     this.loadModulesFormations()
-    
+    this.loadModules()
       
    this.loadUser();
    this.loadInscrits()
@@ -185,9 +184,7 @@ loadGroupe(){
 
 loadUser(){
   this.utilisateurService.getEtudiants().subscribe((data: CustomUser[]) => {
-    this.etudiants = data;
-
-    
+    this.etudiants = data;   
   });
 }
 
@@ -231,7 +228,7 @@ loadModules(): void {
   this.moduleService.getModules().subscribe(
     (data) => {
       this.modules = data;
-
+      console.log('FiltresSeances=',this.modules)
     },
     (error) => {
       console.error('Erreur lors du chargement des modules:', error);
@@ -256,7 +253,8 @@ filterData(): void {
   console.log(this.formationId)
  this.FiltresmodulesFormations= this.modulesFormations.filter(moduleFormation=>moduleFormation.formation==this.formationId);
  this.FiltresModules= this.modules.filter(modul=>this.FiltresmodulesFormations.some(filModulFormation=>filModulFormation.module==modul.id));
- this.FiltresSeances= this.seances.filter(seance=>this.FiltresmodulesFormations.some(filModulFormation=>filModulFormation.module==seance.module));
+ //this.FiltresSeances= this.seances.filter(seance=>this.FiltresmodulesFormations.some(filModulFormation=>filModulFormation.module==seance.module));
+
 }
 
 

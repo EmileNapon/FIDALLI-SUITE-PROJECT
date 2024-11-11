@@ -9,14 +9,14 @@ import { CustomUser, Group } from '../models/tousModel';
 })
 export class UtilisateurService {
 
-  private apiUrl = 'http://localhost:3000/CustomUsers';  // URL vers votre fichier JSON ou API
+  private apiUrl = 'http://127.0.0.1:8000/fidalli/formation/list_users/';  // URL vers votre fichier JSON ou API
   private groupesUrl = 'http://localhost:3000/Groups';  // URL vers l'API pour les groupes
 
   constructor(private http: HttpClient) { }
 
   // Méthode générique pour récupérer tous les utilisateurs
-  getUtilisateurs(): Observable<CustomUser[]> {
-    return this.http.get<CustomUser[]>(this.apiUrl);
+  getUtilisateurs(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl);
   }
 
   // Méthode pour filtrer par rôle

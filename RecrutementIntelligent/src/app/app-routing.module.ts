@@ -109,7 +109,7 @@ const routes: Routes = [
     {path:'acceuil', component:GestionnaireAcceuilComponent},
     {path:'domaines', component:GestionnaireDomaineComponent},
 
-    {path: 'dasbord-prog-talent', component: GestionnaireDasbordProgTalentComponent},
+    {path: 'dasbord/:dasbordId/dasbord-prog-talent', component: GestionnaireDasbordProgTalentComponent},
     {path: 'formation', component: GestionnaireFormationComponent},
     { path: 'ajouter-formation', component: AjoutFormationComponent },
     { path: 'modification-formation/:id', component: ModificationFormationComponent },
@@ -120,7 +120,7 @@ const routes: Routes = [
     {path: 'ajout-encadrant', component: AjoutEncadrantComponent},
     {path: 'modification-encadrant/:id', component: ModifEncadrantComponent},
     {path: 'formation-detail/:id', component: GestionnaireFormationDetailComponent}
-
+    
 
   ]},
   

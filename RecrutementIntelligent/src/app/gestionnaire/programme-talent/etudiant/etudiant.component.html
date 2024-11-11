@@ -15,7 +15,7 @@
   <tbody>
     <!-- Boucle Angular pour itérer sur la liste des étudiants -->
      <!-- <app-etudiant/> -->
-    <tr *ngFor="let etudiant of etudiants; let i = index">
+    <tr *ngFor="let etudiant of FiltresEtudiantParFormation; let i = index">
     <!-- <tr *ngFor="let etudiant of cohort; let i = index"> -->
       <td>{{ i + 1 }}</td> <!-- Index de l'étudiant dans la liste -->
       <td>{{ etudiant.nom }} {{ etudiant.prenom }}</td>

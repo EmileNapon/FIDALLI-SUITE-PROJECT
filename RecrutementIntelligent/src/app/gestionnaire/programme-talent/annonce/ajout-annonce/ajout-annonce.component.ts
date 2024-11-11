@@ -17,9 +17,9 @@ export class AjoutAnnonceComponent {
     this.annonceForm = this.fb.group({
       titre: ['', Validators.required],
       lieu: ['', Validators.required],
-      dateCours: ['', Validators.required],
+      date_cours: ['', Validators.required],
       description: ['', Validators.required],
-      datePublication: ['', Validators.required],
+      date_publication: ['', Validators.required],
       heure: ['', Validators.required]
     });
   }

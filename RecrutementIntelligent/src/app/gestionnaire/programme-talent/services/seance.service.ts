@@ -7,13 +7,13 @@ import { Seance } from '../models/tousModel';
   providedIn: 'root'
 })
 export class SeanceService {
-  private apiUrl = 'http://localhost:3000/Seances'; // Remplacer par votre API
+  private apiUrl = 'http://127.0.0.1:8000/fidalli/seance/list_seances'; // Remplacer par votre API
   private lastId: number = 0; // Pour simuler l'incrémentation d'ID
 
   constructor(private http: HttpClient) {}
 
-  getSeances(): Observable<Seance[]> {
-    return this.http.get<Seance[]>(this.apiUrl);
+  getSeances(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl);
   }
 
   getSeanceById(id: number): Observable<Seance> {

@@ -17,29 +17,29 @@ export class SeanceService {
     return this.http.get<any[]>(this.apiUrl);
   }
 
-  getSeanceById(id: number): Observable<Seance> {
-    return this.http.get<Seance>(`${this.apiUrl}/${id}`);
-  }
+  // getSeanceById(id: number): Observable<Seance> {
+  //   return this.http.get<Seance>(`${this.apiUrl}/${id}`);
+  // }
 
 
 
-  addSeance(seance: Seance): Observable<Seance> {
-    return this.http.post<Seance>(this.apiUrl, seance);
-  }
+  // addSeance(seance: Seance): Observable<Seance> {
+  //   return this.http.post<Seance>(this.apiUrl, seance);
+  // }
 
 
-  updateSeance(seance: Seance): Observable<Seance> {
-    return this.http.put<Seance>(`${this.apiUrl}/${seance.id}`, seance);
-  }
+  // updateSeance(seance: Seance): Observable<Seance> {
+  //   return this.http.put<Seance>(`${this.apiUrl}/${seance.id}`, seance);
+  // }
 
-  deleteSeance(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
-  }
-
-
+  // deleteSeance(id: number): Observable<void> {
+  //   return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  // }
 
 
-  deleteSeances(listeSeance: any): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${listeSeance}`);
-  }
+
+
+  // deleteSeances(listeSeance: any): Observable<void> {
+  //   return this.http.delete<void>(`${this.apiUrl}/${listeSeance}`);
+  // }
 }
