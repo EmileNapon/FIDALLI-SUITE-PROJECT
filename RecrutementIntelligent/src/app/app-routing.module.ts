@@ -121,7 +121,7 @@ const routes: Routes = [
     {path: 'ajout-encadrant', component: AjoutEncadrantComponent},
     {path: 'modification-encadrant/:id', component: ModifEncadrantComponent},
     {path: 'formation-detail/:id', component: GestionnaireFormationDetailComponent},
-    {path:'Module-formation', component : ajoutModuleComponent}
+    {path:'Module-formation/:id_joutFormation/formation', component : ajoutModuleComponent}
 
   ]},
   

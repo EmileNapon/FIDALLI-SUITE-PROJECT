@@ -24,8 +24,8 @@ export class ModuleFormationService {
   }
 
   // Ajouter un nouveau ModuleFormation
-  addModuleFormation(moduleFormation: ModuleFormation): Observable<ModuleFormation> {
-    return this.http.post<ModuleFormation>(this.apiUrl, moduleFormation);
+  addModuleFormation(moduleFormation: any): Observable<any> {
+    return this.http.post<any>(this.apiUrl, moduleFormation);
   }
 
   // Mettre à jour un ModuleFormation existant

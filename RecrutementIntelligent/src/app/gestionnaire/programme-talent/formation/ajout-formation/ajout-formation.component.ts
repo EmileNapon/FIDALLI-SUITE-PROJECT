@@ -22,6 +22,9 @@ export class AjoutFormationComponent implements OnInit {
   modules: Module[] = [];
   selectedModules: { moduleId: number, formateurIds: number[] }[] = [];  // Stocker les formateurs pour chaque module
   formateurs: CustomUser[] = [];  // Stocker les formateurs disponibles
+  modulesFormations:any[]=[]
+
+
 
   constructor(
     private fb: FormBuilder, 
@@ -73,6 +76,19 @@ export class AjoutFormationComponent implements OnInit {
     );
   }
 
+
+  loadModulesFormations(): void {
+    this.moduleFormationService.getModuleFormations().subscribe(
+      (data) => {
+        this.modulesFormations = data;
+        
+      },
+      (error) => {
+        console.error('Erreur lors du chargement des modules:', error);
+      }
+    );
+  }
+
   // Méthode pour obtenir le nom d'un module à partir de son ID
   getModuleName(moduleId: number): string {
     const module = this.modules.find(m => m.id === moduleId);
@@ -83,18 +99,18 @@ statut:boolean=true
   
   ajouterNouvelleFormation(formationNom: any): void {
       this.formationService.addFormation(formationNom).subscribe(response => {
-        console.log('Nouvelle matière ajoutée avec succès', response)
-        this.router.navigate(['/gestionnaire/Module-formation'])
+        
+        console.log('Nouvelle matière ajoutée avec succès', response.id)
+        this.router.navigate([`/gestionnaire/Module-formation/${response.id}/formation`])
       });
     } 
-    
+  
   
     onSubmit(){
       this.ajouterNouvelleFormation(this.formationForm.value)
      
     }
   
-
 
 
 
