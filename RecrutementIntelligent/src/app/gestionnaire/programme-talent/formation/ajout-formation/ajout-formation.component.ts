@@ -79,51 +79,28 @@ export class AjoutFormationComponent implements OnInit {
     return module ? module.nom_module : 'Module inconnu';
   }
 
-  // Création de la formation et lien avec les modules et formateurs sélectionnés
-  createFormation(): void {
-    if (this.formationForm.valid && this.selectedModules.length > 0) {
-      const newFormation: Formation = this.formationForm.value;
+statut:boolean=true
   
-      // Création de la formation
-      this.formationService.addFormation(newFormation).subscribe((createdFormation) => {
-        const formationId = createdFormation.id;
-  
-        // Lier les modules sélectionnés à la formation via ModuleFormation
-        this.selectedModules.forEach(selected => {
-          if (selected.formateurIds.length > 0) {
-            // Si des formateurs sont sélectionnés pour ce module
-            selected.formateurIds.forEach(formateurId => {
-              const moduleFormation: ModuleFormation = {
-                formation_id: formationId,
-                module_id: selected.moduleId,
-                user_id: formateurId  // Lier chaque formateur au module sélectionné
-              };
-  
-              // Insertion dans la table ModuleFormation
-              this.moduleFormationService.addModuleFormation(moduleFormation).subscribe(() => {
-                console.log(`Module ${selected.moduleId} lié à la formation ${formationId} avec formateur ${formateurId}`);
-              });
-            });
-          } else {
-            // Si aucun formateur n'est sélectionné, on insère sans formateur
-            const moduleFormation: ModuleFormation = {
-              formation_id: formationId,
-              module_id: selected.moduleId,
-              //user_id: null  // Aucun formateur associé
-            };
-  
-            this.moduleFormationService.addModuleFormation(moduleFormation).subscribe(() => {
-              console.log(`Module ${selected.moduleId} lié à la formation ${formationId} sans formateur.`);
-            });
-          }
-        });
-  
-        // Redirection après création de la formation
-        this.router.navigate(['/gestionnaire/dasbord-prog-talent']);
+  ajouterNouvelleFormation(formationNom: any): void {
+      this.formationService.addFormation(formationNom).subscribe(response => {
+        console.log('Nouvelle matière ajoutée avec succès', response)
+        this.router.navigate(['/gestionnaire/Module-formation'])
       });
-    }
-  }
+    } 
+    
   
+    onSubmit(){
+      this.ajouterNouvelleFormation(this.formationForm.value)
+     
+    }
+  
+
+
+
+
+
+
+
 
   // Gestion de la sélection des modules
   onModuleSelectionChange(moduleId: number, event: any): void {

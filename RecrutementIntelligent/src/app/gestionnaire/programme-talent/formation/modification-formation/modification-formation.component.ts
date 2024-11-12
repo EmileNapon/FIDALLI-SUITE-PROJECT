@@ -28,6 +28,7 @@ export class ModificationFormationComponent implements OnInit {
     // Récupérer l'ID de la formation à partir de l'URL
     this.formationId = this.route.snapshot.params['id'];
     this.iniFormsFormat();
+    this.loadFormation()
   }
 
 
@@ -64,10 +65,10 @@ export class ModificationFormationComponent implements OnInit {
 
   updateFormation(): void {
     if (this.formationForm.valid) {   
-      const updatedFormation: Formation = {  ...this.formationForm.value };
+      const updatedFormation: Formation = {...this.formationForm.value };
       console.log(updatedFormation)
       this.formationService.updateFormation(this.formationId,updatedFormation).subscribe(() => {
-        this.router.navigate(['/gestionnaire/dasbord-prog-talent']); // Redirection après modification
+        this.router.navigate(['/gestionnaire/dasbord-prog-talent']); 
       });
     }
   }

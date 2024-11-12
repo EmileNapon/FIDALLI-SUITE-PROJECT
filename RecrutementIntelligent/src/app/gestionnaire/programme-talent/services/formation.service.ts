@@ -10,9 +10,10 @@ import { Formation } from '../models/tousModel';
 export class FormationService {
   private apiUrl = 'http://127.0.0.1:8000/fidalli/formation/list-formations'; // Remplacer par votre API
   private apiUrl1= 'http://127.0.0.1:8000/fidalli/formation/update'; // Remplacer par votre API
+  private apiUrl2 = 'http://127.0.0.1:8000/fidalli/formation/create'; // Remplacer par votre API
 
   constructor(private http: HttpClient) {}
-
+  
   getFormations(): Observable<Formation[]> {
     return this.http.get<Formation[]>(this.apiUrl);
   }
@@ -22,7 +23,7 @@ export class FormationService {
   }
 
   addFormation(formation: Formation): Observable<Formation> {
-    return this.http.post<Formation>(this.apiUrl, formation);
+    return this.http.post<Formation>(this.apiUrl2, formation);
   }
 
   updateFormation(id: number, formation: Formation): Observable<Formation> {

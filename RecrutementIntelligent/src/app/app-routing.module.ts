@@ -55,6 +55,7 @@ import { ModificationAnnonceComponent } from './gestionnaire/programme-talent/an
 import { AjoutEncadrantComponent } from './gestionnaire/programme-talent/encadrant/ajout-encadrant/ajout-encadrant.component';
 import { ModifEncadrantComponent } from './gestionnaire/programme-talent/encadrant/modif-encadrant/modif-encadrant.component';
 import { GestionnaireFormationDetailComponent } from './gestionnaire/programme-talent/formation/formation-detail/formation-detail.component';
+import { ajoutModuleComponent } from './gestionnaire/programme-talent/formation/ajout-formation/ajouterModule/ajouteModule.component';
 
 const routes: Routes = [
 
@@ -119,8 +120,8 @@ const routes: Routes = [
     {path: 'modification-annonce/:id', component: ModificationAnnonceComponent},
     {path: 'ajout-encadrant', component: AjoutEncadrantComponent},
     {path: 'modification-encadrant/:id', component: ModifEncadrantComponent},
-    {path: 'formation-detail/:id', component: GestionnaireFormationDetailComponent}
-    
+    {path: 'formation-detail/:id', component: GestionnaireFormationDetailComponent},
+    {path:'Module-formation', component : ajoutModuleComponent}
 
   ]},
   

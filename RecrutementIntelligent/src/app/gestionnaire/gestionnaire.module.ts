@@ -33,6 +33,7 @@ import { AjoutEncadrantComponent } from './programme-talent/encadrant/ajout-enca
 import { GroupeEtudiantComponent } from './programme-talent/groupe-etudiant/groupe-etudiant.component';
 import {  GestionnaireFormationDetailComponent } from './programme-talent/formation/formation-detail/formation-detail.component';
 import {  GestionnaireDasbordProgTalentComponent } from './programme-talent/dasbord-prog-talent/dasbord-prog-talent.component';
+import { ajoutModuleComponent } from './programme-talent/formation/ajout-formation/ajouterModule/ajouteModule.component';
 
 @NgModule({
   declarations: [GestionnaireComponent, GestionnaireAcceuilComponent, GestionnaireModulesComponent, GestionnaireCoursComponent, GestionnaireCertificatComponent, GestionnaireCertificatCoursComponent, GestionnaireDomaineComponent, GestionnaireChapitreComponent, GestionnaireModifierContenuCoursComponent,
@@ -41,7 +42,7 @@ import {  GestionnaireDasbordProgTalentComponent } from './programme-talent/dasb
       GestionnaireFormationComponent, ModuleComponent, FooterComponent, HeaderComponent, AnnonceComponent, 
       EtudiantComponent, EncadrantComponent, ModifEncadrantComponent, AjoutFormationComponent, ModificationFormationComponent, 
       AjoutSeanceComponent, ModificationSeanceComponent, AjoutAnnonceComponent, ModificationAnnonceComponent, 
-      AjoutEncadrantComponent, GroupeEtudiantComponent, GestionnaireFormationDetailComponent,
+      AjoutEncadrantComponent, GroupeEtudiantComponent, GestionnaireFormationDetailComponent,ajoutModuleComponent
       // -------------------fin ----------------------------------
   ],
   imports: [
