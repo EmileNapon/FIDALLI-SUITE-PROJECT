@@ -59,7 +59,9 @@ export class ModificationFormationComponent implements OnInit {
 
   updateFormation(): void {
     if (this.formationForm.valid) {
+     
       const updatedFormation: Formation = { id: this.formationId, ...this.formationForm.value };
+      console.log(updatedFormation)
       this.formationService.updateFormation(updatedFormation).subscribe(() => {
         this.router.navigate(['/gestionnaire/dasbord-prog-talent']); // Redirection après modification
       });

@@ -49,6 +49,9 @@ seances:any[]=[]
 annonceForm!: FormGroup;
 
 
+formationForm!: FormGroup;
+formationId!: number;
+
 
   constructor(
     private utilisateurService: UtilisateurService,
@@ -68,6 +71,38 @@ annonceForm!: FormGroup;
       description: ['', Validators.required],
     });
   }
+
+  iniFormsFormation():void{
+
+
+    this.formationForm = this.fb.group({
+      titre: ['', Validators.required],
+      type: ['', Validators.required],
+      // niveau: ['', Validators.required],
+      // prix: [0, [Validators.required, Validators.min(0)]],
+      // duree: ['', Validators.required],
+      // nombre: ['', [Validators.required, Validators.min(1)]],
+      // location: ['', Validators.required],
+      // resume: ['', Validators.required],
+      // description: ['', Validators.required]
+    });
+  }
+
+
+///////////////////////////////////////////////////
+
+updateFormation(): void {
+  if (this.formationForm.valid) {
+    const updatedFormation: Formation = { id: this.formationId, ...this.formationForm.value };
+    this.formationService.updateFormation(updatedFormation).subscribe(() => {
+      console.log('|||||||||||||||||||||||||||||||||||||||||||||||------|||||||||||||||')
+    });
+  }
+}
+
+///////////////////////////////////////////////////
+
+
   
   ngOnInit():void{
     this.dasbordId = this.route.snapshot.paramMap.get('dasbordId');
@@ -109,6 +144,9 @@ annonceForm!: FormGroup;
       //heure: new Date().getTime,
       // heure: new Date().getTime,
     })
+
+
+    this.formationId = this.route.snapshot.params['id'];
 
   }
 

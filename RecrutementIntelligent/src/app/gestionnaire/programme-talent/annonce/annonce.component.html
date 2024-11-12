@@ -15,7 +15,7 @@
         <p><b>Date: </b>{{ annonce.date_cours}}</p>
         <!-- Boutons "Modifier" et "Supprimer" alignés à droite -->
         <div class="text-end">
-          <button class="btn btn-warning btn-sm mx-2" [routerLink]="['/gestionnaire/modification-annonce', annonce.id]">Modifier</button>
+      <!--    <button class="btn btn-warning btn-sm mx-2" [routerLink]="['/gestionnaire/modification-annonce', annonce.id]">Modifier</button> -->
           <button class="btn btn-danger btn-sm" (click)="supprimerAnnonce(annonce.id)">Supprimer</button>
         </div>
       </div>
