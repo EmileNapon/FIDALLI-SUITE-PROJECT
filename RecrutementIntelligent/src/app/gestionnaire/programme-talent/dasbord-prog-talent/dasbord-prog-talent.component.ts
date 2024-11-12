@@ -91,14 +91,14 @@ formationId!: number;
 
 ///////////////////////////////////////////////////
 
-updateFormation(): void {
-  if (this.formationForm.valid) {
-    const updatedFormation: Formation = { id: this.formationId, ...this.formationForm.value };
-    this.formationService.updateFormation(updatedFormation).subscribe(() => {
-      console.log('|||||||||||||||||||||||||||||||||||||||||||||||------|||||||||||||||')
-    });
-  }
-}
+// updateFormation(): void {
+//   if (this.formationForm.valid) {
+//     const updatedFormation: Formation = { id: this.formationId, ...this.formationForm.value };
+//     this.formationService.updateFormation(updatedFormation).subscribe(() => {
+//       console.log('|||||||||||||||||||||||||||||||||||||||||||||||------|||||||||||||||')
+//     });
+//   }
+// }
 
 ///////////////////////////////////////////////////
 

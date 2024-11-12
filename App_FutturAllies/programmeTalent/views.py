@@ -12,14 +12,37 @@ from .serializers import AffectationStageSerializer, FormationSerializer, GroupS
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 
-@api_view(['POST'])
-def create_Formation(request):
+@api_view(['POST','PUT'])
+def create_Formation(request,  pk=None):
     if request.method == 'POST':
         serializer = FormationSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+
+@api_view(['PUT'])
+@permission_classes([IsAuthenticated])
+def update_formation(request, pk):
+    # Vérifier si l'utilisateur est authentifié
+    if not request.user.is_authenticated:
+        return Response({"error": "Authentication required."}, status=status.HTTP_401_UNAUTHORIZED)
+
+    try:
+        # Récupérer la formation par son ID
+        formation = Formation.objects.get(pk=pk)
+    except Formation.DoesNotExist:
+        return Response({"error": "Formation not found."}, status=status.HTTP_404_NOT_FOUND)
+    
+    # Sérialiser les données avec les données de la requête
+    serializer = FormationSerializer(formation, data=request.data)
+    if serializer.is_valid():
+        # Sauvegarder les nouvelles données
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])  # Permet seulement aux utilisateurs authentifiés de lister les offres

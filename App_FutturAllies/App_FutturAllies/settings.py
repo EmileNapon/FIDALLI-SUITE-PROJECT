@@ -51,14 +51,7 @@ INSTALLED_APPS = [
 
 
 
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-    ],
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
-    ],
-}
+
 
 
 CORS_ALLOWED_ORIGINS = [
@@ -181,4 +174,13 @@ SIMPLE_JWT = {
     'REFRESH_TOKEN_LIFETIME': timedelta(days=700),  # Durée de vie plus longue du refresh token
     'ROTATE_REFRESH_TOKENS': True,  # Option pour tourner le refresh token
     'BLACKLIST_AFTER_ROTATION': True,  # Option pour mettre sur liste noire l'ancien token après rotation
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',  # Authentification par JWT
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',  # Toute requête doit être authentifiée
+    ],
 }

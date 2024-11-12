@@ -25,9 +25,11 @@ export class FormationService {
     return this.http.post<Formation>(this.apiUrl, formation);
   }
 
-  updateFormation(formation: any): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl1}/${formation.id}`, formation);
+  updateFormation(id: number, formation: Formation): Observable<Formation> {
+    const url = `${this.apiUrl1}/${id}`;  
+    return this.http.put<Formation>(url, formation);  
   }
+  
 
   deleteFormation(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);

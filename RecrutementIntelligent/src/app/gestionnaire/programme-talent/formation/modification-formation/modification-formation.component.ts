@@ -12,7 +12,7 @@ import { Formation } from '../../models/tousModel';
 })
 export class ModificationFormationComponent implements OnInit {
 
-  formationForm: FormGroup;
+  formationForm!: FormGroup;
   formationId!: number;
 
   constructor(
@@ -21,24 +21,29 @@ export class ModificationFormationComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute
   ) {
-    this.formationForm = this.fb.group({
-      titre: ['', Validators.required],
-      type: ['', Validators.required],
-      niveau: ['', Validators.required],
-      prix: [0, [Validators.required, Validators.min(0)]],
-      duree: ['', Validators.required],
-      nombre: ['', [Validators.required, Validators.min(1)]],
-      location: ['', Validators.required],
-      resume: ['', Validators.required],
-      description: ['', Validators.required]
-    });
+
   }
 
   ngOnInit(): void {
     // Récupérer l'ID de la formation à partir de l'URL
     this.formationId = this.route.snapshot.params['id'];
-    this.loadFormation();
+    this.iniFormsFormat();
   }
+
+
+  iniFormsFormat():void{
+  this.formationForm = this.fb.group({
+    titre: [''],
+    type: [''],
+    niveau: [''],
+    prix: [0],
+    duree: [''],
+    nombre: [''],
+    location: [''],
+    resume: [''],
+    description: ['']
+  });
+}
 
   loadFormation(): void {
     // Récupère la formation à partir de l'ID
@@ -58,11 +63,10 @@ export class ModificationFormationComponent implements OnInit {
   }
 
   updateFormation(): void {
-    if (this.formationForm.valid) {
-     
-      const updatedFormation: Formation = { id: this.formationId, ...this.formationForm.value };
+    if (this.formationForm.valid) {   
+      const updatedFormation: Formation = {  ...this.formationForm.value };
       console.log(updatedFormation)
-      this.formationService.updateFormation(updatedFormation).subscribe(() => {
+      this.formationService.updateFormation(this.formationId,updatedFormation).subscribe(() => {
         this.router.navigate(['/gestionnaire/dasbord-prog-talent']); // Redirection après modification
       });
     }

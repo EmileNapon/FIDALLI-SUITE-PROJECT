@@ -2,9 +2,10 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('formation/create/', views.create_Formation, name='create_formation'),
-    path('formation/list-formations/', views.list_formations, name='list_formation'),
-    path('formation/<int:formation_id>/', views.detail_formation, name='detail_formation'), 
+    path('formation/create', views.create_Formation, name='create_formation'),
+    path('formation/update/<int:pk>/', views.update_formation, name='update_formation'),
+    path('formation/list-formations/<int:formation_id>/', views.detail_formation, name='detail_formation'),
+    path('formation/list-formations/', views.list_formations, name='list_formation'), 
 
     ################################################################################
     path('inscrit/create/', views.create_Inscrit, name='create_inscrit'),
