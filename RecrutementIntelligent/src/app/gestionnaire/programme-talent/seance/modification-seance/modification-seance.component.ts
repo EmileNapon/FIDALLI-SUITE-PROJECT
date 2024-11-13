@@ -24,13 +24,22 @@ export class ModificationSeanceComponent implements OnInit{
     private router: Router  
   ) {
     // Initialisation du formulaire réactif
+    // this.seanceForm = this.fb.group({
+    //   lieu: ['', [Validators.required]],  
+    //   date_formation: ['', [Validators.required]], 
+    //   heure_debut: ['', [Validators.required]], 
+    //   heure_fin: ['', [Validators.required]],  
+    //   statut: ['', [Validators.required]],  
+    //   moduleFormation_id: [null, [Validators.required]]  
+    // });
     this.seanceForm = this.fb.group({
       lieu: ['', [Validators.required]],  
       date_formation: ['', [Validators.required]], 
       heure_debut: ['', [Validators.required]],  // Champ "heure de début"
-      heure_fin: ['', [Validators.required]],  // Champ "heure de fin"
+      // heure_fin: ['', [Validators.required]],  // Champ "heure de fin"
       statut: ['', [Validators.required]],  // Valeur par défaut pour le statut
-      moduleFormation_id: [null, [Validators.required]]  
+      ModuleFormation_id: [null, [Validators.required]] ,
+      module_id: [null]
     });
   }
 
@@ -53,9 +62,9 @@ export class ModificationSeanceComponent implements OnInit{
         lieu: seance.lieu,
         date_formation: seance.date_formation,
         heure_debut: seance.heure_debut,
-        heure_fin: seance.heure_fin,
+        // heure_fin: seance.heure_fin,
         statut: seance.statut,
-        moduleFormation_id: seance.moduleFormation_id 
+        ModuleFormation_id: seance.ModuleFormation_id
       });
     });
   }

@@ -8,6 +8,7 @@ import { Seance } from '../models/tousModel';
 })
 export class SeanceService {
   private apiUrl = 'http://127.0.0.1:8000/fidalli/seance/list_seances'; // Remplacer par votre API
+  private baseUrl = 'http://127.0.0.1:8000/fidalli/seances'
   private lastId: number = 0; // Pour simuler l'incrémentation d'ID
 
   constructor(private http: HttpClient) {}
@@ -16,8 +17,8 @@ export class SeanceService {
     return this.http.get<any[]>(this.apiUrl);
   }
 
-  getSeanceById(id: number): Observable<Seance> {
-    return this.http.get<Seance>(`${this.apiUrl}/${id}`);
+  getSeanceById(id: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/${id}`);
   }
 
 //   addSeance(seance: Seance): Observable<Seance> {
@@ -34,11 +35,11 @@ export class SeanceService {
     return this.http.put<Seance>(`${this.apiUrl}/${seance.id}`, seance);
   }
 
+
+
   deleteSeance(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    return this.http.delete<void>(`${this.baseUrl}/${id}/delete/`);
   }
-
-
 
 
 

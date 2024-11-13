@@ -47,8 +47,8 @@
     </div>
 
     <div class="mb-3">
-      <label for="moduleFormation_id" class="form-label">Module de Formation</label>
-      <select id="moduleFormation_id" class="form-select" formControlName="moduleFormation_id" required>
+      <label for="ModuleFormation_id" class="form-label">Module de Formation</label>
+      <select id="ModuleFormation_id" class="form-select" formControlName="ModuleFormation_id" required>
         <option value="" disabled selected>Sélectionnez un module</option>
         <option *ngFor="let module of modules" [value]="module.id">{{ module.nom_module }}</option>
       </select>

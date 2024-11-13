@@ -93,6 +93,6 @@ export class ModuleComponent implements OnInit {
 
   // Méthode pour filtrer les séances par module
   getSeancesByModule(moduleId: string): Seance[] {
-    return this.seances.filter(seance => seance.moduleFormation_id.toString() === moduleId);
+    return this.seances.filter(seance => seance.ModuleFormation_id.toString() === moduleId);
   }
 }

@@ -1,8 +1,3 @@
-
-
-
-{{selectedModules[0]}}
-
 <div class='container'>
     <div class="row">
       <div class="col-md-6">
@@ -11,18 +6,9 @@
           <input type="checkbox" (change)="onModuleSelectionChange(module.id, $event)">
           <label>{{ module.nom_module }}</label>
         </div>
-      </div>
-      
-      <div class="col-md-6">
-        <div *ngFor="let selected of selectedModules">
-          <h6>Choisir des formateurs pour le module {{ getModuleName(selected.moduleId) }}</h6>
-          <div *ngFor="let formateur of formateurs">
-            <input type="checkbox" (change)="onFormateurSelectionChange(selected.moduleId, formateur.id, $event)">
-            <label>{{ formateur.nom }}</label>
-          </div>
-        </div>
-      </div> 
+      </div>     
     </div>
+
+    <button (click)='valider()'>kkkkkkkk</button>
     </div>
    
-{{modules}}

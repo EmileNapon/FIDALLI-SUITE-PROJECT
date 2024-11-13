@@ -143,6 +143,7 @@ formationId!: number;
      // date_publication: new Date(),
       //heure: new Date().getTime,
       // heure: new Date().getTime,
+      
     })
 
 
@@ -374,10 +375,11 @@ loadModules(): void {
 }
 
 // Supprimer module 
-deleteModule(id: number): void {
+deleteModule( id: number): void {
+  
   if (confirm('Êtes-vous sûr de vouloir supprimer cette formation ?')) {
     // Étape 1: Récupérer les séances liées au module
-    const seancesDuModule = this.getSeancesByModule(id.toString());
+    const seancesDuModule = this.getSeancesByModule(id);
 
     // Étape 2: Supprimer les séances liées au module
     seancesDuModule.forEach(seance => {
@@ -390,18 +392,14 @@ deleteModule(id: number): void {
         }
       );
     });
-
-    // Étape 3: Supprimer le module après la suppression des séances
-    this.moduleService.deleteModule(id).subscribe(() => {
+    console.log('[[[[]]]]=========================|||||||=====]', this.dasbordId)
+    this.moduleFormationService.deleteModuleFormation(this.dasbordId,id).subscribe(() => {
       this.loadModules(); // Recharger la liste après la suppression
     });
+
   }
 }
 
-// Méthode pour filtrer les séances par module
-getSeancesByModule(moduleId: string): any[] {
-  return this.seances.filter(seance => seance.moduleFormation_id.toString() === moduleId);
-}
 
 
 
@@ -410,7 +408,7 @@ loadSeances(): void {
   this.seanceService.getSeances().subscribe(
     (data) => {
       this.seances = data;
-      console.log('[[[[]]]]=========================|||||||=====]', this.seances)
+
       this.filterData1()
       
     },
@@ -425,6 +423,7 @@ deleteSeance(id: number): void {
   if (confirm('Êtes-vous sûr de vouloir supprimer cette formation ?')) {
     this.seanceService.deleteSeance(id).subscribe(() => {
       this.loadSeances(); // Recharger la liste après la suppression
+      console.log('sssssssssssssssssss')
     });
   }
 }
@@ -497,5 +496,15 @@ isStatut():void{
   //   this.statuts=false
   //   this.ismodify=!this.ismodify
   // }
+
+
+
+
+  
+  // Méthode pour filtrer les séances par module
+  getSeancesByModule(moduleId: number): any[] {
+    return this.seances.filter(seance => seance.module === moduleId);
+  }
+  
 
 }

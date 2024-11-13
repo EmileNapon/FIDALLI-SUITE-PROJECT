@@ -20,10 +20,10 @@ export class ajoutModuleComponent implements OnInit{
 
     formationForm!: FormGroup;
     modules: Module[] = [];
-    selectedModules: {formation:string|null, moduleId: number, formateurIds: number[] }[] = [];  // Stocker les formateurs pour chaque module
+    selectedModules: any[] = [];  // Stocker les formateurs pour chaque module
     formateurs: CustomUser[] = [];  // Stocker les formateurs disponibles
     modulesFormations:any[]=[]
-    formation: string |null=null
+    formation: number |null=null
 
     constructor(
 
@@ -40,10 +40,11 @@ export class ajoutModuleComponent implements OnInit{
     ngOnInit(): void {
 
 
-        this.formation = this.route.snapshot.paramMap.get('id_joutFormation');
+        this.formation = Number(this.route.snapshot.paramMap.get('id_joutFormation'));
     
         this.loadModules();
         this.loadFormateurs();  // Charger les formateurs disponibles
+        this.loadModulesFormations()
       }
     
 
@@ -98,43 +99,50 @@ export class ajoutModuleComponent implements OnInit{
 
 
         // Gestion de la sélection des modules
-  onModuleSelectionChange(moduleId: number, event: any): void {
+  onModuleSelectionChange(module: number, event: any): void {
     if (event.target.checked) {
       // Ajouter le module à la sélection s'il n'existe pas déjà
-      if (!this.selectedModules.some(selected => selected.moduleId === moduleId)) {
-        this.selectedModules.push({formation:this.formation,moduleId, formateurIds: [] });
+      if (!this.selectedModules.some(selected => selected.module === module)) {
+        this.selectedModules.push({formation:this.formation,module });
         console.log(this.selectedModules, 'pppppppppppppppppppp')
         console.log(this.modulesFormations, 'kkkkkkkkkkkkkk')
       }
     } else {
       // Retirer le module de la sélection si la case est décochée
-      this.selectedModules = this.selectedModules.filter(selected => selected.moduleId !== moduleId);
+      this.selectedModules = this.selectedModules.filter(selected => selected.module !== module);
     }
   }
 
-   // Gestion de la sélection des formateurs pour un module
-   onFormateurSelectionChange(moduleId: number, formateurId: number, event: any): void {
-    const module = this.selectedModules.find(selected => selected.moduleId === moduleId);
-    if (module) {
-       if (event.target.checked) {
-         // Ajouter le formateur sélectionné à la liste des formateurs pour ce module
-         module.formateurIds.push(formateurId);
-      } else {
-        // Retirer le formateur s'il est désélectionné
-        module.formateurIds = module.formateurIds.filter(id => id !== formateurId);
-      }
-     }
-   }
+  //  // Gestion de la sélection des formateurs pour un module
+  //  onFormateurSelectionChange(moduleId: number, formateurId: number, event: any): void {
+  //   const module = this.selectedModules.find(selected => selected.moduleId === moduleId);
+  //   if (module) {
+  //      if (event.target.checked) {
+  //        // Ajouter le formateur sélectionné à la liste des formateurs pour ce module
+  //        module.formateurIds.push(formateurId);
+  //     } else {
+  //       // Retirer le formateur s'il est désélectionné
+  //       module.formateurIds = module.formateurIds.filter(id => id !== formateurId);
+  //     }
+  //    }
+  //  }
 
 
    valider():void{
-
+    console.log(this.selectedModules, '???????????')
     this.moduleFormationService.addModuleFormation(this.selectedModules).subscribe(
-        response => {
-    
-            console.log('Nouvelle matière ajoutée avec succès', response)
-        
-          }
-    )
-   }
+      response => {
+
+
+
+          console.log('Nouvelle matière ajoutée avec succès', response)
+      
+        }
+  )
+  
+}
+
+
+
+
 }
