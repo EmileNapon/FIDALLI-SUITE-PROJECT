@@ -34,8 +34,8 @@ class Inscrit(models.Model):
 
 
 class ModuleFormation(models.Model):
-    module = models.ForeignKey(Module, on_delete=models.CASCADE, default=1)  # Relation vers Module
-    formation = models.ForeignKey(Formation, on_delete=models.CASCADE, default=1)  # Relation vers Formation
+    module = models.ForeignKey(Module, on_delete=models.CASCADE)  # Relation vers Module
+    formation = models.ForeignKey(Formation, on_delete=models.CASCADE)  # Relation vers Formation
 
 class Seance(models.Model):
     lieu = models.CharField(max_length=200)  # Renommé en CharField pour la localisation

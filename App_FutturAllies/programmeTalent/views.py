@@ -84,13 +84,16 @@ def liste_Inscrits(request):
 ##################################################################################################################
 
 @api_view(['POST'])
-def create_ModuleFormation(request):
-    if request.method == 'POST':
+def create_module_formation(request):
+    if isinstance(request.data, list):  # Vérifier si les données sont un tableau
+        serializer = ModuleFormationSerializer(data=request.data, many=True)
+    else:
         serializer = ModuleFormationSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 @api_view(['GET'])
@@ -101,6 +104,24 @@ def list_ModuleFormation(request):
     return Response(serializer.data, status=status.HTTP_200_OK)
 
 
+
+@api_view(['DELETE'])
+def remove_module_from_formation(request, formation_id, module_id):
+    try:
+        # Utiliser `filter` pour récupérer tous les enregistrements correspondants
+        module_formations = ModuleFormation.objects.filter(formation_id=formation_id, module_id=module_id)
+        
+        # Vérifier s'il y a des enregistrements correspondants
+        if not module_formations.exists():
+            return Response({"detail": "Association Module-Formation non trouvée"}, status=status.HTTP_404_NOT_FOUND)
+        
+        # Supprimer toutes les associations correspondantes
+        module_formations.delete()
+
+        return Response(status=status.HTTP_204_NO_CONTENT)
+    
+    except Exception as e:
+        return Response({"detail": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 ##################################################################################################################
 
 @api_view(['POST'])
@@ -118,7 +139,20 @@ def create_Seance(request):
 def list_Seance(request):
     seance = Seance.objects.all()  # Récupérer toutes les offres
     serializer = SeanceSerializer(seance, many=True)  # Sérialiser les données
-    return Response(serializer.data, status=status.HTTP_200_OK)   
+    return Response(serializer.data, status=status.HTTP_200_OK)  
+
+
+
+@api_view(['DELETE'])
+def delete_seance(request, pk):
+    try:
+        seance = Seance.objects.get(pk=pk)
+        seance.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+    except Seance.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+##################################################################################################################
 ##################################################################################################################
 
 @api_view(['POST'])

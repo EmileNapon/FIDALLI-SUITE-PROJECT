@@ -16,7 +16,10 @@ class InscritSerializer(serializers.ModelSerializer):
 class ModuleFormationSerializer(serializers.ModelSerializer):
     class Meta:
         model = ModuleFormation
-        fields =  '__all__'   # Including all necessary fields
+        fields = ['formation', 'module']
+    
+    def create(self, validated_data):
+        return ModuleFormation.objects.create(**validated_data)
 
 class SeanceSerializer(serializers.ModelSerializer):
     class Meta:
