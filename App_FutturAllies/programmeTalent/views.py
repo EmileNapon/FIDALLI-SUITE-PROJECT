@@ -63,6 +63,20 @@ def detail_formation(request, formation_id):
         return Response({"error": "Formation not found."}, status=status.HTTP_404_NOT_FOUND)
 
 
+
+@api_view(['DELETE'])
+def remove_formation(request, formation_id):
+    try:
+        formations = Formation.objects.filter(id=formation_id)
+        if not formations.exists():
+            return Response({"detail": "Formation non trouvée"}, status=status.HTTP_404_NOT_FOUND)
+        formations.delete()
+
+        return Response(status=status.HTTP_204_NO_CONTENT)
+    
+    except Exception as e:
+        return Response({"detail": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
 ##################################################################################################################
 
 @api_view(['POST'])

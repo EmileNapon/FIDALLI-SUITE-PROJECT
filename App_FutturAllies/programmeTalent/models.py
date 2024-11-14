@@ -41,10 +41,10 @@ class Seance(models.Model):
     lieu = models.CharField(max_length=200)  # Renommé en CharField pour la localisation
     date_formation = models.DateField(default=date(2024, 1, 20))
     heure_debut = models.TimeField()  # Utilisation de TimeField pour les heures
-    statut = models.CharField(max_length=10, choices=[('confirmé', 'Confirmé'),('annulé', 'Annulé'),('attente', 'Attente')])
-    ModuleFormation=models.ForeignKey(ModuleFormation,on_delete=models.CASCADE,default=1)
+    heure_fin= models.TimeField(null=True)
+    statut = models.CharField(max_length=10, choices=[('confirmé', 'confirmé'),('annulé', 'annulé'),('attente', 'attente')], default='attente')
     module = models.ForeignKey(Module, on_delete=models.CASCADE, default=1)  # Relation vers Module
-    
+    formation= models.ForeignKey(Formation, on_delete=models.CASCADE, default=1)  # Relation vers Module
 class AffectationStage(models.Model):
     inscrit = models.ForeignKey(Inscrit, on_delete=models.CASCADE)  # Relation vers Inscrit
    ## offre = models.ForeignKey(Offre, on_delete=models.CASCADE, default=1)  # Relation vers Inscrit
