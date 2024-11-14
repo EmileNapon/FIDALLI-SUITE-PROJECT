@@ -10,7 +10,8 @@ import { Formation } from '../models/tousModel';
 export class FormationService {
   private apiUrl = 'http://127.0.0.1:8000/fidalli/formation/list-formations'; // Remplacer par votre API
   private apiUrl1= 'http://127.0.0.1:8000/fidalli/formation/update'; // Remplacer par votre API
-  private apiUrl2 = 'http://127.0.0.1:8000/fidalli/formation/create'; // Remplacer par votre API
+  private apiUrl2 ='http://127.0.0.1:8000/fidalli/formation/create'; // Remplacer par votre API
+  private apiUrl3="http://127.0.0.1:8000/fidalli/formations"
 
   constructor(private http: HttpClient) {}
   
@@ -33,7 +34,7 @@ export class FormationService {
   
 
   deleteFormation(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    return this.http.delete<void>(`${this.apiUrl3}/${id}/remove/`);
   }
 }
 

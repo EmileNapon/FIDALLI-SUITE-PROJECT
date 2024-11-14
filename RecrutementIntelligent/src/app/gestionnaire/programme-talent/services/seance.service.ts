@@ -9,6 +9,7 @@ import { Seance } from '../models/tousModel';
 export class SeanceService {
   private apiUrl = 'http://127.0.0.1:8000/fidalli/seance/list_seances'; // Remplacer par votre API
   private baseUrl = 'http://127.0.0.1:8000/fidalli/seances'
+  private apiUrl3="http://127.0.0.1:8000/fidalli/seance/create/"
   private lastId: number = 0; // Pour simuler l'incrémentation d'ID
 
   constructor(private http: HttpClient) {}
@@ -28,7 +29,7 @@ export class SeanceService {
   addSeance(seance: Seance): Observable<Seance> {
     // Attribuer un ID numérique et incrémental
     // seance.id = ++this.lastId;
-    return this.http.post<Seance>(this.apiUrl, seance);
+    return this.http.post<Seance>(this.apiUrl3, seance);
   }
 
   updateSeance(seance: Seance): Observable<Seance> {

@@ -10,8 +10,7 @@ import { FormationService } from '../../services/formation.service';
   styleUrls: ['./formation-detail.component.css']
 })
 export class FormationDetailComponent implements OnInit{
-  formations!: Formation;
-  formationss:any[]=[]
+  formations :any;
   moduleFormations: ModuleFormation[] = [];
   modules: Module[] = [];
 
@@ -34,7 +33,6 @@ export class FormationDetailComponent implements OnInit{
     console.log(this.formationId)
     this.formationService.getFormationById(this.formationId).subscribe(
       (data) => {
-        
         this.formations = data;
         //this.filterFormation();
       }

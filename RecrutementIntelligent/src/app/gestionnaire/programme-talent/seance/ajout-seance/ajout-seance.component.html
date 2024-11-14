@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Ajouter une Séance</h1>
+  <h1>Ajouter une Séance {{module}} --- {{formationId}}--{{c}}</h1>
   <form [formGroup]="seanceForm" (ngSubmit)="addSeance()">
     <div class="mb-3">
       <label for="lieu" class="form-label">Lieu</label>
@@ -24,31 +24,20 @@
         Heure de début requise.
       </div>
     </div>
-
     <div class="mb-3">
-      <label for="heure_fin" class="form-label">Heure de Fin</label>
+      <label for="heure_fin" class="form-label">Heure de fin</label>
       <input type="time" id="heure_fin" class="form-control" formControlName="heure_fin" required>
       <div *ngIf="seanceForm.get('heure_fin')?.invalid && seanceForm.get('heure_fin')?.touched" class="text-danger">
-        Heure de fin requise.
+        Heure de début requise.
       </div>
     </div>
+
 
     <div class="mb-3">
       <label for="statut" class="form-label">Statut</label>
       <input type="text" id="statut" class="form-control" formControlName="statut" value="En attente" readonly>
       <div *ngIf="seanceForm.get('statut')?.invalid && seanceForm.get('statut')?.touched" class="text-danger">
         Statut requis.
-      </div>
-    </div>
-
-    <div class="mb-3">
-      <label for="moduleFormation_id" class="form-label">Module de Formation</label>
-      <select id="moduleFormation_id" class="form-select" formControlName="moduleFormation_id" required>
-        <option value="" disabled selected>Sélectionnez un module</option>
-        <option *ngFor="let module of modules" [value]="module.id">{{ module.nom_module }}</option>
-      </select>
-      <div *ngIf="seanceForm.get('moduleFormation_id')?.invalid && seanceForm.get('moduleFormation_id')?.touched" class="text-danger">
-        Module de formation requis.
       </div>
     </div>
 

@@ -69,10 +69,11 @@ export class GestionnaireFormationDetailComponent implements OnInit{
   deleteFormation(id: number): void {
     if (confirm('Êtes-vous sûr de vouloir supprimer cette formation ?')) {
       this.formationService.deleteFormation(id).subscribe(() => {
-        this.loadFormations(); // Recharger la liste après la suppression
+        this.router.navigate([`/gestionnaire/formation`]);
+        console.log("kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk")
+       
       });
     }
   }
-
 
 }

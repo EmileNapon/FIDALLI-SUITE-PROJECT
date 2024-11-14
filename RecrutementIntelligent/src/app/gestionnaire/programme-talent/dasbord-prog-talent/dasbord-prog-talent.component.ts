@@ -339,7 +339,8 @@ loadFormateurs(): void {
 deleteFormation(id: number): void {
   if (confirm('Êtes-vous sûr de vouloir supprimer cette formation ?')) {
     this.formationService.deleteFormation(id).subscribe(() => {
-      this.loadFormations(); // Recharger la liste après la suppression
+      this.router.navigate([`/gestionnaire/formation`]);
+      console.log("kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk")
     });
   }
 }
@@ -506,5 +507,12 @@ isStatut():void{
     return this.seances.filter(seance => seance.module === moduleId);
   }
   
+  onSelectModule( formationId :string,seanceId: string): void {
+    this.router.navigate([`/gestionnaire/create/${formationId}/${seanceId}/seance`]);
+  }
+
+  
+
+
 
 }

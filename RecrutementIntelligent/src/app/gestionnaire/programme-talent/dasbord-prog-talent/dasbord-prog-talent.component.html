@@ -1,5 +1,5 @@
 <body>
-
+lllllllllllllllllll{{dasbordId}}
     <!-- Entête principale -->
     <app-header/>
     <br>
@@ -50,9 +50,6 @@
                 <div class="row d-flex align-items-center justify-content-between" *ngIf="showFormation">
                     <div class="col">
                         <h1 class="text-left">Les Programme de Formation Talent</h1>
-                    </div>
-                    <div class="col-auto">
-                        <button type="button" class="btn btn-secondary btn-lg" routerLink="/gestionnaire/ajouter-formation">Créer une formation</button>
                     </div>
                 </div> 
                 <div class="row d-flex align-items-center justify-content-between" *ngIf="showGroupe">
@@ -439,7 +436,13 @@
                             <div class="d-flex">
                               <!-- <a class="btn btn-warning btn-sm" [routerLink]="['/gestionnaire/modification-module', module.id]">Modifier le module</a> -->
                               <button class="btn btn-danger btn-sm mx-2" (click)="deleteModule(module.id)">Retirer le module</button>
-                              <button class="btn btn-secondary btn-sm" [routerLink]="['/gestionnaire/create-seance', module.id]">Ajouter une séance</button>
+                              <div *ngFor='let mF of modulesFormations'>
+                                  <div *ngIf='mF.module==module.id'>
+                                    <button class="btn btn-secondary btn-sm" (click)="onSelectModule(mF.formation,module.id)">Ajouter une séance</button>
+                                  </div>
+                              </div>
+                      
+                              
                           </div>
                             
                         </td>

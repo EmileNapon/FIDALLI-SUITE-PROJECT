@@ -104,8 +104,6 @@ export class ajoutModuleComponent implements OnInit{
       // Ajouter le module à la sélection s'il n'existe pas déjà
       if (!this.selectedModules.some(selected => selected.module === module)) {
         this.selectedModules.push({formation:this.formation,module });
-        console.log(this.selectedModules, 'pppppppppppppppppppp')
-        console.log(this.modulesFormations, 'kkkkkkkkkkkkkk')
       }
     } else {
       // Retirer le module de la sélection si la case est décochée
@@ -129,12 +127,9 @@ export class ajoutModuleComponent implements OnInit{
 
 
    valider():void{
-    console.log(this.selectedModules, '???????????')
     this.moduleFormationService.addModuleFormation(this.selectedModules).subscribe(
       response => {
-
-
-
+        this.router.navigate([`/gestionnaire/formation`]);
           console.log('Nouvelle matière ajoutée avec succès', response)
       
         }
