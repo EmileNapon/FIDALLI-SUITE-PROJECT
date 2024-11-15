@@ -1,4 +1,22 @@
-<div class="container">
-<p style='border:none' *ngFor='let progrtalent of filteredIncritsFormations'>
-    <button style='border:none' (click)='onSelectProgrammeTalent(progrtalent.id)'>{{progrtalent.titre}}</button> 
-</p>
+<app-headerPrincipale></app-headerPrincipale>
+
+
+<div class= "container">
+    <h2>Formation programme talent</h2>
+
+  <div class="webinar-card" *ngFor="let progrtalent of filteredIncritsFormations">
+    <h2>{{ progrtalent.titre }}</h2>
+    <p><strong>Titre :</strong> {{ progrtalent.titre }}</p>
+    <p><strong>type :</strong> {{ progrtalent.type }}</p>
+    <p><strong>Niveau :</strong> {{ progrtalent.niveau }}</p>
+    <p><strong>Duree de la formation :</strong> {{ progrtalent.duree }}</p>
+    <p>{{ progrtalent.date }} à {{ progrtalent.localisation }}</p>
+    
+    <!-- Lien vers les détails du webinaire avec l'ID -->
+    <div class="custom-padding">
+    <button class='btn btn-outline-danger ' (click)="onSelectProgrammeTalent(progrtalent.id)" [disabled]='isactive'>non disponible</button> 
+    
+    </div>
+  </div>
+  
+</div>

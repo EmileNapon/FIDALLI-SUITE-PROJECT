@@ -24,6 +24,7 @@ export class DasbordEtudiantComponent {
   isDisabled = true;
   user!:number
   userInfo: { email: string | null, firstName: string | null, lastName: string | null, profilePic: string | null, id:string | null } | null = null;
+  isactive:boolean=false
 
   constructor(private serviceAuth: AuthService, private DasbordService: DasbordEtudiantService, private router: Router) {}
 

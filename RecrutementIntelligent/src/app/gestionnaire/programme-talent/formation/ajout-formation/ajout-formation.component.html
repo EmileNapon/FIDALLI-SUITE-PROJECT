@@ -18,6 +18,13 @@
     </div>
 
     <div class="mb-3">
+      <label for="date" class="form-label">Date</label>
+      <input type="text" id="date" class="form-control" formControlName="date" required>
+      <div *ngIf="formationForm.get('date')?.invalid && formationForm.get('date')?.touched" class="text-danger">
+        Type requis.
+      </div>
+    </div>
+    <div class="mb-3">
       <label for="niveau" class="form-label">Niveau requis</label>
       <input type="text" id="niveau" class="form-control" formControlName="niveau" required>
       <div *ngIf="formationForm.get('niveau')?.invalid && formationForm.get('niveau')?.touched" class="text-danger">

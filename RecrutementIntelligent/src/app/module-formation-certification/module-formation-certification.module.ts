@@ -33,6 +33,7 @@ import { FormationComponent } from './prog-talent/formation/formation.component'
 
 import { InscriptionPragraTalentComponent } from './prog-talent/formation/formation-detail/inscription-pragra-talent/inscription-pragra-talent.component';
 import { DasbordEtudiantTalentComponent } from './etudiant/dasbord-etudiant-talent/dasbord-etudiant-talent.component';
+import { HeaderPrincipalePourFormationComponent } from './header-footer/header-principal/headerPrincipale';
 
 
 @NgModule({
@@ -50,7 +51,7 @@ import { DasbordEtudiantTalentComponent } from './etudiant/dasbord-etudiant-tale
     WebinarDetailsComponent,
     WebinarEnrollComponent,
     WebinarManagementComponent,
-    ChapitreComponent,
+    ChapitreComponent,HeaderPrincipalePourFormationComponent,
     
 
   FormationComponent, FormationDetailComponent, InscriptionPragraTalentComponent,DasbordEtudiantTalentComponent

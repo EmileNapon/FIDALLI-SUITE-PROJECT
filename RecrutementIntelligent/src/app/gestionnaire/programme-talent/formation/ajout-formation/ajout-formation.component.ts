@@ -37,6 +37,7 @@ export class AjoutFormationComponent implements OnInit {
     this.formationForm = this.fb.group({
       titre: ['', Validators.required],
       type: ['', Validators.required],
+      date:['',Validators.required],
       niveau: ['', Validators.required],
       prix: ['', [Validators.required, Validators.min(0)]],
       duree: ['', Validators.required],
