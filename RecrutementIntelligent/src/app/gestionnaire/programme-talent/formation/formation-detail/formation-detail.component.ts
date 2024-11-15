@@ -75,5 +75,10 @@ export class GestionnaireFormationDetailComponent implements OnInit{
       });
     }
   }
+  onSelectFormation(id: number): void {
+    this.router.navigate([`/gestionnaire/update/${id}/formation`]); 
+  }
+    
+
 
 }

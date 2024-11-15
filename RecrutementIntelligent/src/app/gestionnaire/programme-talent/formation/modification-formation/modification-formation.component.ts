@@ -27,24 +27,26 @@ export class ModificationFormationComponent implements OnInit {
   ngOnInit(): void {
     // Récupérer l'ID de la formation à partir de l'URL
     this.formationId = this.route.snapshot.params['id'];
-    this.iniFormsFormat();
+    
     this.loadFormation()
+    this.initializeForm()
   }
 
 
-  iniFormsFormat():void{
-  this.formationForm = this.fb.group({
-    titre: [''],
-    type: [''],
-    niveau: [''],
-    prix: [0],
-    duree: [''],
-    nombre: [''],
-    location: [''],
-    resume: [''],
-    description: ['']
-  });
-}
+  initializeForm(): void {
+    this.formationForm = this.fb.group({
+      titre: ['', Validators.required],
+      type: [''],
+      niveau: [''],
+      prix: [0, [Validators.required, Validators.min(0)]],
+      duree: ['', Validators.required],
+      nombre: [null],
+      location: ['', Validators.required],
+      resume: [''],
+      description: ['', Validators.required],
+    });
+  }
+
 
   loadFormation(): void {
     // Récupère la formation à partir de l'ID
@@ -64,11 +66,10 @@ export class ModificationFormationComponent implements OnInit {
   }
 
   updateFormation(): void {
-    if (this.formationForm.valid) {   
-      const updatedFormation: Formation = {...this.formationForm.value };
-      console.log(updatedFormation)
-      this.formationService.updateFormation(this.formationId,updatedFormation).subscribe(() => {
-        this.router.navigate(['/gestionnaire/dasbord-prog-talent']); 
+    if (this.formationForm.valid) {
+      const updatedFormation: Formation = { ...this.formationForm.value };
+      this.formationService.updateFormation(this.formationId, updatedFormation).subscribe(() => {
+        this.router.navigate([`/gestionnaire/formation`]);
       });
     }
   }

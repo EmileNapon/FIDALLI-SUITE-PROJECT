@@ -148,7 +148,7 @@
         <div class="text-end">
           <button class="btn btn-outline-danger" routerLink="/gestionnaire/dasbord-prog-talent">Fermer</button>
           <button class="btn btn-outline-secondary mx-2" style="color: red;" routerLink="">S'inscrire</button>
-          <button class="btn btn-warning mx-2" [routerLink]="['/gestionnaire/modification-formation', formations.id]">Modifier</button>
+          <button class="btn btn-warning mx-2" (click)='onSelectFormation(formations.id)'>Modifier</button>
           <button class="btn btn-danger mx-2" (click)="deleteFormation(formations.id)">Supprimer</button>
         </div>
       </div>

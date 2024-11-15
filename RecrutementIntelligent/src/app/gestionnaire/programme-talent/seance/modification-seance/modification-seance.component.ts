@@ -62,9 +62,9 @@ export class ModificationSeanceComponent implements OnInit{
         lieu: seance.lieu,
         date_formation: seance.date_formation,
         heure_debut: seance.heure_debut,
-        // heure_fin: seance.heure_fin,
+        heure_fin: seance.heure_fin,
         statut: seance.statut,
-        ModuleFormation_id: seance.ModuleFormation_id
+        ModuleFormation: seance.ModuleFormation_id
       });
     });
   }

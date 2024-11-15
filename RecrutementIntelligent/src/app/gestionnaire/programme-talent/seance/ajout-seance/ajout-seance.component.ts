@@ -70,6 +70,7 @@ x():void{
     if (this.seanceForm.valid) {
       const newSeance: any = this.seanceForm.value;
       this.seanceService.addSeance(newSeance).subscribe(() => {
+        this.router.navigate([`/gestionnaire/dasbord/${this.formationId}/dasbord-prog-talent`]); 
        
       });
     }

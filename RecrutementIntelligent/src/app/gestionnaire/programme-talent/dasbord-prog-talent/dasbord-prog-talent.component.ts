@@ -512,7 +512,14 @@ isStatut():void{
   }
 
   
+  onSelectFormation(id: string): void {
+    this.router.navigate([`/gestionnaire/update/${id}/formation`]); 
+  }
+    
 
+  onSelectFormationModule(id: string): void {
+    this.router.navigate([`/gestionnaire/Module-formation/${id}/formation`]); 
+  }
 
 
 }
