@@ -49,8 +49,6 @@ this.c=this.dasbordId
 
 x():void{
 
-
-
   this.seanceForm = this.fb.group({
     formation: this.formationId,
     module: this.module,

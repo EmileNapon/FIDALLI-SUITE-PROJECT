@@ -37,23 +37,12 @@
       <label for="statut" class="form-label">Statut</label>
       <select id="statut" class="form-select" formControlName="statut" required>
         <option value="" disabled selected>Sélectionnez un statut</option>
-        <option value="Confirmé">Confirmé</option>
-        <option value="En attente">En attente</option>
-        <option value="Annulé">Annulé</option>
+        <option value="confirmé">confirmé</option>
+        <option value="attente">attente</option>
+        <option value="annulé">annulé</option>
       </select>
       <div *ngIf="seanceForm.get('statut')?.invalid && seanceForm.get('statut')?.touched" class="text-danger">
         Statut requis.
-      </div>
-    </div>
-
-    <div class="mb-3">
-      <label for="ModuleFormation_id" class="form-label">Module de Formation</label>
-      <select id="ModuleFormation_id" class="form-select" formControlName="ModuleFormation_id" required>
-        <option value="" disabled selected>Sélectionnez un module</option>
-        <option *ngFor="let module of modules" [value]="module.id">{{ module.nom_module }}</option>
-      </select>
-      <div *ngIf="seanceForm.get('moduleFormation_id')?.invalid && seanceForm.get('moduleFormation_id')?.touched" class="text-danger">
-        Module de formation requis.
       </div>
     </div>
 

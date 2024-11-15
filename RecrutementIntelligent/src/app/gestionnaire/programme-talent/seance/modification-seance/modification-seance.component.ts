@@ -64,7 +64,6 @@ export class ModificationSeanceComponent implements OnInit{
         heure_debut: seance.heure_debut,
         heure_fin: seance.heure_fin,
         statut: seance.statut,
-        ModuleFormation: seance.ModuleFormation_id
       });
     });
   }
