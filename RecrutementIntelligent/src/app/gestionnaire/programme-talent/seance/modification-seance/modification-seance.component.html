@@ -25,6 +25,7 @@
       </div>
     </div>
 
+
     <div class="mb-3">
       <label for="heure_fin" class="form-label">Heure de Fin</label>
       <input type="time" id="heure_fin" class="form-control" formControlName="heure_fin" required>
@@ -49,3 +50,5 @@
     <button type="submit" class="btn btn-primary" [disabled]="seanceForm.invalid">Modifier la Séance</button>
   </form>
 </div>
+
+{{seances[0].heure_fin}}

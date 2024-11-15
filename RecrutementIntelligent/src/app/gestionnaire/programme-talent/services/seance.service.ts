@@ -11,6 +11,7 @@ export class SeanceService {
   private baseUrl = 'http://127.0.0.1:8000/fidalli/seances'
   private apiUrl3="http://127.0.0.1:8000/fidalli/seance/create/"
   private apiUrl1= "http://127.0.0.1:8000/fidalli/seances/liste-seance"
+  private apiUrl2= "http://127.0.0.1:8000/fidalli/seance"                
   private lastId: number = 0; // Pour simuler l'incrémentation d'ID
 
   constructor(private http: HttpClient) {}
@@ -34,7 +35,7 @@ export class SeanceService {
   }
 
   updateSeance(seance: Seance): Observable<Seance> {
-    return this.http.put<Seance>(`${this.apiUrl}/${seance.id}`, seance);
+    return this.http.put<Seance>(`${this.apiUrl2}/${seance.id}/update/`, seance);
   }
 
 

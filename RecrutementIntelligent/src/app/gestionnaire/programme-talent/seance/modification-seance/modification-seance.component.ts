@@ -15,6 +15,7 @@ export class ModificationSeanceComponent implements OnInit{
   seanceForm: FormGroup;  
   seanceId!: number;
   modules: Module[] = [];  // Stockage des modules récupérés
+  dasbordId!: string |null
 
   constructor(
     private fb: FormBuilder,  
@@ -36,16 +37,15 @@ export class ModificationSeanceComponent implements OnInit{
       lieu: ['', [Validators.required]],  
       date_formation: ['', [Validators.required]], 
       heure_debut: ['', [Validators.required]],  // Champ "heure de début"
-      // heure_fin: ['', [Validators.required]],  // Champ "heure de fin"
+      heure_fin: ['', [Validators.required]],  // Champ "heure de fin"
       statut: ['', [Validators.required]],  // Valeur par défaut pour le statut
-      ModuleFormation_id: [null, [Validators.required]] ,
-      module_id: [null]
     });
   }
 
   ngOnInit(): void {
     // this.moduleId = +this.route.snapshot.paramMap.get('id'); // Récupérer l'ID du module à partir de l'URL
     this.seanceId = this.route.snapshot.params['id'];
+    this.dasbordId = this.route.snapshot.paramMap.get('dasbordId');
     this.loadSeance(); // Charger les données du module
     // this.moduleForm.patchValue({ formation_id: 1 });  
     // this.moduleForm.patchValue({formation_id: 2});
@@ -54,10 +54,12 @@ export class ModificationSeanceComponent implements OnInit{
     this.moduleService.getModules().subscribe(modules => {
       this.modules = modules;
     });
+
+    this.loadseances()
   }
 
   loadSeance(): void {
-    this.seanceService.getSeanceById(this.seanceId).subscribe((seance: Seance) => {
+    this.seanceService.getSeanceById(this.seanceId).subscribe((seance: any) => {
       this.seanceForm.patchValue({
         lieu: seance.lieu,
         date_formation: seance.date_formation,
@@ -66,15 +68,32 @@ export class ModificationSeanceComponent implements OnInit{
         statut: seance.statut,
       });
     });
+    
   }
 
   updateSeance(): void {
     if (this.seanceForm.valid) {
       const updatedModule: Seance = { id: this.seanceId, ...this.seanceForm.value };
       this.seanceService.updateSeance(updatedModule).subscribe(() => {
-        this.router.navigate(['/formation/gestionnairePage']); // Redirection après modification du module
+        this.router.navigate([`/gestionnaire/formation`]); // Redirection après modification du module
       });
     }
   }
 
+  seances:any[]=[]
+  loadseances(): void {
+    this.seanceService.getSeances().subscribe(
+      (data) => {
+        this.seances = data;
+      },
+      (error) => {
+        console.error('Erreur lors du chargement des modules:', error);
+      }
+    );
+  }
+
+
+  onSelectProgrammeTalent(DasbordFormationId: number): void {
+    this.router.navigate([`/gestionnaire/dasbord/${DasbordFormationId}/dasbord-prog-talent`]); 
+  }
 }

@@ -61,7 +61,7 @@ export interface Seance {
     lieu: string; // Lieu de la séance
     date_formation: string; // Date de la séance
     heure_debut: string; // Heure de début de la séance
-     heure_fin: string; // Heure de fin de la séance
+    heure_fin: string; // Heure de fin de la séance
     statut: 'Confirmé' | 'En attente' | 'Annulé'; // Statut de la séance
     ModuleFormation_id: number; // ID du lien entre le module et la formation (ModuleFormation)
     module_id: number;
