@@ -2,17 +2,17 @@ import datetime
 from django.db import models
 from datetime import date
 from Formation.models import Module
-from Offres.models import Offre
 from users.models import CustomUser
 
 class Formation(models.Model):
     titre=models.CharField(max_length=200)
+    date=models.DateField(default=date(2024, 1, 20))
     type = models.TextField(max_length=200,null=True)
     niveau = models.CharField(max_length=800,null=True)
     prix = models.DecimalField(max_digits=10, decimal_places=2, null=True)  # Utilisation d'un DecimalField pour le prix
     duree = models.CharField(max_length=20)
     nombre = models.IntegerField(null=True)
-    location = models.CharField(max_length=200)
+    localisation = models.CharField(max_length=200,default='FIDALLI')
     resume=models.TextField(null=True)
     description=models.TextField(max_length=800)
 class Group(models.Model):

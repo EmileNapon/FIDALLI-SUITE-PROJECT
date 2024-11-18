@@ -4,7 +4,7 @@ from . import views
 urlpatterns = [
 
     path('formation/create', views.create_Formation, name='create_formation'),
-    path('formation/update/<int:pk>/', views.update_formation, name='update_formation'),
+    path('formation/<int:pk>/update/', views.update_formation, name='update_formation'),
     path('formation/list-formations/<int:formation_id>/', views.detail_formation, name='detail_formation'),
     path('formation/list-formations/', views.list_formations, name='list_formation'), 
     path('formations/<int:formation_id>/remove/', views.remove_formation, name='remove_formation'),
@@ -19,6 +19,8 @@ urlpatterns = [
     path('seance/create/', views.create_Seance, name='create_seance'),
     path('seance/list_seances/', views.list_Seance, name='list_seances'),
     path('seances/<int:pk>/delete/', views.delete_seance, name='delete_seance'),
+    path('seance/<int:pk>/update/', views.update_Seance, name='update_seances'),
+    path('seances/liste-seance/<int:seance_id>/', views.detail_Seance, name='detail_Seance'),
 
     ################################################################################
     path('group/create/', views.create_Group, name='create_group'),

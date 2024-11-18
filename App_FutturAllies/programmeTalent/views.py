@@ -25,23 +25,20 @@ def create_Formation(request,  pk=None):
 @api_view(['PUT'])
 @permission_classes([IsAuthenticated])
 def update_formation(request, pk):
-    # Vérifier si l'utilisateur est authentifié
-    if not request.user.is_authenticated:
-        return Response({"error": "Authentication required."}, status=status.HTTP_401_UNAUTHORIZED)
+
 
     try:
-        # Récupérer la formation par son ID
         formation = Formation.objects.get(pk=pk)
     except Formation.DoesNotExist:
         return Response({"error": "Formation not found."}, status=status.HTTP_404_NOT_FOUND)
-    
-    # Sérialiser les données avec les données de la requête
+
     serializer = FormationSerializer(formation, data=request.data)
     if serializer.is_valid():
-        # Sauvegarder les nouvelles données
         serializer.save()
         return Response(serializer.data, status=status.HTTP_200_OK)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
 
 
 @api_view(['GET'])
@@ -165,6 +162,35 @@ def delete_seance(request, pk):
         return Response(status=status.HTTP_204_NO_CONTENT)
     except Seance.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
+    
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def detail_Seance(request, seance_id):
+    try:
+        seance = Seance.objects.get(id=seance_id)
+        serializer = SeanceSerializer(seance)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    except Formation.DoesNotExist:
+        return Response({"error": "Formation not found."}, status=status.HTTP_404_NOT_FOUND)
+    
+
+@api_view(['PUT'])
+@permission_classes([IsAuthenticated])
+def update_Seance(request, pk):
+
+
+    try:
+        seance = Seance.objects.get(pk=pk)
+    except Seance.DoesNotExist:
+        return Response({"error": "Formation not found."}, status=status.HTTP_404_NOT_FOUND)
+
+    serializer = SeanceSerializer(seance, data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 ##################################################################################################################
 ##################################################################################################################
