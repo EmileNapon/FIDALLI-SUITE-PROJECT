@@ -22,6 +22,7 @@ import { AuthInterceptor } from './auth.interceptor'; // Chemin vers ton interce
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DasbordEtudiantComponent } from './dasbord-etudiant/dasbord-etudiant.component';
+import { OfferModule } from './offer/offer.module';
 
 
 @NgModule({
@@ -32,7 +33,7 @@ import { DasbordEtudiantComponent } from './dasbord-etudiant/dasbord-etudiant.co
   imports: [
     BrowserModule,ReactiveFormsModule,
     BrowserAnimationsModule,
-    AppRoutingModule, RouterModule, GestionUtilisateursModule, OrientationsModule, ModuleFormationCertificationModule, GestionnaireModule, 
+    AppRoutingModule, RouterModule, GestionUtilisateursModule, OrientationsModule, ModuleFormationCertificationModule, GestionnaireModule, OfferModule
   ],
   providers: [
     {

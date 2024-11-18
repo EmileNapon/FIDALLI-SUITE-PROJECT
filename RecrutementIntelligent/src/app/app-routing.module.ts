@@ -56,6 +56,9 @@ import { AjoutEncadrantComponent } from './gestionnaire/programme-talent/encadra
 import { ModifEncadrantComponent } from './gestionnaire/programme-talent/encadrant/modif-encadrant/modif-encadrant.component';
 import { GestionnaireFormationDetailComponent } from './gestionnaire/programme-talent/formation/formation-detail/formation-detail.component';
 import { ajoutModuleComponent } from './gestionnaire/programme-talent/formation/ajout-formation/ajouterModule/ajouteModule.component';
+import { OfferListComponent } from './offer/components/offer-list/offer-list.component';
+import { OfferDetailsComponent } from './offer/components/offer-details/offer-details.component';
+import { OfferApplicationComponent } from './offer/components/offer-application/offer-application.component';
 
 const routes: Routes = [
 
@@ -145,7 +148,14 @@ const routes: Routes = [
     {path:'orientationAcceuil', component:OrientationAcceuilComponent},
     {path:'etablissement', component:EtablissementsComponent},
 
-  ]}
+  ]},
+
+
+{
+  path: "offers", 
+  loadChildren:()=>import('./offer/offer.module').then(m=>m.OfferModule)
+}
+
   
 ];
 
