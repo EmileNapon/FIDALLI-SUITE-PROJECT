@@ -4,9 +4,10 @@ from datetime import date
 from Formation.models import Module
 from users.models import CustomUser
 
+
 class Formation(models.Model):
     titre=models.CharField(max_length=200)
-    date=models.DateField(default=date(2024, 1, 20))
+    date=models.DateField(auto_now_add=True)
     type = models.TextField(max_length=200,null=True)
     niveau = models.CharField(max_length=800,null=True)
     prix = models.DecimalField(max_digits=10, decimal_places=2, null=True)  # Utilisation d'un DecimalField pour le prix
@@ -15,6 +16,8 @@ class Formation(models.Model):
     localisation = models.CharField(max_length=200,default='FIDALLI')
     resume=models.TextField(null=True)
     description=models.TextField(max_length=800)
+ 
+
 class Group(models.Model):
     # Vous pouvez ajouter d'autres champs pertinents ici
     pass  # Remplacez-le par les champs appropriés pour votre groupe

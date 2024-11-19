@@ -38,13 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    #'rest_framework_simplejwt',
+   'rest_framework_simplejwt',   ##
     'users',
     'Formation',
     'programmeTalent',
     'Offres',
     'corsheaders',
-    #'rest_framework.authtoken',
+   'rest_framework.authtoken',     ##
 ]
 
 
@@ -169,18 +169,18 @@ from datetime import timedelta
 
 from datetime import timedelta
 
-# SIMPLE_JWT = {
-#     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=200000),  # Durée de vie courte du token d'accès
-#     'REFRESH_TOKEN_LIFETIME': timedelta(days=700),  # Durée de vie plus longue du refresh token
-#     'ROTATE_REFRESH_TOKENS': True,  # Option pour tourner le refresh token
-#     'BLACKLIST_AFTER_ROTATION': True,  # Option pour mettre sur liste noire l'ancien token après rotation
-# }
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=200000),  # Durée de vie courte du token d'accès
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=700),  # Durée de vie plus longue du refresh token
+    'ROTATE_REFRESH_TOKENS': True,  # Option pour tourner le refresh token
+    'BLACKLIST_AFTER_ROTATION': True,  # Option pour mettre sur liste noire l'ancien token après rotation
+}
 
-# REST_FRAMEWORK = {
-#     'DEFAULT_AUTHENTICATION_CLASSES': [
-#         'rest_framework_simplejwt.authentication.JWTAuthentication',  # Authentification par JWT
-#     ],
-#     'DEFAULT_PERMISSION_CLASSES': [
-#         'rest_framework.permissions.IsAuthenticated',  # Toute requête doit être authentifiée
-#     ],
-# }
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',  # Authentification par JWT
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',  # Toute requête doit être authentifiée
+    ],
+}
