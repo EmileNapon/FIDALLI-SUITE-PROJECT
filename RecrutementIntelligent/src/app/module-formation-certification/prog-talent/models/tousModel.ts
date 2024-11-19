@@ -18,11 +18,14 @@ export interface Formation {
     type: string;
     niveau: string;
     prix: number;
+    date:Date;
     duree: string;
     nombre: string; // Nombre de places
-    location: string; // Lieu de la formation
+    localisation: string; // Lieu de la formation
     resume: string; // Résumé de la formation
-    description: string; // Description détaillée
+    description: string; // Description détaillée:date
+    posted_date :Date
+    date_limite_inscription: Date
 }
 
 export interface Group {
@@ -51,9 +54,9 @@ export interface Module {
 
 export interface ModuleFormation {
     id?: number;
-    formation_id: number; // ID de la formation
-    module_id: number; // ID du module
-    user_id?: number; // ID de l'utilisateur (CustomUser)
+    formation: number; // ID de la formation
+    module: number; // ID du module
+    user?: number; // ID de l'utilisateur (CustomUser)
 }
 
 export interface Seance {

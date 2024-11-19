@@ -1,134 +1,81 @@
 <app-headerPrincipale></app-headerPrincipale>
-<div class='container mb-3 mt-3'>
-    <div class="row">
-        <h1><b>{{ formations.titre }}</b></h1>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <table  class="table no-border-table">
-            <tr>
-              <td><b>Type :</b></td>
-              <td>{{ formations.type }}</td>
-            </tr>
-            <!-- <tr>
-              <td>Domaines éligibles :</td>
-              <td>#</td>
-            </tr> -->
-            <tr>
-              <td><b>Niveau requis :</b></td>
-              <td>{{ formations.niveau }}</td>
-            </tr>
-            <tr>
-              <td><b>Prix :</b></td>
-              <td>{{ formations.prix }} euros</td>
-            </tr>
-          </table>
-        </div>
-        <div class="col-md-6">
-          <table  class="table no-border-table">
-            <tr>
-              <td><b>Durée :</b></td>
-              <td>{{ formations.duree }}</td>
-            </tr>
-            <tr>
-              <td><b>Nombre de places :</b></td>
-              <td>{{ formations.nombre }}</td>
-            </tr>
-            <tr>
-              <td><b>Localisation :</b></td>
-              <td>{{ formations.location }}</td>
-            </tr>
-          </table>
-        </div>
-      </div>
   
-      <div class="row">
-        <p><b>Resumé de la formation: </b>{{ formations.resume }} </p>
-      </div>
 
-      <!-- nouveau -->
-      <div class="card-body">
-    <p><strong>Description:</strong> {{ formations.description }}</p>   
-        <h2><b>Liste des Modules de cette formation:</b></h2>
-        moduleFormations
+  
 
-        <ul *ngFor="let module of modules">
-          <!-- <li *ngFor="let module of getModulesForFormation(formation.id)"> -->
-            <li>
-            Module ID: {{ module.code }} - Nom: {{ module.nom_module}}
-          </li>
-        </ul>
 
-        <ul *ngFor="let moduleFormation of moduleFormations">
-              <li>
-              Formation ID: {{ moduleFormation.formation_id }} - Module ID: {{ moduleFormation.module_id}}
-            </li>
-        </ul>
-      </div>
-  
-      <!-- <div style="margin: 20px;" *ngIf="showDetail">
-        <div [innerHTML]="formation.description"></div>
-        <div class="row">
-          <h2>Détails supplémentaires</h2>
+  <div class="offer-details" >   
+    <div >  
+        <div class="offer-header" >  
+            <h1>{{ formation.titre }}</h1>  
+        </div>  
+        <div class="info-item">
+          <i class="icon">📄</i>
+          <p><strong>Type :</strong> {{ formation.type }}</p>
         </div>
-        <div class="row">
-          <div class="col-md-12">
-            <h4>Objectifs de la formation :</h4>
-            <ul>
-              <li>Renforcer les compétences en gestion d'entreprise</li>
-              <li>Développer une expertise technique en finance et comptabilité</li>
-              <li>Améliorer les compétences en informatique et en gestion de projet</li>
-              <li>Préparer les participants pour des stages en entreprise</li>
-            </ul>
-          </div>
-        </div>
+        <div class="info-section">  
+            <div class="summary-card">    
+                <div class="info-item" *ngFor="let module of modulefiltre">
+                  <i class="icon">📄</i>
+                  <p><strong>Module :</strong> {{ module.nom_module }}</p>
+              </div> 
+
+            
+              <div class="info-item">
+                <i class="icon">📄</i>
+                <p><strong>Nombre de places:</strong> {{ formation.nombre }}</p>
+              </div>
+            <div class="info-item" >
+                <i class="icon">💵</i>
+                <p><strong>Prix :</strong> {{ formation.prix }} cfa</p>
+            </div>
+            <div class="info-item">
+                <i class="icon">⏳</i>
+                <p><strong>Durée :</strong> {{formation.duree}} </p>
+            </div>
+            <div class="info-item">
+                <i class="icon">🏠</i>
+                <p><strong>Niveau requis :</strong> {{ formation.niveau}}</p>
+            </div>
+            <div class="info-item">
+                <i class="icon">📅</i>
+                <p><strong>Date de publication :</strong> {{ formation.date | date: 'short' }}</p>
+            </div>
+
+            </div>  
+            
+            <!-- Informations sur l'entreprise -->  
+            <div class="company-card"> <!-- Vérification de l'existence de enterprise -->
+                <h3>Information de l'Entreprise</h3>  
+                <div class="info-item">  
+                    <i class="icon">📍</i>  
+                    <p><strong>Localisation :</strong> {{ formation.localisation }}</p>  
+                </div>  
+            </div>
+        </div>  
   
-        <div class="row">
-          <div class="col-md-12">
-            <h4>Modalités d'inscription :</h4>
-            <p>Date limite d'inscription : <b>15 octobre 2024</b></p>
-            <p>Documents requis : CV, lettre de motivation, diplôme (minimum Bac+2)</p>
-            <p>Envoyer votre dossier via la plateforme ou par email à <b>inscriptionsaformation.com</b></p>
-          </div>
-        </div>
+        <div class="details-cards">  
+            <div class="description-card">  
+                <h4>Resume du programme de formation</h4>  
+                <p>{{ formation.resume }}</p>  
+            </div>  
+
+            <div class="description-card">  
+              <h4>Description du programme de formation</h4>  
+              <p>{{ formation.description }}</p>  
+          </div> 
+          <div class="row">
+            <div class="text-end">
+              <button class="btn btn-danger mx-2" (click)="onSelectFormationDetail(formationId)">s'inscrire</button>
+            </div>
+          </div> 
+        </div>  
+      </div>  
+
+    
   
-        <div class="row">
-          <div class="col-md-12">
-            <h4>Certificat délivré :</h4>
-            <p>À la fin de la formation, les participants recevront un <b>certificat de formation professionnelle</b> reconnu par l'État.</p>
-          </div>
-        </div>
-  
-        <div class="row">
-          <div class="col-md-12">
-            <h4>Entreprises partenaires :</h4>
-            <p>Plusieurs entreprises partenaires dans les secteurs de la finance, de la gestion, et de l'informatique offriront des opportunités de stages aux meilleurs participants.</p>
-          </div>
-        </div>
-  
-        <div class="row">
-          <div class="col-md-12">
-            <h4>Dates et horaires :</h4>
-            <p>Début de la formation : <b>1er novembre 2024</b></p>
-            <p>Horaires : Du lundi au vendredi, de 9h à 17h</p>
-          </div>
-        </div>
-      </div> -->
-  
-      <div class="row">
-        <p>
-          <i class="bi bi-star-fill" style="color: rgb(99, 104, 3);"></i>
-          <i class="bi bi-star-half" style="color: rgb(99, 104, 3);"></i>
-          <i class="bi bi-star" style="color: rgb(99, 104, 3);"></i>
-        </p>
-      </div>
-  
-      <div class="row">
-        <div class="text-end">
-          <button class="btn btn-danger mx-2" (click)="onSelectFormationDetail(formations.id)">s'inscrire</button>
-        </div>
-      </div>
-  
-      <br/>
-  </div>
-  
+    
+</div>
+
+
+{{formationId}}llllllllll

@@ -1,7 +1,10 @@
+
 import { Component, OnInit } from '@angular/core';
-import { Formation, } from '../models/tousModel';
+import { Formation, ModuleFormation, Module} from '../models/tousModel';
 import { FormationService } from '../services/formation.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ModuleFormationService } from '../services/moduleFormation.service';
+import { ModuleService } from '../services/module.service';
 
 @Component({
   selector: 'app-formation',
@@ -9,28 +12,72 @@ import { Router } from '@angular/router';
   styleUrls: ['./formation.component.css']
 })
 export class FormationComponent implements OnInit {
-  formations: Formation[] = [];
+  formations: any[] = [];
+  module : any[]=[]
+  modulesFormations: any[]=[]
+  formationId!:number
+  formationWithModules: any[]=[]
 
   constructor(
     private formationService: FormationService,
-    private router: Router
+    private router: Router,
+    private moduleService : ModuleService,
+    private moduleFormationService  : ModuleFormationService,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
+    this.formationId = this.route.snapshot.params['FormationId'];
     this.loadFormations();
+    this.loadModules()
+    this.loadModulesFormations()
+  
   }
 
   loadFormations(): void {
     this.formationService.getFormations().subscribe(
       (data) => {
         this.formations = data;
+        
       },
       (error) => {
         console.error('Erreur lors du chargement des formations:', error);
       }
     );
+    
   }
 
+  loadModules(): void {
+    this.moduleService.getModules().subscribe(data => {
+      this.module = data;
+      
+      
+    });
+  }
+
+  loadModulesFormations(): void {
+    this.moduleFormationService.getModuleFormations().subscribe(
+      (data) => {
+        this.modulesFormations = data;
+        
+       
+      },
+      (error) => {
+        console.error('Erreur lors du chargement des modules:', error);
+      }
+    );
+  }
+
+
+
+  filterModulesForFormation(formationId: number): any[] {
+    // Filtre les relations ModuleFormation par formationId
+    const moduleIds = this.modulesFormations.filter(moduleFormation => moduleFormation.formation === formationId)
+      .map(moduleFormation => moduleFormation.module);
+  
+    // Retourne les modules correspondants
+    return this.module.filter(module => moduleIds.includes(module.id));
+  }
 
   deleteFormation(id: number): void {
     if (confirm('Êtes-vous sûr de vouloir supprimer cette formation ?')) {
