@@ -32,19 +32,21 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'django.contrib.admin',
-    'django.contrib.auth',
+     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-   'rest_framework_simplejwt',   ##
+    'rest_framework_simplejwt',   ##
     'users',
     'Formation',
     'programmeTalent',
     'Offres',
     'corsheaders',
-   'rest_framework.authtoken',     ##
+    'rest_framework.authtoken',     ##
+   "imputation"
+   
 ]
 
 
@@ -61,9 +63,9 @@ CORS_ALLOWED_ORIGINS = [
 CORS_ALLOW_ALL_ORIGINS = True
 
 
-DJREST_AUTH = {
-    'TOKEN_MODEL': None,
-}
+# DJREST_AUTH = {
+#     'TOKEN_MODEL': None,
+# }
 
 
 
@@ -184,3 +186,9 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',  # Toute requête doit être authentifiée
     ],
 }
+
+# REST_FRAMEWORK = {
+#     'DEFAULT_PERMISSION_CLASSES': [
+#         'rest_framework.permissions.AllowAny',
+#     ],
+# }
