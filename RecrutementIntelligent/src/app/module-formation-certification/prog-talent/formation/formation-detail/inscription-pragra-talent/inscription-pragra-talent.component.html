@@ -3,96 +3,89 @@
 <body>
 
 
+
     <app-headerPrincipale></app-headerPrincipale>
 
 
-    
-    <div class="container d-flex justify-content-center align-items-center min-vh-100">
-    <div class="col-md-8 col-lg-6">
-        <h1 class="my-4 text-center">Créer votre Compte </h1>
 
-        <div class="row mb-3 align-items-center">
-            <label for="nom" class="col-sm-4 col-form-label">Nom:</label>
-            <div class="col-sm-8 input-group">
-                <span class="input-group-text"><i class="bi bi-person"></i></span>
-                <div *ngIf="userInfo">
-                    
-                    <input type="text" [(ngModel)]="userInfo.firstName" [disabled]="isDisabled">
-                  </div>
-                  
-    
-            </div>
-        </div>
-    
-        <!-- Prenom -->
-        <div class="row mb-3 align-items-center">
-            <label for="prenom" class="col-sm-4 col-form-label">Prenom:</label>
-            <div class="col-sm-8 input-group">
-                <span class="input-group-text"><i class="bi bi-person"></i></span>
-                <div *ngIf="userInfo">
-                    <input type="text" [(ngModel)]="userInfo.lastName" [disabled]="isDisabled">
-                  </div>
-            </div>
-        </div>
-            <!-- Prenom -->
-            <div class="row mb-3 align-items-center">
-                <label for="prenom" class="col-sm-4 col-form-label">Email:</label>
-                <div class="col-sm-8 input-group">
-                    <span class="input-group-text"><i class="bi bi-person"></i></span>
-                    <div *ngIf="userInfo">
-                        <input type="text" [(ngModel)]="userInfo.email" [disabled]="isDisabled">
-                      </div>
-                </div>
-            </div>
 
-            <!-- Prenom -->
-            <div class="row mb-3 align-items-center">
-                <label for="prenom" class="col-sm-4 col-form-label"> Formation :</label>
-                <div class="col-sm-8 input-group">
-                    <span class="input-group-text"><i class="bi bi-person"></i></span>
-                    <div *ngIf="userInfo">
-                        <input type="text" [(ngModel)]="formations.titre" [disabled]="isDisabled">
-                      </div>
-                </div>
-            </div>
+
+
+    
+
+  <div class="offer-details" >   
+    <div >  
+        <div class="offer-header" >  
+            <h1>{{ formations.titre }}</h1>  
+        </div>  
+        <div class="info-item">
+          <i class="icon"></i>
+          <p><strong>Type :</strong> {{ formations.type }} </p>
+        </div>
+        <div class="info-section">  
+            <div class="summary-card">    
+                <div class="info-item" >
+                  <i class="icon"></i>
+                  <p><strong>Nom :</strong> {{ userInfo?.firstName }}</p>
+              </div> 
+
             
+              <div class="info-item">
+                <i class="icon"></i>
+                <p><strong>Prenom:</strong> {{userInfo?.lastName }}</p>
+              </div>
+            <div class="info-item" >
+                <i class="icon"></i>
+                <p><strong>Email :</strong> {{userInfo?.email }} </p>
+            </div>
 
-        
-        <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
-            <!-- Nom Complet -->
-
-
-
-                        <!-- Numéro de Téléphone -->
-                        <div class="row mb-3 align-items-center">
-                            <label for="phone_number" class="col-sm-4 col-form-label">Numéro de téléphone:</label>
-                            <div class="col-sm-8 input-group">
-                                <span class="input-group-text"><i class="bi bi-telephone"></i></span>
-                                <input type="tel" id="phone_number" formControlName="phone_number" class="form-control" placeholder="Entrez votre numéro de téléphone">
-                            </div>
-                        </div>
-                        <!-- Numéro de Téléphone -->
-                        <div class="row mb-3 align-items-center">
-                            <label for="domaine_etude" class="col-sm-4 col-form-label">Domaine d'etude:</label>
-                            <div class="col-sm-8 input-group">
-                                <span class="input-group-text"><i class="bi bi-telephone"></i></span>
-                                <input type="domaine_etude" id="domaine_etude" formControlName="domaine_etude" class="form-control" placeholder="domaine d'etude">
-                            </div>
-                        </div>
+            </div>   
+            
+            <!-- Informations sur l'entreprise -->  
+            <div class="company-card"> <!-- Vérification de l'existence de enterprise -->
+                <h3>Information de l'Entreprise</h3>  
+                <div class="info-item">  
+                    <i class="icon">📍</i>  
+                    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+                        <!-- Nom Complet -->
+            
+            
+            
+                                    <!-- Numéro de Téléphone -->
+                                    <div class="row mb-3 align-items-center">
+                                        <label for="phone_number" class="col-sm-4 col-form-label">Numéro de téléphone:</label>
+                                        <div class="col-sm-8 input-group">
+                                            <span class="input-group-text"><i class="bi bi-telephone"></i></span>
+                                            <input type="tel" id="phone_number" formControlName="phone_number" class="form-control" placeholder="Entrez votre numéro de téléphone">
+                                        </div>
+                                    </div>
+                                    <!-- Numéro de Téléphone -->
+                                    <div class="row mb-3 align-items-center">
+                                        <label for="domaine_etude" class="col-sm-4 col-form-label">Domaine d'etude:</label>
+                                        <div class="col-sm-8 input-group">
+                                            <span class="input-group-text"><i class="bi bi-telephone"></i></span>
+                                            <input type="domaine_etude" id="domaine_etude" formControlName="domaine_etude" class="form-control" placeholder="domaine d'etude">
+                                        </div>
+                                    </div>
+                            
+                                    <!-- Numéro de Téléphone -->
+                                    <div class="row mb-3 align-items-center">
+                                        <label for="niveau_etude" class="col-sm-4 col-form-label">Niveau d'etude:</label>
+                                        <div class="col-sm-8 input-group">
+                                            <span class="input-group-text"><i class="bi bi-telephone"></i></span>
+                                            <input type="niveau_etude" id="niveau_etude" formControlName="niveau_etude" class="form-control" placeholder="Niveau">
+                                        </div>
+                                    </div>
                 
-                        <!-- Numéro de Téléphone -->
-                        <div class="row mb-3 align-items-center">
-                            <label for="niveau_etude" class="col-sm-4 col-form-label">Niveau d'etude:</label>
-                            <div class="col-sm-8 input-group">
-                                <span class="input-group-text"><i class="bi bi-telephone"></i></span>
-                                <input type="niveau_etude" id="niveau_etude" formControlName="niveau_etude" class="form-control" placeholder="Niveau">
-                            </div>
-                        </div>
-    
-            <button  type="submit" class="btn btn-warning w-100 mb-3">S'inscrire</button>
-        </form>
+                        <button  type="submit" class="btn btn-warning w-100 mb-3" routerLink='/dasbord-prog-talent'>S'inscrire</button>
+                    </form>
+                </div>  
+            </div>
+        </div>   
+      </div>  
 
-    </div>
-    </div>
-    </body>
     
+  
+    
+</div>
+</body>

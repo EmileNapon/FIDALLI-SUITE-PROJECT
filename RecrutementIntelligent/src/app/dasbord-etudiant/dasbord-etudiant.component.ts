@@ -56,7 +56,7 @@ export class DasbordEtudiantComponent {
     
       this.filteredIncrits= this.inscrits.filter(inscrit => inscrit.user ==this.userInfo?.id );
       this.filteredIncritsFormations= this.formations.filter(formation => this.filteredIncrits.some(inscrit => inscrit.formation==formation.id ));
-      console.log(this.formations )
+      console.log(this.filteredIncrits )
   }
 
   onSelectProgrammeTalent(DasbordFormationId: number): void {
