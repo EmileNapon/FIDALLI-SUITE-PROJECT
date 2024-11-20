@@ -1,5 +1,26 @@
+
+
+<div  class="container-xl">
+  <div class="table-responsive">
+      <div class="table-wrapper">
+          <div class="table-title">
+              <div class="row">
+                  <div class="col-sm-6">
+                      <h2>Ajouter <b>d'une seance</b></h2>
+                  </div>
+                  <div class="col-sm-6">
+                      <a  class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span></span></a>
+                      <a   class="btn btn-primary" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span></span></a>
+                      <a  class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span></span></a>  						
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
 <div class="container">
-  <h1>Ajouter une Séance {{module}} --- {{formationId}}--{{c}}</h1>
+  <h1>Ajouter une Séance </h1>
   <form [formGroup]="seanceForm" (ngSubmit)="addSeance()">
     <div class="mb-3">
       <label for="lieu" class="form-label">Lieu</label>

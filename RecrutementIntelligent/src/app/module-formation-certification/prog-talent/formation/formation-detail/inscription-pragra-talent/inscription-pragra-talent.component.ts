@@ -31,7 +31,7 @@ export class InscriptionPragraTalentComponent implements OnInit {
       formation:this.formationId,
       phone_number:['',Validators.required],
       niveau_etude: ['', Validators.required],
-      domaine_etude: ['', Validators.required]
+      domaine_etude: ['', Validators.required] 
       
     });
 
