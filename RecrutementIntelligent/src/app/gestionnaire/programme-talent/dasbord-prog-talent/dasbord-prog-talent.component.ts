@@ -34,7 +34,7 @@ export class GestionnaireDasbordProgTalentComponent {
   modules: Module[] = [];
   selectedModules: { moduleId: number, formateurIds: number[] }[] = [];  // Stocker les formateurs pour chaque module
 
-  formations: Formation[] = [];
+  formations: any[] = [];
   dasbordId: any;
     
   shutDetail!: boolean;
@@ -49,8 +49,11 @@ seances:any[]=[]
 annonceForm!: FormGroup;
 
 
+formationId!:number
+formationWithModules: any[]=[]
+
 formationForm!: FormGroup;
-formationId!: number;
+
 
 
   constructor(
@@ -329,6 +332,7 @@ loadFormateurs(): void {
 
   filteredIncritsFormations:any[]=[]
 
+
   filterDataInscrit(): void {
     
     this.filteredIncritsFormations= this.formations.filter(formation => formation.id==this.dasbordId);
@@ -519,6 +523,16 @@ isStatut():void{
 
   onSelectFormationModule(id: string): void {
     this.router.navigate([`/gestionnaire/Module-formation/${id}/formation`]); 
+  }
+
+
+  filterModulesForFormation(formationId: number): any[] {
+    // Filtre les relations ModuleFormation par formationId
+    const moduleIds = this.FiltresmodulesFormations.filter(moduleFormation => moduleFormation.formation === formationId)
+      .map(moduleFormation => moduleFormation.module);
+  
+    // Retourne les modules correspondants
+    return this.modules.filter(module => moduleIds.includes(module.id));
   }
 
 

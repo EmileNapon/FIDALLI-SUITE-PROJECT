@@ -39,6 +39,7 @@ export class DasbordEtudiantComponent {
     this.DasbordService.getInscrits().subscribe(
       (data) => { 
         this.inscrits = data;
+        console.log(this.inscrits)
       }
     );
   }  

@@ -47,7 +47,7 @@ export class InscriptionPragraTalentComponent implements OnInit {
       this.userService.registerFormation(userInscrit).subscribe({
         next: (response) => {
           console.log('User registered successfully:', response);
-          this.router.navigate(['/acceuil']);
+          this.router.navigate(['/dasbord-prog-talent']);
         },
         error: (error) => {
           console.error('Error registering user:', error);

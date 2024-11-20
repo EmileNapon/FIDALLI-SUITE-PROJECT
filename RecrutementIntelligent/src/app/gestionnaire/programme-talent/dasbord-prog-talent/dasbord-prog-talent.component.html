@@ -1,27 +1,24 @@
-
-<div  class="container-xl">
-  <div class="table-responsive">
-      <div class="table-wrapper">
-          <div class="table-title">
-              <div class="row">
-                  <div class="col-sm-6">
-                      <h2>Dashbord <b>d'une formation</b></h2>
-                  </div>
-                  <div class="col-sm-6">
-                      <a  class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span></span></a>
-                      <a   class="btn btn-primary" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span></span></a>
-                      <a  class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span></span></a>  						
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-</div>
 <body>
+  <div  class="container-xl">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h2>Dashbord<b> gestionnaire</b> </h2>
+                    </div>
+                    <div class="col-sm-6">
+                        <a  class="btn btn-danger" data-toggle="modal" ><i class="material-icons">&#xE15C;</i><span></span></a>
+                        <a   class="btn btn-primary" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span></span></a>
+                        <a  class="btn btn-success" data-toggle="modal" ><i class="material-icons">&#xE147;</i><span></span></a>  						
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <br>
 
-  
-    <br>
-    
     
     <div class="container-fluid">
         <div class="row">
@@ -193,102 +190,92 @@
              </div>
 
 
-            <div class="container my-4" *ngIf="showFormation">
-              <div class='container-l mb-3' *ngFor="let formation of filteredIncritsFormations; let i = index">  
-                <button  class='btn-custom taille' style="padding: 20px;">
-                  <div class="row">
-                    <h1><b>{{ formation.titre }}</b></h1>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <table class="table">
-                        <tr>
-                          <td>Type :</td>
-                          <td>{{ formation.type }}</td>
-                        </tr>
-                        <!-- <tr>
-                          <td>Domaines éligibles :</td>
-                          <td>#</td>
-                        </tr> -->
-                        <tr>
-                          <td>Niveau requis :</td>
-                          <td>{{ formation.niveau }}</td>
-                        </tr>
-                        <tr>
-                          <td>Prix :</td>
-                          <td>{{ formation.prix }} euros</td>
-                        </tr>
-                      </table>
-                    </div>
-                    <div class="col-md-6">
-                      <table class="table">
-                        <tr>
-                          <td>Durée :</td>
-                          <td>{{ formation.duree }}</td>
-                        </tr>
-                        <tr>
-                          <td>Nombre de places :</td>
-                          <td>{{ formation.nombre }}</td>
-                        </tr>
-                        <tr>
-                          <td>Localisation :</td>
-                          <td>{{ formation.location }}</td>
-                        </tr>
-                      </table>
-                    </div>
+
+              <div class="container my-4" *ngIf="showFormation">
+
+
+                <div class="offer-card" *ngFor="let formation of filteredIncritsFormations">
+                  <div class="offer-card"  >  
+              
+                      <div ></div>
+                      <div class="offer-header">  
+                          <h2>{{ formation.titre }}</h2>  
+                          <p class="company-name">{{ formation.localisation }}</p> <!-- Affichage du nom de l'entreprise -->  
+                      </div>  
+                      <!-- (Reste du code HTML...) -->  
                   </div>
               
-                  <div class="row" *ngIf="shutDetail">
-                    <p><b>Resumé de la formation: </b>{{ formation.resume }} </p>
-                  </div>
-
-                              <!-- nouveau -->
-                  <div class="card-body"  *ngIf="showDetail">
-                    <p><strong>Description:</strong> {{ formation.description }}</p>
-                    <h2><b>Liste des Modules de cette formation:</b></h2>
-                    moduleFormations
-
-                <!--   <ul *ngFor="let module of modules">
-                        <li>
-                        Module ID: {{ module.code }} - Nom: {{ module.nom_module}}
-                      </li>
-                    </ul>
-
-                    <ul *ngFor="let moduleFormation of moduleFormations">
-                          <li>
-                          Formation ID: {{ moduleFormation.formation_id }} - Module ID: {{ moduleFormation.module_id}}
-                        </li>
-                    </ul>-->
-                  </div>
+                  <div class="offer-info">
+                      <div class="info-section" >
+                          <div class="info-item">
+                              <i class="icon">📝</i>
+                              <p><strong>Type :</strong> {{ formation.type }}</p>
+                          </div>
+                          <div class="info-item" *ngFor="let module of filterModulesForFormation(formation.id)">
+                              <i class="icon">📄</i>
+                              <p><strong>Module :</strong> {{ module.nom_module }}</p>
+                          </div>
               
-                
-                    <div class="row">
-                      <p>
-                        <i class="bi bi-star-fill" style="color: rgb(99, 104, 3);"></i>
-                        <i class="bi bi-star-half" style="color: rgb(99, 104, 3);"></i>
-                        <i class="bi bi-star" style="color: rgb(99, 104, 3);"></i>
-                      </p>
-                    </div>
+                          <div class="info-item">
+                              <i class="icon">📄</i>
+                              <p><strong>Nombre de places:</strong> {{ formation.nombre }}</p>
+                          </div>
+                          <div class="info-item" >
+                              <i class="icon">💵</i>
+                              <p><strong>Prix :</strong> {{ formation.prix }} cfa</p>
+                          </div>
+                          <div class="info-item">
+                              <i class="icon">⏳</i>
+                              <p><strong>Durée :</strong> {{formation.duree}} </p>
+                          </div>
+                          <div class="info-item">
+                              <i class="icon">🏠</i>
+                              <p><strong>Niveau requis :</strong> {{ formation.niveau}}</p>
+                          </div>
+                          <div class="info-item">
+                              <i class="icon">📅</i>
+                              <p><strong>Date de publication :</strong> {{ formation.date | date: 'short' }}</p>
+                          </div>
+              
+                          <div class="info-item">
+                              <i class="icon">🏢</i>
+                              <p><strong>Entreprise :</strong> {{ formation.localisation }}</p>
+                          </div>
+                      </div>
 
 
-                  <div class="row" *ngIf="shutDetail">
-                    <div class="text-end" >
-                        <button class="btn btn-outline-secondary" style="color: red;" (click)="onShutDetail()">Voir les details</button>  
+                      <div *ngIf="showDetail">
+                            <div class="details-cards">  
+                                  <div class="description-card">  
+                                      <h4>Resume du programme de formation</h4>  
+                                        <p>{{ formation.resume }}</p>  
+                                      </div>  
+
+                                  <div class="description-card">  
+                                      <h4>Description du programme de formation</h4>  
+                                      <p>{{ formation.description }}</p>  
+                                  </div> 
+                                </div>  
+                         </div>
+
+
+                      <div class="row" *ngIf="shutDetail">
+                        <div class="text-end" >
+                            <button class="btn btn-outline-secondary" style="color: red;" (click)="onShutDetail()">Voir les details</button>  
+                        </div>
                     </div>
+            
+                    <div class="text-end d-flex " *ngIf="showDetail">
+                        <div class="mx-2">
+                            <button class="btn btn-outline-danger" (click)="onShowDetail()">Réduire</button>
+                        </div>
+                        <div class="text-end">
+                          <button class="btn btn-warning mx-2" (click)='onSelectFormation(formation.id)'>Modifier</button>
+                          <button class="btn btn-danger" (click)="deleteFormation(formation.id)">Supprimer</button>
+                        </div>
+                    </div>
+                  </div>
                 </div>
-        
-                <div class="text-end d-flex " *ngIf="showDetail">
-                    <div class="mx-2">
-                        <button class="btn btn-outline-danger" (click)="onShowDetail()">Réduire</button>
-                    </div>
-                    <div class="text-end">
-                      <button class="btn btn-warning mx-2" (click)='onSelectFormation(formation.id)'>Modifier</button>
-                      <button class="btn btn-danger" (click)="deleteFormation(formation.id)">Supprimer</button>
-                    </div>
-                </div>
-        /////////////////////////////////////////////////////////
-
-        //////////////////////////////////////////////////////
 
 
 
@@ -298,14 +285,9 @@
 
 
 
-               
-               
-                  <br/>
-                </button>
-              </div>
+
+
               
-
-
 
              </div>
     
