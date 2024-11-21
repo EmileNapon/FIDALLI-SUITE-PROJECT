@@ -9,7 +9,7 @@ import { Webinar } from '../../models/webinar.model';
   styleUrls: ['./webinar-list.component.css']
 })
 export class WebinarListComponent implements OnInit {
-  webinars: Webinar[] = [];
+  webinars: any[] = [];
   loading: boolean = true; // Variable pour suivre l'état de chargement
 
   constructor(

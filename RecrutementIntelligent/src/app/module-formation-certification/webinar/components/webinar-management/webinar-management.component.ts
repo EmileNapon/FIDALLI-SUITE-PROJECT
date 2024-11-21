@@ -21,7 +21,7 @@ export class WebinarManagementComponent implements OnInit {
 
   isCreateWebinarVisible = false;
   isDashboardVisible = true;
-  webinars: Webinar[] = [];
+  webinars: any[] = [];
   webinarToUpdateId: string | null = null;
   webinarForm: FormGroup;
   isLoading = false;

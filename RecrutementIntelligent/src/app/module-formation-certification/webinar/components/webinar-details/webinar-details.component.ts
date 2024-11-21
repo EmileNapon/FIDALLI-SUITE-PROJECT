@@ -10,7 +10,7 @@ import { Webinar } from '../../models/webinar.model';
 })
 
 export class WebinarDetailsComponent implements OnInit {
-  webinar!: Webinar;
+  webinar!: any;
   webinarId!: string;  // Stocker l'ID du webinaire
   loading: boolean = true; // Variable pour suivre l'état de chargement
 
