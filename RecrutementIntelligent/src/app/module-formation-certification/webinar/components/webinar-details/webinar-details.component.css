@@ -33,7 +33,7 @@ body{
 /* Styles pour l'image de l'orateur */
 .webinar-details img {
     width: 100%; /* Image responsive */
-    max-width: 120px; /* Largeur maximale */
+    max-width: 147px; /* Largeur maximale */
     border-radius: 8px; /* Bords arrondis de l'image */
     margin-bottom: 1px; /* Espacement inférieur */
 }
@@ -210,7 +210,7 @@ body{
   margin: auto;               /* Centrer */
   border: 4px solid #007BFF;  /* Bordure bleue */
   overflow: hidden;           /* L'image respectera la forme du conteneur */
-  border-radius : 50px
+  border-radius : 40px
 }
 
   
