@@ -80,6 +80,7 @@ def create_chapitre(request):
 def list_chapitres(request):
     chapitre= Chapitre.objects.all()  # Récupérer toutes les offres
     serializer = ChapitreSerializer(chapitre, many=True)  # Sérialiser les données
+    print(list_chapitres)
     return Response(serializer.data, status=status.HTTP_200_OK)
     
 ###################################################################################################
@@ -198,6 +199,7 @@ def update_webinar(request, webinar_id):
 def delete_webinar(request, webinar_id):
     try:
         webinar = Webinar.objects.get(pk=webinar_id)
+      
     except Webinar.DoesNotExist:
         return Response({"error": "Webinar not found"}, status=status.HTTP_404_NOT_FOUND)
 

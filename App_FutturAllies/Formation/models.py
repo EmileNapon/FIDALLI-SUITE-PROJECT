@@ -48,20 +48,24 @@ class Webinar(models.Model):
         (FUTUR_ALLIES, 'FuturAllies'),
         (CAFE_DES_ALLIES, 'Café des allies'),
     ]
+    WEBINAR_FORMAT = [
+        (FUTUR_ALLIES, 'Gratuit'),
+        (CAFE_DES_ALLIES, 'Payant'),
+    ]
 
     _id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=200)
-    description = models.TextField(null=True, blank=True)
     startDateTime=models.DateTimeField()
     duree = models.CharField(max_length=20)
-    registrationDeadline = models.DateTimeField()
-    registrationDeadline = models.DateTimeField( blank=True)
     webinarUrl = models.URLField(blank=True)
+    description = models.TextField(null=True, blank=True)
     maxParticipants = models.IntegerField()
-    isPaid = models.BooleanField(default=False)
+    registrationDeadline = models.DateTimeField()
     price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
+    isPaid = models.BooleanField(default=False)
     createdAt = models.DateTimeField(auto_now_add=True)
     updatedAt = models.DateTimeField(auto_now=True)
+    format = models.CharField(max_length=20, choices=WEBINAR_FORMAT, default='Payant')
     type = models.CharField(max_length=20, choices=WEBINAR_TYPES)
 
     def __str__(self):
@@ -80,21 +84,16 @@ class WebinarEnrollment(models.Model):
         ('moovMoney', 'Moov Money'),
         ('sankMoney', 'Sank Money')
     ]
-
-    id = models.AutoField(primary_key=True)
     webinarId = models.ForeignKey(Webinar, on_delete=models.CASCADE, related_name="enrollments")
-   # user=models.ForeignKey(CustomUser,on_delete=models.CASCADE, null=True)
-    fullName = models.CharField(max_length=200)
-    email = models.EmailField()
+    user=models.ForeignKey(CustomUser,on_delete=models.CASCADE, null=True)
+    whatsapp = models.CharField(max_length=10, null=True)
     registrationDate = models.DateTimeField(auto_now_add=True)
     hasAcceptedTerms = models.BooleanField(default=False)
     paymentStatus = models.CharField(max_length=10, choices=PAYMENT_STATUS_CHOICES, null=True, blank=True)
     paymentMethod = models.CharField(max_length=15, choices=PAYMENT_METHOD_CHOICES, null=True, blank=True)
     isConfirmed = models.BooleanField(default=False)
 
+    class Meta:
+        unique_together = ('webinarId', 'user')  # Assure qu'un utilisateur ne peut s'inscrire qu'une seule fois à une formation
     def __str__(self):
-        return f"{self.full_name} - {self.webinar.title}"
-    
-
-
-
+        return f"{self.user} inscrit à {self.webinarId}"
