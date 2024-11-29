@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.decorators import api_view
 
-from Formation.models import Domaine, Module, Cours, Chapitre,Contenu
+from Formation.models import Domaine, Module, Cours, Chapitre,Contenu, WebinarEnrollment
 from .serializers import ChapitreSerializer, ContenuSerializer, CoursSerializer, DomaineSerializer, ModuleSerializer, WebinarEnrollmentSerializer
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
@@ -206,11 +206,72 @@ def delete_webinar(request, webinar_id):
     webinar.delete()
     return Response(status=status.HTTP_204_NO_CONTENT)
 
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework import status
+from django.core.mail import send_mail
+from django.conf import settings
+from .models import WebinarEnrollment, CustomUser
+from .serializers import WebinarEnrollmentSerializer
 
 @api_view(['POST'])
 def enroll_to_webinar(request):
+    # Sérialiser les données de l'inscription
     serializer = WebinarEnrollmentSerializer(data=request.data)
+    
     if serializer.is_valid():
-        serializer.save()  # Sauvegarder l'inscription
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
+        # Récupérer le webinaire et l'ID de l'utilisateur
+        webinar = serializer.validated_data['webinarId']
+        user_id = request.data.get('user')  # Récupérer l'ID de l'utilisateur
+        
+        # Vérifier si l'utilisateur existe
+        try:
+            # Assurez-vous que l'utilisateur existe et récupérez-le
+            user = CustomUser.objects.get(id=user_id)
+        except CustomUser.DoesNotExist:
+            return Response(
+                {"message": "L'utilisateur spécifié n'existe pas."},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        
+        # Vérifier si l'utilisateur est déjà inscrit à ce webinaire
+        if WebinarEnrollment.objects.filter(user=user, webinarId=webinar).exists():
+            return Response(
+                {"message": f"L'utilisateur {user.first_name} est déjà inscrit à ce webinaire."},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        
+        # Sauvegarder l'inscription avec l'objet utilisateur
+        serializer.save(user=user)
+
+        # Envoi de l'email de confirmation
+        try:
+            send_mail(
+                subject=f"Confirmation d'inscription : {webinar.title}",
+                message=(
+                    f"Bonjour {user.first_name},\n\n"
+                    f"Votre inscription au webinaire '{webinar.title}' a été confirmée !\n\n"
+                    f"Détails :\n"
+                    f"- Date et heure : {webinar.startDateTime}\n"
+                    f"- Durée : {webinar.duree}\n"
+                    f"- Lien du webinaire : {webinar.webinarUrl}\n\n"
+                    f"Merci de votre participation !\n\n"
+                    f"L'équipe FuturAllies"
+                ),
+                from_email=settings.EMAIL_HOST_USER,
+                recipient_list=[user.email],  # Utilisation de l'email de l'utilisateur
+                fail_silently=False,
+            )
+        except Exception as e:
+            return Response(
+                {"message": "Inscription réussie, mais l'email de confirmation n'a pas pu être envoyé.",
+                 "data": serializer.data},
+                status=status.HTTP_201_CREATED
+            )
+
+        return Response(
+            {"message": "Inscription réussie. Un email de confirmation a été envoyé.", "data": serializer.data},
+            status=status.HTTP_201_CREATED
+        )
+
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

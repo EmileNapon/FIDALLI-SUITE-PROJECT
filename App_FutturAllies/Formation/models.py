@@ -97,3 +97,10 @@ class WebinarEnrollment(models.Model):
         unique_together = ('webinarId', 'user')  # Assure qu'un utilisateur ne peut s'inscrire qu'une seule fois à une formation
     def __str__(self):
         return f"{self.user} inscrit à {self.webinarId}"
+    
+
+
+
+
+
+

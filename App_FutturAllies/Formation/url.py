@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
 
+
 urlpatterns = [
     path('modules/create/', views.create_module, name='create_module'),
     path('domaines/list_domaines', views.list_domaines, name='list_domaines'), 
